@@ -138,6 +138,12 @@ function applyCopy() {
       setText(head.querySelector('h2'), copy.objections.title);
       setText(head.querySelector('p'), copy.objections.intro);
     }
+    objections.querySelectorAll('[data-concern]').forEach(btn => {
+      const item = copy.objections.items?.[btn.dataset.concern];
+      if (item) setText(btn, item.label);
+    });
+    const concernCta = objections.querySelector('[data-concern-cta]');
+    if (concernCta) concernCta.childNodes[0].nodeValue = `${copy.objections.cta} `;
   }
 
   if (pilot) {
@@ -149,7 +155,7 @@ function applyCopy() {
       setText(left.querySelector('p'), copy.pilot.subtitle);
       const cta = left.querySelector('a');
       if (cta) cta.childNodes[0].nodeValue = `${copy.pilot.cta} `;
-      setText(left.querySelector('span'), copy.pilot.microcopy);
+      setText(left.querySelector(':scope > div > span'), copy.pilot.microcopy);
     }
     if (right) {
       const items = right.querySelectorAll('div[style*="grid-template-columns:26px 1fr"] p');
@@ -215,14 +221,7 @@ function wireConcerns() {
   const empty = document.querySelector('[data-answers-empty]');
   const count = document.querySelector('[data-concern-count]');
   if (!wrap || !panel) return;
-  const answers = {
-    team: ['I team non compilano niente', 'Plinio parte dai materiali che il delivery produce già. Al PM arrivano solo domande mirate quando manca un’informazione decisiva.'],
-    riservatezza: ['Ogni fonte ha uno stato', 'Pubblicabile, da validare o riservato. Il team mantiene sempre l’approvazione finale.'],
-    generico: ['Il contenuto parte dall’azienda', 'Plinio combina il progetto con fatti, fonti e contesto aziendale disponibile: meno testo generico da riscrivere.'],
-    controllo: ['Voi decidete, Plinio prepara', 'La strategia resta vostra. Plinio non pubblica nulla da solo e ogni contenuto passa da una persona che approva.'],
-    tecnico: ['Nessun progetto IT', 'Il Pilot include setup e configurazione assistita. Si parte da poche fonti reali, senza una migrazione complessa.'],
-    roi: ['Si misura, non si racconta', 'Misuriamo topic utili, tempo progetto → prima bozza, richieste ai team e progetti trasformati in comunicazione. Target Pilot: -30% sul tempo.']
-  };
+  const answers = Object.fromEntries(Object.entries(copy.objections.items || {}).map(([key, item]) => [key, [item.answerTitle, item.answer]]));
   const selected = new Set();
   const render = () => {
     const keys = [...selected];
@@ -252,14 +251,7 @@ function wireConcerns() {
 }
 
 function wireOrbit() {
-  const copyOrbit = {
-    brain: ['AI Brain · Sole', 'Il contesto non riparte da zero.', 'Organizza documenti, progetti e risultati affinché il contesto aziendale sia disponibile quando serve.'],
-    radar: ['AI Radar · Marte', 'Trova cosa vale la pena comunicare.', 'Analizza la conoscenza aziendale e fa emergere opportunità con razionale e fonti.'],
-    cards: ['Knowledge Cards · Mercurio', 'Fatti verificabili e riutilizzabili.', 'Trasforma le fonti in unità sintetiche, consultabili e sempre riconducibili al documento originale.'],
-    content: ['Content Studio · Venere', 'Dal topic approvato alla prima bozza.', 'Usa il contesto aziendale per sviluppare ciò che avete scelto di comunicare.'],
-    evidence: ['Evidence Layer · Terra', 'Ogni claim torna alla fonte.', 'Collega contenuti e affermazioni ai documenti e ai risultati che li sostengono.'],
-    loop: ['Feedback Loop · Saturno', 'Le correzioni di oggi riducono quelle di domani.', 'Conserva approvazioni e preferenze per ridurre progressivamente le revisioni.']
-  };
+  const copyOrbit = copy.hero.orbit || {};
   const shell = document.querySelector('.pl-ecosystem-card [data-orbit-shell]');
   const popover = document.querySelector('[data-orbit-popover]');
   const label = document.querySelector('[data-orbit-popover-label]');
