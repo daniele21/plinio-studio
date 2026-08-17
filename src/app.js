@@ -15,7 +15,7 @@ const escapeHtml = (value = '') =>
 
 const icon = (symbol) => {
   const className = symbol === '✓' ? 'yes' : symbol === '×' ? 'no' : 'partial';
-  return `<span class="comparison-symbol ${className}" aria-label="${symbol}">${symbol}</span>`;
+  return `<span class="comparison-symbol ${className}" aria-label="${escapeHtml(symbol)}">${escapeHtml(symbol)}</span>`;
 };
 
 const sectionHeader = (eyebrow, title, intro = '') => `
@@ -24,6 +24,12 @@ const sectionHeader = (eyebrow, title, intro = '') => `
     <h2>${escapeHtml(title)}</h2>
     ${intro ? `<p>${escapeHtml(intro)}</p>` : ''}
   </div>
+`;
+
+const sourceLink = (item) => `
+  <a class="source-link" href="${item.url}" target="_blank" rel="noopener noreferrer">
+    Fonte: ${escapeHtml(item.source)} <span aria-hidden="true">↗</span>
+  </a>
 `;
 
 app.innerHTML = `
@@ -75,10 +81,27 @@ app.innerHTML = `
             </article>
           `).join('')}
         </div>
+        <p class="statement statement-compact reveal">${escapeHtml(copy.pain.closing)}</p>
       </div>
     </section>
 
-    <section class="section" id="beneficio">
+    <section class="section" id="risultato">
+      <div class="section-shell">
+        ${sectionHeader(copy.output.eyebrow, copy.output.title, copy.output.intro)}
+        <div class="outcome-grid">
+          ${copy.output.items.map((item) => `
+            <article class="outcome-card reveal">
+              <strong>${escapeHtml(item.value)}</strong>
+              <h3>${escapeHtml(item.label)}</h3>
+              <p>${escapeHtml(item.description)}</p>
+            </article>
+          `).join('')}
+        </div>
+        <p class="section-footnote reveal">${escapeHtml(copy.output.footnote)}</p>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="beneficio">
       <div class="section-shell">
         ${sectionHeader(copy.benefit.eyebrow, copy.benefit.title, copy.benefit.intro)}
         <div class="process-compare reveal">
@@ -96,7 +119,70 @@ app.innerHTML = `
             </div>
           </div>
         </div>
-        <p class="statement reveal">${escapeHtml(copy.benefit.result)}</p>
+        <p class="statement statement-compact reveal">${escapeHtml(copy.benefit.result)}</p>
+        <div class="benchmark-block reveal">
+          <h3>${escapeHtml(copy.benefit.benchmarksTitle)}</h3>
+          <div class="benchmark-grid">
+            ${copy.benefit.benchmarks.map((item) => `
+              <article class="benchmark-card">
+                <strong>${escapeHtml(item.value)}</strong>
+                <h4>${escapeHtml(item.label)}</h4>
+                <p>${escapeHtml(item.detail)}</p>
+                ${sourceLink(item)}
+              </article>
+            `).join('')}
+          </div>
+          <p class="evidence-note">${escapeHtml(copy.benefit.benchmarkNote)}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="differenza">
+      <div class="section-shell">
+        ${sectionHeader(copy.difference.eyebrow, copy.difference.title, copy.difference.intro)}
+        <div class="benefit-grid">
+          ${copy.difference.benefits.map((item) => `
+            <article class="benefit-card reveal">
+              <h3>${escapeHtml(item.title)}</h3>
+              <p>${escapeHtml(item.description)}</p>
+            </article>
+          `).join('')}
+        </div>
+        <p class="big-tagline reveal">${escapeHtml(copy.difference.tagline)}</p>
+      </div>
+    </section>
+
+    <section class="section section-dark evidence-section" id="impatto">
+      <div class="section-shell">
+        ${sectionHeader(copy.marketEvidence.eyebrow, copy.marketEvidence.title, copy.marketEvidence.intro)}
+        <div class="evidence-grid">
+          ${copy.marketEvidence.stats.map((item) => `
+            <article class="evidence-card reveal">
+              <strong>${escapeHtml(item.value)}</strong>
+              <h3>${escapeHtml(item.label)}</h3>
+              <p>${escapeHtml(item.detail)}</p>
+              ${sourceLink(item)}
+            </article>
+          `).join('')}
+        </div>
+        <p class="evidence-closing reveal">${escapeHtml(copy.marketEvidence.closing)}</p>
+        <p class="evidence-caveat reveal">${escapeHtml(copy.marketEvidence.caveat)}</p>
+      </div>
+    </section>
+
+    <section class="section" id="business">
+      <div class="section-shell">
+        ${sectionHeader(copy.businessImpact.eyebrow, copy.businessImpact.title, copy.businessImpact.intro)}
+        <div class="business-grid">
+          ${copy.businessImpact.items.map((item, index) => `
+            <article class="business-card reveal">
+              <span class="step-number">${String(index + 1).padStart(2, '0')}</span>
+              <h3>${escapeHtml(item.title)}</h3>
+              <p>${escapeHtml(item.description)}</p>
+            </article>
+          `).join('')}
+        </div>
+        <p class="section-footnote reveal">${escapeHtml(copy.businessImpact.note)}</p>
       </div>
     </section>
 
@@ -117,21 +203,6 @@ app.innerHTML = `
             </article>
           `).join('')}
         </div>
-      </div>
-    </section>
-
-    <section class="section" id="differenza">
-      <div class="section-shell">
-        ${sectionHeader(copy.difference.eyebrow, copy.difference.title, copy.difference.intro)}
-        <div class="benefit-grid">
-          ${copy.difference.benefits.map((item) => `
-            <article class="benefit-card reveal">
-              <h3>${escapeHtml(item.title)}</h3>
-              <p>${escapeHtml(item.description)}</p>
-            </article>
-          `).join('')}
-        </div>
-        <p class="big-tagline reveal">${escapeHtml(copy.difference.tagline)}</p>
       </div>
     </section>
 
@@ -200,6 +271,7 @@ app.innerHTML = `
           <a class="button" href="${copy.pilot.cta.href}">${escapeHtml(copy.pilot.cta.label)}</a>
         </div>
         <div class="deliverables reveal">
+          <span class="deliverables-title">${escapeHtml(copy.pilot.targetsTitle)}</span>
           ${copy.pilot.deliverables.map((item) => `
             <div class="deliverable">
               <strong>${escapeHtml(item.value)}</strong>
@@ -211,6 +283,18 @@ app.innerHTML = `
           `).join('')}
         </div>
         <p class="pilot-footnote reveal">${escapeHtml(copy.pilot.footnote)}</p>
+      </div>
+    </section>
+
+    <section class="section final-cta section-dark">
+      <div class="section-shell final-cta-shell reveal">
+        <span class="eyebrow">${escapeHtml(copy.finalCta.eyebrow)}</span>
+        <h2>${escapeHtml(copy.finalCta.title)}</h2>
+        <p>${escapeHtml(copy.finalCta.subtitle)}</p>
+        <div class="final-value-line">
+          ${copy.finalCta.valueLine.map((item) => `<span>${escapeHtml(item)}</span>`).join('')}
+        </div>
+        <a class="button" href="${copy.finalCta.cta.href}">${escapeHtml(copy.finalCta.cta.label)}</a>
       </div>
     </section>
   </main>
