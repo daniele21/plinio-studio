@@ -17,6 +17,14 @@ export const landingCopy = {
     proof: ['30 minuti su una vostra fonte reale', 'Nessuna migrazione', 'Ogni claim ha una fonte'],
     ecosystemTitle: 'La conoscenza aziendale, già pronta da riutilizzare',
     ecosystemIntro: 'Plinio organizza ciò che l’azienda sa e lo riutilizza per trovare opportunità, recuperare il contesto e creare contenuti senza ripartire ogni volta da zero.',
+    orbit: {
+      brain: ['AI Brain · Sole', 'Il contesto non riparte da zero.', 'Organizza documenti, progetti e risultati affinché il contesto aziendale sia disponibile quando serve.'],
+      radar: ['AI Radar · Marte', 'Trova cosa vale la pena comunicare.', 'Analizza la conoscenza aziendale e fa emergere opportunità con razionale e fonti.'],
+      cards: ['Knowledge Cards · Mercurio', 'Fatti verificabili e riutilizzabili.', 'Trasforma le fonti in unità sintetiche, consultabili e sempre riconducibili al documento originale.'],
+      content: ['Content Studio · Venere', 'Dal topic approvato alla prima bozza.', 'Usa il contesto aziendale per sviluppare ciò che avete scelto di comunicare.'],
+      evidence: ['Evidence Layer · Terra', 'Ogni claim torna alla fonte.', 'Collega contenuti e affermazioni ai documenti e ai risultati che li sostengono.'],
+      loop: ['Feedback Loop · Saturno', 'Le correzioni di oggi riducono quelle di domani.', 'Conserva approvazioni e preferenze per ridurre progressivamente le revisioni.'],
+    },
   },
   personas: {
     eyebrow: 'Il problema, visto da tre ruoli',
@@ -81,6 +89,39 @@ export const landingCopy = {
     eyebrow: 'Prima di prenotare',
     title: 'Cosa vi preoccupa davvero?',
     intro: 'Partiamo dalle obiezioni reali: tempo dei team, riservatezza, qualità dell’output, controllo e ritorno misurabile.',
+    cta: 'Portate questi punti in call',
+    items: {
+      team: {
+        label: 'I team non hanno tempo per nuovi report',
+        answerTitle: 'I team non compilano niente',
+        answer: 'Plinio parte dai materiali che il delivery produce già. Al PM arrivano solo domande mirate quando manca un’informazione decisiva.',
+      },
+      riservatezza: {
+        label: 'Ci sono cose che non possono uscire',
+        answerTitle: 'Ogni fonte ha uno stato',
+        answer: 'Pubblicabile, da validare o riservato. Il team mantiene sempre l’approvazione finale.',
+      },
+      generico: {
+        label: 'Temiamo output generici da riscrivere',
+        answerTitle: 'Il contenuto parte dall’azienda',
+        answer: 'Plinio combina il progetto con fatti, fonti e contesto aziendale disponibile: meno testo generico da riscrivere.',
+      },
+      controllo: {
+        label: 'Non vogliamo perdere il controllo della voce',
+        answerTitle: 'Voi decidete, Plinio prepara',
+        answer: 'La strategia resta vostra. Plinio non pubblica nulla da solo e ogni contenuto passa da una persona che approva.',
+      },
+      tecnico: {
+        label: 'Non abbiamo IT da dedicarci',
+        answerTitle: 'Nessun progetto IT',
+        answer: 'Il Pilot include setup e configurazione assistita. Si parte da poche fonti reali, senza una migrazione complessa.',
+      },
+      roi: {
+        label: 'Dobbiamo poter dimostrare il ritorno',
+        answerTitle: 'Si misura, non si racconta',
+        answer: 'Misuriamo topic utili, tempo progetto → prima bozza, richieste ai team e progetti trasformati in comunicazione. Target Pilot: -30% sul tempo.',
+      },
+    },
   },
   pilot: {
     titleHtml: 'Portate un progetto chiuso.<br/>Vediamo quanto valore può ancora generare.',
