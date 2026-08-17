@@ -116,7 +116,7 @@ function applyCopy() {
       setText(head.querySelector('h2'), copy.comparison.title);
       setText(head.querySelector('p'), copy.comparison.intro);
     }
-    const featureHeaders = comparison.querySelectorAll('th.pl-feature-col');
+    const featureHeaders = comparison.querySelectorAll('tbody th.pl-feature-col');
     copy.comparison.featureRows.forEach((row, i) => {
       const th = featureHeaders[i];
       if (!th) return;
