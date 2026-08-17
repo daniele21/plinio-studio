@@ -4,19 +4,19 @@ Landing page statica e modulare di Plinio.
 
 ## Modificare il copy
 
-Tutto il testo della landing vive in un solo file:
+Tutto il testo della landing, inclusi benchmark, fonti e target del Pilot, vive in un solo file:
 
 ```text
 src/content/landingCopy.js
 ```
 
-Per cambiare headline, CTA, testi delle feature, comparison, obiezioni o Pilot **non serve modificare `index.html` o `src/app.js`**.
+Per cambiare headline, CTA, testi delle feature, comparison, obiezioni, evidenze o Pilot **non serve modificare `index.html` o `src/app.js`**.
 
 Esempio:
 
 ```js
 hero: {
-  title: 'Un progetto dentro. Almeno 3 topic pronti da comunicare.',
+  title: 'Fate vedere di più ciò che la vostra azienda sa fare. Senza chiedere più tempo ai team.',
   subtitle: '...',
 }
 ```
@@ -50,13 +50,35 @@ Poi aprire `http://localhost:8080`.
 
 La pagina è compatibile con hosting statico come GitHub Pages, Firebase Hosting, Netlify, Cloudflare Pages e simili.
 
-## Regola editoriale
+## Gerarchia editoriale
 
-La landing segue una gerarchia outcome-first:
+La landing segue una logica outcome-first:
 
-1. **Output:** cosa ottiene il cliente (`1 progetto → ≥3 topic → 1 prima bozza`).
-2. **Lavoro evitato:** brief e contesto non vengono ricostruiti da zero.
-3. **Qualità:** il contenuto parte dalla conoscenza aziendale, non da un prompt vuoto.
-4. **Controllo:** fatti e informazioni rimangono collegati alle fonti.
+1. **Visibilità:** più del lavoro già fatto arriva davanti al mercato.
+2. **Output concreto:** `1 progetto → ≥3 topic → 1 prima bozza → fonti`.
+3. **Efficienza:** brief e contesto non vengono ricostruiti da zero.
+4. **Qualità:** il contenuto parte dalla conoscenza aziendale, non da un prompt vuoto.
+5. **Controllo:** fatti e informazioni rimangono collegati alle fonti.
+6. **Impatto business:** più continuità, più prove delle competenze, più occasioni per entrare nella considerazione dei buyer.
+7. **Misurazione:** il Pilot confronta processo attuale e processo supportato da Plinio.
 
-Il claim `≥3 topic per progetto` è esplicitamente trattato come target da verificare durante il Pilot Design Partner, non come garanzia universale fuori dal perimetro concordato.
+## Guardrail sui claim
+
+### Target Plinio da validare
+
+- `≥3 topic per progetto`
+- `−30% tempo progetto → prima bozza verificabile`
+
+Sono **target del Pilot Design Partner**, non performance Plinio già dimostrate.
+
+### Benchmark esterni
+
+La landing cita studi indipendenti su:
+
+- produttività della GenAI nel professional writing e nel knowledge work;
+- familiarità del brand nei buying group B2B;
+- influenza della thought leadership su considerazione e ricettività commerciale.
+
+Questi numeri devono restare esplicitamente presentati come **evidenze di contesto**, mai come risultati causati da Plinio.
+
+Vendite, pipeline e revenue sono metriche downstream: Plinio abilita più continuità e più prove visibili, ma l'impatto commerciale dipende anche da distribuzione, mercato, offerta e processo sales.
