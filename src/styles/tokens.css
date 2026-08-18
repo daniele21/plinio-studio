@@ -31,6 +31,9 @@
   --accent-border: var(--orange-border-dark);
   --accent-glow: 0 0 24px rgba(214, 85, 39, 0.35);
 
+  --orange-glow: #F88463;              /* Warm bright orange for glow markers & hover */
+  --orange-deep: #C45A3C;              /* Rich terracotta for borders & labels on light bg */
+
   /* ==========================================================================
      Dark Theme Tokens (Primary Sections: Hero, Evidence, Process, Objections, Pilot)
      ========================================================================== */
@@ -40,7 +43,7 @@
   --bg-dark-subtle: #2D2824;
   --text-dark-primary: #F5F2EB;       /* Warm off-white */
   --text-dark-secondary: rgba(245, 242, 235, 0.74);
-  --text-dark-muted: rgba(245, 242, 235, 0.46);
+  --text-dark-muted: rgba(245, 242, 235, 0.54);   /* Bumped for WCAG AA (≥4.5:1) */
   --border-dark-subtle: rgba(245, 242, 235, 0.09);
   --border-dark-medium: rgba(245, 242, 235, 0.16);
   --border-dark-strong: rgba(245, 242, 235, 0.28);
@@ -54,7 +57,7 @@
   --bg-light-subtle: #E5DAC1;
   --text-light-primary: #1E1A16;      /* Charcoal black for crisp readability */
   --text-light-secondary: rgba(30, 26, 22, 0.78);
-  --text-light-muted: rgba(30, 26, 22, 0.52);
+  --text-light-muted: rgba(30, 26, 22, 0.62);   /* Bumped for WCAG AA (≥4.5:1) */
   --border-light-subtle: rgba(30, 26, 22, 0.09);
   --border-light-medium: rgba(30, 26, 22, 0.16);
   --border-light-strong: rgba(30, 26, 22, 0.28);
@@ -78,7 +81,8 @@
   --text-xl: 1.5rem;      /* 24px */
   --text-2xl: 1.875rem;   /* 30px */
   --text-3xl: 2.25rem;    /* 36px */
-  --text-4xl: 2.75rem;    /* 44px max */
+  --text-4xl: 2.75rem;    /* 44px */
+  --text-5xl: 3.5rem;     /* 56px — hero H1 */
 
   --lh-tight: 1.1;
   --lh-snug: 1.28;
