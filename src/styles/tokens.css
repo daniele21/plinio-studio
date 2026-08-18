@@ -1,0 +1,125 @@
+/**
+ * Plinio Design System - Tokens
+ * Defines color palettes (alternating dark/light sections), typography scales, highlights, animations.
+ */
+
+:root {
+  /* ==========================================================================
+     Orange Accent Palette
+     - Title: Vibrant punchy orange
+     - Body / Highlights: Soft, refined, elegant terracotta orange
+     ========================================================================== */
+  --orange-title: #FF7547;            /* Vibrant orange for H1 title only */
+  --orange-title-hover: #FF8A61;
+
+  --orange-primary: #D65527;          /* Core button & brand orange */
+  --orange-hover: #E36436;
+  --orange-active: #B84318;
+
+  /* Soft / Tenue Orange for body text highlights, borders, and accents */
+  --orange-soft-dark: #DE9379;        /* Soft warm terracotta on dark bg */
+  --orange-soft-light: #B85936;       /* Refined terracotta on light bg */
+  
+  --orange-subtle-dark: rgba(222, 147, 121, 0.14);
+  --orange-subtle-light: rgba(184, 89, 54, 0.10);
+  --orange-border-dark: rgba(222, 147, 121, 0.35);
+  --orange-border-light: rgba(184, 89, 54, 0.30);
+
+  --accent: var(--orange-primary);
+  --accent-hover: var(--orange-hover);
+  --accent-active: var(--orange-active);
+  --accent-border: var(--orange-border-dark);
+  --accent-glow: 0 0 24px rgba(214, 85, 39, 0.35);
+
+  /* ==========================================================================
+     Dark Theme Tokens (Primary Sections: Hero, Evidence, Process, Objections, Pilot)
+     ========================================================================== */
+  --bg-dark-primary: #12100E;         /* Deep obsidian */
+  --bg-dark-surface: #1A1715;         /* Elevated dark cards */
+  --bg-dark-elevated: #24201C;        /* Interactive dark elements */
+  --bg-dark-subtle: #2D2824;
+  --text-dark-primary: #F5F2EB;       /* Warm off-white */
+  --text-dark-secondary: rgba(245, 242, 235, 0.74);
+  --text-dark-muted: rgba(245, 242, 235, 0.46);
+  --border-dark-subtle: rgba(245, 242, 235, 0.09);
+  --border-dark-medium: rgba(245, 242, 235, 0.16);
+  --border-dark-strong: rgba(245, 242, 235, 0.28);
+
+  /* ==========================================================================
+     Light Theme Tokens (Alternating Sections: Personas, Capabilities, Comparison)
+     ========================================================================== */
+  --bg-light-primary: #F7EFDD;        /* Warm parchment / elegant off-white */
+  --bg-light-surface: #FFFFFF;        /* Clean card surface */
+  --bg-light-elevated: #EFE6D2;       /* Subtle hover on light */
+  --bg-light-subtle: #E5DAC1;
+  --text-light-primary: #1E1A16;      /* Charcoal black for crisp readability */
+  --text-light-secondary: rgba(30, 26, 22, 0.78);
+  --text-light-muted: rgba(30, 26, 22, 0.52);
+  --border-light-subtle: rgba(30, 26, 22, 0.09);
+  --border-light-medium: rgba(30, 26, 22, 0.16);
+  --border-light-strong: rgba(30, 26, 22, 0.28);
+
+  /* Semantic status colors */
+  --color-success: #3D7D42;
+  --color-warning: #B88528;
+
+  /* ==========================================================================
+     Typography Scales
+     ========================================================================== */
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-mono: 'Cutive Mono', 'SF Mono', Menlo, Monaco, Consolas, monospace;
+
+  --text-xs: 0.75rem;     /* 12px */
+  --text-sm: 0.875rem;    /* 14px */
+  --text-base: 1rem;      /* 16px */
+  --text-md: 1.125rem;    /* 18px */
+  --text-lg: 1.25rem;     /* 20px */
+  --text-xl: 1.5rem;      /* 24px */
+  --text-2xl: 1.875rem;   /* 30px */
+  --text-3xl: 2.25rem;    /* 36px */
+  --text-4xl: 2.75rem;    /* 44px max */
+
+  --lh-tight: 1.1;
+  --lh-snug: 1.28;
+  --lh-base: 1.6;
+
+  /* ==========================================================================
+     Spacing & Layout
+     ========================================================================== */
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 88px;
+
+  --container-max-width: 1200px;
+  --container-padding: clamp(20px, 4vw, 36px);
+
+  /* ==========================================================================
+     Border Radii & Shadows
+     ========================================================================== */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  --shadow-dark-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-dark-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --shadow-dark-lg: 0 16px 48px rgba(0, 0, 0, 0.55);
+
+  --shadow-light-sm: 0 2px 8px rgba(30, 26, 22, 0.06);
+  --shadow-light-md: 0 8px 24px rgba(30, 26, 22, 0.09);
+  --shadow-light-lg: 0 16px 40px rgba(30, 26, 22, 0.12);
+
+  /* Transitions */
+  --transition-fast: 0.18s ease;
+  --transition-normal: 0.28s cubic-bezier(0.22, 0.61, 0.36, 1);
+  --transition-slow: 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
+}

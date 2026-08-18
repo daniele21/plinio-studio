@@ -1,18 +1,36 @@
-<section style="padding:0 32px;background:#211C17;color:#F7EFDD">
-<div style="max-width:1180px;margin:0 auto;padding:82px 0">
-<div data-rev="1" style="opacity:0;transform:translateY(18px);max-width:42em">
-<h2 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(30px,4.2vw,46px);line-height:1.06">Cosa vi preoccupa davvero?</h2>
-<p style="max-width:36em;color:rgba(247,239,221,.75);margin-top:14px">Scegliete i punti che vi riguardano: vi diciamo subito come li gestiamo, e li portiamo in call già scritti.</p>
-</div>
-<div data-concerns="1" style="margin-top:34px;display:flex;flex-wrap:wrap;gap:10px">
-<button data-concern="team" style="background:none;color:#F7EFDD;border:1px solid rgba(247,239,221,.35);padding:11px 16px;font-size:15.5px;cursor:pointer;transition:background .2s ease,border-color .2s ease,color .2s ease" style-hover="border-color:#F7EFDD" type="button">I team non hanno tempo per nuovi report</button>
-<button data-concern="riservatezza" style="background:none;color:#F7EFDD;border:1px solid rgba(247,239,221,.35);padding:11px 16px;font-size:15.5px;cursor:pointer;transition:background .2s ease,border-color .2s ease,color .2s ease" style-hover="border-color:#F7EFDD" type="button">Ci sono cose che non possono uscire</button>
-<button data-concern="generico" style="background:none;color:#F7EFDD;border:1px solid rgba(247,239,221,.35);padding:11px 16px;font-size:15.5px;cursor:pointer;transition:background .2s ease,border-color .2s ease,color .2s ease" style-hover="border-color:#F7EFDD" type="button">Temiamo output generici da riscrivere</button>
-<button data-concern="controllo" style="background:none;color:#F7EFDD;border:1px solid rgba(247,239,221,.35);padding:11px 16px;font-size:15.5px;cursor:pointer;transition:background .2s ease,border-color .2s ease,color .2s ease" style-hover="border-color:#F7EFDD" type="button">Non vogliamo perdere il controllo della voce</button>
-<button data-concern="tecnico" style="background:none;color:#F7EFDD;border:1px solid rgba(247,239,221,.35);padding:11px 16px;font-size:15.5px;cursor:pointer;transition:background .2s ease,border-color .2s ease,color .2s ease" style-hover="border-color:#F7EFDD" type="button">Non abbiamo IT da dedicarci</button>
-<button data-concern="roi" style="background:none;color:#F7EFDD;border:1px solid rgba(247,239,221,.35);padding:11px 16px;font-size:15.5px;cursor:pointer;transition:background .2s ease,border-color .2s ease,color .2s ease" style-hover="border-color:#F7EFDD" type="button">Dobbiamo poter dimostrare il ritorno</button>
-</div>
-<div data-answers="1" style="margin-top:26px;border-top:1px solid rgba(247,239,221,.22);padding-top:22px;min-height:120px"><p data-answers-empty="1" style="font-family:'Cutive Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:rgba(247,239,221,.45)">Nessuna selezione. Toccate un punto qui sopra.</p></div>
-<div data-rev="1" style="opacity:0;transform:translateY(12px);margin-top:26px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px"><a data-concern-cta="1" href="#prenota" style="display:inline-flex;align-items:center;gap:10px;background:#BD5430;color:#F7EFDD;font-weight:600;font-size:16px;line-height:1;padding:14px 22px;border:1px solid #BD5430;transition:background .2s ease,transform .2s ease" style-hover="background:#A8471F;transform:translateY(-2px)">Portate questi punti in call <span data-arrow="1" style="display:inline-block;transition:transform .25s cubic-bezier(.22,.61,.36,1)">→</span></a><span data-concern-count="1" style="font-family:'Cutive Mono',monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:.11em;color:rgba(247,239,221,.55)">Nessun punto selezionato</span></div>
-</div>
+<section class="pl-section pl-section--dark">
+  <div class="pl-container">
+    <div data-rev="1" style="max-width: 44em;">
+      <h2>Cosa vi preoccupa davvero?</h2>
+      <p style="margin-top: 14px; font-size: 1.05rem;">
+        Scegliete i punti che vi riguardano: vi diciamo subito come li gestiamo, e li portiamo in call già pronti.
+      </p>
+    </div>
+
+    <!-- Objection Chips -->
+    <div class="pl-concerns-container" data-concerns="1">
+      <button class="pl-concern-chip" data-concern="team" type="button">I team non hanno tempo per nuovi report</button>
+      <button class="pl-concern-chip" data-concern="riservatezza" type="button">Ci sono informazioni che non possono uscire</button>
+      <button class="pl-concern-chip" data-concern="generico" type="button">Temiamo output generici da riscrivere</button>
+      <button class="pl-concern-chip" data-concern="controllo" type="button">Non vogliamo perdere il controllo del tono di voce</button>
+      <button class="pl-concern-chip" data-concern="tecnico" type="button">Non abbiamo risorse IT da dedicarci</button>
+      <button class="pl-concern-chip" data-concern="roi" type="button">Dobbiamo poter dimostrare il ritorno</button>
+    </div>
+
+    <!-- Dynamic Answers Area -->
+    <div class="pl-answers-panel" data-answers="1">
+      <p class="pl-answers-empty" data-answers-empty="1">Nessuna selezione. Cliccate su uno o più punti qui sopra per visualizzare la risposta.</p>
+    </div>
+
+    <!-- Bottom Action & Selection Counter -->
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 32px;" data-rev="1">
+      <a href="#prenota" class="pl-btn pl-btn--primary" data-concern-cta="1">
+        <span>Portate questi punti in call</span>
+        <span class="pl-btn-arrow" data-arrow="1">→</span>
+      </a>
+      <span style="font-family: var(--font-mono); font-size: var(--text-xs); color: var(--text-dark-muted); text-transform: uppercase;" data-concern-count="1">
+        Nessun punto selezionato
+      </span>
+    </div>
+  </div>
 </section>

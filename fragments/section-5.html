@@ -1,92 +1,71 @@
-<section id="pl-compare-minimal" style="padding:0 32px;border-bottom:1px solid rgba(33,28,23,.20)">
-<style>
-#pl-compare-minimal .pl-compare-wrap{margin-top:30px;box-shadow:none;background:transparent;border:1px solid rgba(33,28,23,.18)}
-#pl-compare-minimal .pl-compare{min-width:760px;table-layout:fixed}
-#pl-compare-minimal .pl-compare th,#pl-compare-minimal .pl-compare td{padding:18px 16px}
-#pl-compare-minimal .pl-compare thead th{background:#EDE2C8;text-align:center;font-size:10px;letter-spacing:.08em}
-#pl-compare-minimal .pl-compare thead th:first-child{text-align:left}
-#pl-compare-minimal .pl-compare thead th small{margin-top:4px;font-size:9.5px}
-#pl-compare-minimal .pl-compare tbody th{width:42%;font-size:18px;line-height:1.15;background:#F7EFDD}
-#pl-compare-minimal .pl-compare tbody th small{margin-top:5px;font-size:11px;line-height:1.35}
-#pl-compare-minimal .pl-compare tbody td{text-align:center;background:#F7EFDD}
-#pl-compare-minimal .pl-compare .pl-plinio-col{position:static;width:auto;background:#211C17;color:#F7EFDD;box-shadow:none}
-#pl-compare-minimal .pl-compare thead .pl-plinio-col{background:#BD5430}
-#pl-compare-minimal .pl-compare tbody tr:hover th,#pl-compare-minimal .pl-compare tbody tr:hover td:not(.pl-plinio-col){background:#FFF8E9}
-#pl-compare-minimal .pl-symbol{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;font-family:Inter,Arial,sans-serif;font-size:22px;font-weight:700;line-height:1}
-#pl-compare-minimal .pl-symbol-yes{color:#355D3B}
-#pl-compare-minimal .pl-symbol-half{color:#9A6A1F;font-size:25px}
-#pl-compare-minimal .pl-symbol-no{color:rgba(33,28,23,.38);font-size:24px;font-weight:500}
-#pl-compare-minimal .pl-plinio-col .pl-symbol-yes{color:#F7EFDD}
-#pl-compare-minimal .pl-min-legend{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;margin-top:14px;font-family:'Cutive Mono',monospace;font-size:9.5px;line-height:1.4;text-transform:uppercase;letter-spacing:.07em;color:rgba(33,28,23,.56)}
-#pl-compare-minimal .pl-min-legend strong{font-family:Inter,Arial,sans-serif;font-size:15px;letter-spacing:0}
-#pl-compare-minimal .pl-min-note{margin-top:12px;max-width:880px;font-size:10.5px;line-height:1.45;color:rgba(33,28,23,.46)}
-@media(max-width:760px){
-  #pl-compare-minimal{padding-left:20px!important;padding-right:20px!important}
-  #pl-compare-minimal .pl-compare{min-width:700px}
-}
-</style>
-<div style="max-width:1180px;margin:0 auto;padding:78px 0">
-<div style="max-width:47em">
-<h2 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(30px,4.2vw,46px);line-height:1.06">Quanto lavoro resta a voi?</h2>
-<p style="max-width:42em;color:rgba(33,28,23,.68);margin-top:14px">Il punto è semplice: quanto lavoro deve ancora fare il vostro team prima di avere qualcosa di utile da approvare?</p>
-</div>
-<div class="pl-compare-wrap" data-delay="0.08" data-rev="1" style="opacity:0;transform:translateY(14px)">
-<div aria-label="Confronto del lavoro che resta al team con lo status quo, le AI generaliste, i content tool e Plinio" class="pl-compare-scroll" tabindex="0">
-<table class="pl-compare">
-<thead>
-<tr>
-<th scope="col">Con questo strumento…</th>
-<th scope="col">Come fate oggi<small>file · meeting · copy-paste</small></th>
-<th scope="col">AI generalista<small>ChatGPT · Claude · Gemini</small></th>
-<th scope="col">Content tool<small>Jasper · AirOps · StoryChief</small></th>
-<th class="pl-plinio-col" scope="col">Plinio<small>project → topic → bozza</small></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th scope="row">So cosa comunicare dai progetti<small>Non parto ogni volta dal calendario editoriale vuoto.</small></th>
-<td><span class="pl-symbol pl-symbol-no" aria-label="Resta al team">×</span></td>
-<td><span class="pl-symbol pl-symbol-half" aria-label="Possibile con lavoro o setup">◐</span></td>
-<td><span class="pl-symbol pl-symbol-half" aria-label="Possibile con lavoro o setup">◐</span></td>
-<td class="pl-plinio-col"><span class="pl-symbol pl-symbol-yes" aria-label="Già risolto">✓</span></td>
-</tr>
-<tr>
-<th scope="row">Non devo rincorrere i team per il contesto<small>Il progetto non va ricostruito ogni volta da persone e file sparsi.</small></th>
-<td><span class="pl-symbol pl-symbol-no" aria-label="Resta al team">×</span></td>
-<td><span class="pl-symbol pl-symbol-half" aria-label="Possibile con lavoro o setup">◐</span></td>
-<td><span class="pl-symbol pl-symbol-half" aria-label="Possibile con lavoro o setup">◐</span></td>
-<td class="pl-plinio-col"><span class="pl-symbol pl-symbol-yes" aria-label="Già risolto">✓</span></td>
-</tr>
-<tr>
-<th scope="row">Il contenuto parte già dal contesto aziendale<small>Progetti, risultati, competenze e regole sono già parte del punto di partenza.</small></th>
-<td><span class="pl-symbol pl-symbol-no" aria-label="Resta al team">×</span></td>
-<td><span class="pl-symbol pl-symbol-half" aria-label="Possibile con lavoro o setup">◐</span></td>
-<td><span class="pl-symbol pl-symbol-yes" aria-label="Già risolto">✓</span></td>
-<td class="pl-plinio-col"><span class="pl-symbol pl-symbol-yes" aria-label="Già risolto">✓</span></td>
-</tr>
-<tr>
-<th scope="row">So da dove arriva ogni claim<small>Fatti e affermazioni restano riconducibili alle fonti.</small></th>
-<td><span class="pl-symbol pl-symbol-half" aria-label="Possibile con lavoro o setup">◐</span></td>
-<td><span class="pl-symbol pl-symbol-half" aria-label="Possibile con lavoro o setup">◐</span></td>
-<td><span class="pl-symbol pl-symbol-half" aria-label="Possibile con lavoro o setup">◐</span></td>
-<td class="pl-plinio-col"><span class="pl-symbol pl-symbol-yes" aria-label="Già risolto">✓</span></td>
-</tr>
-<tr>
-<th scope="row">Arrivo direttamente a una prima bozza da revisionare<small>Dal progetto e dal topic scelto a qualcosa di concreto da approvare.</small></th>
-<td><span class="pl-symbol pl-symbol-no" aria-label="Resta al team">×</span></td>
-<td><span class="pl-symbol pl-symbol-half" aria-label="Possibile con lavoro o setup">◐</span></td>
-<td><span class="pl-symbol pl-symbol-yes" aria-label="Già risolto">✓</span></td>
-<td class="pl-plinio-col"><span class="pl-symbol pl-symbol-yes" aria-label="Già risolto">✓</span></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="pl-min-legend" data-rev="1" style="opacity:0;transform:translateY(10px)">
-<span><strong style="color:#355D3B">✓</strong> già risolto</span>
-<span><strong style="color:#9A6A1F">◐</strong> possibile, ma serve lavoro / setup</span>
-<span><strong style="color:rgba(33,28,23,.42)">×</strong> resta a voi</span>
-</div>
-<p class="pl-min-note" data-rev="1" style="opacity:0;transform:translateY(10px)">Sintesi della competitor analysis 2026. Le categorie raggruppano prodotti con capacità diverse: ◐ indica che l’outcome può essere ottenuto, ma non è necessariamente nativo o richiede contesto, configurazione o lavoro manuale. Le capability Plinio vengono confermate nello scope del Pilot.</p>
-</div>
+<section id="pl-compare-minimal" class="pl-section pl-section--light">
+  <div class="pl-container">
+    <div data-rev="1" style="max-width: 46em;">
+      <h2>Quanto lavoro resta a voi?</h2>
+      <p style="margin-top: 14px; font-size: 1.05rem;">
+        Il punto è semplice: quanto lavoro manuale deve fare il team prima di avere <strong>qualcosa di utile e verificato da approvare</strong>?
+      </p>
+    </div>
+
+    <div class="pl-compare-table-wrapper" style="margin-top: 36px;" data-rev="1" data-delay="0.08">
+      <table class="pl-compare-table" aria-label="Confronto Plinio rispetto ad approccio manuale, AI generalista e content tool">
+        <thead>
+          <tr>
+            <th scope="col">Con questo strumento…</th>
+            <th scope="col">Come fate oggi<small>file · meeting · copy-paste</small></th>
+            <th scope="col">AI generalista<small>ChatGPT · Claude · Gemini</small></th>
+            <th scope="col">Content tool<small>Jasper · AirOps · StoryChief</small></th>
+            <th class="pl-col-highlight" scope="col">Plinio<small>progetto → topic → bozza</small></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">So cosa comunicare dai progetti<small>Non parto ogni volta dal calendario editoriale vuoto.</small></th>
+            <td><span class="pl-status-icon pl-status-icon--no" aria-label="Resta al team">×</span></td>
+            <td><span class="pl-status-icon pl-status-icon--half" aria-label="Possibile con lavoro manuale">◐</span></td>
+            <td><span class="pl-status-icon pl-status-icon--half" aria-label="Possibile con lavoro manuale">◐</span></td>
+            <td class="pl-col-highlight"><span class="pl-status-icon pl-status-icon--yes" aria-label="Già risolto">✓</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Non devo rincorrere i team per il contesto<small>Il progetto non va ricostruito ogni volta da file sparsi.</small></th>
+            <td><span class="pl-status-icon pl-status-icon--no" aria-label="Resta al team">×</span></td>
+            <td><span class="pl-status-icon pl-status-icon--half" aria-label="Possibile con lavoro manuale">◐</span></td>
+            <td><span class="pl-status-icon pl-status-icon--half" aria-label="Possibile con lavoro manuale">◐</span></td>
+            <td class="pl-col-highlight"><span class="pl-status-icon pl-status-icon--yes" aria-label="Già risolto">✓</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Il contenuto parte già dal contesto aziendale<small>Progetti, risultati e competenze sono già nel punto di partenza.</small></th>
+            <td><span class="pl-status-icon pl-status-icon--no" aria-label="Resta al team">×</span></td>
+            <td><span class="pl-status-icon pl-status-icon--half" aria-label="Possibile con lavoro manuale">◐</span></td>
+            <td><span class="pl-status-icon pl-status-icon--yes" aria-label="Già risolto">✓</span></td>
+            <td class="pl-col-highlight"><span class="pl-status-icon pl-status-icon--yes" aria-label="Già risolto">✓</span></td>
+          </tr>
+          <tr>
+            <th scope="row">So da dove arriva ogni affermazione<small>Fatti e numeri restano sempre riconducibili alle fonti originali.</small></th>
+            <td><span class="pl-status-icon pl-status-icon--half" aria-label="Possibile con lavoro manuale">◐</span></td>
+            <td><span class="pl-status-icon pl-status-icon--half" aria-label="Possibile con lavoro manuale">◐</span></td>
+            <td><span class="pl-status-icon pl-status-icon--half" aria-label="Possibile con lavoro manuale">◐</span></td>
+            <td class="pl-col-highlight"><span class="pl-status-icon pl-status-icon--yes" aria-label="Già risolto">✓</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Arrivo direttamente a una prima bozza da revisionare<small>Dal progetto al topic approvato a una bozza concreta.</small></th>
+            <td><span class="pl-status-icon pl-status-icon--no" aria-label="Resta al team">×</span></td>
+            <td><span class="pl-status-icon pl-status-icon--half" aria-label="Possibile con lavoro manuale">◐</span></td>
+            <td><span class="pl-status-icon pl-status-icon--yes" aria-label="Già risolto">✓</span></td>
+            <td class="pl-col-highlight"><span class="pl-status-icon pl-status-icon--yes" aria-label="Già risolto">✓</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="pl-table-legend" data-rev="1">
+      <span><strong style="color: var(--color-success);">✓</strong> già risolto</span>
+      <span><strong style="color: var(--color-warning);">◐</strong> possibile con lavoro manuale</span>
+      <span><strong style="color: var(--text-light-muted);">×</strong> resta al team</span>
+    </div>
+
+    <p style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-light-muted); margin-top: 14px;" data-rev="1">
+      Sintesi dell’analisi comparativa. Plinio integra la tracciabilità delle fonti e la generazione contestualizzata fin dal primo giorno di pilot.
+    </p>
+  </div>
 </section>

@@ -1,4 +1,11 @@
+/**
+ * Plinio Web Application Entry Point
+ * Handles dynamic template mounting, copy population, scroll reveals,
+ * objection selector interactivity, and optional orbit visualization.
+ */
+
 import { landingCopy as copy } from './content/landingCopy.js';
+import { siteConfig } from './content/siteConfig.js';
 
 const fragmentPaths = [
   './fragments/progress.html',
@@ -14,290 +21,405 @@ const fragmentPaths = [
   './fragments/footer.html',
 ];
 
+/**
+ * Fetch and mount HTML template fragments into #app
+ */
 async function mountOriginalLayout() {
-  const parts = await Promise.all(fragmentPaths.map(async path => {
-    const response = await fetch(path);
-    if (!response.ok) throw new Error(`Impossibile caricare ${path}`);
-    return response.text();
-  }));
+  const parts = await Promise.all(
+    fragmentPaths.map(async path => {
+      const response = await fetch(path);
+      if (!response.ok) throw new Error(`Impossibile caricare ${path}`);
+      return response.text();
+    })
+  );
+
   const [progress, header, ...rest] = parts;
   const footer = rest.pop();
-  document.querySelector('#app').innerHTML = `${progress}${header}<main id="top">${rest.join('')}</main>${footer}`;
+  const appContainer = document.querySelector('#app');
+  if (appContainer) {
+    appContainer.innerHTML = `${progress}${header}<main id="top">${rest.join('')}</main>${footer}`;
+  }
 }
 
-const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const timers = [];
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const setText = (el, value) => { if (el && value != null) el.textContent = value; };
 const setHtml = (el, value) => { if (el && value != null) el.innerHTML = value; };
 
+/**
+ * Populate copy and dynamic content from landingCopy & siteConfig
+ */
 function applyCopy() {
-  document.title = copy.meta.title;
-  document.querySelector('meta[name="description"]')?.setAttribute('content', copy.meta.description);
-
-  const header = document.querySelector('header[data-head]');
-  if (header) {
-    const brandLines = header.querySelectorAll('a[aria-label] div span');
-    setText(brandLines[1], copy.header.tagline);
-    const cta = header.querySelector('a[href="#prenota"]');
-    setText(cta, copy.header.cta);
+  if (copy.meta) {
+    document.title = copy.meta.title;
+    document.querySelector('meta[name="description"]')?.setAttribute('content', copy.meta.description);
   }
 
-  const sections = [...document.querySelectorAll('main > section')];
-  const [hero, personas, evidence, universe, process, comparison, objections, pilot] = sections;
-
-  if (hero) {
-    const left = hero.querySelector('div[style*="flex:1 1 440px"]');
-    if (left) {
-      setHtml(left.querySelector('h1'), copy.hero.titleHtml);
-      const ps = left.querySelectorAll(':scope > p');
-      setText(ps[0], copy.hero.subtitle);
-      setText(ps[1], copy.hero.support);
-      const links = left.querySelectorAll('a');
-      if (links[0]) links[0].childNodes[0].nodeValue = `${copy.hero.primaryCta} `;
-      if (links[1]) setText(links[1], copy.hero.secondaryCta);
-      const proof = left.querySelectorAll(':scope > div:last-child > span');
-      copy.hero.proof.forEach((value, i) => setText(proof[i], value));
-    }
-    setText(hero.querySelector('.pl-ecosystem-title'), copy.hero.ecosystemTitle);
-    setText(hero.querySelector('.pl-ecosystem-intro'), copy.hero.ecosystemIntro);
+  // Header
+  const header = document.querySelector('[data-head]');
+  if (header && copy.header) {
+    setText(header.querySelector('.pl-header__tagline'), copy.header.tagline);
+    setText(header.querySelector('.pl-header .pl-btn--primary'), copy.header.cta);
   }
 
-  if (personas) {
-    const head = personas.querySelector('div[data-rev]');
-    if (head) {
-      setText(head.querySelector('h2'), copy.personas.title);
+  // Hero Section
+  if (copy.hero) {
+    setHtml(document.querySelector('[data-hero-title]'), copy.hero.titleHtml);
+    setHtml(document.querySelector('[data-hero-subtitle]'), copy.hero.subtitle);
+    setHtml(document.querySelector('[data-hero-support]'), copy.hero.support);
+
+    const primaryCta = document.querySelector('[data-hero-primary-cta] span:first-child');
+    if (primaryCta) setText(primaryCta, copy.hero.primaryCta);
+    setText(document.querySelector('[data-hero-secondary-cta]'), copy.hero.secondaryCta);
+
+    const proofContainer = document.querySelector('[data-hero-proof]');
+    if (proofContainer && Array.isArray(copy.hero.proof)) {
+      const proofItems = proofContainer.querySelectorAll('.pl-hero__proof-item');
+      copy.hero.proof.forEach((text, i) => {
+        if (proofItems[i]) setText(proofItems[i], text);
+      });
     }
-    const rows = [...personas.querySelectorAll('[data-delay]')].slice(0, 3);
-    rows.forEach((row, i) => {
-      const ps = row.querySelectorAll('p');
-      setText(ps[0], copy.personas.items[i]?.quote);
-      setText(ps[1], copy.personas.items[i]?.outcome);
+  }
+
+  // Personas Section
+  if (copy.personas) {
+    setHtml(document.querySelector('.pl-personas-grid')?.parentElement?.querySelector('h2'), copy.personas.title);
+    const cards = document.querySelectorAll('.pl-persona-card');
+    copy.personas.items?.forEach((item, i) => {
+      const card = cards[i];
+      if (!card) return;
+      setText(card.querySelector('.pl-persona-card__role'), item.role);
+      setText(card.querySelector('.pl-persona-card__quote'), item.quote);
+      setHtml(card.querySelector('.pl-persona-card__outcome-text'), item.outcome);
     });
   }
 
-  if (evidence && copy.evidence) {
-    const head = evidence.querySelector('div[data-rev]');
-    if (head) {
-      setText(head.querySelector('h2'), copy.evidence.title);
-      setText(head.querySelector('p'), copy.evidence.intro);
-    }
-    const cards = evidence.querySelectorAll('.pl-evidence-card');
+  // Evidence Section
+  if (copy.evidence) {
+    setHtml(document.querySelector('#evidenze h2'), copy.evidence.title);
+    setHtml(document.querySelector('#evidenze p:first-of-type'), copy.evidence.intro);
+    const cards = document.querySelectorAll('.pl-evidence-card');
     copy.evidence.stats?.forEach((stat, i) => {
       const card = cards[i];
       if (!card) return;
       setText(card.querySelector('.pl-evidence-stat'), stat.value);
-      setText(card.querySelector('.pl-evidence-claim'), stat.claim);
-      setText(card.querySelector('.pl-evidence-implication p'), stat.implication);
-      setText(card.querySelector('.pl-evidence-source'), `Fonte: ${stat.source}`);
+      setHtml(card.querySelector('.pl-evidence-claim'), stat.claim);
+      setHtml(card.querySelector('.pl-evidence-implication p'), stat.implication);
+      const sourceEl = card.querySelector('.pl-evidence-source');
+      if (sourceEl) {
+        if (stat.url) {
+          setHtml(sourceEl, `Fonte: <a href="${stat.url}" target="_blank" rel="noopener noreferrer" class="pl-source-link">${stat.source} ↗</a>`);
+        } else {
+          setText(sourceEl, `Fonte: ${stat.source}`);
+        }
+      }
     });
-    setText(evidence.querySelector('.pl-evidence-disclaimer'), copy.evidence.disclaimer);
+    setHtml(document.querySelector('.pl-evidence-disclaimer'), copy.evidence.disclaimer);
   }
 
-  if (universe) {
-    const head = universe.querySelector('div[data-rev]');
-    if (head) {
-      setText(head.querySelector('h2'), copy.universe.title);
-      setText(head.querySelector('p'), copy.universe.intro);
-      const tagline = [...head.querySelectorAll('div')].find(d => !d.querySelector('h2'));
-      if (tagline) setText(tagline, copy.universe.tagline);
-    }
-    const rows = [...universe.querySelectorAll('div[data-delay]')].slice(0, 6);
-    rows.forEach((row, i) => {
-      const ps = row.querySelectorAll('p');
-      setText(ps[0], copy.universe.rows[i]?.action);
-      setText(ps[1], copy.universe.rows[i]?.outcome);
-    });
-    const status = [...universe.querySelectorAll('p')].find(p => p.textContent.includes('AI Radar, Content Studio'));
-    setText(status, copy.universe.status);
-  }
-
-  if (process) {
-    const head = process.querySelector('div[data-rev]');
-    if (head) {
-      setText(head.querySelector('h2'), copy.process.title);
-    }
-    const cards = [...process.querySelectorAll('h3')].map(h => h.parentElement).slice(0, 4);
-    cards.forEach((card, i) => {
-      setText(card.querySelector('h3'), copy.process.steps[i]?.[0]);
-      setText(card.querySelector('p'), copy.process.steps[i]?.[1]);
+  // Universe / Capabilities Section
+  if (copy.universe) {
+    setHtml(document.querySelector('#universo h2'), copy.universe.title);
+    setHtml(document.querySelector('#universo p:first-of-type'), copy.universe.intro);
+    const rows = document.querySelectorAll('.pl-cap-row');
+    copy.universe.rows?.forEach((r, i) => {
+      const row = rows[i];
+      if (!row) return;
+      setHtml(row.querySelector('.pl-cap-action'), r.action);
+      setHtml(row.querySelector('.pl-cap-benefit'), r.outcome);
     });
   }
 
-  if (comparison) {
-    const head = comparison.querySelector('div[data-rev]');
-    if (head) {
-      setText(head.querySelector('h2'), copy.comparison.title);
-      setText(head.querySelector('p'), copy.comparison.intro);
-    }
-    const featureHeaders = comparison.querySelectorAll('tbody th.pl-feature-col');
-    copy.comparison.featureRows.forEach((row, i) => {
+  // Process Flow Section
+  if (copy.process) {
+    const processSteps = document.querySelectorAll('.pl-step-card');
+    copy.process.steps?.forEach((step, i) => {
+      const card = processSteps[i];
+      if (!card) return;
+      setHtml(card.querySelector('.pl-step-card__title'), step[0]);
+      setHtml(card.querySelector('.pl-step-card__desc'), step[1]);
+    });
+  }
+
+  // Comparison Section
+  if (copy.comparison) {
+    setHtml(document.querySelector('#pl-compare-minimal h2'), copy.comparison.title);
+    setHtml(document.querySelector('#pl-compare-minimal p:first-of-type'), copy.comparison.intro);
+    const featureHeaders = document.querySelectorAll('.pl-compare-table tbody th');
+    copy.comparison.featureRows?.forEach((row, i) => {
       const th = featureHeaders[i];
       if (!th) return;
       const small = th.querySelector('small');
       const textNode = [...th.childNodes].find(n => n.nodeType === Node.TEXT_NODE && n.textContent.trim());
       if (textNode) textNode.nodeValue = row[0];
-      setText(small, row[1]);
+      setHtml(small, row[1]);
     });
-    setText(comparison.querySelector('.pl-compare-diff strong'), copy.comparison.diffTitle);
-    setText(comparison.querySelector('.pl-compare-diff p'), copy.comparison.diffText);
-    const notes = [...comparison.querySelectorAll('p[data-rev]')];
-    setText(notes.at(-1), copy.comparison.note);
   }
 
-  if (objections) {
-    const head = objections.querySelector('div[data-rev]');
-    if (head) {
-      setText(head.querySelector('h2'), copy.objections.title);
-      setText(head.querySelector('p'), copy.objections.intro);
-    }
-    objections.querySelectorAll('[data-concern]').forEach(btn => {
-      const item = copy.objections.items?.[btn.dataset.concern];
-      if (item) setText(btn, item.label);
-    });
-    const concernCta = objections.querySelector('[data-concern-cta]');
-    if (concernCta) concernCta.childNodes[0].nodeValue = `${copy.objections.cta} `;
+  // Objections Section
+  if (copy.objections) {
+    setHtml(document.querySelector('.pl-concerns-container')?.parentElement?.querySelector('h2'), copy.objections.title);
+    setHtml(document.querySelector('.pl-concerns-container')?.parentElement?.querySelector('p:first-of-type'), copy.objections.intro);
   }
 
-  if (pilot) {
-    const columns = pilot.querySelectorAll('div[data-rev]');
-    const left = columns[0];
-    const right = columns[1];
-    if (left) {
-      setHtml(left.querySelector('h2'), copy.pilot.titleHtml);
-      setText(left.querySelector('p'), copy.pilot.subtitle);
-      const cta = left.querySelector('a');
-      if (cta) cta.childNodes[0].nodeValue = `${copy.pilot.cta} `;
-      setText(left.querySelector(':scope > div > span'), copy.pilot.microcopy);
-    }
-    if (right) {
-      const items = right.querySelectorAll('div[style*="grid-template-columns:26px 1fr"] p');
-      copy.pilot.deliverables.forEach((value, i) => setText(items[i], value));
-      const allP = right.querySelectorAll('p');
-      setText(allP[allP.length - 1], copy.pilot.footnote);
+  // Pilot Section
+  if (copy.pilot) {
+    setHtml(document.querySelector('#prenota h2'), copy.pilot.titleHtml);
+    setHtml(document.querySelector('#prenota p:first-of-type'), copy.pilot.subtitle);
+    const deliverables = document.querySelectorAll('.pl-pilot-deliverable-text');
+    copy.pilot.deliverables?.forEach((text, i) => {
+      if (deliverables[i]) setHtml(deliverables[i], text);
+    });
+  }
+
+  // Footer Info
+  if (siteConfig.company) {
+    setText(document.querySelector('[data-footer-company]'), siteConfig.company.legalName);
+    setText(document.querySelector('[data-footer-vat]'), siteConfig.company.vatNumber);
+    const emailEl = document.querySelector('[data-footer-email]');
+    if (emailEl) {
+      setText(emailEl, siteConfig.company.contactEmail);
+      emailEl.setAttribute('href', `mailto:${siteConfig.company.contactEmail}`);
     }
   }
 }
 
+/**
+ * Configure Hero Media (Mockup Screenshot vs Video Player)
+ */
+function wireHeroMedia() {
+  const mockupFrame = document.querySelector('[data-mockup-frame]');
+  const videoPlayer = document.querySelector('[data-video-player]');
+  const mockupImg = document.querySelector('[data-mockup-img]');
+
+  if (siteConfig.heroMedia?.type === 'video' && videoPlayer) {
+    if (mockupFrame) mockupFrame.parentElement.style.display = 'none';
+    videoPlayer.style.display = 'flex';
+
+    const overlay = videoPlayer.querySelector('[data-video-trigger]');
+    const videoEl = videoPlayer.querySelector('[data-video-element]');
+
+    if (overlay && videoEl && siteConfig.heroMedia.video?.src) {
+      overlay.addEventListener('click', () => {
+        overlay.style.display = 'none';
+        videoEl.style.display = 'block';
+        videoEl.src = siteConfig.heroMedia.video.src;
+        videoEl.play().catch(console.warn);
+      });
+    }
+  } else if (mockupFrame && mockupImg) {
+    if (videoPlayer) videoPlayer.style.display = 'none';
+    mockupFrame.parentElement.style.display = 'block';
+
+    const customSrc = siteConfig.heroMedia?.screenshot?.src;
+    if (customSrc) {
+      const testImg = new Image();
+      testImg.onload = () => { mockupImg.src = customSrc; };
+      testImg.onerror = () => { mockupImg.src = './src/assets/plinio-dashboard-preview.svg'; };
+      testImg.src = customSrc;
+    }
+  }
+}
+
+/**
+ * Progressive Scroll Reveals via IntersectionObserver
+ */
 function wireReveals() {
   const revs = [...document.querySelectorAll('[data-rev]')];
   const show = el => {
-    const d = parseFloat(el.dataset.delay || 0) || 0;
-    el.style.transition = `opacity .6s cubic-bezier(.22,.61,.36,1) ${d}s, transform .7s cubic-bezier(.22,.61,.36,1) ${d}s`;
+    const delay = parseFloat(el.dataset.delay || 0) || 0;
+    el.style.transition = `opacity 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) ${delay}s, transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) ${delay}s`;
     el.style.opacity = '1';
-    el.style.transform = 'none';
+    el.style.transform = 'translateY(0)';
   };
-  if (reduce) return revs.forEach(show);
-  const io = new IntersectionObserver(entries => entries.forEach(entry => {
-    if (entry.isIntersecting) { show(entry.target); io.unobserve(entry.target); }
-  }), { threshold: 0, rootMargin: '0px 0px -4% 0px' });
-  revs.forEach(el => io.observe(el));
+
+  if (reduceMotion) {
+    revs.forEach(show);
+    return;
+  }
+
+  // Initialize hidden state
+  revs.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(16px)';
+  });
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          show(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+  );
+
+  revs.forEach(el => observer.observe(el));
 }
 
+/**
+ * Top Progress Bar and Sticky Header Scroll Shadow
+ */
 function wireHeaderAndProgress() {
   const bar = document.querySelector('[data-progress]');
   const head = document.querySelector('[data-head]');
-  const hero = document.querySelector('main > section');
+
   const onScroll = () => {
-    if (!bar) return;
-    const h = document.documentElement.scrollHeight - window.innerHeight;
-    bar.style.width = `${h > 0 ? Math.min(1, window.scrollY / h) * 100 : 0}%`;
+    // Update progress bar
+    if (bar) {
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollHeight > 0 ? Math.min(1, window.scrollY / scrollHeight) * 100 : 0;
+      bar.style.width = `${progress}%`;
+    }
+
+    // Update header glass elevation on scroll
+    if (head) {
+      if (window.scrollY > 20) {
+        head.classList.add('pl-header--scrolled');
+      } else {
+        head.classList.remove('pl-header--scrolled');
+      }
+    }
   };
-  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
-  if (head && hero) {
-    const io = new IntersectionObserver(([entry]) => {
-      head.style.transform = entry.isIntersecting ? 'translateY(-104%)' : 'translateY(0)';
-    }, { threshold: 0 });
-    io.observe(hero);
-  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 }
 
-function wireHoverStyles() {
-  document.querySelectorAll('[style-hover]').forEach(el => {
-    const pairs = el.getAttribute('style-hover').split(';').map(s => s.trim()).filter(Boolean).map(s => {
-      const idx = s.indexOf(':'); return idx > 0 ? [s.slice(0, idx).trim(), s.slice(idx + 1).trim()] : null;
-    }).filter(Boolean);
-    const original = pairs.map(([prop]) => [prop, el.style.getPropertyValue(prop)]);
-    el.addEventListener('mouseenter', () => pairs.forEach(([prop, value]) => el.style.setProperty(prop, value)));
-    el.addEventListener('mouseleave', () => original.forEach(([prop, value]) => value ? el.style.setProperty(prop, value) : el.style.removeProperty(prop)));
-  });
-  document.querySelectorAll('[data-arrow]').forEach(arrow => {
-    const link = arrow.closest('a'); if (!link) return;
-    link.addEventListener('mouseenter', () => { arrow.style.transform = 'translateX(5px)'; });
-    link.addEventListener('mouseleave', () => { arrow.style.transform = 'none'; });
-  });
-}
-
+/**
+ * Interactive Objection Chips (Section 6)
+ */
 function wireConcerns() {
   const wrap = document.querySelector('[data-concerns]');
   const panel = document.querySelector('[data-answers]');
   const empty = document.querySelector('[data-answers-empty]');
   const count = document.querySelector('[data-concern-count]');
   if (!wrap || !panel) return;
-  const answers = Object.fromEntries(Object.entries(copy.objections.items || {}).map(([key, item]) => [key, [item.answerTitle, item.answer]]));
+
+  const answers = Object.fromEntries(
+    Object.entries(copy.objections?.items || {}).map(([key, item]) => [key, [item.answerTitle, item.answer]])
+  );
   const selected = new Set();
+
   const render = () => {
     const keys = [...selected];
     if (empty) empty.style.display = keys.length ? 'none' : 'block';
-    panel.querySelectorAll('[data-answer]').forEach(el => { if (!selected.has(el.dataset.answer)) el.remove(); });
+
+    panel.querySelectorAll('.pl-answer-item').forEach(el => {
+      if (!selected.has(el.dataset.answer)) el.remove();
+    });
+
     keys.forEach((key, i) => {
       if (panel.querySelector(`[data-answer="${key}"]`)) return;
-      const answer = answers[key]; if (!answer) return;
-      const row = document.createElement('div'); row.dataset.answer = key;
-      row.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:8px 30px;padding:18px 0;border-bottom:1px solid rgba(247,239,221,.22);opacity:0;transform:translateY(8px)';
-      const h = document.createElement('div'); h.style.cssText = "font-family:'Cormorant Garamond',serif;font-weight:600;font-size:21px;line-height:1.2;color:#F7EFDD"; h.textContent = answer[0];
-      const p = document.createElement('p'); p.style.cssText = 'font-size:16px;line-height:1.5;color:rgba(247,239,221,.78)'; p.textContent = answer[1];
-      row.append(h, p); panel.append(row);
-      timers.push(setTimeout(() => { row.style.transition = 'opacity .4s ease, transform .5s cubic-bezier(.22,.61,.36,1)'; row.style.opacity = '1'; row.style.transform = 'none'; }, reduce ? 0 : 40 + i * 40));
+      const answer = answers[key];
+      if (!answer) return;
+
+      const row = document.createElement('div');
+      row.className = 'pl-answer-item';
+      row.dataset.answer = key;
+
+      const title = document.createElement('div');
+      title.className = 'pl-answer-item__title';
+      title.textContent = answer[0];
+
+      const text = document.createElement('p');
+      text.className = 'pl-answer-item__text';
+      setHtml(text, answer[1]);
+
+      row.append(title, text);
+      panel.append(row);
     });
-    if (count) count.textContent = keys.length ? `${keys.length} ${keys.length === 1 ? 'punto selezionato, lo portiamo' : 'punti selezionati, li portiamo'} in call` : 'Nessun punto selezionato';
+
+    if (count) {
+      count.textContent = keys.length
+        ? `${keys.length} ${keys.length === 1 ? 'punto selezionato' : 'punti selezionati'} da portare in call`
+        : 'Nessun punto selezionato';
+    }
   };
+
   wrap.querySelectorAll('[data-concern]').forEach(btn => {
     btn.setAttribute('aria-pressed', 'false');
     btn.addEventListener('click', () => {
-      const key = btn.dataset.concern; const on = !selected.has(key);
-      on ? selected.add(key) : selected.delete(key);
-      btn.setAttribute('aria-pressed', String(on));
-      btn.style.background = on ? '#BD5430' : 'transparent'; btn.style.borderColor = on ? '#BD5430' : 'rgba(247,239,221,.35)'; render();
+      const key = btn.dataset.concern;
+      const isActive = !selected.has(key);
+
+      if (isActive) {
+        selected.add(key);
+      } else {
+        selected.delete(key);
+      }
+
+      btn.setAttribute('aria-pressed', String(isActive));
+      render();
     });
   });
 }
 
+/**
+ * Optional Orbit Metaphor Wiring (conditionally enabled via siteConfig.showOrbit)
+ */
 function wireOrbit() {
-  const copyOrbit = copy.hero.orbit || {};
-  const shell = document.querySelector('.pl-ecosystem-card [data-orbit-shell]');
-  const popover = document.querySelector('[data-orbit-popover]');
-  const label = document.querySelector('[data-orbit-popover-label]');
-  const metaphor = document.querySelector('[data-orbit-popover-metaphor]');
-  const text = document.querySelector('[data-orbit-popover-text]');
-  if (!shell || !popover || !label || !metaphor || !text) return;
+  const orbitContainer = document.querySelector('[data-orbit-container]');
+  if (!orbitContainer) return;
+
+  if (!siteConfig.showOrbit) {
+    orbitContainer.style.display = 'none';
+    return;
+  }
+
+  orbitContainer.style.display = 'flex';
+
+  const copyOrbit = copy.hero?.orbit || {};
+  const shell = orbitContainer.querySelector('[data-orbit-shell]');
+  const popover = orbitContainer.querySelector('[data-orbit-popover]');
+  const label = orbitContainer.querySelector('[data-orbit-popover-label]');
+  const metaphor = orbitContainer.querySelector('[data-orbit-popover-metaphor]');
+  const text = orbitContainer.querySelector('[data-orbit-popover-text]');
+
+  if (!shell || !popover) return;
+
   const planets = [...shell.querySelectorAll('[data-planet]')];
   const layers = [...new Set(planets.filter(p => p.dataset.planet !== 'brain').map(p => p.parentElement?.parentElement).filter(Boolean))];
-  layers.forEach(l => { l.style.pointerEvents = 'none'; }); planets.forEach(p => { p.style.pointerEvents = 'auto'; });
-  const pause = state => { layers.forEach(l => l.style.animationPlayState = state); planets.filter(p => p.dataset.planet !== 'brain').forEach(p => p.style.animationPlayState = state); };
-  const place = planet => {
-    const sr = shell.getBoundingClientRect(), r = planet.getBoundingClientRect(), width = Math.min(300, sr.width - 20), gap = 8, edge = 10;
-    popover.style.width = `${width}px`; let left = r.left - sr.left + r.width / 2 - width / 2; left = Math.max(edge, Math.min(left, sr.width - width - edge));
-    const height = popover.offsetHeight || 145; let top = r.bottom - sr.top + gap; if (top + height > sr.height - edge) top = r.top - sr.top - height - gap; top = Math.max(edge, Math.min(top, sr.height - height - edge));
-    popover.style.left = `${left}px`; popover.style.top = `${top}px`;
+
+  const pause = state => {
+    layers.forEach(l => { if (l) l.style.animationPlayState = state; });
   };
-  const hide = () => { popover.dataset.open = 'false'; pause('running'); };
+
   planets.forEach(planet => {
-    planet.addEventListener('mouseenter', () => { const item = copyOrbit[planet.dataset.planet]; if (!item) return; setText(label, item[0]); setText(metaphor, item[1]); setText(text, item[2]); pause('paused'); popover.dataset.open = 'true'; requestAnimationFrame(() => place(planet)); });
-    planet.addEventListener('mouseleave', hide);
+    planet.addEventListener('mouseenter', () => {
+      const item = copyOrbit[planet.dataset.planet];
+      if (!item) return;
+      if (label) setText(label, item[0]);
+      if (metaphor) setText(metaphor, item[1]);
+      if (text) setText(text, item[2]);
+      pause('paused');
+      popover.style.display = 'block';
+    });
+
+    planet.addEventListener('mouseleave', () => {
+      popover.style.display = 'none';
+      pause('running');
+    });
   });
-  window.addEventListener('scroll', hide, { passive: true }); window.addEventListener('resize', hide, { passive: true });
 }
 
+/**
+ * Application Bootstrap
+ */
 async function init() {
   await mountOriginalLayout();
   applyCopy();
+  wireHeroMedia();
   wireReveals();
   wireHeaderAndProgress();
-  wireHoverStyles();
   wireConcerns();
   wireOrbit();
 }
 
-if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => init().catch(console.error), { once: true });
-else init().catch(console.error);
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => init().catch(console.error), { once: true });
+} else {
+  init().catch(console.error);
+}

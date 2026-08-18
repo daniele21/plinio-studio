@@ -1,0 +1,259 @@
+/**
+ * Plinio Design System - Base Styles, Themes & Calibrated Orange Text Highlights
+ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  background-color: var(--bg-dark-primary);
+  color: var(--text-dark-primary);
+}
+
+body {
+  background-color: var(--bg-dark-primary);
+  color: var(--text-dark-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--lh-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   Typography Base
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+h1, h2 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+}
+
+h1 {
+  font-size: clamp(2.1rem, 3.8vw, var(--text-4xl));
+  line-height: var(--lh-tight);
+}
+
+h2 {
+  font-size: clamp(1.75rem, 3vw, var(--text-3xl));
+  line-height: 1.15;
+}
+
+h3 {
+  font-size: var(--text-xl);
+  line-height: var(--lh-snug);
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+button {
+  font: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+img, video, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+:focus-visible {
+  outline: 2px solid var(--orange-primary);
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   Key Text Highlights in Orange Palette
+   - Title: Vibrant punchy orange
+   - Body: Tenue / soft warm terracotta
+   ========================================================================== */
+
+/* 1. Main Titles & Section Headings - Vibrant Punchy Orange */
+h1 strong,
+h1 .pl-highlight--accent,
+.pl-hero__title strong,
+.pl-hero__title .pl-highlight--accent,
+h2 strong,
+h2 .pl-highlight--accent {
+  color: var(--orange-title) !important;
+  font-weight: 700;
+}
+
+/* 2. Standard Bold in Body Text - Crisp & Natural Contrast */
+.pl-section--dark strong,
+.pl-section--dark b {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.pl-section--light strong,
+.pl-section--light b {
+  color: var(--text-light-primary);
+  font-weight: 700;
+}
+
+/* 3. Soft / Tenue Orange Highlights in Body Content */
+.pl-section--dark .pl-highlight,
+.pl-section--dark .pl-text-accent {
+  color: var(--orange-soft-dark) !important;
+  font-weight: 600;
+}
+
+.pl-section--light .pl-highlight,
+.pl-section--light .pl-text-accent {
+  color: var(--orange-soft-light) !important;
+  font-weight: 700;
+}
+
+/* Pill badge highlight */
+.pl-highlight-pill {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: var(--radius-xs);
+  font-weight: 600;
+}
+
+.pl-section--dark .pl-highlight-pill {
+  background-color: var(--orange-subtle-dark);
+  color: var(--orange-soft-dark) !important;
+  border: 1px solid var(--orange-border-dark);
+}
+
+.pl-section--light .pl-highlight-pill {
+  background-color: var(--orange-subtle-light);
+  color: var(--orange-soft-light) !important;
+  border: 1px solid var(--orange-border-light);
+}
+
+/* ==========================================================================
+   Layout Containers & Alternating Section Themes
+   ========================================================================== */
+.pl-container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+.pl-section {
+  padding-top: var(--space-4xl);
+  padding-bottom: var(--space-4xl);
+  position: relative;
+}
+
+/* DARK SECTION (Primary: Hero, Evidence, Process, Objections, Pilot) */
+.pl-section--dark {
+  background-color: var(--bg-dark-primary);
+  color: var(--text-dark-primary);
+  border-bottom: 1px solid var(--border-dark-subtle);
+}
+
+.pl-section--dark h1,
+.pl-section--dark h2,
+.pl-section--dark h3 {
+  color: var(--text-dark-primary);
+}
+
+.pl-section--dark p {
+  color: var(--text-dark-secondary);
+}
+
+/* LIGHT SECTION (Alternating: Personas, Capabilities, Comparison) */
+.pl-section--light {
+  background-color: var(--bg-light-primary);
+  color: var(--text-light-primary);
+  border-bottom: 1px solid var(--border-light-medium);
+}
+
+.pl-section--light h1,
+.pl-section--light h2,
+.pl-section--light h3 {
+  color: var(--text-light-primary);
+}
+
+.pl-section--light p {
+  color: var(--text-light-secondary);
+}
+
+/* ==========================================================================
+   Smooth Micro-Animations & Dynamic Effects
+   ========================================================================== */
+@keyframes plRise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes plFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes plGlowPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(214, 85, 39, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(214, 85, 39, 0.45);
+  }
+}
+
+@keyframes plBadgePulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.92;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  [data-rev] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

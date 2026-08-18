@@ -1,9 +1,15 @@
-<header data-head="1" style="position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(237,226,200,.93);backdrop-filter:blur(10px);border-bottom:1px solid rgba(33,28,23,.20);padding:12px 32px;transform:translateY(-104%);transition:transform .4s cubic-bezier(.22,.61,.36,1)">
-<div style="max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px">
-<a aria-label="Plinio, torna in cima" href="#top" style="display:flex;align-items:center;gap:10px">
-<svg aria-hidden="true" height="26" sc-camel-view-box="0 0 30 30" width="26"><circle cx="15" cy="15" fill="#211C17" r="14"></circle><circle cx="15" cy="15" fill="#BD5430" r="5"></circle></svg>
-<div style="display:flex;flex-direction:column;gap:1px"><span style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:23px;line-height:1;color:#211C17">Plinio</span><span style="font-family:'Cutive Mono',monospace;font-size:8px;line-height:1.1;letter-spacing:.08em;text-transform:uppercase;color:rgba(33,28,23,.62);white-space:nowrap">La memoria viva dell'azienda</span></div>
-</a>
-<a href="#prenota" style="display:inline-block;background:#BD5430;color:#F7EFDD;font-weight:600;font-size:15px;line-height:1;padding:11px 18px;border:1px solid #BD5430;transition:background .2s ease,transform .2s ease" style-hover="background:#A8471F;transform:translateY(-1px)">Prenota una demo</a>
-</div>
+<header class="pl-header" data-head="1">
+  <div class="pl-container pl-header__inner">
+    <a href="#top" class="pl-header__brand" aria-label="Plinio, torna all'inizio">
+      <svg width="24" height="24" viewBox="0 0 30 30" aria-hidden="true">
+        <circle cx="15" cy="15" r="14" fill="#23201D" stroke="rgba(245, 242, 235, 0.2)" stroke-width="1.5"/>
+        <circle cx="15" cy="15" r="5" fill="#C45A3C"/>
+      </svg>
+      <div>
+        <span class="pl-header__logo-text">Plinio</span>
+        <span class="pl-header__tagline">1 progetto → 3+ topic → 1 prima bozza</span>
+      </div>
+    </a>
+    <a href="#prenota" class="pl-btn pl-btn--primary">Richiedi una demo</a>
+  </div>
 </header>
