@@ -6,7 +6,7 @@
 
 import { landingCopy as copy } from './content/landingCopy.js';
 import { siteConfig } from './content/siteConfig.js';
-import './services/firebase.js';
+import { trackEvent } from './services/firebase.js';
 
 const fragmentPaths = [
   './fragments/progress.html',
@@ -132,7 +132,7 @@ function applyCopy() {
       const sourceEl = card.querySelector('.pl-evidence-source');
       if (sourceEl) {
         if (stat.url) {
-          setHtml(sourceEl, `Fonte: <a href="${stat.url}" target="_blank" rel="noopener noreferrer" class="pl-source-link">${stat.source} ↗</a>`);
+          setHtml(sourceEl, `Fonte: <a href="${stat.url}" target="_blank" rel="noopener noreferrer" class="pl-source-link" data-analytics-event="source_link_click" data-analytics-location="evidence">${stat.source} ↗</a>`);
         } else {
           setText(sourceEl, `Fonte: ${stat.source}`);
         }
@@ -252,10 +252,19 @@ function applyCopy() {
       copy.pilot.subtitle
     );
 
-    setText(
-      section?.querySelector('[data-pilot-cta] span:first-child'),
-      copy.pilot.cta
-    );
+    const pilotCta = section?.querySelector('[data-pilot-cta]');
+    if (pilotCta) {
+      const ctaTextEl = pilotCta.querySelector('span:first-child');
+      if (ctaTextEl) {
+        setText(ctaTextEl, copy.pilot.cta);
+      } else {
+        setText(pilotCta, copy.pilot.cta);
+      }
+
+      if (siteConfig.conversion?.pilotUrl) {
+        pilotCta.href = siteConfig.conversion.pilotUrl;
+      }
+    }
 
     setText(
       section?.querySelector('[data-pilot-microcopy]'),
@@ -398,6 +407,13 @@ function wireHeroMedia() {
           badgeTextEl.style.opacity = '1';
         }, 150);
       }
+
+      // Track carousel slide view event
+      trackEvent('hero_carousel_slide_view', {
+        slide_index: currentIndex,
+        slide_id: currentSlideData?.id || `slide_${currentIndex}`,
+        slide_url: currentSlideData?.url || ''
+      });
     };
 
     const nextSlide = () => updateSlide(currentIndex + 1);
@@ -632,7 +648,13 @@ function wireConcerns() {
 
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
-      render(btn.dataset.concern);
+      const key = btn.dataset.concern;
+      render(key);
+      const item = items[key];
+      trackEvent('objection_selected', {
+        concern_id: key,
+        concern_label: item?.label || key
+      });
     });
   });
 
@@ -690,6 +712,49 @@ function wireOrbit() {
 }
 
 /**
+ * Global Semantic Analytics Event Tracking & Funnel Monitoring
+ */
+function wireAnalytics() {
+  // Global click delegate for elements with data-analytics-event
+  document.addEventListener('click', (e) => {
+    const target = e.target.closest('[data-analytics-event]');
+    if (!target) return;
+
+    const eventName = target.dataset.analyticsEvent;
+    const location = target.dataset.analyticsLocation || 'unknown';
+    const text = target.textContent?.trim().slice(0, 100) || '';
+    const href = target.getAttribute('href') || '';
+
+    trackEvent(eventName, {
+      location,
+      text,
+      href
+    });
+  });
+
+  // Track Pilot section impression (Funnel: arrival -> pilot section view -> pilot conversion)
+  const pilotSection = document.querySelector('#prenota');
+  if (pilotSection && 'IntersectionObserver' in window) {
+    let hasTrackedView = false;
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasTrackedView) {
+            hasTrackedView = true;
+            trackEvent('pilot_section_view', {
+              location: 'pilot_section'
+            });
+            sectionObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+    sectionObserver.observe(pilotSection);
+  }
+}
+
+/**
  * Application Bootstrap
  */
 async function init() {
@@ -700,6 +765,7 @@ async function init() {
   wireHeaderAndProgress();
   wireConcerns();
   wireOrbit();
+  wireAnalytics();
 }
 
 if (document.readyState === 'loading') {

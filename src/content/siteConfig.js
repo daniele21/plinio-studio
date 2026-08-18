@@ -53,6 +53,11 @@ export const siteConfig = {
     }
   },
 
+  // Conversion & Booking Endpoints
+  conversion: {
+    pilotUrl: 'mailto:info@plinio.studio?subject=Richiesta%20Pilot%20Plinio%20su%20un%20progetto%20reale',
+  },
+
   // Company and legal info placeholders
   company: {
     legalName: 'Plinio Studio',

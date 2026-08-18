@@ -27,15 +27,51 @@ export const app = initializeApp(firebaseConfig);
  * Initialized Analytics instance (if supported by the client browser/environment)
  */
 export let analytics = null;
+let analyticsPromise = null;
 
+/**
+ * Initialize and get Firebase Analytics instance
+ * @returns {Promise<import('firebase/analytics').Analytics | null>}
+ */
+export async function initAnalytics() {
+  if (analytics) return analytics;
+  if (typeof window === 'undefined') return null;
+
+  if (!analyticsPromise) {
+    analyticsPromise = isSupported()
+      .then(supported => {
+        if (supported) {
+          analytics = getAnalytics(app);
+          return analytics;
+        }
+        return null;
+      })
+      .catch(err => {
+        console.warn('Firebase Analytics not initialized:', err);
+        return null;
+      });
+  }
+  return analyticsPromise;
+}
+
+// Automatically start initialization in browser environments
 if (typeof window !== 'undefined') {
-  isSupported()
-    .then(supported => {
-      if (supported) {
-        analytics = getAnalytics(app);
-      }
-    })
-    .catch(err => {
-      console.warn('Firebase Analytics not initialized:', err);
-    });
+  initAnalytics();
+}
+
+/**
+ * Safely log a custom analytics event to Firebase
+ * @param {string} eventName - Name of the event (e.g. 'pilot_cta_click')
+ * @param {Record<string, any>} [eventParams] - Optional parameters dictionary
+ */
+export async function trackEvent(eventName, eventParams = {}) {
+  try {
+    const inst = await initAnalytics();
+    if (inst) {
+      const { logEvent } = await import('firebase/analytics');
+      logEvent(inst, eventName, eventParams);
+    }
+  } catch (err) {
+    console.warn(`[Analytics] Error logging event "${eventName}":`, err);
+  }
 }

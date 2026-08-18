@@ -10,7 +10,7 @@ export const landingCopy = {
   },
   header: {
     tagline: 'Fai parlare i tuoi progetti',
-    cta: 'Richiedi una demo',
+    cta: 'Provalo su un progetto',
   },
   hero: {
     titleHtml: 'Basta un <strong class="pl-highlight--accent">progetto</strong> per avere<br class="pl-hero__br"> <span class="pl-highlight--accent">3+ contenuti</span> pronti ogni settimana.',
@@ -22,7 +22,7 @@ export const landingCopy = {
     },
     valueBlock: {
       lead: 'Niente foglio bianco. Niente rincorse ai colleghi.',
-      body: '<strong class="pl-highlight--accent">Plinio</strong> parte dai tuoi progetti e prepara contenuti già fondate sui fatti.',
+      body: '<strong class="pl-highlight--accent">Plinio</strong> parte dai tuoi progetti e prepara bozze già fondate sui fatti.',
     },
     primaryCta: 'Provalo su un progetto',
     secondaryCta: 'Vedi come funziona',
