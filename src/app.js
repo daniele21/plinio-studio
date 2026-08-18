@@ -155,8 +155,12 @@ function applyCopy() {
     copy.universe.rows?.forEach((r, i) => {
       const row = rows[i];
       if (!row) return;
-      setHtml(row.querySelector('.pl-cap-action'), r.action);
-      setHtml(row.querySelector('.pl-cap-benefit'), r.outcome);
+      setHtml(row.querySelector('.pl-cap-title'), r.action || r.title);
+      setHtml(row.querySelector('.pl-cap-badge'), r.feature);
+      const outcomeText = row.querySelector('.pl-cap-outcome-text');
+      if (outcomeText) {
+        setHtml(outcomeText, r.outcome);
+      }
     });
   }
 

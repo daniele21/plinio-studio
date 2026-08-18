@@ -579,7 +579,7 @@
 }
 
 /* ==========================================================================
-   Capabilities Row / Table List (Parchment Section)
+   Capabilities Row / Table List (Parchment Section - Editorial Layout)
    ========================================================================== */
 .pl-capabilities-list {
   display: flex;
@@ -593,12 +593,12 @@
 
 .pl-cap-row {
   display: grid;
-  grid-template-columns: 210px 1.2fr 1.2fr;
-  gap: var(--space-md) var(--space-lg);
-  padding: var(--space-lg);
+  grid-template-columns: minmax(260px, 1fr) minmax(280px, 1.2fr);
+  gap: var(--space-lg);
+  padding: var(--space-lg) var(--space-xl);
   border-bottom: 1px solid var(--pl-border-light-subtle);
   align-items: center;
-  transition: background-color var(--transition-fast), transform var(--transition-fast);
+  transition: background-color var(--transition-fast);
 }
 
 .pl-cap-row:last-child {
@@ -609,76 +609,61 @@
   background-color: #FDF9F2;
 }
 
-.pl-cap-head {
+.pl-cap-main {
   display: flex;
-  align-items: center;
-  gap: var(--space-sm);
+  flex-direction: column;
+  gap: 4px;
 }
 
-.pl-cap-icon {
-  width: 14px;
-  height: 14px;
-  border-radius: var(--pl-radius-pill);
-  background-color: var(--pl-terracotta);
-  box-shadow: 0 0 8px rgba(214, 85, 39, 0.45);
-  flex-shrink: 0;
-}
-
-.pl-cap-name {
-  font-family: var(--font-serif);
-  font-size: var(--text-lg);
+.pl-cap-title {
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--pl-text-light-primary);
-  line-height: 1.1;
+  line-height: 1.25;
 }
 
-/* AI Brain root row — visual foundation */
-.pl-cap-row--root {
-  background-color: rgba(214, 85, 39, 0.05);
-  border-bottom: 2px solid var(--orange-border-light);
-  padding-top: var(--space-xl);
-  padding-bottom: var(--space-xl);
-}
-
-.pl-cap-row--root .pl-cap-name {
-  font-size: var(--text-xl);
-}
-
-.pl-cap-row--root .pl-cap-icon {
-  width: 18px;
-  height: 18px;
-  box-shadow: 0 0 12px rgba(214, 85, 39, 0.45);
-}
-
-.pl-cap-subtitle {
+.pl-cap-badge {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   color: var(--pl-text-light-muted);
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  margin-top: 2px;
-}
-
-.pl-cap-action {
-  font-size: var(--text-sm);
-  color: var(--pl-text-light-secondary);
-}
-
-.pl-cap-benefit {
-  font-size: var(--text-sm);
   font-weight: 600;
-  color: var(--pl-text-light-primary);
-  border-left: 3px solid var(--pl-soft-terracotta-light);
-  padding-left: var(--space-sm);
-  background-color: var(--orange-subtle-light);
-  padding-top: var(--space-2xs);
-  padding-bottom: var(--space-2xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-@media (max-width: 820px) {
+.pl-cap-outcome {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-sm);
+}
+
+.pl-cap-arrow {
+  color: var(--pl-terracotta);
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1;
+  flex-shrink: 0;
+  transform: translateY(1px);
+}
+
+.pl-cap-outcome-text {
+  font-family: var(--font-sans);
+  font-size: 1.075rem;
+  font-weight: 700;
+  color: var(--pl-text-light-primary);
+  line-height: 1.35;
+}
+
+@media (max-width: 768px) {
   .pl-cap-row {
     grid-template-columns: 1fr;
     gap: var(--space-xs);
+    padding: var(--space-md) var(--space-lg);
+  }
+
+  .pl-cap-outcome {
+    margin-top: 2px;
   }
 }
 

@@ -87,15 +87,34 @@ export const landingCopy = {
   },
   universe: {
     title: 'Meno lavoro manuale. Più contenuti che contano.',
-    intro: 'Plinio conserva il contesto dei progetti, fa emergere cosa comunicare, ancora le fonti e prepara la prima bozza. Il team mantiene il <strong>pieno controllo su cosa approvare</strong>.',
+    intro: 'Plinio conserva il contesto, trova cosa comunicare e prepara bozze verificabili. <strong>Tu approvi.</strong>',
     tagline: 'Meno ricerca · Meno briefing · Più continuità · Pieno controllo',
     rows: [
-      { action: 'Il contesto non si disperde alla chiusura del progetto.', outcome: '<strong>Niente brief da ricostruire</strong> ogni volta da capo.' },
-      { action: 'Fa emergere cosa vale la pena comunicare dai progetti reali.', outcome: '<strong>Almeno 3 topic motivati</strong> da valutare per progetto.' },
-      { action: 'Mantiene fatti, numeri e competenze collegati alle fonti originali.', outcome: '<strong>Meno ricerche manuali</strong> e verifiche ripetute.' },
-      { action: 'Trasforma il topic approvato in una prima bozza contestualizzata.', outcome: '<strong>Meno lavoro preparatorio</strong> prima di scrivere.' },
-      { action: 'Rende ogni affermazione riconducibile al documento che la supporta.', outcome: '<strong>Più controllo e affidabilità</strong>, zero allucinazioni.' },
-      { action: 'Riutilizza approvazioni e correzioni del vostro team.', outcome: '<strong>Meno revisioni</strong> ripetitive nel tempo.' },
+      {
+        feature: 'AI Brain',
+        action: 'Il contesto resta',
+        outcome: 'Niente brief da ricostruire.',
+      },
+      {
+        feature: 'AI Radar',
+        action: 'Trova cosa comunicare',
+        outcome: '3+ opportunità per progetto.',
+      },
+      {
+        feature: 'Knowledge + Evidence',
+        action: 'Fatti e fonti restano collegati',
+        outcome: 'Meno ricerche. Più controllo.',
+      },
+      {
+        feature: 'Content Studio',
+        action: 'Dal topic alla bozza',
+        outcome: 'Parti già da una prima bozza.',
+      },
+      {
+        feature: 'Feedback Loop',
+        action: 'Impara dalle revisioni',
+        outcome: 'Meno correzioni nel tempo.',
+      },
     ],
     status: 'AI Radar, Content Studio ed Evidence Layer sono attivi. Le altre capability evolvono con i pilot.',
   },
