@@ -185,12 +185,18 @@ function applyCopy() {
 }
 
 /**
- * Configure Hero Media (Mockup Screenshot vs Video Player)
+ * Configure Hero Media (Carousel with Auto-Scroll vs Single Screenshot vs Video Player)
  */
 function wireHeroMedia() {
   const mockupFrame = document.querySelector('[data-mockup-frame]');
   const videoPlayer = document.querySelector('[data-video-player]');
-  const mockupImg = document.querySelector('[data-mockup-img]');
+  const carouselContainer = document.querySelector('[data-carousel-container]');
+  const carouselTrack = document.querySelector('[data-carousel-track]');
+  const dotsContainer = document.querySelector('[data-carousel-dots]');
+  const urlEl = document.querySelector('[data-carousel-url]');
+  const badgeTextEl = document.querySelector('[data-carousel-badge-text]');
+  const prevBtn = document.querySelector('[data-carousel-prev]');
+  const nextBtn = document.querySelector('[data-carousel-next]');
 
   if (siteConfig.heroMedia?.type === 'video' && videoPlayer) {
     if (mockupFrame) mockupFrame.parentElement.style.display = 'none';
@@ -207,17 +213,160 @@ function wireHeroMedia() {
         videoEl.play().catch(console.warn);
       });
     }
-  } else if (mockupFrame && mockupImg) {
-    if (videoPlayer) videoPlayer.style.display = 'none';
-    mockupFrame.parentElement.style.display = 'block';
+    return;
+  }
 
-    const customSrc = siteConfig.heroMedia?.screenshot?.src;
-    if (customSrc) {
-      const testImg = new Image();
-      testImg.onload = () => { mockupImg.src = customSrc; };
-      testImg.onerror = () => { mockupImg.src = './src/assets/plinio-dashboard-preview.svg'; };
-      testImg.src = customSrc;
+  // Handle Carousel Showcase
+  if (carouselTrack) {
+    const slidesData = siteConfig.heroMedia?.carousel?.slides || [
+      {
+        url: 'app.plinio.ai/studio',
+        badgeText: 'Radar opportunità editoriali · Proposte radicate in fonti'
+      },
+      {
+        url: 'app.plinio.ai/knowledge-graph',
+        badgeText: 'Grafo di conoscenza · Connessione tra fonti e progetti'
+      }
+    ];
+
+    const slideElements = carouselTrack.querySelectorAll('.pl-carousel-slide');
+    const totalSlides = slideElements.length;
+    if (totalSlides === 0) return;
+
+    let currentIndex = 0;
+    let autoPlayTimer = null;
+    const intervalMs = siteConfig.heroMedia?.carousel?.interval || 4500;
+    const isAutoPlay = siteConfig.heroMedia?.carousel?.autoPlay !== false && !reduceMotion;
+
+    // Render dot indicators if missing or sync them
+    const dots = dotsContainer ? [...dotsContainer.querySelectorAll('.pl-carousel-dot')] : [];
+
+    const updateSlide = (index) => {
+      currentIndex = (index + totalSlides) % totalSlides;
+      
+      // Move track
+      carouselTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+      // Update dots
+      dots.forEach((dot, idx) => {
+        if (idx === currentIndex) {
+          dot.classList.add('pl-carousel-dot--active');
+          dot.setAttribute('aria-current', 'true');
+        } else {
+          dot.classList.remove('pl-carousel-dot--active');
+          dot.removeAttribute('aria-current');
+        }
+      });
+
+      // Update URL in browser mockup bar
+      const currentSlideData = slidesData[currentIndex];
+      if (urlEl && currentSlideData?.url) {
+        urlEl.textContent = currentSlideData.url;
+      }
+
+      // Update floating badge text
+      if (badgeTextEl && currentSlideData?.badgeText) {
+        badgeTextEl.style.opacity = '0';
+        setTimeout(() => {
+          badgeTextEl.textContent = currentSlideData.badgeText;
+          badgeTextEl.style.opacity = '1';
+        }, 150);
+      }
+    };
+
+    const nextSlide = () => updateSlide(currentIndex + 1);
+    const prevSlide = () => updateSlide(currentIndex - 1);
+
+    // Auto-play management
+    const startAutoPlay = () => {
+      if (!isAutoPlay || autoPlayTimer) return;
+      autoPlayTimer = setInterval(nextSlide, intervalMs);
+    };
+
+    const stopAutoPlay = () => {
+      if (autoPlayTimer) {
+        clearInterval(autoPlayTimer);
+        autoPlayTimer = null;
+      }
+    };
+
+    // Event Listeners for controls
+    if (nextBtn) {
+      nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        nextSlide();
+        stopAutoPlay();
+        startAutoPlay();
+      });
     }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        prevSlide();
+        stopAutoPlay();
+        startAutoPlay();
+      });
+    }
+
+    // Dot indicators clicks
+    dots.forEach((dot, idx) => {
+      dot.addEventListener('click', (e) => {
+        e.stopPropagation();
+        updateSlide(idx);
+        stopAutoPlay();
+        startAutoPlay();
+      });
+    });
+
+    // Pause on hover / focus
+    if (mockupFrame) {
+      mockupFrame.addEventListener('mouseenter', stopAutoPlay);
+      mockupFrame.addEventListener('mouseleave', startAutoPlay);
+      mockupFrame.addEventListener('focusin', stopAutoPlay);
+      mockupFrame.addEventListener('focusout', startAutoPlay);
+
+      // Keyboard navigation (Left/Right arrows)
+      mockupFrame.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') {
+          nextSlide();
+          stopAutoPlay();
+          startAutoPlay();
+        } else if (e.key === 'ArrowLeft') {
+          prevSlide();
+          stopAutoPlay();
+          startAutoPlay();
+        }
+      });
+    }
+
+    // Touch swipe gesture support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    if (carouselContainer) {
+      carouselContainer.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        stopAutoPlay();
+      }, { passive: true });
+
+      carouselContainer.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diffX = touchStartX - touchEndX;
+        if (Math.abs(diffX) > 40) {
+          if (diffX > 0) {
+            nextSlide();
+          } else {
+            prevSlide();
+          }
+        }
+        startAutoPlay();
+      }, { passive: true });
+    }
+
+    // Initial state and start timer
+    updateSlide(0);
+    startAutoPlay();
   }
 }
 

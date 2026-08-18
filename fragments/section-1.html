@@ -30,32 +30,59 @@
 
       <!-- Right Column: Product UI Mockup or Video Demo -->
       <div class="pl-hero__media" data-hero-media-container="1">
-        <!-- Mockup Browser Frame with Floating Animated Badge -->
+        <!-- Mockup Browser Frame with Automatic Interactive Carousel -->
         <div class="pl-mockup-wrapper">
-          <div class="pl-mockup-frame" data-mockup-frame="1">
+          <div class="pl-mockup-frame" data-mockup-frame="1" tabindex="0" aria-label="Carosello anteprima interfaccia Plinio">
             <div class="pl-mockup-bar">
               <div class="pl-mockup-dots" aria-hidden="true">
                 <span class="pl-mockup-dot"></span>
                 <span class="pl-mockup-dot"></span>
                 <span class="pl-mockup-dot"></span>
               </div>
-              <div class="pl-mockup-url">app.plinio.ai/pipeline</div>
-              <div style="width: 48px"></div>
+              <div class="pl-mockup-url" data-carousel-url="1">app.plinio.ai/studio</div>
+              <div class="pl-carousel-dots" data-carousel-dots="1" aria-label="Paginazione carosello">
+                <button type="button" class="pl-carousel-dot pl-carousel-dot--active" data-dot-index="0" aria-label="Vai a slide 1: Radar Opportunità"></button>
+                <button type="button" class="pl-carousel-dot" data-dot-index="1" aria-label="Vai a slide 2: Grafo di Conoscenza"></button>
+              </div>
             </div>
-            <div class="pl-mockup-body">
-              <img 
-                src="./src/assets/plinio-dashboard-preview.svg" 
-                alt="Interfaccia di Plinio: workflow dal progetto alle bozze citate" 
-                class="pl-mockup-image"
-                data-mockup-img="1"
-              />
+            
+            <div class="pl-mockup-body pl-carousel-body" data-carousel-container="1" aria-roledescription="carousel">
+              <div class="pl-carousel-track" data-carousel-track="1">
+                <!-- Slide 1: Radar Opportunità Editoriali -->
+                <div class="pl-carousel-slide" data-slide-index="0" aria-roledescription="slide" aria-label="1 di 2: Radar Opportunità Editoriali">
+                  <img 
+                    src="./src/assets/plinio-slide-radar.png" 
+                    alt="Interfaccia Plinio: radar opportunità editoriali e gestione bozze" 
+                    class="pl-mockup-image"
+                    loading="eager"
+                  />
+                </div>
+
+                <!-- Slide 2: Grafo di Conoscenza -->
+                <div class="pl-carousel-slide" data-slide-index="1" aria-roledescription="slide" aria-label="2 di 2: Grafo di Conoscenza Aziendale">
+                  <img 
+                    src="./src/assets/plinio-slide-knowledge-graph.png" 
+                    alt="Interfaccia Plinio: grafo di conoscenza aziendale con connessioni tra fonti e progetti" 
+                    class="pl-mockup-image"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+
+              <!-- Floating Nav Arrows (Visible on frame hover) -->
+              <button type="button" class="pl-carousel-btn pl-carousel-btn--prev" data-carousel-prev="1" aria-label="Slide precedente">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              </button>
+              <button type="button" class="pl-carousel-btn pl-carousel-btn--next" data-carousel-next="1" aria-label="Slide successiva">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
             </div>
           </div>
           
-          <!-- Floating dynamic indicator badge -->
-          <div class="pl-mockup-badge" aria-hidden="true">
+          <!-- Floating dynamic indicator badge synchronized with current active slide -->
+          <div class="pl-mockup-badge" data-carousel-badge="1" aria-live="polite">
             <span class="pl-mockup-badge-dot"></span>
-            <span>3 opportunità estratte · Fonti verificate</span>
+            <span data-carousel-badge-text="1">Radar opportunità editoriali · Proposte radicate in fonti</span>
           </div>
         </div>
 

@@ -115,7 +115,7 @@ export const landingCopy = {
     note: 'Sintesi dell’analisi comparativa. Plinio integra la tracciabilità delle fonti e la generazione contestualizzata fin dal primo giorno di pilot.',
   },
   objections: {
-    title: 'Cosa vi preoccupa davvero?',
+    title: 'Cosa ti preoccupa davvero?',
     intro: 'Partiamo dalle domande concrete: tempo dei team, riservatezza, qualità dell’output, controllo e ritorno misurabile.',
     cta: 'Portate questi punti in call',
     items: {
@@ -152,7 +152,7 @@ export const landingCopy = {
     },
   },
   pilot: {
-    titleHtml: 'Portate un <strong>progetto chiuso</strong>.<br/>Ricevete <strong>3 opportunità</strong> e una <strong>prima bozza</strong>.',
+    titleHtml: 'Partiamo da un <strong>progetto</strong>.<br/>Ricevete <strong>3 opportunità</strong> pronte da <strong>comunicare</strong>.',
     subtitle: 'Trenta minuti su una vostra fonte reale. Vi mostriamo cosa può diventare comunicazione e <strong>quanto tempo risparmiate</strong> rispetto al metodo attuale.',
     cta: 'Prenota la demo su un progetto reale',
     microcopy: 'Nessun setup · Nessuna migrazione IT',

@@ -1,92 +1,81 @@
 /**
- * Plinio Design System - Tokens
- * Defines color palettes (alternating dark/light sections), typography scales, highlights, animations.
+ * Plinio Design System - Tokens (Brand Guidelines v1.0)
+ * Source of truth per identità visiva, colori, tipografia, raggi e spaziature.
+ * Mantra: Warm. Credible. Evidence-led.
  */
 
 :root {
   /* ==========================================================================
-     Orange Accent Palette
-     - Title: Vibrant punchy orange
-     - Body / Highlights: Soft, refined, elegant terracotta orange
+     Plinio Official Core Color Palette
      ========================================================================== */
-  --orange-title: #FF7547;            /* Vibrant orange for H1 title only */
-  --orange-title-hover: #FF8A61;
+  --pl-warm-obsidian: #12100E;         /* Background principale dark (Hero, Evidence, Process, Objections, Pilot, Footer) */
+  --pl-deep-surface: #1A1715;          /* Superfici elevate e card dark */
+  --pl-parchment: #F7EFDD;             /* Background principale light (Personas, Capabilities, Comparison) */
+  --pl-terracotta: #D65527;            /* CTA principale, brand accent, azione (max 1 dominante per viewport) */
+  --pl-bright-accent: #FF7547;         /* Highlight ad alta priorità (parola chiave in H1, KPI decisivo) */
+  --pl-soft-terracotta: #DE9379;       /* Highlight testuali su dark, bordi soft */
+  --pl-soft-terracotta-light: #B85936; /* Highlight testuali su light (WCAG AA) */
+  --pl-verification-sage: #679A92;     /* Colore semantico: fonte verificata, evidence matched, validazione */
+  --pl-muted-sand: #9C8A78;            /* Metadata, numeri step, accenti neutri */
 
-  --orange-primary: #D65527;          /* Core button & brand orange */
-  --orange-hover: #E36436;
-  --orange-active: #B84318;
+  /* Neutral Surface Variations */
+  --pl-dark-elevated: #24201C;
+  --pl-dark-subtle: #2D2824;
+  --pl-light-surface: #FFFFFF;
+  --pl-light-elevated: #EFE6D2;
+  --pl-light-subtle: #E5DAC1;
 
-  /* Soft / Tenue Orange for body text highlights, borders, and accents */
-  --orange-soft-dark: #DE9379;        /* Soft warm terracotta on dark bg */
-  --orange-soft-light: #B85936;       /* Refined terracotta on light bg */
-  
-  --orange-subtle-dark: rgba(222, 147, 121, 0.14);
-  --orange-subtle-light: rgba(184, 89, 54, 0.10);
-  --orange-border-dark: rgba(222, 147, 121, 0.35);
-  --orange-border-light: rgba(184, 89, 54, 0.30);
+  /* Typography Colors */
+  --pl-text-dark-primary: #F5F2EB;     /* Ivory chiaro ad alto contrasto su dark */
+  --pl-text-dark-secondary: rgba(245, 242, 235, 0.74);
+  --pl-text-dark-muted: rgba(245, 242, 235, 0.56);
+  --pl-text-light-primary: #1E1A16;    /* Charcoal black su parchment */
+  --pl-text-light-secondary: rgba(30, 26, 22, 0.80);
+  --pl-text-light-muted: rgba(30, 26, 22, 0.62);
 
-  --accent: var(--orange-primary);
-  --accent-hover: var(--orange-hover);
-  --accent-active: var(--orange-active);
-  --accent-border: var(--orange-border-dark);
-  --accent-glow: 0 0 24px rgba(214, 85, 39, 0.35);
+  /* Border Tokens */
+  --pl-border-dark-subtle: rgba(245, 242, 235, 0.10);
+  --pl-border-dark-medium: rgba(245, 242, 235, 0.18);
+  --pl-border-dark-strong: rgba(245, 242, 235, 0.30);
+  --pl-border-light-subtle: rgba(30, 26, 22, 0.10);
+  --pl-border-light-medium: rgba(30, 26, 22, 0.18);
+  --pl-border-light-strong: rgba(30, 26, 22, 0.30);
 
-  --orange-glow: #F88463;              /* Warm bright orange for glow markers & hover */
-  --orange-deep: #C45A3C;              /* Rich terracotta for borders & labels on light bg */
+  /* Semantic Status Colors */
+  --pl-status-success: var(--pl-verification-sage);
+  --pl-status-warning: #C78A2E;
+  --pl-status-error: #D64234;
 
   /* ==========================================================================
-     Dark Theme Tokens (Primary Sections: Hero, Evidence, Process, Objections, Pilot)
+     Corner Radius Tokens (Brand Spec: 4px, 8px, 12px)
      ========================================================================== */
-  --bg-dark-primary: #12100E;         /* Deep obsidian */
-  --bg-dark-surface: #1A1715;         /* Elevated dark cards */
-  --bg-dark-elevated: #24201C;        /* Interactive dark elements */
-  --bg-dark-subtle: #2D2824;
-  --text-dark-primary: #F5F2EB;       /* Warm off-white */
-  --text-dark-secondary: rgba(245, 242, 235, 0.74);
-  --text-dark-muted: rgba(245, 242, 235, 0.54);   /* Bumped for WCAG AA (≥4.5:1) */
-  --border-dark-subtle: rgba(245, 242, 235, 0.09);
-  --border-dark-medium: rgba(245, 242, 235, 0.16);
-  --border-dark-strong: rgba(245, 242, 235, 0.28);
+  --pl-radius-subtle: 4px;             /* Pill, chip piccoli, input badge */
+  --pl-radius-standard: 8px;           /* Standard UI: bottoni, card normali */
+  --pl-radius-generous: 12px;          /* Card ampie, mockup container */
+  --pl-radius-pill: 9999px;            /* Full rounded pill & chip */
 
   /* ==========================================================================
-     Light Theme Tokens (Alternating Sections: Personas, Capabilities, Comparison)
+     Typography Families & Scales
      ========================================================================== */
-  --bg-light-primary: #F7EFDD;        /* Warm parchment / elegant off-white */
-  --bg-light-surface: #FFFFFF;        /* Clean card surface */
-  --bg-light-elevated: #EFE6D2;       /* Subtle hover on light */
-  --bg-light-subtle: #E5DAC1;
-  --text-light-primary: #1E1A16;      /* Charcoal black for crisp readability */
-  --text-light-secondary: rgba(30, 26, 22, 0.78);
-  --text-light-muted: rgba(30, 26, 22, 0.62);   /* Bumped for WCAG AA (≥4.5:1) */
-  --border-light-subtle: rgba(30, 26, 22, 0.09);
-  --border-light-medium: rgba(30, 26, 22, 0.16);
-  --border-light-strong: rgba(30, 26, 22, 0.28);
-
-  /* Semantic status colors */
-  --color-success: #3D7D42;
-  --color-warning: #B88528;
-
-  /* ==========================================================================
-     Typography Scales
-     ========================================================================== */
-  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'Cutive Mono', 'SF Mono', Menlo, Monaco, Consolas, monospace;
 
-  --text-xs: 0.75rem;     /* 12px */
-  --text-sm: 0.875rem;    /* 14px */
-  --text-base: 1rem;      /* 16px */
-  --text-md: 1.125rem;    /* 18px */
-  --text-lg: 1.25rem;     /* 20px */
-  --text-xl: 1.5rem;      /* 24px */
+  /* Type Scale */
+  --text-xs: 0.75rem;     /* 12px - metadata / microcopy */
+  --text-sm: 0.875rem;    /* 14px - small body / secondary */
+  --text-base: 1rem;      /* 16px - standard body */
+  --text-md: 1.125rem;    /* 18px - lead body */
+  --text-lg: 1.25rem;     /* 20px - small title / h4 */
+  --text-xl: 1.5rem;      /* 24px - card h3 */
   --text-2xl: 1.875rem;   /* 30px */
-  --text-3xl: 2.25rem;    /* 36px */
-  --text-4xl: 2.75rem;    /* 44px */
-  --text-5xl: 3.5rem;     /* 56px — hero H1 */
+  --text-3xl: 2.25rem;    /* 36px - section h2 */
+  --text-4xl: 2.75rem;    /* 44px - large h2 */
+  --text-5xl: 3.5rem;     /* 56px - hero h1 */
 
-  --lh-tight: 1.1;
-  --lh-snug: 1.28;
-  --lh-base: 1.6;
+  --lh-tight: 1.08;       /* Titoli grandi Cormorant */
+  --lh-snug: 1.25;
+  --lh-base: 1.6;         /* Body Inter */
 
   /* ==========================================================================
      Spacing & Layout
@@ -105,25 +94,72 @@
   --container-padding: clamp(20px, 4vw, 36px);
 
   /* ==========================================================================
-     Border Radii & Shadows
+     Shadows (Curated & Warm)
      ========================================================================== */
-  --radius-xs: 4px;
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
-  --radius-full: 9999px;
+  --shadow-dark-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+  --shadow-dark-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --shadow-dark-lg: 0 16px 48px rgba(0, 0, 0, 0.60);
 
-  --shadow-dark-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --shadow-dark-md: 0 8px 24px rgba(0, 0, 0, 0.4);
-  --shadow-dark-lg: 0 16px 48px rgba(0, 0, 0, 0.55);
-
-  --shadow-light-sm: 0 2px 8px rgba(30, 26, 22, 0.06);
-  --shadow-light-md: 0 8px 24px rgba(30, 26, 22, 0.09);
-  --shadow-light-lg: 0 16px 40px rgba(30, 26, 22, 0.12);
+  --shadow-light-sm: 0 2px 8px rgba(30, 26, 22, 0.05);
+  --shadow-light-md: 0 8px 24px rgba(30, 26, 22, 0.08);
+  --shadow-light-lg: 0 16px 40px rgba(30, 26, 22, 0.11);
 
   /* Transitions */
   --transition-fast: 0.18s ease;
   --transition-normal: 0.28s cubic-bezier(0.22, 0.61, 0.36, 1);
   --transition-slow: 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  /* ==========================================================================
+     Backward-Compatible Semantic Aliases
+     ========================================================================== */
+  --orange-title: var(--pl-bright-accent);
+  --orange-title-hover: #FF8A61;
+  --orange-primary: var(--pl-terracotta);
+  --orange-hover: #E46234;
+  --orange-active: #B84318;
+  --orange-soft-dark: var(--pl-soft-terracotta);
+  --orange-soft-light: var(--pl-soft-terracotta-light);
+  --orange-subtle-dark: rgba(222, 147, 121, 0.14);
+  --orange-subtle-light: rgba(184, 89, 54, 0.10);
+  --orange-border-dark: rgba(222, 147, 121, 0.35);
+  --orange-border-light: rgba(184, 89, 54, 0.30);
+  --orange-glow: #FF845A;
+  --orange-deep: #C45A3C;
+
+  --accent: var(--pl-terracotta);
+  --accent-hover: var(--orange-hover);
+  --accent-active: var(--orange-active);
+  --accent-border: var(--orange-border-dark);
+
+  --bg-dark-primary: var(--pl-warm-obsidian);
+  --bg-dark-surface: var(--pl-deep-surface);
+  --bg-dark-elevated: var(--pl-dark-elevated);
+  --bg-dark-subtle: var(--pl-dark-subtle);
+  --text-dark-primary: var(--pl-text-dark-primary);
+  --text-dark-secondary: var(--pl-text-dark-secondary);
+  --text-dark-muted: var(--pl-text-dark-muted);
+  --border-dark-subtle: var(--pl-border-dark-subtle);
+  --border-dark-medium: var(--pl-border-dark-medium);
+  --border-dark-strong: var(--pl-border-dark-strong);
+
+  --bg-light-primary: var(--pl-parchment);
+  --bg-light-surface: var(--pl-light-surface);
+  --bg-light-elevated: var(--pl-light-elevated);
+  --bg-light-subtle: var(--pl-light-subtle);
+  --text-light-primary: var(--pl-text-light-primary);
+  --text-light-secondary: var(--pl-text-light-secondary);
+  --text-light-muted: var(--pl-text-light-muted);
+  --border-light-subtle: var(--pl-border-light-subtle);
+  --border-light-medium: var(--pl-border-light-medium);
+  --border-light-strong: var(--pl-border-light-strong);
+
+  --color-success: var(--pl-verification-sage);
+  --color-warning: var(--pl-status-warning);
+
+  --radius-xs: var(--pl-radius-subtle);
+  --radius-sm: 6px;
+  --radius-md: var(--pl-radius-standard);
+  --radius-lg: var(--pl-radius-generous);
+  --radius-xl: 20px;
+  --radius-full: var(--pl-radius-pill);
 }

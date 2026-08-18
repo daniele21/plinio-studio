@@ -11,14 +11,36 @@ export const siteConfig = {
   
   // Hero Media Configuration
   heroMedia: {
-    type: 'screenshot', // 'screenshot' | 'video'
+    type: 'carousel', // 'carousel' | 'screenshot' | 'video'
     
-    // Screenshot settings (Mockup UI)
+    // Carousel settings (Automatic sliding showcase)
+    carousel: {
+      autoPlay: true,
+      interval: 4500, // ms per slide
+      pauseOnHover: true,
+      slides: [
+        {
+          id: 'radar',
+          src: './src/assets/plinio-slide-radar.png',
+          alt: 'Plinio Studio — Radar opportunità editoriali',
+          url: 'app.plinio.ai/studio',
+          badgeText: 'Radar opportunità editoriali · Proposte radicate in fonti',
+        },
+        {
+          id: 'knowledge-graph',
+          src: './src/assets/plinio-slide-knowledge-graph.png',
+          alt: 'Plinio Studio — Grafo di conoscenza aziendale',
+          url: 'app.plinio.ai/knowledge-graph',
+          badgeText: 'Grafo di conoscenza · Connessione tra fonti, progetti e deliverable',
+        },
+      ]
+    },
+
+    // Screenshot fallback settings (Mockup UI)
     screenshot: {
-      src: './src/assets/plinio-dashboard-preview.png',
-      alt: 'Interfaccia Plinio: estrazione di topic da un progetto e creazione bozze con fonti citate',
-      caption: 'Plinio Dashboard · Project to draft pipeline',
-      // Fallback SVG graphic generated dynamically if file doesn't exist
+      src: './src/assets/plinio-slide-radar.png',
+      alt: 'Interfaccia Plinio: radar opportunità editoriali e creazione contenuti da fonti validate',
+      caption: 'Plinio Dashboard · Radar opportunità editoriali e gestione contenuti',
       useFallbackSvg: true
     },
 

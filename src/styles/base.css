@@ -1,5 +1,7 @@
 /**
- * Plinio Design System - Base Styles, Themes & Calibrated Orange Text Highlights
+ * Plinio Design System - Base Styles, Themes & Calibrated Brand Accents
+ * Source of truth: Plinio Brand Guidelines v1.0
+ * Mantra: Warm. Credible. Evidence-led.
  */
 
 *, *::before, *::after {
@@ -11,13 +13,13 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
-  background-color: var(--bg-dark-primary);
-  color: var(--text-dark-primary);
+  background-color: var(--pl-warm-obsidian);
+  color: var(--pl-text-dark-primary);
 }
 
 body {
-  background-color: var(--bg-dark-primary);
-  color: var(--text-dark-primary);
+  background-color: var(--pl-warm-obsidian);
+  color: var(--pl-text-dark-primary);
   font-family: var(--font-sans);
   font-size: var(--text-base);
   line-height: var(--lh-base);
@@ -28,11 +30,12 @@ body {
 }
 
 /* ==========================================================================
-   Typography Base
+   Typography Base & Hierarchies
    ========================================================================== */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   letter-spacing: -0.015em;
+  text-wrap: balance;
 }
 
 h1, h2 {
@@ -43,14 +46,17 @@ h1, h2 {
 h1 {
   font-size: clamp(2.4rem, 4.5vw, var(--text-5xl));
   line-height: var(--lh-tight);
+  letter-spacing: -0.02em;
 }
 
 h2 {
-  font-size: clamp(1.75rem, 3vw, var(--text-3xl));
+  font-size: clamp(1.85rem, 3.2vw, var(--text-3xl));
   line-height: 1.15;
+  letter-spacing: -0.015em;
 }
 
 h3 {
+  font-family: var(--font-serif);
   font-size: var(--text-xl);
   line-height: var(--lh-snug);
 }
@@ -80,24 +86,25 @@ img, video, svg {
 }
 
 :focus-visible {
-  outline: 2px solid var(--orange-primary);
+  outline: 2px solid var(--pl-terracotta);
   outline-offset: 3px;
 }
 
 /* ==========================================================================
-   Key Text Highlights in Orange Palette
-   - Title: Vibrant punchy orange
-   - Body: Tenue / soft warm terracotta
+   Key Text Highlights in Plinio Palette
+   - Title: Bright Accent (#FF7547)
+   - Body: Soft Terracotta (#DE9379 on dark, #B85936 on light)
+   - Verified / Evidence: Verification Sage (#679A92)
    ========================================================================== */
 
-/* 1. Main Titles & Section Headings - Vibrant Punchy Orange */
+/* 1. Main Titles & Section Headings - Bright Accent */
 h1 strong,
 h1 .pl-highlight--accent,
 .pl-hero__title strong,
 .pl-hero__title .pl-highlight--accent,
 h2 strong,
 h2 .pl-highlight--accent {
-  color: var(--orange-title) !important;
+  color: var(--pl-bright-accent) !important;
   font-weight: 700;
 }
 
@@ -110,41 +117,67 @@ h2 .pl-highlight--accent {
 
 .pl-section--light strong,
 .pl-section--light b {
-  color: var(--text-light-primary);
+  color: var(--pl-text-light-primary);
   font-weight: 700;
 }
 
-/* 3. Soft / Tenue Orange Highlights in Body Content */
+/* 3. Soft Terracotta Highlights in Body Content */
 .pl-section--dark .pl-highlight,
 .pl-section--dark .pl-text-accent {
-  color: var(--orange-soft-dark) !important;
+  color: var(--pl-soft-terracotta) !important;
   font-weight: 600;
 }
 
 .pl-section--light .pl-highlight,
 .pl-section--light .pl-text-accent {
-  color: var(--orange-soft-light) !important;
+  color: var(--pl-soft-terracotta-light) !important;
   font-weight: 700;
+}
+
+/* 4. Verification Sage Highlights */
+.pl-text-sage,
+.pl-highlight-sage {
+  color: var(--pl-verification-sage) !important;
+  font-weight: 600;
 }
 
 /* Pill badge highlight */
 .pl-highlight-pill {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   padding: 2px 8px;
-  border-radius: var(--radius-xs);
+  border-radius: var(--pl-radius-subtle);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
   font-weight: 600;
 }
 
 .pl-section--dark .pl-highlight-pill {
-  background-color: var(--orange-subtle-dark);
-  color: var(--orange-soft-dark) !important;
-  border: 1px solid var(--orange-border-dark);
+  background-color: rgba(222, 147, 121, 0.14);
+  color: var(--pl-soft-terracotta) !important;
+  border: 1px solid rgba(222, 147, 121, 0.35);
 }
 
 .pl-section--light .pl-highlight-pill {
-  background-color: var(--orange-subtle-light);
-  color: var(--orange-soft-light) !important;
-  border: 1px solid var(--orange-border-light);
+  background-color: rgba(184, 89, 54, 0.10);
+  color: var(--pl-soft-terracotta-light) !important;
+  border: 1px solid rgba(184, 89, 54, 0.30);
+}
+
+/* Verification Pill (Evidence pattern) */
+.pl-pill-verified {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: var(--pl-radius-subtle);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  background-color: rgba(103, 154, 146, 0.15);
+  color: var(--pl-verification-sage) !important;
+  border: 1px solid rgba(103, 154, 146, 0.35);
 }
 
 /* ==========================================================================
@@ -165,38 +198,38 @@ h2 .pl-highlight--accent {
   position: relative;
 }
 
-/* DARK SECTION (Primary: Hero, Evidence, Process, Objections, Pilot) */
+/* DARK SECTION (Warm Obsidian: Hero, Evidence, Process, Objections, Pilot) */
 .pl-section--dark {
-  background-color: var(--bg-dark-primary);
-  color: var(--text-dark-primary);
-  border-bottom: 1px solid var(--border-dark-subtle);
+  background-color: var(--pl-warm-obsidian);
+  color: var(--pl-text-dark-primary);
+  border-bottom: 1px solid var(--pl-border-dark-subtle);
 }
 
 .pl-section--dark h1,
 .pl-section--dark h2,
 .pl-section--dark h3 {
-  color: var(--text-dark-primary);
+  color: var(--pl-text-dark-primary);
 }
 
 .pl-section--dark p {
-  color: var(--text-dark-secondary);
+  color: var(--pl-text-dark-secondary);
 }
 
-/* LIGHT SECTION (Alternating: Personas, Capabilities, Comparison) */
+/* LIGHT SECTION (Parchment: Personas, Capabilities, Comparison) */
 .pl-section--light {
-  background-color: var(--bg-light-primary);
-  color: var(--text-light-primary);
-  border-bottom: 1px solid var(--border-light-medium);
+  background-color: var(--pl-parchment);
+  color: var(--pl-text-light-primary);
+  border-bottom: 1px solid var(--pl-border-light-medium);
 }
 
 .pl-section--light h1,
 .pl-section--light h2,
 .pl-section--light h3 {
-  color: var(--text-light-primary);
+  color: var(--pl-text-light-primary);
 }
 
 .pl-section--light p {
-  color: var(--text-light-secondary);
+  color: var(--pl-text-light-secondary);
 }
 
 /* ==========================================================================
@@ -205,29 +238,11 @@ h2 .pl-highlight--accent {
 @keyframes plRise {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes plFloat {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
-}
-
-@keyframes plGlowPulse {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(214, 85, 39, 0.25);
-  }
-  50% {
-    box-shadow: 0 0 35px rgba(214, 85, 39, 0.45);
   }
 }
 
@@ -237,8 +252,8 @@ h2 .pl-highlight--accent {
     opacity: 1;
   }
   50% {
-    transform: scale(1.05);
-    opacity: 0.92;
+    transform: scale(1.04);
+    opacity: 0.94;
   }
 }
 
