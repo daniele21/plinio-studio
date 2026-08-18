@@ -129,16 +129,21 @@ export const landingCopy = {
   },
   comparison: {
     title: 'Quanto lavoro resta a voi?',
-    intro: 'Il punto è semplice: quanto lavoro manuale deve fare il team prima di avere <strong>qualcosa di utile e verificato da approvare</strong>?',
+    intro: 'Quanto dovete ancora fare voi prima di avere una <strong>bozza pronta da approvare</strong>?',
+
     featureRows: [
-      ['So cosa comunicare dai progetti', 'Non parto ogni volta dal calendario editoriale vuoto.'],
-      ['Non devo rincorrere i team per il contesto', 'Il progetto non va ricostruito ogni volta da file sparsi.'],
-      ['Il contenuto parte già dal contesto aziendale', 'Progetti, risultati e competenze sono già nel punto di partenza.'],
-      ['So da dove arriva ogni affermazione', 'Fatti e numeri restano riconducibili alle fonti originali.'],
-      ['Arrivo direttamente a una prima bozza da revisionare', 'Dal progetto al topic approvato a una bozza concreta.'],
+      'Capire cosa comunicare',
+      'Ricostruire il brief',
+      'Recuperare il contesto dai team',
+      'Riutilizzare conoscenza già validata',
+      'Risalire alle fonti',
+      'Preparare la prima bozza',
     ],
-    legend: '✓ già risolto · ◐ possibile con lavoro manuale · × resta al team',
-    note: 'Sintesi dell’analisi comparativa. Plinio integra la tracciabilità delle fonti e la generazione contestualizzata fin dal primo giorno di pilot.',
+
+    takeaway:
+      '<strong>Plinio porta il lavoro fino alla bozza.</strong> Al team resta la decisione.',
+
+    legend: '✓ risolto · ◐ richiede lavoro manuale · × resta al team',
   },
   objections: {
     title: 'Cosa ti preoccupa davvero?',

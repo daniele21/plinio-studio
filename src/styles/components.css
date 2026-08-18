@@ -932,6 +932,12 @@
   font-weight: 400;
 }
 
+.pl-compare-table tbody th,
+.pl-compare-table tbody td {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
 .pl-compare-table tbody th {
   font-size: var(--text-base);
   font-weight: 600;
@@ -939,18 +945,18 @@
   background-color: #FFFFFF;
 }
 
-.pl-compare-table tbody th small {
-  display: block;
-  font-size: var(--text-xs);
-  color: var(--pl-text-light-muted);
-  margin-top: 4px;
-  font-weight: 400;
-}
-
 .pl-compare-table tbody td {
   text-align: center;
   vertical-align: middle;
   background-color: #FFFFFF;
+}
+
+.pl-compare-table thead th:not(.pl-col-highlight) {
+  color: var(--pl-text-light-muted);
+}
+
+.pl-compare-table tbody td:not(.pl-col-highlight) {
+  color: var(--pl-text-light-muted);
 }
 
 /* Plinio Column Highlighting in Deep Surface / Terracotta */
@@ -976,10 +982,24 @@
   font-weight: 700;
 }
 
-.pl-status-icon--yes { color: var(--pl-verification-sage); }
-.pl-status-icon--half { color: #C78A2E; font-size: 1.35rem; }
-.pl-status-icon--no { color: rgba(30, 26, 22, 0.35); }
-.pl-col-highlight .pl-status-icon--yes { color: var(--pl-verification-sage) !important; }
+.pl-status-icon--yes {
+  color: var(--pl-verification-sage);
+}
+
+.pl-status-icon--half {
+  color: var(--pl-status-warning);
+  font-size: 1.15rem;
+  opacity: 0.78;
+}
+
+.pl-status-icon--no {
+  color: rgba(30, 26, 22, 0.35);
+}
+
+.pl-col-highlight .pl-status-icon--yes {
+  color: var(--pl-verification-sage) !important;
+  font-size: 1.65rem;
+}
 
 .pl-table-legend {
   display: flex;
@@ -992,6 +1012,22 @@
   letter-spacing: 0.02em;
   color: var(--pl-text-light-muted);
   text-transform: uppercase;
+}
+
+.pl-compare-takeaway {
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--pl-border-light-medium);
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 2.3vw, 2rem);
+  line-height: 1.25;
+  color: var(--pl-text-light-primary);
+  max-width: 760px;
+}
+
+.pl-compare-takeaway strong {
+  color: var(--pl-soft-terracotta-light);
+  font-weight: 700;
 }
 
 /* ==========================================================================

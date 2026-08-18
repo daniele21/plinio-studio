@@ -177,17 +177,28 @@ function applyCopy() {
 
   // Comparison Section
   if (copy.comparison) {
-    setHtml(document.querySelector('#pl-compare-minimal h2'), copy.comparison.title);
-    setHtml(document.querySelector('#pl-compare-minimal p:first-of-type'), copy.comparison.intro);
-    const featureHeaders = document.querySelectorAll('.pl-compare-table tbody th');
-    copy.comparison.featureRows?.forEach((row, i) => {
+    setHtml(
+      document.querySelector('#pl-compare-minimal h2'),
+      copy.comparison.title
+    );
+
+    setHtml(
+      document.querySelector('#pl-compare-minimal p:first-of-type'),
+      copy.comparison.intro
+    );
+
+    const featureHeaders =
+      document.querySelectorAll('.pl-compare-table tbody th');
+
+    copy.comparison.featureRows?.forEach((label, i) => {
       const th = featureHeaders[i];
-      if (!th) return;
-      const small = th.querySelector('small');
-      const textNode = [...th.childNodes].find(n => n.nodeType === Node.TEXT_NODE && n.textContent.trim());
-      if (textNode) textNode.nodeValue = row[0];
-      setHtml(small, row[1]);
+      if (th) setHtml(th, label);
     });
+
+    setHtml(
+      document.querySelector('[data-compare-takeaway]'),
+      copy.comparison.takeaway
+    );
   }
 
   // Objections Section
