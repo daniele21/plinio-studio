@@ -65,8 +65,28 @@ function applyCopy() {
   // Hero Section
   if (copy.hero) {
     setHtml(document.querySelector('[data-hero-title]'), copy.hero.titleHtml);
-    setHtml(document.querySelector('[data-hero-subtitle]'), copy.hero.subtitle);
-    setHtml(document.querySelector('[data-hero-support]'), copy.hero.support);
+    
+    // Editorial Micro-Blocks (Proof & Value)
+    if (copy.hero.proofBlock) {
+      setText(document.querySelector('[data-hero-proof-tag]'), copy.hero.proofBlock.tag);
+      setHtml(document.querySelector('[data-hero-proof-stat]'), copy.hero.proofBlock.statHtml);
+      const sourceEl = document.querySelector('[data-hero-proof-source]');
+      if (sourceEl) {
+        setText(sourceEl, copy.hero.proofBlock.source);
+        if (copy.hero.proofBlock.sourceUrl) {
+          sourceEl.setAttribute('href', copy.hero.proofBlock.sourceUrl);
+        }
+      }
+    }
+
+    if (copy.hero.valueBlock) {
+      setHtml(document.querySelector('[data-hero-value-lead]'), copy.hero.valueBlock.lead);
+      setHtml(document.querySelector('[data-hero-value-body]'), copy.hero.valueBlock.body);
+    }
+
+    // Backwards compatibility fallbacks if older subtitle/support format is used
+    if (copy.hero.subtitle) setHtml(document.querySelector('[data-hero-subtitle]'), copy.hero.subtitle);
+    if (copy.hero.support) setHtml(document.querySelector('[data-hero-support]'), copy.hero.support);
 
     const primaryCta = document.querySelector('[data-hero-primary-cta] span:first-child');
     if (primaryCta) setText(primaryCta, copy.hero.primaryCta);
@@ -104,7 +124,10 @@ function applyCopy() {
       if (!card) return;
       setText(card.querySelector('.pl-evidence-stat'), stat.value);
       setHtml(card.querySelector('.pl-evidence-claim'), stat.claim);
-      setHtml(card.querySelector('.pl-evidence-implication p'), stat.implication);
+      const sowhatEl = card.querySelector('.pl-evidence-sowhat');
+      if (sowhatEl) {
+        setHtml(sowhatEl, stat.sowhat || stat.implication || '');
+      }
       const sourceEl = card.querySelector('.pl-evidence-source');
       if (sourceEl) {
         if (stat.url) {
@@ -114,7 +137,14 @@ function applyCopy() {
         }
       }
     });
-    setHtml(document.querySelector('.pl-evidence-disclaimer'), copy.evidence.disclaimer);
+    const disclaimerEl = document.querySelector('.pl-evidence-disclaimer');
+    if (disclaimerEl) {
+      if (copy.evidence.disclaimer) {
+        setHtml(disclaimerEl, copy.evidence.disclaimer);
+      } else {
+        disclaimerEl.remove();
+      }
+    }
   }
 
   // Universe / Capabilities Section

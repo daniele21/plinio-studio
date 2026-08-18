@@ -97,7 +97,8 @@ img, video, svg {
    - Verified / Evidence: Verification Sage (#679A92)
    ========================================================================== */
 
-/* 1. Main Titles & Section Headings - Bright Accent */
+/* 1. Main Titles & Highlight Accent */
+.pl-highlight--accent,
 h1 strong,
 h1 .pl-highlight--accent,
 .pl-hero__title strong,

@@ -123,7 +123,8 @@ La palette è deliberatamente **calda**. Evitare il tipico linguaggio SaaS basat
 | **Warm Obsidian** | `#12100E` | background principale dark |
 | **Deep Surface** | `#1A1715` | card e superfici elevate dark |
 | **Parchment** | `#F7EFDD` | background light principale |
-| **Terracotta** | `#D65527` | CTA, brand accent, azione |
+| **Terracotta** | `#D65527` | brand identity accent, focus, indicatori |
+| **Action Primary** | `#C44B1E` | CTA primaria accessibile (WCAG AA > 4.8:1 con testo #FFFFFF) |
 | **Bright Accent** | `#FF7547` | highlight ad alta priorità |
 | **Soft Terracotta** | `#DE9379` | highlight testuali e bordi soft |
 | **Verification Sage** | `#679A92` | verified, evidence, stato positivo |
@@ -205,8 +206,8 @@ Non assumere che un colore brand sia automaticamente adatto a testo e CTA.
 Regole:
 
 - **Warm Obsidian + Parchment:** combinazione principale ad alto contrasto.
-- Su `#D65527`, preferire testo **Warm Obsidian** per body-size quando serve conformità AA.
-- Il bianco su `#D65527` non raggiunge 4.5:1 per testo normale: usarlo solo per testo sufficientemente grande/bold oppure adottare un terracotta più scuro per la CTA.
+- Su `#D65527` (terracotta brand), preferire testo **Warm Obsidian** per body-size quando serve conformità AA.
+- Il bianco su `#D65527` non raggiunge 4.5:1 per testo normale. Per le **CTA primarie e i bottoni con testo bianco**, si adotta il token dedicato **`--pl-action-primary` (`#C44B1E`)**, che garantisce un contrasto di **> 4.8:1** (piena conformità WCAG AA), preservando il terracotta brand originale come identità.
 - Su `#FF7547`, usare testo dark, non bianco.
 - Su `#679A92`, usare testo dark per copy piccolo.
 - Non affidare mai il significato solo al colore: stato e validazione devono avere anche icona/label.
@@ -429,8 +430,8 @@ Il primary button deve essere il principale punto d'azione della viewport.
 
 Caratteristiche:
 
-- terracotta/dark terracotta;
-- radius `6–8 px`;
+- background: `--pl-action-primary` (`#C44B1E`) con testo `#FFFFFF` (WCAG AA compliant);
+- radius `6–8 px` (`--pl-radius-standard`);
 - padding generoso;
 - label concreta e orientata all'azione;
 - eventuale freccia `→` come supporto, non come protagonista.
@@ -689,6 +690,7 @@ Esempio:
   --pl-deep-surface: #1A1715;
   --pl-parchment: #F7EFDD;
   --pl-terracotta: #D65527;
+  --pl-action-primary: #C44B1E;
   --pl-bright-accent: #FF7547;
   --pl-soft-terracotta: #DE9379;
   --pl-verification-sage: #679A92;

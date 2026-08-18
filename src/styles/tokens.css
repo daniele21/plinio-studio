@@ -11,7 +11,10 @@
   --pl-warm-obsidian: #12100E;         /* Background principale dark (Hero, Evidence, Process, Objections, Pilot, Footer) */
   --pl-deep-surface: #1A1715;          /* Superfici elevate e card dark */
   --pl-parchment: #F7EFDD;             /* Background principale light (Personas, Capabilities, Comparison) */
-  --pl-terracotta: #D65527;            /* CTA principale, brand accent, azione (max 1 dominante per viewport) */
+  --pl-terracotta: #D65527;            /* Identità brand, accento visivo, indicatori, grafi */
+  --pl-action-primary: #C44B1E;        /* Terracotta scuro per CTA e bottoni primari (WCAG AA > 4.8:1 con testo #FFFFFF) */
+  --pl-action-primary-hover: #B54217;  /* Hover state per CTA */
+  --pl-action-primary-active: #9E3710; /* Active/pressed state per CTA */
   --pl-bright-accent: #FF7547;         /* Highlight ad alta priorità (parola chiave in H1, KPI decisivo) */
   --pl-soft-terracotta: #DE9379;       /* Highlight testuali su dark, bordi soft */
   --pl-soft-terracotta-light: #B85936; /* Highlight testuali su light (WCAG AA) */
@@ -125,6 +128,10 @@
   --orange-border-light: rgba(184, 89, 54, 0.30);
   --orange-glow: #FF845A;
   --orange-deep: #C45A3C;
+
+  --action-primary: var(--pl-action-primary);
+  --action-primary-hover: var(--pl-action-primary-hover);
+  --action-primary-active: var(--pl-action-primary-active);
 
   --accent: var(--pl-terracotta);
   --accent-hover: var(--orange-hover);
