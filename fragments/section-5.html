@@ -1,24 +1,92 @@
-<section style="padding:0 32px;border-bottom:1px solid rgba(33,28,23,.20)">
+<section id="pl-compare-minimal" style="padding:0 32px;border-bottom:1px solid rgba(33,28,23,.20)">
+<style>
+#pl-compare-minimal .pl-compare-wrap{margin-top:30px;box-shadow:none;background:transparent;border:1px solid rgba(33,28,23,.18)}
+#pl-compare-minimal .pl-compare{min-width:760px;table-layout:fixed}
+#pl-compare-minimal .pl-compare th,#pl-compare-minimal .pl-compare td{padding:18px 16px}
+#pl-compare-minimal .pl-compare thead th{background:#EDE2C8;text-align:center;font-size:10px;letter-spacing:.08em}
+#pl-compare-minimal .pl-compare thead th:first-child{text-align:left}
+#pl-compare-minimal .pl-compare thead th small{margin-top:4px;font-size:9.5px}
+#pl-compare-minimal .pl-compare tbody th{width:42%;font-size:18px;line-height:1.15;background:#F7EFDD}
+#pl-compare-minimal .pl-compare tbody th small{margin-top:5px;font-size:11px;line-height:1.35}
+#pl-compare-minimal .pl-compare tbody td{text-align:center;background:#F7EFDD}
+#pl-compare-minimal .pl-compare .pl-plinio-col{position:static;width:auto;background:#211C17;color:#F7EFDD;box-shadow:none}
+#pl-compare-minimal .pl-compare thead .pl-plinio-col{background:#BD5430}
+#pl-compare-minimal .pl-compare tbody tr:hover th,#pl-compare-minimal .pl-compare tbody tr:hover td:not(.pl-plinio-col){background:#FFF8E9}
+#pl-compare-minimal .pl-symbol{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;font-family:Inter,Arial,sans-serif;font-size:22px;font-weight:700;line-height:1}
+#pl-compare-minimal .pl-symbol-yes{color:#355D3B}
+#pl-compare-minimal .pl-symbol-half{color:#9A6A1F;font-size:25px}
+#pl-compare-minimal .pl-symbol-no{color:rgba(33,28,23,.38);font-size:24px;font-weight:500}
+#pl-compare-minimal .pl-plinio-col .pl-symbol-yes{color:#F7EFDD}
+#pl-compare-minimal .pl-min-legend{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;margin-top:14px;font-family:'Cutive Mono',monospace;font-size:9.5px;line-height:1.4;text-transform:uppercase;letter-spacing:.07em;color:rgba(33,28,23,.56)}
+#pl-compare-minimal .pl-min-legend strong{font-family:Inter,Arial,sans-serif;font-size:15px;letter-spacing:0}
+#pl-compare-minimal .pl-min-note{margin-top:12px;max-width:880px;font-size:10.5px;line-height:1.45;color:rgba(33,28,23,.46)}
+@media(max-width:760px){
+  #pl-compare-minimal{padding-left:20px!important;padding-right:20px!important}
+  #pl-compare-minimal .pl-compare{min-width:700px}
+}
+</style>
 <div style="max-width:1180px;margin:0 auto;padding:78px 0">
-<div data-rev="1" style="opacity:0;transform:translateY(18px);max-width:47em">
-<h2 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(30px,4.2vw,46px);line-height:1.06">Le feature, una per una.</h2>
-<p style="max-width:42em;color:rgba(33,28,23,.68);margin-top:14px">Ogni alternativa copre un pezzo del processo. Plinio collega conoscenza, fonti, opportunità, contenuti e apprendimento in un unico ciclo.</p>
+<div style="max-width:47em">
+<h2 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(30px,4.2vw,46px);line-height:1.06">Quanto lavoro resta a voi?</h2>
+<p style="max-width:42em;color:rgba(33,28,23,.68);margin-top:14px">Il punto è semplice: quanto lavoro deve ancora fare il vostro team prima di avere qualcosa di utile da approvare?</p>
 </div>
 <div class="pl-compare-wrap" data-delay="0.08" data-rev="1" style="opacity:0;transform:translateY(14px)">
-<div aria-label="Confronto delle capacità di Plinio con le principali categorie di competitor" class="pl-compare-scroll" tabindex="0">
+<div aria-label="Confronto del lavoro che resta al team con lo status quo, le AI generaliste, i content tool e Plinio" class="pl-compare-scroll" tabindex="0">
 <table class="pl-compare">
-<thead><tr><th class="pl-feature-col" scope="col">Capacità</th><th scope="col">AI generaliste<small>ChatGPT · Claude · Gemini</small></th><th scope="col">Workflow builder<small>n8n · Make · Zapier</small></th><th scope="col">Content platform<small>Jasper · AirOps · StoryChief</small></th><th scope="col">Knowledge platform<small>Glean · Writer</small></th><th class="pl-plinio-col" scope="col">Plinio<small>Knowledge-to-communication OS</small></th></tr></thead>
+<thead>
+<tr>
+<th scope="col">Con questo strumento…</th>
+<th scope="col">Come fate oggi<small>file · meeting · copy-paste</small></th>
+<th scope="col">AI generalista<small>ChatGPT · Claude · Gemini</small></th>
+<th scope="col">Content tool<small>Jasper · AirOps · StoryChief</small></th>
+<th class="pl-plinio-col" scope="col">Plinio<small>project → topic → bozza</small></th>
+</tr>
+</thead>
 <tbody>
-<tr><th class="pl-feature-col" scope="row">Comprende la conoscenza dei progetti<small>Non solo file: clienti, attività, risultati e competenze.</small></th><td><span class="pl-status pl-status-mid">Parziale</span></td><td><span class="pl-status pl-status-build">Configurare</span></td><td><span class="pl-status pl-status-mid">Parziale</span></td><td><span class="pl-status pl-status-strong">Forte</span></td><td class="pl-plinio-col"><span class="pl-status">Forte</span></td></tr>
-<tr><th class="pl-feature-col" scope="row">Mantiene la tracciabilità alle fonti<small>Ogni informazione resta collegata al documento originale.</small></th><td><span class="pl-status pl-status-mid">Parziale</span></td><td><span class="pl-status pl-status-build">Configurare</span></td><td><span class="pl-status pl-status-mid">Variabile</span></td><td><span class="pl-status pl-status-strong">Forte</span></td><td class="pl-plinio-col"><span class="pl-status">Forte</span></td></tr>
-<tr><th class="pl-feature-col" scope="row">Propone cosa comunicare<small>Rileva e prioritizza opportunità senza aspettare un prompt.</small></th><td><span class="pl-status pl-status-low">Debole</span></td><td><span class="pl-status pl-status-build">Da costruire</span></td><td><span class="pl-status pl-status-mid">Media</span></td><td><span class="pl-status pl-status-low">Debole</span></td><td class="pl-plinio-col"><span class="pl-status">Forte</span></td></tr>
-<tr><th class="pl-feature-col" scope="row">Crea contenuti governati<small>Dal contenuto madre alle versioni per canale e target.</small></th><td><span class="pl-status pl-status-mid">Media</span></td><td><span class="pl-status pl-status-build">Da costruire</span></td><td><span class="pl-status pl-status-strong">Forte</span></td><td><span class="pl-status pl-status-low">Debole</span></td><td class="pl-plinio-col"><span class="pl-status">Forte</span></td></tr>
-<tr><th class="pl-feature-col" scope="row">Apprende dalle decisioni del team<small>Correzioni, approvazioni e rifiuti migliorano il ciclo successivo.</small></th><td><span class="pl-status pl-status-low">Limitato</span></td><td><span class="pl-status pl-status-build">Da costruire</span></td><td><span class="pl-status pl-status-mid">Variabile</span></td><td><span class="pl-status pl-status-mid">Parziale</span></td><td class="pl-plinio-col"><span class="pl-status">Forte</span></td></tr>
-<tr><th class="pl-feature-col" scope="row">Setup tecnico richiesto<small>Quanto lavoro custom serve prima di ottenere valore.</small></th><td><span class="pl-status pl-status-setup-good">Basso</span></td><td><span class="pl-status pl-status-setup-bad">Alto</span></td><td><span class="pl-status pl-status-setup-good">Basso</span></td><td><span class="pl-status pl-status-mid">Medio-alto</span></td><td class="pl-plinio-col"><span class="pl-status">Basso</span></td></tr>
-</tbody></table>
-</div></div>
-<div class="pl-compare-legend" data-rev="1" style="opacity:0;transform:translateY(10px)"><span class="strong"><i></i>Forte / nativo</span><span class="mid"><i></i>Parziale / variabile</span><span class="low"><i></i>Debole / limitato</span><span class="build"><i></i>Da configurare o costruire</span></div>
-<div class="pl-compare-diff" data-rev="1" style="opacity:0;transform:translateY(12px)"><strong>Il vantaggio di Plinio</strong><p>Non aggiunge soltanto un altro generatore o un altro workflow: costruisce una memoria verificabile dei progetti e la usa per decidere cosa comunicare, produrlo e migliorare nel tempo.</p></div>
-<p data-rev="1" style="opacity:0;transform:translateY(10px);margin-top:14px;font-size:11px;line-height:1.45;color:rgba(33,28,23,.5)">Sintesi della competitor analysis 2026. La colonna Plinio descrive la direzione funzionale in validazione con i design partner; la disponibilità delle singole capacità viene definita nello scope del pilot.</p>
+<tr>
+<th scope="row">So cosa comunicare dai progetti<small>Non parto ogni volta dal calendario editoriale vuoto.</small></th>
+<td><span class="pl-symbol pl-symbol-no" aria-label="Resta al team">×</span></td>
+<td><span class="pl-symbol pl-symbol-half" aria-label="Possibile con lavoro o setup">◐</span></td>
+<td><span class="pl-symbol pl-symbol-half" aria-label="Possibile con lavoro o setup">◐</span></td>
+<td class="pl-plinio-col"><span class="pl-symbol pl-symbol-yes" aria-label="Già risolto">✓</span></td>
+</tr>
+<tr>
+<th scope="row">Non devo rincorrere i team per il contesto<small>Il progetto non va ricostruito ogni volta da persone e file sparsi.</small></th>
+<td><span class="pl-symbol pl-symbol-no" aria-label="Resta al team">×</span></td>
+<td><span class="pl-symbol pl-symbol-half" aria-label="Possibile con lavoro o setup">◐</span></td>
+<td><span class="pl-symbol pl-symbol-half" aria-label="Possibile con lavoro o setup">◐</span></td>
+<td class="pl-plinio-col"><span class="pl-symbol pl-symbol-yes" aria-label="Già risolto">✓</span></td>
+</tr>
+<tr>
+<th scope="row">Il contenuto parte già dal contesto aziendale<small>Progetti, risultati, competenze e regole sono già parte del punto di partenza.</small></th>
+<td><span class="pl-symbol pl-symbol-no" aria-label="Resta al team">×</span></td>
+<td><span class="pl-symbol pl-symbol-half" aria-label="Possibile con lavoro o setup">◐</span></td>
+<td><span class="pl-symbol pl-symbol-yes" aria-label="Già risolto">✓</span></td>
+<td class="pl-plinio-col"><span class="pl-symbol pl-symbol-yes" aria-label="Già risolto">✓</span></td>
+</tr>
+<tr>
+<th scope="row">So da dove arriva ogni claim<small>Fatti e affermazioni restano riconducibili alle fonti.</small></th>
+<td><span class="pl-symbol pl-symbol-half" aria-label="Possibile con lavoro o setup">◐</span></td>
+<td><span class="pl-symbol pl-symbol-half" aria-label="Possibile con lavoro o setup">◐</span></td>
+<td><span class="pl-symbol pl-symbol-half" aria-label="Possibile con lavoro o setup">◐</span></td>
+<td class="pl-plinio-col"><span class="pl-symbol pl-symbol-yes" aria-label="Già risolto">✓</span></td>
+</tr>
+<tr>
+<th scope="row">Arrivo direttamente a una prima bozza da revisionare<small>Dal progetto e dal topic scelto a qualcosa di concreto da approvare.</small></th>
+<td><span class="pl-symbol pl-symbol-no" aria-label="Resta al team">×</span></td>
+<td><span class="pl-symbol pl-symbol-half" aria-label="Possibile con lavoro o setup">◐</span></td>
+<td><span class="pl-symbol pl-symbol-yes" aria-label="Già risolto">✓</span></td>
+<td class="pl-plinio-col"><span class="pl-symbol pl-symbol-yes" aria-label="Già risolto">✓</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="pl-min-legend" data-rev="1" style="opacity:0;transform:translateY(10px)">
+<span><strong style="color:#355D3B">✓</strong> già risolto</span>
+<span><strong style="color:#9A6A1F">◐</strong> possibile, ma serve lavoro / setup</span>
+<span><strong style="color:rgba(33,28,23,.42)">×</strong> resta a voi</span>
+</div>
+<p class="pl-min-note" data-rev="1" style="opacity:0;transform:translateY(10px)">Sintesi della competitor analysis 2026. Le categorie raggruppano prodotti con capacità diverse: ◐ indica che l’outcome può essere ottenuto, ma non è necessariamente nativo o richiede contesto, configurazione o lavoro manuale. Le capability Plinio vengono confermate nello scope del Pilot.</p>
 </div>
 </section>
