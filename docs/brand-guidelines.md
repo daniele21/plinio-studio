@@ -12,9 +12,9 @@ Plinio trasforma la conoscenza prodotta nei progetti in comunicazione credibile,
 
 L'identità visiva deve quindi trasmettere tre qualità prima di tutto:
 
-- **Credibile** — niente estetica AI generica, futuristica o “magica”. La forma deve comunicare solidità, fonti e controllo.
-- **Contestuale** — Plinio connette progetti, fonti, opportunità e contenuti. Il linguaggio visuale deve suggerire relazione e continuità.
-- **Efficiente** — l'interfaccia deve apparire semplice e leggibile anche quando il sistema sottostante è complesso.
+- **Credibile** - niente estetica AI generica, futuristica o “magica”. La forma deve comunicare solidità, fonti e controllo.
+- **Contestuale** - Plinio connette progetti, fonti, opportunità e contenuti. Il linguaggio visuale deve suggerire relazione e continuità.
+- **Efficiente** - l'interfaccia deve apparire semplice e leggibile anche quando il sistema sottostante è complesso.
 
 ### 1.1 Brand attributes
 
@@ -40,10 +40,10 @@ Il design deve privilegiare contrasto caldo, spazio, tipografia e gerarchia. Gli
 
 Il logo combina:
 
-- **Nucleus** — la fonte, il fatto o la conoscenza reale da cui tutto parte.
-- **Orbit** — connessione tra fonti, progetti, opportunità e contenuti.
-- **Continuity arc** — il lavoro non si perde: viene riutilizzato e genera nuova comunicazione.
-- **Wordmark Plinio** — componente editoriale e autorevole del brand.
+- **Nucleus** - la fonte, il fatto o la conoscenza reale da cui tutto parte.
+- **Orbit** - connessione tra fonti, progetti, opportunità e contenuti.
+- **Continuity arc** - il lavoro non si perde: viene riutilizzato e genera nuova comunicazione.
+- **Wordmark Plinio** - componente editoriale e autorevole del brand.
 
 Il simbolo orbitale non deve essere interpretato come un pianeta in senso letterale. È una metafora di **conoscenza in movimento attorno a una fonte**.
 
@@ -73,11 +73,11 @@ Usare il simbolo senza wordmark per:
 
 ### 2.4 Varianti consentite
 
-1. **Horizontal full-color** — versione principale.
-2. **Stacked full-color** — solo dove il formato è verticale/quadrato.
+1. **Horizontal full-color** - versione principale.
+2. **Stacked full-color** - solo dove il formato è verticale/quadrato.
 3. **Symbol-only full-color**.
-4. **Monochrome light** — su fondi scuri o fotografici.
-5. **Monochrome dark** — su fondi chiari.
+4. **Monochrome light** - su fondi scuri o fotografici.
+5. **Monochrome dark** - su fondi chiari.
 
 Non creare nuove varianti locali del logo.
 
@@ -218,7 +218,7 @@ Regole:
 
 Il sistema combina un'anima **editoriale** e una **operativa**.
 
-### 4.1 Headline — Cormorant Garamond
+### 4.1 Headline - Cormorant Garamond
 
 **Uso:**
 
@@ -236,7 +236,7 @@ Indicazioni:
 - tracking leggermente negativo sulle grandi headline;
 - evitare tutto maiuscolo.
 
-### 4.2 Body / UI — Inter
+### 4.2 Body / UI - Inter
 
 **Uso:**
 
@@ -254,7 +254,7 @@ Indicazioni:
 - peso normale: `400–500`;
 - enfasi: `600`, raramente `700`.
 
-### 4.3 Metadata — Cutive Mono
+### 4.3 Metadata - Cutive Mono
 
 **Uso limitato a:**
 
@@ -298,10 +298,10 @@ Su mobile usare scale responsive con `clamp()` e preservare sempre la gerarchia 
 
 Le icone Plinio devono essere:
 
-- **Geometric** — costruite con geometrie semplici.
-- **Evidence-led** — rappresentano funzioni e stati reali, non metafore decorative.
-- **Rounded precision** — angoli e terminali morbidi ma non cartoon.
-- **Warm contrast** — ivory + terracotta, sage solo semanticamente.
+- **Geometric** - costruite con geometrie semplici.
+- **Evidence-led** - rappresentano funzioni e stati reali, non metafore decorative.
+- **Rounded precision** - angoli e terminali morbidi ma non cartoon.
+- **Warm contrast** - ivory + terracotta, sage solo semanticamente.
 
 ### 5.2 Standard icon family
 
@@ -331,9 +331,9 @@ Il set base include:
 
 Scala raccomandata:
 
-- `4 px` — subtle / piccoli componenti;
-- `8 px` — standard UI;
-- `12 px` — superfici più generose.
+- `4 px` - subtle / piccoli componenti;
+- `8 px` - standard UI;
+- `12 px` - superfici più generose.
 
 ### 5.5 Accent usage
 
@@ -574,11 +574,11 @@ Rispettare sempre `prefers-reduced-motion`.
 
 La hero deve avere questa gerarchia visiva:
 
-1. **Outcome** — cosa ottengo.
-2. **Business reason** — perché conta.
-3. **Product proof** — come appare concretamente.
-4. **Primary CTA** — cosa faccio adesso.
-5. **Micro-proof** — riduzione del rischio.
+1. **Outcome** - cosa ottengo.
+2. **Business reason** - perché conta.
+3. **Product proof** - come appare concretamente.
+4. **Primary CTA** - cosa faccio adesso.
+5. **Micro-proof** - riduzione del rischio.
 
 Non inserire più di 2–3 messaggi forti sopra la fold.
 
@@ -732,6 +732,6 @@ Prima di approvare una nuova pagina o componente verificare:
 
 Quando ci sono dubbi tra due soluzioni visuali, scegliere quella che rende Plinio:
 
-> **più credibile, più leggibile e più immediato — non quella che sembra più “AI”.**
+> **più credibile, più leggibile e più immediato - non quella che sembra più “AI”.**
 
 Il brand deve far percepire che Plinio non inventa contenuti: **fa emergere e rende comunicabile il valore già presente nel lavoro reale dell'azienda.**

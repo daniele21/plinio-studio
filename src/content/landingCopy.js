@@ -5,7 +5,7 @@
 
 export const landingCopy = {
   meta: {
-    title: 'Plinio — Il valore dei tuoi progetti, pronto da comunicare',
+    title: 'Plinio - Fai parlare i tuoi progetti',
     description: 'Plinio organizza la conoscenza aziendale, individua cosa vale la pena comunicare dai progetti chiusi e genera bozze con fonti citate.',
   },
   header: {
@@ -22,7 +22,7 @@ export const landingCopy = {
     },
     valueBlock: {
       lead: 'Niente foglio bianco. Niente rincorse ai colleghi.',
-      body: '<strong class="pl-highlight--accent">Plinio</strong> parte dai tuoi progetti e prepara bozze già fondate sui fatti.',
+      body: '<strong class="pl-highlight--accent">Plinio</strong> parte dai tuoi progetti e prepara contenuti già fondate sui fatti.',
     },
     primaryCta: 'Provalo su un progetto',
     secondaryCta: 'Vedi come funziona',
@@ -146,39 +146,56 @@ export const landingCopy = {
     legend: '✓ risolto · ◐ richiede lavoro manuale · × resta al team',
   },
   objections: {
-    title: 'Cosa ti preoccupa davvero?',
-    intro: 'Partiamo dalle domande concrete: tempo dei team, riservatezza, qualità dell’output, controllo e ritorno misurabile.',
-    cta: 'Portate questi punti in call',
+    title: 'Le domande che ci fareste prima di provarlo.',
+    intro: '',
+
     items: {
       team: {
-        label: 'I team non hanno tempo per nuovi report',
-        answerTitle: 'I team non compilano niente di nuovo',
-        answer: 'Plinio parte dai materiali che il delivery produce già. Al PM arrivano solo <strong>domande mirate</strong> quando manca un’informazione decisiva.',
+        label: 'Quanto tempo deve dedicarci il team?',
+        answerTitle: 'Quasi nessun lavoro in più.',
+        answer:
+          'Plinio parte dai materiali che producete già. Il team interviene solo quando manca <strong>un’informazione decisiva</strong>.',
+        proof: 'Nessun nuovo report da compilare.',
       },
+
+      affidabilita: {
+        label: 'Come faccio a fidarmi di quello che scrive?',
+        answerTitle: 'Ogni claim torna alla fonte.',
+        answer:
+          'Plinio parte dai vostri materiali e mantiene fatti, numeri e affermazioni <strong>collegati alle evidenze che li supportano</strong>.',
+        proof: 'Fonti sempre verificabili.',
+      },
+
       riservatezza: {
-        label: 'Ci sono informazioni che non possono uscire',
-        answerTitle: 'Ogni fonte ha un livello di riservatezza',
-        answer: 'Pubblicabile, da validare o strettamente riservato. Il team mantiene sempre <strong>l’approvazione finale</strong> e nulla esce senza via libera esplicito.',
+        label: 'Come gestite le informazioni riservate?',
+        answerTitle: 'Decidete voi cosa può essere usato.',
+        answer:
+          'Le informazioni possono essere pubblicabili, da validare o riservate. Il team mantiene sempre <strong>l’approvazione finale</strong>.',
+        proof: 'Il controllo resta al team.',
       },
+
       generico: {
-        label: 'Temiamo output generici da riscrivere',
-        answerTitle: 'Il contenuto parte dai vostri dati reali',
-        answer: 'Plinio combina il progetto con fatti, fonti e contesto specifico: <strong>niente testi generici</strong> o cliché tipici delle AI generaliste.',
+        label: 'Non produce i soliti contenuti AI?',
+        answerTitle: 'Parte dal vostro lavoro, non da un prompt vuoto.',
+        answer:
+          'Progetti, risultati, competenze e contesto aziendale diventano <strong>il punto di partenza della bozza</strong>.',
+        proof: 'Contesto reale, non testo generico.',
       },
-      controllo: {
-        label: 'Non vogliamo perdere il controllo del tono di voce',
-        answerTitle: 'Voi decidete la voce, Plinio prepara le bozze',
-        answer: 'La strategia editoriale e la firma finale restano vostre. Plinio <strong>non pubblica mai in autonomia</strong>.',
-      },
+
       tecnico: {
-        label: 'Non abbiamo risorse IT da dedicarci',
-        answerTitle: 'Nessun progetto di integrazione complessa',
-        answer: 'Il Pilot include <strong>setup assistito</strong>. Si parte da poche fonti reali senza migrazioni o configurazioni invasive.',
+        label: 'Serve coinvolgere l’IT?',
+        answerTitle: 'Non per iniziare.',
+        answer:
+          'Il Pilot parte da poche fonti reali, con <strong>setup assistito</strong> e senza migrazioni o integrazioni invasive.',
+        proof: 'Si parte da una fonte reale.',
       },
+
       roi: {
-        label: 'Dobbiamo poter dimostrare il ritorno',
-        answerTitle: 'Si misura con metriche chiare',
-        answer: 'Misuriamo <strong>topic utili generati</strong>, tempo progetto → prima bozza e riduzione richieste ai team.',
+        label: 'Come capiamo se sta funzionando?',
+        answerTitle: 'Misuriamo il lavoro che elimina.',
+        answer:
+          'Misuriamo opportunità utili trovate, <strong>tempo progetto → prima bozza</strong> e riduzione delle richieste ai team.',
+        proof: 'Metriche definite prima del Pilot.',
       },
     },
   },

@@ -204,8 +204,33 @@ function applyCopy() {
 
   // Objections Section
   if (copy.objections) {
-    setHtml(document.querySelector('.pl-concerns-container')?.parentElement?.querySelector('h2'), copy.objections.title);
-    setHtml(document.querySelector('.pl-concerns-container')?.parentElement?.querySelector('p:first-of-type'), copy.objections.intro);
+    const section = document.querySelector('.pl-objections');
+
+    setHtml(
+      section?.querySelector('h2'),
+      copy.objections.title
+    );
+
+    const intro = section?.querySelector('.pl-objections__intro p');
+
+    if (intro) {
+      if (copy.objections.intro) {
+        setHtml(intro, copy.objections.intro);
+      } else {
+        intro.remove();
+      }
+    }
+
+    section
+      ?.querySelectorAll('[data-concern]')
+      .forEach(btn => {
+        const item =
+          copy.objections.items?.[btn.dataset.concern];
+
+        if (item) {
+          setText(btn, item.label);
+        }
+      });
   }
 
   // Pilot Section
@@ -489,67 +514,76 @@ function wireHeaderAndProgress() {
 function wireConcerns() {
   const wrap = document.querySelector('[data-concerns]');
   const panel = document.querySelector('[data-answers]');
-  const empty = document.querySelector('[data-answers-empty]');
-  const count = document.querySelector('[data-concern-count]');
+
   if (!wrap || !panel) return;
 
-  const answers = Object.fromEntries(
-    Object.entries(copy.objections?.items || {}).map(([key, item]) => [key, [item.answerTitle, item.answer]])
-  );
-  const selected = new Set();
+  const buttons = [
+    ...wrap.querySelectorAll('[data-concern]')
+  ];
 
-  const render = () => {
-    const keys = [...selected];
-    if (empty) empty.style.display = keys.length ? 'none' : 'block';
+  const items = copy.objections?.items || {};
 
-    panel.querySelectorAll('.pl-answer-item').forEach(el => {
-      if (!selected.has(el.dataset.answer)) el.remove();
+  let activeKey = buttons[0]?.dataset.concern;
+
+  const render = key => {
+    const item = items[key];
+    if (!item) return;
+
+    activeKey = key;
+
+    buttons.forEach(btn => {
+      const isActive =
+        btn.dataset.concern === activeKey;
+
+      btn.setAttribute(
+        'aria-pressed',
+        String(isActive)
+      );
     });
 
-    keys.forEach((key, i) => {
-      if (panel.querySelector(`[data-answer="${key}"]`)) return;
-      const answer = answers[key];
-      if (!answer) return;
+    panel.innerHTML = `
+      <div class="pl-objection-answer">
 
-      const row = document.createElement('div');
-      row.className = 'pl-answer-item';
-      row.dataset.answer = key;
+        <div class="pl-objection-answer__marker"
+             aria-hidden="true">
+          →
+        </div>
 
-      const title = document.createElement('div');
-      title.className = 'pl-answer-item__title';
-      title.textContent = answer[0];
+        <div class="pl-objection-answer__content">
 
-      const text = document.createElement('p');
-      text.className = 'pl-answer-item__text';
-      setHtml(text, answer[1]);
+          <h3 class="pl-objection-answer__title">
+            ${item.answerTitle}
+          </h3>
 
-      row.append(title, text);
-      panel.append(row);
-    });
+          <p class="pl-objection-answer__text">
+            ${item.answer}
+          </p>
 
-    if (count) {
-      count.textContent = keys.length
-        ? `${keys.length} ${keys.length === 1 ? 'punto selezionato' : 'punti selezionati'} da portare in call`
-        : 'Nessun punto selezionato';
-    }
+          ${
+            item.proof
+              ? `
+                <div class="pl-objection-answer__proof">
+                  <span aria-hidden="true">✓</span>
+                  ${item.proof}
+                </div>
+              `
+              : ''
+          }
+
+        </div>
+      </div>
+    `;
   };
 
-  wrap.querySelectorAll('[data-concern]').forEach(btn => {
-    btn.setAttribute('aria-pressed', 'false');
+  buttons.forEach(btn => {
     btn.addEventListener('click', () => {
-      const key = btn.dataset.concern;
-      const isActive = !selected.has(key);
-
-      if (isActive) {
-        selected.add(key);
-      } else {
-        selected.delete(key);
-      }
-
-      btn.setAttribute('aria-pressed', String(isActive));
-      render();
+      render(btn.dataset.concern);
     });
   });
+
+  if (activeKey) {
+    render(activeKey);
+  }
 }
 
 /**

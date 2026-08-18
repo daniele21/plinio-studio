@@ -1,4 +1,4 @@
-# Plinio Studio — Landing Page
+# Plinio Studio - Landing Page
 
 La landing mantiene la **grafica originale** di Plinio: layout, palette, tipografia, universo orbitale, animazioni, comparison e struttura delle sezioni.
 

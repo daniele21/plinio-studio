@@ -1,4 +1,4 @@
-# Evidenze dati — brand awareness, thought leadership ed efficienza AI
+# Evidenze dati - brand awareness, thought leadership ed efficienza AI
 
 _Verificato il 17 agosto 2026._
 
@@ -54,7 +54,7 @@ Il dato **20×** riguarda la familiarità del vendor nel buying group, non l'eff
 
 ### Fonte
 
-- LinkedIn Marketing Solutions — [The Principles of Buyability: Why Strong Deals Stall and What Separates the Vendors Who Get Chosen](https://www.linkedin.com/business/marketing/blog/research-and-insights/the-principles-of-buyability-why-strong-deals-stall-and-what-separates-the-vendors-who-get-chosen)
+- LinkedIn Marketing Solutions - [The Principles of Buyability: Why Strong Deals Stall and What Separates the Vendors Who Get Chosen](https://www.linkedin.com/business/marketing/blog/research-and-insights/the-principles-of-buyability-why-strong-deals-stall-and-what-separates-the-vendors-who-get-chosen)
 - Approfondimento: [The Hidden Buyer Gap Could Be Ruling Out Your Brand](https://www.linkedin.com/business/marketing/blog/marketing-collective/hidden-buyer-gap-b2b-marketing-build-consensus)
 
 ---
@@ -81,7 +81,7 @@ Il valore della comunicazione non è solo aumentare la frequenza dei post. Conte
 
 ### Fonte
 
-- LinkedIn Marketing Solutions — [Reach Beyond The Ready: B2B Thought Leadership Research From LinkedIn and Edelman](https://www.linkedin.com/business/marketing/blog/research-and-insights/b2b-thought-leadership-research-impact-linkedin-edelman)
+- LinkedIn Marketing Solutions - [Reach Beyond The Ready: B2B Thought Leadership Research From LinkedIn and Edelman](https://www.linkedin.com/business/marketing/blog/research-and-insights/b2b-thought-leadership-research-impact-linkedin-edelman)
 
 ---
 
@@ -99,7 +99,7 @@ La continuità nella comunicazione può preparare il terreno al sales: il conten
 
 ### Fonte
 
-- LinkedIn × Edelman — [B2B Thought Leadership Research 2024](https://www.linkedin.com/business/marketing/blog/research-and-insights/b2b-thought-leadership-research-impact-linkedin-edelman)
+- LinkedIn × Edelman - [B2B Thought Leadership Research 2024](https://www.linkedin.com/business/marketing/blog/research-and-insights/b2b-thought-leadership-research-impact-linkedin-edelman)
 
 ---
 
@@ -117,8 +117,8 @@ Questo supporta una direzione importante del prodotto: trasformare progetti real
 
 ### Fonte
 
-- LinkedIn Marketing Solutions — [This Week in Marketing: Make an Impact With Thought Leadership](https://www.linkedin.com/business/marketing/blog/trends-tips/this-week-in-marketing-make-an-impact-with-thought-leadership)
-- LinkedIn Marketing Solutions — [How to Create Impactful Thought Leadership Content](https://www.linkedin.com/business/marketing/blog/content-marketing/creating-a-thought-leadership-marketing-plan)
+- LinkedIn Marketing Solutions - [This Week in Marketing: Make an Impact With Thought Leadership](https://www.linkedin.com/business/marketing/blog/trends-tips/this-week-in-marketing-make-an-impact-with-thought-leadership)
+- LinkedIn Marketing Solutions - [How to Create Impactful Thought Leadership Content](https://www.linkedin.com/business/marketing/blog/content-marketing/creating-a-thought-leadership-marketing-plan)
 
 ---
 
@@ -148,8 +148,8 @@ Questo dato riguarda **Share of Voice pubblicitaria/di mercato e investimenti ma
 
 ### Fonti
 
-- LinkedIn B2B Institute — [The B2B Marketer's Guide to the Share of Voice Rule](https://www.linkedin.com/business/marketing/blog/linkedin-ads/the-b2b-marketers-guide-to-the-share-of-voice-rule)
-- LinkedIn Marketing Solutions — [How B2B Marketing Really Drives Growth](https://www.linkedin.com/business/marketing/blog/linkedin-ads/how-b2b-marketing-really-drives-growth)
+- LinkedIn B2B Institute - [The B2B Marketer's Guide to the Share of Voice Rule](https://www.linkedin.com/business/marketing/blog/linkedin-ads/the-b2b-marketers-guide-to-the-share-of-voice-rule)
+- LinkedIn Marketing Solutions - [How B2B Marketing Really Drives Growth](https://www.linkedin.com/business/marketing/blog/linkedin-ads/how-b2b-marketing-really-drives-growth)
 
 ---
 
@@ -166,7 +166,7 @@ I partecipanti con accesso a ChatGPT hanno ottenuto in media:
 
 ### Perché è rilevante per Plinio
 
-Il workflow di Plinio include attività vicine a quelle analizzate nello studio — sintesi, elaborazione, prima bozza — ma punta anche a ridurre attività che lo studio non misura direttamente, come recupero del contesto, ricerca delle fonti, costruzione del brief e richieste ai project manager.
+Il workflow di Plinio include attività vicine a quelle analizzate nello studio - sintesi, elaborazione, prima bozza - ma punta anche a ridurre attività che lo studio non misura direttamente, come recupero del contesto, ricerca delle fonti, costruzione del brief e richieste ai project manager.
 
 Per questo il dato va usato come **benchmark esterno**, non come performance Plinio.
 

@@ -1,4 +1,4 @@
-# Plinio — Top opzioni di posizionamento
+# Plinio - Top opzioni di posizionamento
 
 _Ultimo aggiornamento: 17 agosto 2026._
 
@@ -50,7 +50,7 @@ La formula sintetica è:
 
 ---
 
-# 2. Opzione 1 — Da un progetto a 3+ opportunità e una prima bozza
+# 2. Opzione 1 - Da un progetto a 3+ opportunità e una prima bozza
 
 ## Core positioning
 
@@ -115,7 +115,7 @@ Aggiungere subito:
 
 ---
 
-# 3. Opzione 2 — Il brief è già dentro Plinio
+# 3. Opzione 2 - Il brief è già dentro Plinio
 
 ## Core positioning
 
@@ -182,7 +182,7 @@ Traduce “Plinio conosce l'azienda” in un outcome operativo:
 
 ---
 
-# 4. Opzione 3 — Non contenuti che potrebbero essere di chiunque
+# 4. Opzione 3 - Non contenuti che potrebbero essere di chiunque
 
 ## Core positioning
 
@@ -250,7 +250,7 @@ Plinio vuole rendere il contesto aziendale:
 
 ---
 
-# 5. Opzione 4 — Fate vedere di più ciò che sapete fare
+# 5. Opzione 4 - Fate vedere di più ciò che sapete fare
 
 ## Core positioning
 
@@ -312,7 +312,7 @@ Non supportano un claim del tipo:
 
 ---
 
-# 6. Opzione 5 — Il lavoro lo state già facendo. Fatelo vedere.
+# 6. Opzione 5 - Il lavoro lo state già facendo. Fatelo vedere.
 
 ## Core positioning
 
@@ -355,7 +355,7 @@ Questo rende la comunicazione un'attività di **estrazione e riuso del valore gi
 
 ---
 
-# 7. Opzione 6 — Smetti di rincorrere i team
+# 7. Opzione 6 - Smetti di rincorrere i team
 
 ## Core positioning
 
@@ -391,7 +391,7 @@ Funziona bene soprattutto nell'outreach verso marketing/communication perché il
 
 ---
 
-# 8. Opzione 7 — Riduci il tempo progetto → prima bozza
+# 8. Opzione 7 - Riduci il tempo progetto → prima bozza
 
 ## Core positioning futuro
 
@@ -430,7 +430,7 @@ sarebbe probabilmente uno dei positioning più forti in assoluto.
 
 ---
 
-# 9. Opzione 8 — Organizational memory / knowledge management
+# 9. Opzione 8 - Organizational memory / knowledge management
 
 ## Core positioning
 
@@ -469,7 +469,7 @@ sarebbe probabilmente uno dei positioning più forti in assoluto.
 
 La raccomandazione è non scegliere una sola frase e costringerla a spiegare tutto.
 
-## Livello 1 — Business promise
+## Livello 1 - Business promise
 
 > **Fate vedere di più ciò che sapete fare. Senza chiedere più tempo ai team.**
 
@@ -479,7 +479,7 @@ Risponde a:
 
 ---
 
-## Livello 2 — Output concreto
+## Livello 2 - Output concreto
 
 > **Da ogni progetto puntiamo a far emergere almeno 3 topic da comunicare.**
 
@@ -489,7 +489,7 @@ Risponde a:
 
 ---
 
-## Livello 3 — Efficienza
+## Livello 3 - Efficienza
 
 > **3 topic senza dover costruire 3 nuovi brief.**
 
@@ -499,7 +499,7 @@ Risponde a:
 
 ---
 
-## Livello 4 — Differenziazione
+## Livello 4 - Differenziazione
 
 > **Il contenuto non parte da un prompt vuoto. Parte dalla vostra azienda.**
 
@@ -509,7 +509,7 @@ Risponde a:
 
 ---
 
-## Livello 5 — Control / evidence
+## Livello 5 - Control / evidence
 
 > **Ogni informazione importante rimane collegata alla fonte.**
 
@@ -519,7 +519,7 @@ Risponde a:
 
 ---
 
-## Livello 6 — Business consequence
+## Livello 6 - Business consequence
 
 > **Più progetti diventano prove visibili delle vostre competenze davanti a clienti e prospect.**
 
@@ -531,7 +531,7 @@ Risponde a:
 
 # 11. Versioni hero da testare
 
-## Hero A — Visibility-first
+## Hero A - Visibility-first
 
 > **Fate vedere di più ciò che sapete fare.**
 >
@@ -545,7 +545,7 @@ CEO / Founder.
 
 ---
 
-## Hero B — Output-first
+## Hero B - Output-first
 
 > **Da ogni progetto, almeno 3 cose che vale la pena comunicare.**
 >
@@ -557,7 +557,7 @@ Marketing / Communication.
 
 ---
 
-## Hero C — Efficiency-first
+## Hero C - Efficiency-first
 
 > **3 topic. Senza costruire 3 nuovi brief.**
 >
@@ -569,7 +569,7 @@ Marketing / Communication e PM.
 
 ---
 
-## Hero D — Differentiation-first
+## Hero D - Differentiation-first
 
 > **Non contenuti che potrebbero essere di chiunque.**
 >
@@ -581,7 +581,7 @@ Prospect già abituati a usare ChatGPT / AI generaliste.
 
 ---
 
-## Hero E — Work-value-first
+## Hero E - Work-value-first
 
 > **Il lavoro lo state già facendo. Fatelo vedere.**
 >

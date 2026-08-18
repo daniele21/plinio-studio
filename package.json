@@ -2,7 +2,7 @@
   "name": "plinio-studio",
   "version": "1.0.0",
   "private": true,
-  "description": "Plinio — Il valore dei tuoi progetti, pronto da comunicare",
+  "description": "Plinio - Il valore dei tuoi progetti, pronto da comunicare",
   "type": "module",
   "scripts": {
     "dev": "npx serve . -l 8080",

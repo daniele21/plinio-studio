@@ -1,36 +1,57 @@
-<section class="pl-section pl-section--dark">
+<section class="pl-section pl-section--dark pl-objections">
   <div class="pl-container">
-    <div data-rev="1" style="max-width: 44em;">
-      <h2>Cosa vi preoccupa davvero?</h2>
-      <p style="margin-top: 14px; font-size: 1.05rem;">
-        Scegliete i punti che vi riguardano: vi diciamo subito come li gestiamo, e li portiamo in call già pronti.
-      </p>
+
+    <div class="pl-objections__intro" data-rev="1">
+      <h2>Le domande che ci fareste prima di provarlo.</h2>
     </div>
 
-    <!-- Objection Chips -->
-    <div class="pl-concerns-container" data-concerns="1">
-      <button class="pl-concern-chip" data-concern="team" type="button">I team non hanno tempo per nuovi report</button>
-      <button class="pl-concern-chip" data-concern="riservatezza" type="button">Ci sono informazioni che non possono uscire</button>
-      <button class="pl-concern-chip" data-concern="generico" type="button">Temiamo output generici da riscrivere</button>
-      <button class="pl-concern-chip" data-concern="controllo" type="button">Non vogliamo perdere il controllo del tono di voce</button>
-      <button class="pl-concern-chip" data-concern="tecnico" type="button">Non abbiamo risorse IT da dedicarci</button>
-      <button class="pl-concern-chip" data-concern="roi" type="button">Dobbiamo poter dimostrare il ritorno</button>
+    <div
+      class="pl-concerns-container"
+      data-concerns="1"
+      data-rev="1"
+    >
+      <button
+        class="pl-concern-chip"
+        data-concern="team"
+        type="button"
+      ></button>
+
+      <button
+        class="pl-concern-chip"
+        data-concern="affidabilita"
+        type="button"
+      ></button>
+
+      <button
+        class="pl-concern-chip"
+        data-concern="riservatezza"
+        type="button"
+      ></button>
+
+      <button
+        class="pl-concern-chip"
+        data-concern="generico"
+        type="button"
+      ></button>
+
+      <button
+        class="pl-concern-chip"
+        data-concern="tecnico"
+        type="button"
+      ></button>
+
+      <button
+        class="pl-concern-chip"
+        data-concern="roi"
+        type="button"
+      ></button>
     </div>
 
-    <!-- Dynamic Answers Area -->
-    <div class="pl-answers-panel" data-answers="1">
-      <p class="pl-answers-empty" data-answers-empty="1">Nessuna selezione. Cliccate su uno o più punti qui sopra per visualizzare la risposta.</p>
-    </div>
+    <div
+      class="pl-answers-panel"
+      data-answers="1"
+      aria-live="polite"
+    ></div>
 
-    <!-- Bottom Action & Selection Counter -->
-    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 32px;" data-rev="1">
-      <a href="#prenota" class="pl-btn pl-btn--primary" data-concern-cta="1">
-        <span>Portate questi punti in call</span>
-        <span class="pl-btn-arrow" data-arrow="1">→</span>
-      </a>
-      <span style="font-family: var(--font-sans); font-size: var(--text-xs); color: var(--text-dark-muted); text-transform: uppercase;" data-concern-count="1">
-        Nessun punto selezionato
-      </span>
-    </div>
   </div>
 </section>

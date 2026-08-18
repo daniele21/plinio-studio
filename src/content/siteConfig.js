@@ -8,11 +8,11 @@ export const siteConfig = {
 
   // Feature Toggles
   showOrbit: false, // Set to true to test the system solar/orbit visualization in the capabilities section
-  
+
   // Hero Media Configuration
   heroMedia: {
     type: 'carousel', // 'carousel' | 'screenshot' | 'video'
-    
+
     // Carousel settings (Automatic sliding showcase)
     carousel: {
       autoPlay: true,
@@ -22,14 +22,14 @@ export const siteConfig = {
         {
           id: 'radar',
           src: './src/assets/plinio-slide-radar.png',
-          alt: 'Plinio Studio — Radar opportunità editoriali',
+          alt: 'Plinio Studio - Radar opportunità editoriali',
           url: 'app.plinio.ai/studio',
           badgeText: 'Radar opportunità editoriali · Proposte radicate in fonti',
         },
         {
           id: 'knowledge-graph',
           src: './src/assets/plinio-slide-knowledge-graph.png',
-          alt: 'Plinio Studio — Grafo di conoscenza aziendale',
+          alt: 'Plinio Studio - Grafo di conoscenza aziendale',
           url: 'app.plinio.ai/knowledge-graph',
           badgeText: 'Grafo di conoscenza · Connessione tra fonti, progetti e deliverable',
         },
