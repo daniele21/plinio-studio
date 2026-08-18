@@ -69,7 +69,7 @@ function applyCopy() {
     
     // Editorial Micro-Blocks (Proof & Value)
     if (copy.hero.proofBlock) {
-      setText(document.querySelector('[data-hero-proof-tag]'), copy.hero.proofBlock.tag);
+      setHtml(document.querySelector('[data-hero-proof-tag]'), copy.hero.proofBlock.tag);
       setHtml(document.querySelector('[data-hero-proof-stat]'), copy.hero.proofBlock.statHtml);
       const sourceEl = document.querySelector('[data-hero-proof-source]');
       if (sourceEl) {
