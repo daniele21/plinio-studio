@@ -200,15 +200,40 @@ export const landingCopy = {
     },
   },
   pilot: {
-    titleHtml: 'Partiamo da un <strong>progetto</strong>.<br/>Ricevete <strong>3 opportunità</strong> pronte da <strong>comunicare</strong>.',
-    subtitle: 'Trenta minuti su una vostra fonte reale. Vi mostriamo cosa può diventare comunicazione e <strong>quanto tempo risparmiate</strong> rispetto al metodo attuale.',
-    cta: 'Prenota la demo su un progetto reale',
+    eyebrow: 'Sessione guidata · 30 min · 1 fonte reale',
+
+    titleHtml:
+      'Partiamo da un <strong>progetto</strong>.<br/>' +
+      'Ricevete <span class="pl-highlight--accent">3 opportunità</span> ' +
+      'e una <strong>prima bozza</strong>.',
+
+    subtitle:
+      'In 30 minuti su una vostra fonte reale, vedete ' +
+      '<strong>cosa comunicare</strong>, da dove parte la bozza ' +
+      'e quanto tempo potete risparmiare.',
+
+    cta: 'Provalo su un progetto reale',
+
     microcopy: 'Nessun setup · Nessuna migrazione IT',
+
+    deliverablesTitle: 'Cosa vi portate via in 30 minuti',
+
     deliverables: [
-      'Almeno <strong>3 opportunità di comunicazione</strong> motivate e collegate alle fonti',
-      'Una <strong>prima bozza</strong> costruita sul contesto aziendale disponibile',
-      'La stima del tempo che il vostro team impiega oggi e il <strong>target di risparmio</strong>',
+      {
+        title: '3 opportunità da comunicare',
+        detail: 'motivate e collegate alle fonti',
+      },
+      {
+        title: 'Una prima bozza',
+        detail: 'costruita sul vostro contesto reale',
+      },
+      {
+        title: 'Una stima del tempo risparmiabile',
+        detail: 'rispetto al vostro metodo attuale',
+      },
     ],
-    footnote: 'Pilot su una fonte reale senza impegno di migrazione.',
+
+    footnote:
+      'Se non c’è materiale utile da comunicare, lo vediamo subito.',
   },
 };

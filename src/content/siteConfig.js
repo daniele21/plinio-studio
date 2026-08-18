@@ -55,8 +55,7 @@ export const siteConfig = {
 
   // Company and legal info placeholders
   company: {
-    legalName: 'Plinio Studio S.r.l.',
-    vatNumber: 'IT00000000000',
-    contactEmail: 'demo@plinio.ai'
+    legalName: 'Plinio Studio',
+    contactEmail: 'info@plinio.studio'
   }
 };

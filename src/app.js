@@ -235,20 +235,75 @@ function applyCopy() {
 
   // Pilot Section
   if (copy.pilot) {
-    setHtml(document.querySelector('#prenota h2'), copy.pilot.titleHtml);
-    setHtml(document.querySelector('#prenota p:first-of-type'), copy.pilot.subtitle);
-    const deliverables = document.querySelectorAll('.pl-pilot-deliverable-text');
-    copy.pilot.deliverables?.forEach((text, i) => {
-      if (deliverables[i]) setHtml(deliverables[i], text);
+    const section = document.querySelector('#prenota');
+
+    setText(
+      section?.querySelector('[data-pilot-eyebrow]'),
+      copy.pilot.eyebrow
+    );
+
+    setHtml(
+      section?.querySelector('[data-pilot-title]'),
+      copy.pilot.titleHtml
+    );
+
+    setHtml(
+      section?.querySelector('[data-pilot-subtitle]'),
+      copy.pilot.subtitle
+    );
+
+    setText(
+      section?.querySelector('[data-pilot-cta] span:first-child'),
+      copy.pilot.cta
+    );
+
+    setText(
+      section?.querySelector('[data-pilot-microcopy]'),
+      copy.pilot.microcopy
+    );
+
+    setText(
+      section?.querySelector('[data-pilot-deliverables-title]'),
+      copy.pilot.deliverablesTitle
+    );
+
+    const deliverableEls =
+      section?.querySelectorAll('.pl-pilot-deliverable-item');
+
+    copy.pilot.deliverables?.forEach((item, i) => {
+      const el = deliverableEls?.[i];
+      if (!el) return;
+
+      setHtml(
+        el.querySelector('.pl-pilot-deliverable-title'),
+        item.title
+      );
+
+      setHtml(
+        el.querySelector('.pl-pilot-deliverable-detail'),
+        item.detail
+      );
     });
+
+    setHtml(
+      section?.querySelector('[data-pilot-footnote]'),
+      copy.pilot.footnote
+    );
   }
 
   // Footer Info
   if (siteConfig.company) {
     setText(document.querySelector('[data-footer-company]'), siteConfig.company.legalName);
-    setText(document.querySelector('[data-footer-vat]'), siteConfig.company.vatNumber);
+    const vatEl = document.querySelector('[data-footer-vat]');
+    const vatWrap = document.querySelector('[data-footer-vat-wrap]');
+    if (vatEl && siteConfig.company.vatNumber) {
+      setText(vatEl, siteConfig.company.vatNumber);
+      if (vatWrap) vatWrap.style.display = 'inline';
+    } else if (vatWrap) {
+      vatWrap.style.display = 'none';
+    }
     const emailEl = document.querySelector('[data-footer-email]');
-    if (emailEl) {
+    if (emailEl && siteConfig.company.contactEmail) {
       setText(emailEl, siteConfig.company.contactEmail);
       emailEl.setAttribute('href', `mailto:${siteConfig.company.contactEmail}`);
     }
