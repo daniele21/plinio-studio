@@ -6,7 +6,8 @@
 
 import { landingCopy as copy } from './content/landingCopy.js';
 import { siteConfig } from './content/siteConfig.js';
-import { trackEvent } from './services/firebase.js';
+import { trackEvent, initAnalyticsFromConsent } from './services/analytics.js';
+import { initCookieConsent, openCookiePreferences, openPrivacyPolicy } from './components/cookieConsent.js';
 
 const fragmentPaths = [
   './fragments/progress.html',
@@ -755,6 +756,26 @@ function wireAnalytics() {
 }
 
 /**
+ * Wire Footer Privacy & Preferences Actions
+ */
+function wireFooter() {
+  const footer = document.querySelector('.pl-footer');
+  if (!footer) return;
+
+  footer.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-footer-action]');
+    if (!btn) return;
+    const action = btn.dataset.footerAction;
+
+    if (action === 'policy') {
+      openPrivacyPolicy();
+    } else if (action === 'preferences') {
+      openCookiePreferences();
+    }
+  });
+}
+
+/**
  * Application Bootstrap
  */
 async function init() {
@@ -765,7 +786,12 @@ async function init() {
   wireHeaderAndProgress();
   wireConcerns();
   wireOrbit();
+  wireFooter();
   wireAnalytics();
+
+  // Initialize Basic Consent Mode Analytics and Cookie UI
+  initAnalyticsFromConsent();
+  initCookieConsent();
 }
 
 if (document.readyState === 'loading') {

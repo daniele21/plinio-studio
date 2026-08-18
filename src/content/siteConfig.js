@@ -62,5 +62,12 @@ export const siteConfig = {
   company: {
     legalName: 'Plinio Studio',
     contactEmail: 'info@plinio.studio'
+  },
+
+  // Privacy & Consent Settings
+  cookieConsent: {
+    enabled: true,
+    version: 1,
+    maxAgeDays: 180,
   }
 };
