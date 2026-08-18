@@ -246,6 +246,21 @@
   .pl-ecosystem-intro{font-size:13px}
 }
 
+/* Plinio Evidence Section */
+.pl-evidence-card{
+  transition:transform .25s cubic-bezier(.22,.61,.36,1),border-color .25s ease,box-shadow .25s ease;
+}
+.pl-evidence-card:hover{
+  border-color:rgba(247,239,221,.36)!important;
+  transform:translateY(-3px);
+  box-shadow:0 18px 40px rgba(0,0,0,.28);
+}
+@media(max-width:760px){
+  .pl-evidence-grid{
+    grid-template-columns:1fr!important;
+  }
+}
+
 
 
 *{box-sizing:border-box;margin:0;padding:0}

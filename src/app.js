@@ -5,6 +5,7 @@ const fragmentPaths = [
   './fragments/header.html',
   './fragments/section-1.html',
   './fragments/section-2.html',
+  './fragments/section-evidence.html',
   './fragments/section-3.html',
   './fragments/section-4.html',
   './fragments/section-5.html',
@@ -43,13 +44,11 @@ function applyCopy() {
   }
 
   const sections = [...document.querySelectorAll('main > section')];
-  const [hero, personas, universe, process, comparison, objections, pilot] = sections;
+  const [hero, personas, evidence, universe, process, comparison, objections, pilot] = sections;
 
   if (hero) {
     const left = hero.querySelector('div[style*="flex:1 1 440px"]');
     if (left) {
-      const directDivs = left.querySelectorAll(':scope > div');
-      setText(directDivs[0], copy.hero.eyebrow);
       setHtml(left.querySelector('h1'), copy.hero.titleHtml);
       const ps = left.querySelectorAll(':scope > p');
       setText(ps[0], copy.hero.subtitle);
@@ -67,7 +66,6 @@ function applyCopy() {
   if (personas) {
     const head = personas.querySelector('div[data-rev]');
     if (head) {
-      setText(head.querySelector('div'), copy.personas.eyebrow);
       setText(head.querySelector('h2'), copy.personas.title);
     }
     const rows = [...personas.querySelectorAll('[data-delay]')].slice(0, 3);
@@ -78,13 +76,31 @@ function applyCopy() {
     });
   }
 
+  if (evidence && copy.evidence) {
+    const head = evidence.querySelector('div[data-rev]');
+    if (head) {
+      setText(head.querySelector('h2'), copy.evidence.title);
+      setText(head.querySelector('p'), copy.evidence.intro);
+    }
+    const cards = evidence.querySelectorAll('.pl-evidence-card');
+    copy.evidence.stats?.forEach((stat, i) => {
+      const card = cards[i];
+      if (!card) return;
+      setText(card.querySelector('.pl-evidence-stat'), stat.value);
+      setText(card.querySelector('.pl-evidence-claim'), stat.claim);
+      setText(card.querySelector('.pl-evidence-implication p'), stat.implication);
+      setText(card.querySelector('.pl-evidence-source'), `Fonte: ${stat.source}`);
+    });
+    setText(evidence.querySelector('.pl-evidence-disclaimer'), copy.evidence.disclaimer);
+  }
+
   if (universe) {
     const head = universe.querySelector('div[data-rev]');
     if (head) {
-      setText(head.children[0], copy.universe.eyebrow);
       setText(head.querySelector('h2'), copy.universe.title);
       setText(head.querySelector('p'), copy.universe.intro);
-      setText(head.children[3], copy.universe.tagline);
+      const tagline = [...head.querySelectorAll('div')].find(d => !d.querySelector('h2'));
+      if (tagline) setText(tagline, copy.universe.tagline);
     }
     const rows = [...universe.querySelectorAll('div[data-delay]')].slice(0, 6);
     rows.forEach((row, i) => {
@@ -99,7 +115,6 @@ function applyCopy() {
   if (process) {
     const head = process.querySelector('div[data-rev]');
     if (head) {
-      setText(head.querySelector('div'), copy.process.eyebrow);
       setText(head.querySelector('h2'), copy.process.title);
     }
     const cards = [...process.querySelectorAll('h3')].map(h => h.parentElement).slice(0, 4);
@@ -112,7 +127,6 @@ function applyCopy() {
   if (comparison) {
     const head = comparison.querySelector('div[data-rev]');
     if (head) {
-      setText(head.querySelector('div'), copy.comparison.eyebrow);
       setText(head.querySelector('h2'), copy.comparison.title);
       setText(head.querySelector('p'), copy.comparison.intro);
     }
@@ -134,7 +148,6 @@ function applyCopy() {
   if (objections) {
     const head = objections.querySelector('div[data-rev]');
     if (head) {
-      setText(head.querySelector('div'), copy.objections.eyebrow);
       setText(head.querySelector('h2'), copy.objections.title);
       setText(head.querySelector('p'), copy.objections.intro);
     }
