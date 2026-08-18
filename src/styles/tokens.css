@@ -93,7 +93,7 @@
   --space-3xl: 64px;
   --space-4xl: 88px;
 
-  --container-max-width: 1200px;
+  --container-max-width: 1400px;
   --container-padding: clamp(20px, 4vw, 36px);
 
   /* ==========================================================================

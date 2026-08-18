@@ -1,0 +1,22 @@
+{
+  "name": "plinio-studio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Plinio — Il valore dei tuoi progetti, pronto da comunicare",
+  "type": "module",
+  "scripts": {
+    "dev": "npx serve . -l 8080",
+    "serve": "firebase emulators:start --only hosting",
+    "deploy": "firebase deploy --only hosting",
+    "deploy:preview": "firebase hosting:channel:deploy preview",
+    "projects:list": "firebase projects:list",
+    "use": "firebase use"
+  },
+  "keywords": [
+    "plinio",
+    "landing-page",
+    "firebase-hosting"
+  ],
+  "author": "Plinio Team",
+  "license": "UNLICENSED"
+}

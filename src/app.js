@@ -6,6 +6,7 @@
 
 import { landingCopy as copy } from './content/landingCopy.js';
 import { siteConfig } from './content/siteConfig.js';
+import './services/firebase.js';
 
 const fragmentPaths = [
   './fragments/progress.html',
