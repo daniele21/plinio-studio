@@ -343,6 +343,18 @@
   font-style: normal;
 }
 
+.pl-competitor-note {
+  position: relative;
+  z-index: 1;
+  max-width: 70em;
+  margin: 18px 0 0;
+  color: var(--pl-text-dark-muted);
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+}
+
 @media (max-width: 980px) {
   .pl-competitor-paths {
     grid-template-columns: 1fr;
