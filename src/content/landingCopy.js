@@ -9,7 +9,7 @@ export const landingCopy = {
     description: 'Plinio parte dai materiali dei tuoi progetti, trova risultati, decisioni e know-how che vale la pena raccontare e li trasforma in topic e prime bozze con fonti citate.',
   },
   header: {
-    tagline: 'Dai progetti ai contenuti',
+    tagline: 'Fai parlare i tuoi progetti',
     cta: 'Provalo su un progetto',
   },
   hero: {
@@ -30,20 +30,20 @@ export const landingCopy = {
     },
   },
   personas: {
-    title: 'Il valore è già nei vostri progetti. Il problema è portarlo fuori.',
+    title: 'Tre persone, lo stesso collo di bottiglia.',
     items: [
       {
-        role: 'CEO / Founder',
+        role: 'CEO / FOUNDER',
         quote: '«Ogni contenuto importante passa ancora da me.»',
         outcome: 'I progetti chiusi diventano case study e materiale commerciale senza passare dalla tua scrivania. <strong>Tu approvi il topic</strong>, non ricostruisci il contesto.',
       },
       {
-        role: 'Marketing / Content Lead',
+        role: 'MARKETING / CONTENT LEAD',
         quote: '«Passo più tempo a rincorrere colleghi che a decidere cosa comunicare.»',
         outcome: 'Apri la settimana con <strong>3+ topic già motivati</strong> e collegati alle fonti. Scegli l’angolo e <strong>parti dalla prima bozza</strong>, non dalla ricerca dei file.',
       },
       {
-        role: 'Project Manager / Tech Lead',
+        role: 'PROJECT MANAGER / TECH LEAD',
         quote: '«Mi interrompono per ricostruire informazioni che abbiamo già prodotto.»',
         outcome: 'Rispondi solo a <strong>domande mirate, una volta sola</strong>. Il contesto validato resta disponibile per tutte le comunicazioni successive.',
       },

@@ -24,14 +24,33 @@ npm run projects:list
 firebase use <project-id>
 ```
 
-### 3. Deploy in Produzione
-Per effettuare il deploy su Firebase Hosting:
-```bash
-npm run deploy
-```
+### 3. Deploy su Firebase Hosting
+
+- **Deploy rapido su Produzione (`plinio-studio.web.app`)**:
+  ```bash
+  npm run deploy
+  ```
+  *(Senza specificare alcuna versione, deploya direttamente e automaticamente sul dominio principale)*
+
+- **Deploy Versionato (`plinio-studio-vX.web.app`)**:
+  - Modalità interattiva (mostra i siti esistenti e chiede la versione, con INVIO = default produzione):
+    ```bash
+    npm run deploy:version
+    ```
+  - Specificando la versione direttamente (se esiste sovrascrive, altrimenti crea il nuovo site):
+    ```bash
+    npm run deploy:version v3
+    # oppure
+    npm run deploy:version 4
+    ```
+
+- **Scorciatoie rapide**:
+  - `npm run deploy:v2` (deploya su `plinio-studio-v2.web.app`)
+  - `npm run deploy:prod` (deploya su `plinio-studio.web.app`)
+  - `npm run deploy:all` (deploya su tutti i siti contemporaneamente)
 
 ### 4. Deploy di Anteprima (Preview Channel)
-Per testare una versione temporanea di anteprima su un URL dedicato:
+Per testare una versione temporanea di anteprima su un URL dedicato con scadenza:
 ```bash
 npm run deploy:preview
 ```

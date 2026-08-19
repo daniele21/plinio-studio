@@ -9,48 +9,38 @@ export const siteConfig = {
   // Feature Toggles
   showOrbit: false, // Set to true to test the system solar/orbit visualization in the capabilities section
 
-  // Hero Media Configuration
+  // Hero Media Configuration (Dual Column Visual Story)
   heroMedia: {
-    type: 'carousel', // 'carousel' | 'screenshot' | 'video'
-
-    // Carousel settings (Automatic sliding showcase)
-    carousel: {
-      autoPlay: true,
-      interval: 4500, // ms per slide
-      pauseOnHover: true,
-      slides: [
-        {
-          id: 'radar',
-          src: './src/assets/plinio-slide-radar.png',
-          alt: 'Plinio Studio - Radar opportunità editoriali',
-          url: 'app.plinio.ai/studio',
-          badgeText: 'Radar opportunità editoriali · Proposte radicate in fonti',
-        },
-        {
-          id: 'knowledge-graph',
-          src: './src/assets/plinio-slide-knowledge-graph.png',
-          alt: 'Plinio Studio - Grafo di conoscenza aziendale',
-          url: 'app.plinio.ai/knowledge-graph',
-          badgeText: 'Grafo di conoscenza · Connessione tra fonti, progetti e deliverable',
-        },
-      ]
+    type: 'dual', // 'dual' | 'carousel' | 'screenshot' | 'video'
+    primary: {
+      id: 'radar',
+      src: './src/assets/radar-discovery.png',
+      alt: 'Plinio Radar: individua opportunità editoriali dai materiali di progetto',
+      url: 'app.plinio.ai/radar',
+      tag: '1. Radar',
+      caption: 'Radar opportunità · Fatti e scelte da raccontare',
     },
-
-    // Screenshot fallback settings (Mockup UI)
-    screenshot: {
-      src: './src/assets/plinio-slide-radar.png',
-      alt: 'Interfaccia Plinio: radar opportunità editoriali e creazione contenuti da fonti validate',
-      caption: 'Plinio Dashboard · Radar opportunità editoriali e gestione contenuti',
-      useFallbackSvg: true
+    secondary: {
+      id: 'knowledge-graph',
+      src: './src/assets/plinio-slide-knowledge-graph.png',
+      alt: 'Plinio Grafo di Conoscenza: connessione tra fonti, decisioni e deliverable',
+      url: 'app.plinio.ai/knowledge-graph',
+      tag: '2. Fonti & Grafo',
+      caption: 'Grafo di conoscenza · Connessione tra claim e fonti',
     },
-
-    // Video settings (Demo / Loom / MP4)
+    // Video settings fallback (Demo / Loom / MP4)
     video: {
       src: '', // e.g. 'https://www.youtube-nocookie.com/embed/...' or local mp4
       poster: '',
       title: 'Guarda Plinio in azione in 90 secondi',
       duration: '1:30'
     }
+  },
+
+  // Product Section Media Configuration
+  productMedia: {
+    src: './src/assets/content-studio.png',
+    alt: 'Interfaccia Plinio: Content Studio con bozza editoriale e fonti collegate',
   },
 
   // Conversion & Booking Endpoints

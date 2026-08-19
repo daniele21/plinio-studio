@@ -7,9 +7,15 @@
   "scripts": {
     "dev": "npx serve . -l 8080",
     "serve": "firebase emulators:start --only hosting",
-    "deploy": "firebase deploy --only hosting",
+    "deploy": "node scripts/deploy-version.js",
+    "deploy:version": "node scripts/deploy-version.js",
+    "deploy:interactive": "node scripts/deploy-version.js --interactive",
+    "deploy:v2": "node scripts/deploy-version.js v2",
+    "deploy:prod": "node scripts/deploy-version.js prod",
+    "deploy:all": "firebase deploy --only hosting",
     "deploy:preview": "firebase hosting:channel:deploy preview",
     "projects:list": "firebase projects:list",
+    "sites:list": "firebase hosting:sites:list",
     "use": "firebase use"
   },
   "keywords": [

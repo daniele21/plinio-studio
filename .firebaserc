@@ -1,5 +1,36 @@
 {
   "projects": {
     "default": "plinio-studio"
-  }
+  },
+  "targets": {
+    "plinio-studio": {
+      "hosting": {
+        "v2": [
+          "plinio-studio-v2"
+        ],
+        "production": [
+          "plinio-studio"
+        ],
+        "v3": [
+          "plinio-studio-v3"
+        ],
+        "v1": [
+          "plinio-studio-v1"
+        ],
+        "v4a": [
+          "plinio-studio-v4a"
+        ],
+        "v4b": [
+          "plinio-studio-v4b"
+        ],
+        "v4c": [
+          "plinio-studio-v4c"
+        ],
+        "v5": [
+          "plinio-studio-v5"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

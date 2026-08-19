@@ -232,16 +232,6 @@
 }
 
 /* ==========================================================================
-   Section 2: Personas (Parchment Theme)
-   ========================================================================== */
-.pl-personas-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--space-lg);
-  margin-top: var(--space-2xl);
-}
-
-/* ==========================================================================
    Section: Evidence / Stats (Warm Obsidian Theme)
    ========================================================================== */
 .pl-evidence-grid {
