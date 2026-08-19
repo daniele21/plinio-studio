@@ -1,0 +1,35 @@
+/* V4B — Linear/Lovable product-first */
+.pl-v4b-section { padding-top:clamp(72px,8vw,108px); }
+.pl-v4b-heading { max-width:760px; }
+.pl-v4b-heading h2,.pl-v4b-competitor__heading h2 { margin:12px 0 0; font-size:clamp(2.45rem,4.8vw,4.2rem); line-height:.98; letter-spacing:-.025em; }
+.pl-v4b-heading p { max-width:44em; margin:18px 0 0; color:var(--pl-text-light-secondary); line-height:1.6; }
+.pl-v4b-product { margin-top:42px; }
+.pl-v4b-shot { overflow:hidden; border-radius:20px; border:1px solid var(--pl-border-light-subtle); box-shadow:0 30px 70px rgba(30,26,22,.1); background:#fff; }
+.pl-v4b-shot img { display:block; width:100%; height:auto; }
+.pl-v4b-callouts { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:14px; }
+.pl-v4b-callouts span { display:flex; gap:10px; align-items:flex-start; padding:14px 4px; border-top:1px solid var(--pl-border-light-subtle); }
+.pl-v4b-callouts b { font-family:var(--font-mono); color:var(--pl-soft-terracotta-light); font-size:.66rem; }
+.pl-v4b-callouts strong { font-size:.86rem; line-height:1.4; font-weight:600; color:var(--pl-text-light-primary); }
+.pl-v4b-next { display:grid; grid-template-columns:1fr auto 1fr auto 1fr; gap:16px; align-items:center; margin-top:34px; padding:20px 0; border-top:1px solid var(--pl-border-light-subtle); border-bottom:1px solid var(--pl-border-light-subtle); }
+.pl-v4b-next div { display:flex; flex-direction:column; gap:4px; }
+.pl-v4b-next span { font-family:var(--font-mono); font-size:.64rem; text-transform:uppercase; letter-spacing:.06em; color:var(--pl-text-light-muted); }
+.pl-v4b-next strong { font-size:.84rem; color:var(--pl-text-light-primary); }
+.pl-v4b-next>b { color:rgba(30,26,22,.25); }
+.pl-v4b-competitor__heading { max-width:760px; }
+.pl-v4b-competitor__heading em { color:var(--pl-soft-terracotta); font-style:normal; }
+.pl-v4b-start-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:40px; }
+.pl-v4b-start-grid article { min-height:180px; display:flex; flex-direction:column; padding:22px; border:1px solid var(--pl-border-dark-subtle); border-radius:18px; background:rgba(255,255,255,.025); }
+.pl-v4b-start-grid article>span { font-family:var(--font-mono); font-size:.66rem; text-transform:uppercase; letter-spacing:.06em; color:var(--pl-text-dark-muted); }
+.pl-v4b-start-grid article>strong { margin-top:22px; color:var(--pl-text-dark-primary); font-family:var(--font-serif); font-size:1.8rem; }
+.pl-v4b-start-grid article>small { margin-top:auto; color:var(--pl-text-dark-muted); font-size:.8rem; line-height:1.45; }
+.pl-v4b-start-grid .is-plinio { border-color:rgba(248,132,99,.3); background:rgba(214,85,39,.07); }
+.pl-v4b-start-grid .is-plinio>span,.pl-v4b-start-grid .is-plinio>strong { color:var(--pl-bright-accent); }
+.pl-v4b-competitor__line { margin-top:26px; padding-top:22px; border-top:1px solid var(--pl-border-dark-subtle); }
+.pl-v4b-competitor__line strong { display:block; max-width:44em; color:var(--pl-text-dark-primary); font-family:var(--font-serif); font-size:clamp(1.35rem,2.2vw,1.85rem); line-height:1.24; }
+.pl-v4b-proof__row { display:grid; grid-template-columns:.75fr .75fr 1.5fr; gap:18px; align-items:start; border-top:1px solid var(--pl-border-light-subtle); border-bottom:1px solid var(--pl-border-light-subtle); padding:28px 0; }
+.pl-v4b-proof__row>div { display:grid; gap:6px; }
+.pl-v4b-proof__row span { font-family:var(--font-serif); font-size:3rem; color:var(--pl-soft-terracotta-light); line-height:1; }
+.pl-v4b-proof__row p { margin:0; color:var(--pl-text-light-secondary); font-size:.82rem; line-height:1.4; }
+.pl-v4b-proof__row a { color:var(--pl-text-light-muted); font-size:.68rem; }
+.pl-v4b-proof__row>strong { font-family:var(--font-serif); font-size:clamp(1.3rem,2.3vw,1.8rem); line-height:1.25; }
+@media(max-width:820px){.pl-v4b-callouts,.pl-v4b-start-grid,.pl-v4b-proof__row{grid-template-columns:1fr}.pl-v4b-next{grid-template-columns:1fr}.pl-v4b-next>b{transform:rotate(90deg); justify-self:start}.pl-v4b-start-grid article{min-height:150px}}
