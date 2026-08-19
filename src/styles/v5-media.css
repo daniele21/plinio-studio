@@ -1,0 +1,115 @@
+/* V5 media story — Radar in hero, content-ready editor in product section */
+
+.pl-v5-hero-static .pl-container {
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(560px, 1.2fr);
+  gap: clamp(36px, 5vw, 72px);
+  align-items: center;
+}
+
+.pl-v5-hero-static .pl-product-hero__intro {
+  max-width: 650px;
+}
+
+.pl-v5-hero-shot {
+  min-width: 0;
+}
+
+.pl-v5-static-screen {
+  overflow: hidden;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 32px 90px rgba(0,0,0,.34);
+}
+
+.pl-v5-static-screen img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.pl-v5-static-screen--dark {
+  background: #0d0f10;
+}
+
+.pl-v5-screen-caption {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 14px;
+  color: var(--pl-text-dark-muted);
+  font-family: var(--font-mono);
+  font-size: .66rem;
+  letter-spacing: .045em;
+}
+
+.pl-v5-product--content-ready {
+  grid-template-columns: minmax(230px,.46fr) minmax(0,1.54fr);
+  gap: clamp(34px, 4.5vw, 64px);
+  margin-top: clamp(62px, 7vw, 94px);
+}
+
+.pl-v5-product--content-ready .pl-v5-product__copy {
+  align-self: center;
+}
+
+.pl-v5-product--content-ready .pl-v5-product__copy h3 {
+  max-width: 9.5em;
+}
+
+.pl-v5-product__shot--editor {
+  border-color: rgba(46,39,32,.16);
+  background: #0d0f10;
+  box-shadow: 0 32px 72px rgba(30,26,22,.12);
+}
+
+.pl-v5-product__shot--editor img {
+  width: 100%;
+  transform: translateZ(0);
+}
+
+.pl-v5-product--content-ready .pl-v5-product__signals span {
+  font-size: .86rem;
+}
+
+.pl-v5-product--content-ready .pl-v5-product__signals strong {
+  font-size: inherit;
+  color: var(--pl-soft-terracotta-light);
+}
+
+@media (max-width: 1120px) {
+  .pl-v5-hero-static .pl-container {
+    grid-template-columns: 1fr;
+  }
+
+  .pl-v5-hero-static .pl-product-hero__intro {
+    max-width: 760px;
+  }
+
+  .pl-v5-hero-shot {
+    width: 100%;
+    max-width: 980px;
+  }
+}
+
+@media (max-width: 900px) {
+  .pl-v5-product--content-ready {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .pl-v5-product--content-ready .pl-v5-product__copy h3 {
+    max-width: none;
+  }
+}
+
+@media (max-width: 620px) {
+  .pl-v5-static-screen,
+  .pl-v5-product__shot--editor {
+    border-radius: 14px;
+  }
+
+  .pl-v5-screen-caption {
+    display: none;
+  }
+}
