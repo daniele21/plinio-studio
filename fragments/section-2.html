@@ -45,60 +45,88 @@
       <strong>La generazione è già abbondante. Il collo di bottiglia è trasformare il lavoro svolto in un inventario continuo di cose credibili da dire.</strong>
     </div>
 
-    <div id="demo-opportunita" class="pl-gap-demo">
-      <div class="pl-demo-heading" data-rev="1">
+    <div id="demo-opportunita" class="pl-gap-demo pl-compact-demo">
+      <div class="pl-compact-demo__heading" data-rev="1">
         <span class="pl-section-kicker">Plinio entra qui</span>
-        <h2>Dal progetto alle opportunità, senza ricostruire il brief.</h2>
-        <p>Plinio collega fatti e decisioni ai materiali originali e propone <strong>cosa vale davvero la pena comunicare</strong>.</p>
+        <h2>Un progetto. Più cose che vale la pena raccontare.</h2>
+        <p>Niente documento da esplorare e niente workflow da imparare: <strong>fonte → opportunità → bozza</strong>, nello stesso frame.</p>
       </div>
 
-      <div class="pl-demo-workspace" data-rev="1" data-delay="0.06">
-        <div class="pl-demo-evidence">
-          <div class="pl-demo-panel-head"><span>Evidence</span><b>Report finale.pdf</b></div>
-          <div class="pl-demo-document">
-            <div class="pl-demo-document__line pl-demo-document__line--short"></div>
-            <div class="pl-demo-document__line"></div>
-            <div class="pl-demo-document__line"></div>
-            <div class="pl-demo-highlight">
-              <span>Risultato misurabile</span>
-              <strong>“Il nuovo flusso ha ridotto il tempo medio di setup da 47 a 32 minuti, pari a −32%.”</strong>
-              <small>Pagina 8 · KPI confermato anche in KPI_progetto.xlsx</small>
-            </div>
-            <div class="pl-demo-document__line"></div>
-            <div class="pl-demo-document__line pl-demo-document__line--medium"></div>
-            <div class="pl-demo-callout"><span>+ altre 26 evidenze ricostruite dal progetto</span></div>
+      <div class="pl-before-after" data-rev="1" data-delay="0.04" aria-label="Confronto tra il flusso attuale e il flusso con Plinio">
+        <div class="pl-before-after__row">
+          <span class="pl-before-after__label">Oggi</span>
+          <div class="pl-before-after__flow">
+            <span>Progetto chiuso</span><b>→</b><span>file + meeting</span><b>→</b><span>brief da ricostruire</span><b>→</b><strong>contenuto</strong>
           </div>
         </div>
-
-        <div class="pl-demo-opportunity-list">
-          <div class="pl-demo-panel-head"><span>Plinio suggerisce</span><b>6 opportunità</b></div>
-          <p class="pl-demo-hint">Scegline una per vedere come cambia la bozza.</p>
-
-          <button class="pl-demo-topic is-active" type="button" data-demo-topic="setup" aria-pressed="true">
-            <span class="pl-demo-topic__index">01</span>
-            <div><small>Risultato</small><strong>Come abbiamo ridotto del 32% i tempi di setup</strong><em>3 fonti · dato verificato</em></div>
-            <span class="pl-demo-topic__arrow">→</span>
-          </button>
-
-          <button class="pl-demo-topic" type="button" data-demo-topic="choice" aria-pressed="false">
-            <span class="pl-demo-topic__index">02</span>
-            <div><small>Decisione</small><strong>Perché abbiamo scelto questa tecnologia invece dell’alternativa</strong><em>4 fonti · forte buyer fit</em></div>
-            <span class="pl-demo-topic__arrow">→</span>
-          </button>
-
-          <button class="pl-demo-topic" type="button" data-demo-topic="problem" aria-pressed="false">
-            <span class="pl-demo-topic__index">03</span>
-            <div><small>Problema</small><strong>Il blocco che impediva al cliente di scalare l’esperienza</strong><em>2 fonti · formato case study</em></div>
-            <span class="pl-demo-topic__arrow">→</span>
-          </button>
-
-          <button class="pl-demo-topic" type="button" data-demo-topic="method" aria-pressed="false">
-            <span class="pl-demo-topic__index">04</span>
-            <div><small>Know-how</small><strong>Il metodo che possiamo riutilizzare sul prossimo progetto</strong><em>5 fonti · contenuto expertise</em></div>
-            <span class="pl-demo-topic__arrow">→</span>
-          </button>
+        <div class="pl-before-after__row pl-before-after__row--plinio">
+          <span class="pl-before-after__label">Con Plinio</span>
+          <div class="pl-before-after__flow">
+            <span>Progetto</span><b>→</b><span>prove</span><b>→</b><span>topic</span><b>→</b><strong>bozza verificabile</strong>
+          </div>
         </div>
       </div>
+
+      <div class="pl-compact-workspace" data-rev="1" data-delay="0.07">
+        <article class="pl-compact-panel pl-compact-panel--source">
+          <div class="pl-compact-panel__head">
+            <span>01 · Fonte</span>
+            <b data-demo-source>Report finale.pdf · p. 8</b>
+          </div>
+          <div class="pl-source-card">
+            <span class="pl-source-card__type">Risultato trovato</span>
+            <strong data-demo-claim>−32% tempo medio di setup</strong>
+            <p data-demo-evidence>“Il nuovo flusso ha ridotto il tempo medio di setup da 47 a 32 minuti.”</p>
+            <small>Il claim resta collegato al materiale originale.</small>
+          </div>
+        </article>
+
+        <article class="pl-compact-panel pl-compact-panel--topics">
+          <div class="pl-compact-panel__head">
+            <span>02 · Plinio trova</span>
+            <b>6 opportunità</b>
+          </div>
+          <div class="pl-compact-topic-list">
+            <button class="pl-compact-topic is-active" type="button" data-demo-topic="setup" aria-pressed="true">
+              <small>Risultato</small>
+              <strong>−32% nei tempi di setup</strong>
+              <span>→</span>
+            </button>
+            <button class="pl-compact-topic" type="button" data-demo-topic="choice" aria-pressed="false">
+              <small>Decisione</small>
+              <strong>Perché abbiamo cambiato tecnologia</strong>
+              <span>→</span>
+            </button>
+            <button class="pl-compact-topic" type="button" data-demo-topic="problem" aria-pressed="false">
+              <small>Problema</small>
+              <strong>Il blocco che impediva di scalare</strong>
+              <span>→</span>
+            </button>
+            <div class="pl-compact-topic-more">+3 altre opportunità</div>
+          </div>
+        </article>
+
+        <article class="pl-compact-panel pl-compact-panel--output">
+          <div class="pl-compact-panel__head">
+            <span>03 · Pronto da comunicare</span>
+            <b>LinkedIn · Founder</b>
+          </div>
+          <div class="pl-output-card">
+            <span class="pl-output-card__state">Bozza</span>
+            <h3 data-demo-draft-title>Come abbiamo ridotto del 32% i tempi di setup</h3>
+            <div class="pl-output-card__body" data-demo-draft-body>
+              <p>Nel progetto Brand X il collo di bottiglia non era la tecnologia. Era il modo in cui veniva preparato ogni ambiente.</p>
+              <p>Abbiamo ripensato il flusso operativo e ridotto il tempo medio di setup <mark>da 47 a 32 minuti: −32%</mark>.</p>
+            </div>
+            <div class="pl-output-card__evidence">
+              <span>✓ Claim verificato</span>
+              <b data-demo-output-source>Report finale.pdf · p. 8</b>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <p class="pl-compact-demo__hint" data-rev="1">Clicca un topic: <strong>fonte e bozza cambiano qui, senza scroll.</strong></p>
     </div>
   </div>
 </section>
