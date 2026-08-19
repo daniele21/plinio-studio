@@ -1,44 +1,21 @@
 <section class="pl-hero-section pl-section--dark">
   <div class="pl-container">
-    <div class="pl-hero-grid">
-      <!-- Left Column: Content & Actions -->
+    <div class="pl-hero-grid pl-hero-grid--clarity">
       <div class="pl-hero__content">
+        <span class="pl-hero-kicker">Per aziende B2B che lavorano a progetti</span>
+
         <h1 class="pl-hero__title" data-hero-title="1">
-          Basta un <strong class="pl-highlight--accent">progetto</strong> per avere<br class="pl-hero__br"> <span class="pl-highlight--accent">3+ contenuti</span> pronti ogni settimana.
+          Trasforma ogni <strong class="pl-highlight--accent">progetto</strong> in contenuti <span class="pl-highlight--accent">pronti da comunicare.</span>
         </h1>
 
-        <!-- Editorial Micro-Blocks -->
-        <div class="pl-hero__blocks">
-          <!-- Block 1: Perché comunicare (Proof principale) -->
-          <div class="pl-hero__block pl-hero__block--proof" data-hero-proof-block="1">
-            <span class="pl-hero__block-tag" data-hero-proof-tag="1">Fatti conoscere da chi decide</span>
-            <p class="pl-hero__block-stat" data-hero-proof-stat="1">
-              Fino a <strong class="pl-highlight--accent">20×</strong> più possibilità di essere scelto.
-            </p>
-            <a 
-              href="https://www.linkedin.com/business/marketing/blog/research-and-insights/the-principles-of-buyability-why-strong-deals-stall-and-what-separates-the-vendors-who-get-chosen" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              class="pl-hero__block-source" 
-              data-hero-proof-source="1"
-              data-analytics-event="source_link_click"
-              data-analytics-location="hero_proof"
-            >
-              LinkedIn × Bain &amp; Company ↗
-            </a>
-          </div>
-
-          <!-- Block 2: Perché Plinio ti rende facile farlo (Pain & Prodotto) -->
-          <div class="pl-hero__block pl-hero__block--value" data-hero-value-block="1">
-            <p class="pl-hero__block-lead" data-hero-value-lead="1">Niente foglio bianco. Niente rincorse ai colleghi.</p>
-            <p class="pl-hero__block-body" data-hero-value-body="1"><strong class="pl-highlight--accent">Plinio</strong> parte dai tuoi progetti e prepara bozze già fondate sui fatti.</p>
-          </div>
-        </div>
+        <p class="pl-hero__subtitle pl-hero__subtitle--clarity" data-hero-subtitle="1">
+          Carica report, deck, verbali e deliverable. <strong>Plinio trova risultati, decisioni e know-how</strong> che vale la pena raccontare e li trasforma in topic e prime bozze per LinkedIn, sito e newsletter.
+        </p>
 
         <div class="pl-hero__actions">
-          <a 
-            href="#prenota" 
-            class="pl-btn pl-btn--primary" 
+          <a
+            href="#prenota"
+            class="pl-btn pl-btn--primary"
             data-hero-primary-cta="1"
             data-analytics-event="pilot_cta_click"
             data-analytics-location="hero"
@@ -46,82 +23,85 @@
             <span>Provalo su un progetto</span>
             <span class="pl-btn-arrow" data-arrow="1">→</span>
           </a>
-          <a 
-            href="#universo" 
-            class="pl-btn pl-btn--link" 
+          <a
+            href="#come-funziona"
+            class="pl-btn pl-btn--link"
             data-hero-secondary-cta="1"
             data-analytics-event="hero_secondary_cta_click"
             data-analytics-location="hero"
-          >Vedi come funziona</a>
+          >Guarda cosa esce</a>
         </div>
 
         <div class="pl-hero__proof-list" data-hero-proof="1">
-          <span class="pl-hero__proof-item">30 min su una fonte</span>
-          <span class="pl-hero__proof-item">Nessuna migrazione IT</span>
-          <span class="pl-hero__proof-item">Fonti citate</span>
+          <span class="pl-hero__proof-item">Parte dai materiali che hai già</span>
+          <span class="pl-hero__proof-item">3+ opportunità per progetto</span>
+          <span class="pl-hero__proof-item">Ogni claim torna alla fonte</span>
         </div>
       </div>
 
-      <!-- Right Column: Product UI Mockup or Video Demo -->
-      <div class="pl-hero__media" data-hero-media-container="1">
-        <!-- Mockup Browser Frame with Automatic Interactive Carousel -->
-        <div class="pl-mockup-wrapper">
-          <div class="pl-mockup-frame" data-mockup-frame="1" tabindex="0" aria-label="Carosello anteprima interfaccia Plinio">
-            <div class="pl-mockup-body pl-carousel-body" data-carousel-container="1" aria-roledescription="carousel">
-              <div class="pl-carousel-track" data-carousel-track="1">
-                <!-- Slide 1: Radar Opportunità Editoriali -->
-                <div class="pl-carousel-slide" data-slide-index="0" aria-roledescription="slide" aria-label="1 di 2: Radar Opportunità Editoriali">
-                  <img 
-                    src="./src/assets/plinio-slide-radar.png" 
-                    alt="Interfaccia Plinio: radar opportunità editoriali e gestione bozze" 
-                    class="pl-mockup-image"
-                    loading="eager"
-                  />
-                </div>
+      <div class="pl-hero__media pl-hero__media--clarity" aria-label="Come Plinio trasforma un progetto in contenuti">
+        <div class="pl-transform-card" data-rev="1">
+          <div class="pl-transform-card__header">
+            <span class="pl-transform-card__eyebrow">Un progetto entra</span>
+            <strong>Più contenuti escono.</strong>
+          </div>
 
-                <!-- Slide 2: Grafo di Conoscenza -->
-                <div class="pl-carousel-slide" data-slide-index="1" aria-roledescription="slide" aria-label="2 di 2: Grafo di Conoscenza Aziendale">
-                  <img 
-                    src="./src/assets/plinio-slide-knowledge-graph.png" 
-                    alt="Interfaccia Plinio: grafo di conoscenza aziendale con connessioni tra fonti e progetti" 
-                    class="pl-mockup-image"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-
-              <!-- Floating Nav Arrows (Visible on frame hover) -->
-              <button type="button" class="pl-carousel-btn pl-carousel-btn--prev" data-carousel-prev="1" aria-label="Slide precedente">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-              </button>
-              <button type="button" class="pl-carousel-btn pl-carousel-btn--next" data-carousel-next="1" aria-label="Slide successiva">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-              </button>
-
-              <!-- Floating Carousel Dots Indicator -->
-              <div class="pl-carousel-dots" data-carousel-dots="1" aria-label="Paginazione carosello">
-                <button type="button" class="pl-carousel-dot pl-carousel-dot--active" data-dot-index="0" aria-label="Vai a slide 1: Radar Opportunità"></button>
-                <button type="button" class="pl-carousel-dot" data-dot-index="1" aria-label="Vai a slide 2: Grafo di Conoscenza"></button>
-              </div>
+          <div class="pl-transform-stage pl-transform-stage--input">
+            <div class="pl-transform-stage__topline">
+              <span class="pl-transform-stage__num">01</span>
+              <span class="pl-transform-stage__label">Materiali che avete già</span>
+            </div>
+            <div class="pl-file-stack">
+              <span class="pl-file-chip"><b>PDF</b> Report finale</span>
+              <span class="pl-file-chip"><b>PPT</b> Deck cliente</span>
+              <span class="pl-file-chip"><b>DOC</b> Verbale progetto</span>
+              <span class="pl-file-chip"><b>XLS</b> KPI e risultati</span>
             </div>
           </div>
-          
-          <!-- Floating dynamic indicator badge synchronized with current active slide -->
-          <div class="pl-mockup-badge" data-carousel-badge="1" aria-live="polite">
-            <span class="pl-mockup-badge-dot"></span>
-            <span data-carousel-badge-text="1">Radar opportunità editoriali · Proposte radicate in fonti</span>
-          </div>
-        </div>
 
-        <!-- Video Player (Alternative media via siteConfig.heroMedia.type = 'video') -->
-        <div class="pl-video-player" data-video-player="1" style="display: none;">
-          <div class="pl-video-overlay" data-video-trigger="1">
-            <div class="pl-play-button" aria-label="Riproduci demo">
-              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-            <span class="pl-video-label">Guarda la demo in azione (1:30 min)</span>
+          <div class="pl-transform-connector" aria-hidden="true">
+            <span>Plinio legge il contesto</span>
+            <b>↓</b>
           </div>
-          <video data-video-element="1" preload="none" controls style="display:none;"></video>
+
+          <div class="pl-transform-stage pl-transform-stage--discover">
+            <div class="pl-transform-stage__topline">
+              <span class="pl-transform-stage__num">02</span>
+              <span class="pl-transform-stage__label">Plinio trova cosa vale la pena raccontare</span>
+            </div>
+            <div class="pl-signal-grid">
+              <span>✓ Risultato misurabile</span>
+              <span>✓ Problema risolto</span>
+              <span>✓ Scelta progettuale</span>
+              <span>✓ Know-how riutilizzabile</span>
+            </div>
+          </div>
+
+          <div class="pl-transform-connector" aria-hidden="true">
+            <span>Il team sceglie il topic</span>
+            <b>↓</b>
+          </div>
+
+          <div class="pl-transform-stage pl-transform-stage--output">
+            <div class="pl-transform-stage__topline">
+              <span class="pl-transform-stage__num">03</span>
+              <span class="pl-transform-stage__label">Pronto da comunicare</span>
+            </div>
+            <div class="pl-output-grid">
+              <span>LinkedIn founder</span>
+              <span>Post aziendale</span>
+              <span>Case study</span>
+              <span>Newsletter</span>
+            </div>
+          </div>
+
+          <div class="pl-transform-card__footer">
+            <span>1 progetto</span>
+            <b>→</b>
+            <span>3+ opportunità</span>
+            <b>→</b>
+            <span>prima bozza</span>
+          </div>
         </div>
       </div>
     </div>
