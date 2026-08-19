@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 1024" role="img" aria-labelledby="title desc">
+<title id="title">Plinio Radar: opportunità editoriali</title>
+<desc id="desc">Schermata Plinio con due opportunità editoriali trovate nei materiali di progetto.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" x2="1"><stop stop-color="#0b0d0e"/><stop offset="1" stop-color="#111314"/></linearGradient>
+  <linearGradient id="card" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fffaf1"/><stop offset="1" stop-color="#f5eadb"/></linearGradient>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="18" stdDeviation="26" flood-color="#000" flood-opacity=".22"/></filter>
+  <style>
+    .ui{font-family:Arial,Helvetica,sans-serif}.serif{font-family:Georgia,'Times New Roman',serif}.muted{fill:#c7beb1}.orange{fill:#f15a24}.cream{fill:#fff8ec}.line{stroke:#312f2b}.nav{font-size:18px;fill:#eee7dc}.small{font-size:15px}.tiny{font-size:13px}.body{font-size:18px;fill:#2b2926}.label{font-size:14px;font-weight:700;letter-spacing:.7px;fill:#dc4f1e}.cardTitle{font-size:28px;fill:#1e1c19}.btn{fill:#ef541f}.btnText{font-size:17px;font-weight:700;fill:#fff}.chip{fill:#fbf4e9;stroke:#decfbd}.chipText{font-size:14px;font-weight:700;fill:#302d29}
+  </style>
+</defs>
+<rect width="1536" height="1024" rx="28" fill="url(#bg)"/>
+<rect x="0" y="0" width="244" height="1024" fill="#0a0c0d"/>
+<line x1="244" y1="0" x2="244" y2="1024" stroke="#2b2b29"/>
+<!-- brand -->
+<circle cx="49" cy="55" r="22" fill="none" stroke="#e8d1b4" stroke-width="2"/><circle cx="49" cy="55" r="8" fill="#f15a24"/><ellipse cx="49" cy="55" rx="34" ry="13" fill="none" stroke="#e8d1b4" stroke-width="1.6" transform="rotate(-30 49 55)"/>
+<text x="82" y="58" class="serif cream" font-size="36">Plinio</text><text x="84" y="84" class="serif orange" font-size="21" letter-spacing="6">Studio</text>
+<!-- nav -->
+<rect x="12" y="132" width="218" height="58" rx="10" fill="#252321"/><text x="28" y="169" class="ui nav orange" font-weight="700">▦  Studio</text>
+<text x="28" y="230" class="ui nav">▤  Knowledge Base</text><text x="28" y="286" class="ui nav">▦  Piano Editoriale</text><text x="28" y="342" class="ui nav">⬡  Review Queue</text><circle cx="213" cy="335" r="14" fill="#f15a24"/><text x="209" y="340" class="ui" fill="#fff" font-size="13">1</text>
+<text x="28" y="398" class="ui nav">⚙  Impostazioni</text><text x="28" y="454" class="ui nav">♙  Admin</text>
+<line x1="24" y1="760" x2="220" y2="760" stroke="#34322f"/><text x="28" y="804" class="ui nav">☼  Aspetto</text><line x1="24" y1="842" x2="220" y2="842" stroke="#34322f"/>
+<circle cx="49" cy="885" r="20" fill="none" stroke="#f15a24"/><text x="38" y="890" class="ui orange" font-size="14">SR</text><text x="77" y="880" class="ui nav" font-size="16">Sofia Rinaldi</text><text x="77" y="903" class="ui muted" font-size="14">Account</text>
+<!-- header -->
+<text x="286" y="70" class="serif cream" font-size="46">Radar: opportunità editoriali</text><rect x="832" y="40" width="148" height="44" rx="12" fill="none" stroke="#d84d1b"/><text x="855" y="68" class="ui orange" font-size="18" font-weight="700">6 da valutare</text>
+<text x="286" y="114" class="ui muted" font-size="20">Proposte radicate nelle Knowledge Card validate.</text><text x="286" y="145" class="ui muted" font-size="20">Decidi quali trasformare in contenuto e quali scartare.</text>
+<text x="1396" y="48" class="ui cream" font-size="16">?  Guida di Plinio</text><text x="1266" y="118" class="ui cream" font-size="17">‹   1 / 3   ›</text><text x="1416" y="118" class="ui orange" font-size="18">Vedi tutte →</text>
+<!-- cards -->
+<g filter="url(#shadow)"><rect x="282" y="190" width="602" height="570" rx="18" fill="url(#card)"/><rect x="910" y="190" width="602" height="570" rx="18" fill="url(#card)"/></g>
+<!-- card 1 -->
+<text x="314" y="236" class="ui label">OPPORTUNITÀ DA VALUTARE</text><rect x="748" y="214" width="106" height="34" rx="17" fill="#ffe0d2"/><text x="772" y="236" class="ui" font-size="14" fill="#d34e20">Priorità Alta</text>
+<text x="314" y="286" class="serif cardTitle">Migliorare l’efficienza operativa</text><text x="314" y="322" class="ui body">Ridurre i tempi ciclo del 12% e migliorare</text><text x="314" y="346" class="ui body">l’allineamento tra funzioni.</text>
+<rect x="312" y="372" width="540" height="108" rx="14" fill="#fbf1e4" stroke="#e5d4c1"/><text x="340" y="406" class="ui body" font-weight="700">▧  Cosa generare</text><text x="340" y="438" class="ui body" font-size="16">Una guida operativa con best practice per ridurre</text><text x="340" y="462" class="ui body" font-size="16">i tempi ciclo e migliorare l’allineamento tra funzioni.</text>
+<rect x="312" y="492" width="540" height="114" rx="14" fill="#fbf1e4" stroke="#e5d4c1"/><text x="340" y="527" class="ui body" font-weight="700">◷  Perché è rilevante ora</text><text x="340" y="558" class="ui body" font-size="16">Dai progetti analizzati emerge una riduzione media del 12%</text><text x="340" y="582" class="ui body" font-size="16">dei tempi ciclo negli ultimi 6 mesi.</text>
+<rect x="312" y="626" width="116" height="38" rx="19" class="chip"/><text x="338" y="650" class="ui chipText">◎ operations</text><rect x="440" y="626" width="142" height="38" rx="19" class="chip"/><text x="463" y="650" class="ui chipText">♙ procurement</text><rect x="594" y="626" width="104" height="38" rx="19" class="chip"/><text x="620" y="650" class="ui chipText">✓ 1 card</text>
+<rect x="312" y="686" width="286" height="52" rx="10" class="btn"/><text x="348" y="719" class="ui btnText">✦ Trasforma in contenuto</text><rect x="612" y="686" width="142" height="52" rx="10" fill="#fbf1e4" stroke="#dfcfbd"/><text x="658" y="719" class="ui body" font-size="17">Scarta</text>
+<!-- card 2 -->
+<text x="942" y="236" class="ui label">OPPORTUNITÀ DA VALUTARE</text><rect x="1370" y="214" width="112" height="34" rx="17" fill="#f7e4cc"/><text x="1392" y="236" class="ui" font-size="14" fill="#68462c">Priorità Media</text>
+<text x="942" y="286" class="serif cardTitle">Garantire continuità della conoscenza</text><text x="942" y="322" class="serif cardTitle">nei team di progetto</text><text x="942" y="354" class="ui body" font-size="16">Rendere più efficaci i passaggi di consegne e la</text><text x="942" y="378" class="ui body" font-size="16">documentazione di knowledge critico.</text>
+<rect x="940" y="404" width="540" height="108" rx="14" fill="#fbf1e4" stroke="#e5d4c1"/><text x="968" y="438" class="ui body" font-weight="700">▧  Cosa generare</text><text x="968" y="470" class="ui body" font-size="16">Un playbook per il passaggio di consegne efficace e</text><text x="968" y="494" class="ui body" font-size="16">la documentazione di knowledge critico nei progetti.</text>
+<rect x="940" y="524" width="540" height="114" rx="14" fill="#fbf1e4" stroke="#e5d4c1"/><text x="968" y="559" class="ui body" font-weight="700">◷  Perché è rilevante ora</text><text x="968" y="590" class="ui body" font-size="16">Aumentano i cambi di risorsa e il rischio di perdita</text><text x="968" y="614" class="ui body" font-size="16">di conoscenza tacita nei progetti in corso.</text>
+<rect x="940" y="656" width="122" height="38" rx="19" class="chip"/><text x="965" y="680" class="ui chipText">◎ knowledge</text><rect x="1074" y="656" width="178" height="38" rx="19" class="chip"/><text x="1096" y="680" class="ui chipText">♙ project management</text><rect x="1264" y="656" width="104" height="38" rx="19" class="chip"/><text x="1290" y="680" class="ui chipText">✓ 1 card</text>
+<rect x="940" y="708" width="286" height="52" rx="10" class="btn"/><text x="976" y="741" class="ui btnText">✦ Trasforma in contenuto</text><rect x="1240" y="708" width="142" height="52" rx="10" fill="#fbf1e4" stroke="#dfcfbd"/><text x="1286" y="741" class="ui body" font-size="17">Scarta</text>
+<!-- signals -->
+<rect x="282" y="790" width="1230" height="112" rx="16" fill="#17191a" stroke="#343638"/><circle cx="338" cy="846" r="25" fill="#22170f" stroke="#f15a24"/><text x="329" y="853" class="ui orange" font-size="22">6</text><text x="378" y="838" class="ui cream" font-size="17">Opportunità trovate</text><text x="378" y="864" class="ui muted" font-size="15">nei materiali del progetto</text>
+<circle cx="650" cy="846" r="25" fill="#10271c"/><text x="640" y="853" class="ui" fill="#60d394" font-size="22">✓</text><text x="690" y="838" class="ui cream" font-size="17">Risultati · decisioni · know-how</text><text x="690" y="864" class="ui muted" font-size="15">già collegati alle fonti</text>
+<circle cx="1032" cy="846" r="25" fill="#122034"/><text x="1022" y="853" class="ui" fill="#80b8ff" font-size="22">↗</text><text x="1072" y="838" class="ui cream" font-size="17">Ogni claim torna alla fonte</text><text x="1072" y="864" class="ui muted" font-size="15">verificabile in un click</text>
+<text x="510" y="956" class="ui muted" font-size="16">Solo contenuti radicati in Knowledge Card validate.</text><text x="946" y="956" class="ui orange" font-size="16">Scopri di più su come funziona il Radar →</text>
+</svg>
