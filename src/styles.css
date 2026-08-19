@@ -1,11 +1,12 @@
 /**
  * Plinio Main Stylesheet
- * Aggregates modular CSS files: tokens, base resets, components, and section layouts.
+ * Aggregates modular CSS files: tokens, base resets, components, section layouts, and focused landing overrides.
  */
 
 @import './styles/tokens.css';
 @import './styles/base.css';
 @import './styles/components.css';
 @import './styles/sections.css';
+@import './styles/clarity.css';
 @import './styles/cookie-consent.css';
 
