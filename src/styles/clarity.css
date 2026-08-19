@@ -236,7 +236,7 @@
 
 .pl-section-kicker {
   margin-bottom: 16px;
-  color: var(--pl-oxide);
+  color: var(--pl-soft-terracotta-light);
   border: 1px solid rgba(214, 85, 39, 0.18);
   background: rgba(214, 85, 39, 0.055);
 }
@@ -283,7 +283,7 @@
 }
 
 .pl-story-project__label {
-  color: var(--pl-oxide);
+  color: var(--pl-soft-terracotta-light);
 }
 
 .pl-story-project__status {
@@ -323,7 +323,7 @@
 }
 
 .pl-story-source-list span {
-  color: var(--pl-oxide);
+  color: var(--pl-soft-terracotta-light);
   font-family: var(--font-mono);
   font-size: 0.62rem;
 }
@@ -339,7 +339,7 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  color: var(--pl-oxide);
+  color: var(--pl-soft-terracotta-light);
   text-align: center;
 }
 
@@ -380,7 +380,7 @@
 }
 
 .pl-topic-card span {
-  color: var(--pl-oxide);
+  color: var(--pl-soft-terracotta-light);
 }
 
 .pl-topic-card strong {
@@ -407,7 +407,7 @@
 }
 
 .pl-story-equation strong {
-  color: var(--pl-oxide);
+  color: var(--pl-soft-terracotta-light);
   font-family: var(--font-serif);
   font-size: 2rem;
   line-height: 1;
