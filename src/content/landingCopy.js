@@ -1,34 +1,25 @@
 /**
  * Landing Page Copy & Content Data
- * Formatted with key phrase highlights and zero eyebrows.
+ * Product-first narrative: what goes in -> what Plinio finds -> what comes out -> why it matters.
  */
 
 export const landingCopy = {
   meta: {
-    title: 'Plinio - Fai parlare i tuoi progetti',
-    description: 'Plinio organizza la conoscenza aziendale, individua cosa vale la pena comunicare dai progetti chiusi e genera bozze con fonti citate.',
+    title: 'Plinio - Trasforma i progetti in contenuti pronti da comunicare',
+    description: 'Plinio parte dai materiali dei tuoi progetti, trova risultati, decisioni e know-how che vale la pena raccontare e li trasforma in topic e prime bozze con fonti citate.',
   },
   header: {
-    tagline: 'Fai parlare i tuoi progetti',
+    tagline: 'Dai progetti ai contenuti',
     cta: 'Provalo su un progetto',
   },
   hero: {
-    titleHtml: 'Basta un <strong class="pl-highlight--accent">progetto</strong> per avere<br class="pl-hero__br"> <span class="pl-highlight--accent">3+ contenuti</span> pronti ogni settimana.',
-    proofBlock: {
-      tag: 'Fatti conoscere da chi decide',
-      statHtml: 'Fino a <strong class="pl-highlight--accent">20×</strong> più possibilità di essere scelto.',
-      source: 'LinkedIn × Bain & Company ↗',
-      sourceUrl: 'https://www.linkedin.com/business/marketing/blog/research-and-insights/the-principles-of-buyability-why-strong-deals-stall-and-what-separates-the-vendors-who-get-chosen',
-    },
-    valueBlock: {
-      lead: 'Niente foglio bianco. Niente rincorse ai colleghi.',
-      body: '<strong class="pl-highlight--accent">Plinio</strong> parte dai tuoi progetti e prepara bozze già fondate sui fatti.',
-    },
+    titleHtml: 'Trasforma ogni <strong class="pl-highlight--accent">progetto</strong> in contenuti <span class="pl-highlight--accent">pronti da comunicare.</span>',
+    subtitle: 'Carica report, deck, verbali e deliverable. <strong>Plinio trova risultati, decisioni e know-how</strong> che vale la pena raccontare e li trasforma in topic e prime bozze per LinkedIn, sito e newsletter.',
     primaryCta: 'Provalo su un progetto',
-    secondaryCta: 'Vedi come funziona',
-    proof: ['30 min su una fonte', 'Nessuna migrazione IT', 'Fonti citate'],
-    ecosystemTitle: 'La conoscenza aziendale, pronta per diventare comunicazione',
-    ecosystemIntro: 'Plinio organizza ciò che l’azienda produce e lo valorizza per far emergere opportunità, recuperare il contesto e redigere bozze senza ripartire da zero.',
+    secondaryCta: 'Guarda cosa esce',
+    proof: ['Parte dai materiali che hai già', '3+ opportunità per progetto', 'Ogni claim torna alla fonte'],
+    ecosystemTitle: 'Il lavoro che avete già fatto diventa comunicazione.',
+    ecosystemIntro: 'Plinio organizza il contesto del progetto, individua le prove più interessanti e le porta fino a una prima bozza verificabile.',
     orbit: {
       brain: ['AI Brain · Sole', 'Il contesto non riparte da zero.', 'Organizza documenti, progetti e risultati affinché il contesto aziendale sia sempre disponibile.'],
       radar: ['AI Radar · Marte', 'Trova cosa vale la pena comunicare.', 'Analizza i progetti e fa emergere opportunità di comunicazione con razionale e fonti.'],
@@ -39,7 +30,7 @@ export const landingCopy = {
     },
   },
   personas: {
-    title: 'Tre persone, lo stesso collo di bottiglia.',
+    title: 'Il valore è già nei vostri progetti. Il problema è portarlo fuori.',
     items: [
       {
         role: 'CEO / Founder',
@@ -59,72 +50,72 @@ export const landingCopy = {
     ],
   },
   evidence: {
-    title: 'Renditi visibili prima della trattativa conta.',
-    intro: 'Chi vi conosce prima, ha più probabilità di considerarvi quando decide.',
+    title: 'Fatti conoscere da chi deve sceglierti.',
+    intro: 'Prima rendi visibile ciò che sapete fare, più è facile entrare nella shortlist quando nasce un bisogno.',
     stats: [
       {
         value: '81%',
         claim: 'degli acquisti va a vendor già conosciuti.',
-        sowhat: 'Se non ti conoscono prima, difficilmente ti scelgono.',
+        sowhat: 'Il lavoro migliore non aiuta a vendere se resta invisibile.',
         source: 'LinkedIn B2B Institute × Bain & Company',
         url: 'https://www.linkedin.com/business/marketing/blog/research-and-insights/the-principles-of-buyability-why-strong-deals-stall-and-what-separates-the-vendors-who-get-chosen',
       },
       {
         value: '75%',
         claim: 'approfondisce soluzioni scoperte tramite thought leadership.',
-        sowhat: 'Comunicare crea opportunità prima della vendita.',
+        sowhat: 'Mostrare competenza crea domanda prima della trattativa.',
         source: 'Edelman × LinkedIn Report',
         url: 'https://www.edelman.com/thought-leadership/2024-b2b-thought-leadership-impact-report',
       },
       {
         value: '−40%',
         claim: 'di tempo nei task di scrittura con AI.',
-        sowhat: 'Più continuità, meno lavoro manuale.',
+        sowhat: 'La parte ripetitiva può ridursi; la decisione resta al team.',
         source: 'Noy & Zhang (Science, 2023)',
         url: 'https://doi.org/10.1126/science.adh2586',
       },
     ],
   },
   universe: {
-    title: 'Meno lavoro manuale. Più contenuti che contano.',
-    intro: 'Plinio conserva il contesto, trova cosa comunicare e prepara bozze verificabili. <strong>Tu approvi.</strong>',
-    tagline: 'Meno ricerca · Meno briefing · Più continuità · Pieno controllo',
+    title: 'Plinio porta il lavoro fino alla bozza.',
+    intro: 'Non vi dà un altro foglio bianco. <strong>Recupera il contesto, trova cosa vale la pena raccontare e prepara una base verificabile.</strong> Al team resta la decisione.',
+    tagline: 'Materiali reali · Opportunità motivate · Fonti collegate · Bozza pronta',
     rows: [
       {
-        feature: 'AI Brain',
-        action: 'Il contesto resta',
+        feature: 'Contesto',
+        action: 'Legge i materiali del progetto',
         outcome: 'Niente brief da ricostruire.',
       },
       {
-        feature: 'AI Radar',
-        action: 'Trova cosa comunicare',
+        feature: 'Radar',
+        action: 'Trova le prove da raccontare',
         outcome: '3+ opportunità per progetto.',
       },
       {
-        feature: 'Knowledge + Evidence',
-        action: 'Fatti e fonti restano collegati',
-        outcome: 'Meno ricerche. Più controllo.',
+        feature: 'Fonti',
+        action: 'Mantiene fatti e fonti collegati',
+        outcome: 'Ogni claim è verificabile.',
       },
       {
-        feature: 'Content Studio',
-        action: 'Dal topic alla bozza',
-        outcome: 'Parti già da una prima bozza.',
+        feature: 'Bozza',
+        action: 'Sviluppa il topic scelto',
+        outcome: 'Non parti da zero.',
       },
       {
-        feature: 'Feedback Loop',
-        action: 'Impara dalle revisioni',
+        feature: 'Feedback',
+        action: 'Conserva le revisioni utili',
         outcome: 'Meno correzioni nel tempo.',
       },
     ],
-    status: 'AI Radar, Content Studio ed Evidence Layer sono attivi. Le altre capability evolvono con i pilot.',
+    status: 'Radar, Content Studio ed Evidence Layer sono attivi. Le altre capability evolvono con i pilot.',
   },
   process: {
-    title: 'Dal progetto chiuso alla prima bozza. Senza attriti.',
+    title: 'Dal materiale grezzo a un contenuto approvabile, in 4 passaggi.',
     steps: [
-      ['Partite da un progetto reale', 'Report, verbali, deck e deliverable: materiali che avete già. <strong>Nessun nuovo sistema</strong> da compilare.'],
-      ['Il contesto è subito disponibile', 'Fatti, risultati, competenze e fonti diventano <strong>immediatamente riutilizzabili</strong>.'],
-      ['Ricevete 3+ opportunità', 'Topic pronti con <strong>angolo editoriale, target consigliato</strong> e fonti collegate.'],
-      ['Voi scegliete. La bozza è pronta.', 'Il team approva il topic che conta; Plinio prepara la <strong>prima bozza verificabile</strong> con fonti citate.'],
+      ['Partite da un progetto reale', 'Report, verbali, deck e deliverable: <strong>materiali che avete già</strong>. Nessun nuovo sistema da compilare.'],
+      ['Plinio ricostruisce il contesto', 'Individua <strong>problemi, risultati, scelte, competenze e fonti</strong> senza chiedervi di rispiegare tutto da capo.'],
+      ['Emergono 3+ opportunità', 'Ricevete topic con <strong>angolo editoriale, target consigliato, razionale e fonti</strong>.'],
+      ['Voi scegliete. Plinio scrive.', 'Approvate ciò che vale la pena comunicare; Plinio prepara una <strong>prima bozza verificabile</strong>.'],
     ],
   },
   comparison: {
@@ -200,23 +191,20 @@ export const landingCopy = {
     },
   },
   pilot: {
-    eyebrow: 'Sessione guidata · 30 min · 1 fonte reale',
+    eyebrow: 'Sessione guidata · 30 min · 1 progetto reale',
 
     titleHtml:
-      'Partiamo da un <strong>progetto</strong>.<br/>' +
-      'Ricevete <span class="pl-highlight--accent">3 opportunità</span> ' +
-      'e una <strong>prima bozza</strong>.',
+      'Porta un <strong>progetto</strong>.<br/>' +
+      'Ti mostriamo <span class="pl-highlight--accent">cosa c’è da comunicare</span>.',
 
     subtitle:
-      'In 30 minuti su una vostra fonte reale, vedete ' +
-      '<strong>cosa comunicare</strong>, da dove parte la bozza ' +
-      'e quanto tempo potete risparmiare.',
+      'Partiamo da una vostra fonte reale e arriviamo a <strong>3 opportunità motivate</strong> e a una <strong>prima bozza</strong>, così vedete Plinio sul vostro lavoro e non su una demo generica.',
 
     cta: 'Provalo su un progetto reale',
 
     microcopy: 'Nessun setup · Nessuna migrazione IT',
 
-    deliverablesTitle: 'Cosa vi portate via in 30 minuti',
+    deliverablesTitle: 'Cosa vi portate via',
 
     deliverables: [
       {
@@ -228,12 +216,12 @@ export const landingCopy = {
         detail: 'costruita sul vostro contesto reale',
       },
       {
-        title: 'Una stima del tempo risparmiabile',
+        title: 'Una stima del lavoro eliminabile',
         detail: 'rispetto al vostro metodo attuale',
       },
     ],
 
     footnote:
-      'Se non c’è materiale utile da comunicare, lo vediamo subito.',
+      'Se nel progetto non c’è niente di utile da raccontare, lo vediamo subito.',
   },
 };
