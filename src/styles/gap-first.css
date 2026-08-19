@@ -1,0 +1,324 @@
+/* Alternative proposal: gap-first narrative.
+ * Hero stays product-led, while the first scroll visualizes the discovery gap
+ * between project delivery and content production.
+ */
+
+/* --------------------------------------------------------------------------
+   Hero
+   -------------------------------------------------------------------------- */
+
+.pl-gap-hero .pl-product-hero__intro {
+  max-width: 1080px;
+}
+
+.pl-gap-hero__title {
+  max-width: 15.5em;
+  font-size: clamp(3rem, 5.8vw, 5.05rem);
+}
+
+.pl-gap-hero__subtitle {
+  max-width: 720px;
+}
+
+.pl-gap-hero .pl-hero-showcase {
+  width: min(1240px, 100%);
+  margin: clamp(42px, 5.5vw, 68px) auto 0;
+}
+
+.pl-gap-hero .pl-mockup-wrapper {
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   Gap map
+   -------------------------------------------------------------------------- */
+
+.pl-gap-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.pl-gap-heading {
+  max-width: 760px;
+}
+
+.pl-gap-heading h2 {
+  max-width: 16em;
+  margin: 0;
+  font-size: clamp(2.45rem, 4.8vw, 4.3rem);
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+}
+
+.pl-gap-heading p {
+  max-width: 44em;
+  margin: 18px 0 0;
+  color: var(--pl-text-light-secondary);
+  font-size: clamp(1rem, 1.35vw, 1.08rem);
+  line-height: 1.65;
+}
+
+.pl-gap-heading p strong {
+  color: var(--pl-text-light-primary);
+  font-weight: 650;
+}
+
+.pl-gap-map {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 44px minmax(0, 1.08fr) 44px minmax(0, 1fr);
+  gap: 10px;
+  align-items: stretch;
+  margin-top: clamp(38px, 5vw, 56px);
+}
+
+.pl-gap-stage {
+  min-height: 270px;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(20px, 2.7vw, 28px);
+  border: 1px solid var(--pl-border-light-subtle);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.48);
+  box-shadow: 0 12px 32px rgba(30, 26, 22, 0.045);
+}
+
+.pl-gap-stage--discovery {
+  border-color: rgba(184, 89, 54, 0.28);
+  background:
+    radial-gradient(circle at top right, rgba(214, 85, 39, 0.1), transparent 40%),
+    rgba(255, 255, 255, 0.72);
+  box-shadow: 0 18px 44px rgba(30, 26, 22, 0.07);
+}
+
+.pl-gap-stage__label {
+  color: var(--pl-text-light-muted);
+  font-family: var(--font-mono);
+  font-size: 0.67rem;
+  letter-spacing: 0.065em;
+  text-transform: uppercase;
+}
+
+.pl-gap-stage > strong {
+  max-width: 14em;
+  margin-top: 18px;
+  color: var(--pl-text-light-primary);
+  font-family: var(--font-serif);
+  font-size: clamp(1.45rem, 2.3vw, 1.95rem);
+  line-height: 1.08;
+}
+
+.pl-gap-stage--discovery > strong {
+  color: var(--pl-soft-terracotta-light);
+}
+
+.pl-gap-stage > p {
+  margin: 14px 0 0;
+  color: var(--pl-text-light-muted);
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+.pl-gap-chips,
+.pl-gap-tool-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 28px;
+}
+
+.pl-gap-chips span,
+.pl-gap-tool-stack span {
+  padding: 8px 10px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  line-height: 1.2;
+}
+
+.pl-gap-chips span {
+  color: var(--pl-text-light-secondary);
+  border: 1px solid var(--pl-border-light-subtle);
+  background: rgba(30, 26, 22, 0.025);
+}
+
+.pl-gap-tool-stack span {
+  color: var(--pl-text-light-secondary);
+  border: 1px solid rgba(103, 154, 146, 0.18);
+  background: rgba(103, 154, 146, 0.06);
+}
+
+.pl-gap-owner {
+  margin-top: auto;
+  padding-top: 26px;
+  color: var(--pl-soft-terracotta-light);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+}
+
+.pl-gap-owner::before {
+  content: '→';
+  margin-right: 7px;
+}
+
+.pl-gap-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(30, 26, 22, 0.28);
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+}
+
+.pl-gap-statement {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+  margin-top: 30px;
+  padding: 24px 0;
+  border-top: 1px solid var(--pl-border-light-subtle);
+  border-bottom: 1px solid var(--pl-border-light-subtle);
+}
+
+.pl-gap-statement > span {
+  color: var(--pl-soft-terracotta-light);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.pl-gap-statement > strong {
+  max-width: 50em;
+  color: var(--pl-text-light-primary);
+  font-family: var(--font-serif);
+  font-size: clamp(1.35rem, 2.1vw, 1.85rem);
+  font-weight: 600;
+  line-height: 1.28;
+}
+
+/* --------------------------------------------------------------------------
+   Product demo after gap
+   -------------------------------------------------------------------------- */
+
+.pl-gap-demo {
+  padding-top: clamp(72px, 9vw, 112px);
+}
+
+.pl-gap-demo .pl-demo-heading {
+  max-width: 720px;
+}
+
+.pl-gap-demo .pl-demo-heading h2 {
+  max-width: 14em;
+  font-size: clamp(2.35rem, 4.5vw, 3.9rem);
+  line-height: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Competitor section: more concise than the first proposal
+   -------------------------------------------------------------------------- */
+
+.pl-competitor-section--compact .pl-competitor-heading {
+  max-width: 760px;
+}
+
+.pl-competitor-section--compact .pl-competitor-heading h2 {
+  max-width: 12em;
+}
+
+.pl-competitor-paths--compact {
+  margin-top: 38px;
+}
+
+.pl-competitor-paths--compact .pl-competitor-path {
+  min-height: 220px;
+}
+
+.pl-competitor-paths--compact .pl-competitor-path__flow {
+  min-height: 72px;
+}
+
+.pl-compare-shell--compact {
+  margin-top: 18px;
+}
+
+.pl-compare-grid--three {
+  min-width: 720px;
+}
+
+.pl-compare-grid--three thead th:first-child,
+.pl-compare-grid--three tbody th {
+  width: 36%;
+}
+
+.pl-compare-grid--three thead th:not(:first-child) {
+  width: 21.333%;
+}
+
+/* --------------------------------------------------------------------------
+   Proof
+   -------------------------------------------------------------------------- */
+
+.pl-proof-section--compact .pl-proof-heading h2 {
+  max-width: 15em;
+}
+
+.pl-proof-card__internal {
+  display: inline-flex;
+  margin-top: auto;
+  padding-top: 18px;
+  color: var(--pl-text-light-muted);
+  font-family: var(--font-mono);
+  font-size: 0.67rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1040px) {
+  .pl-gap-map {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .pl-gap-arrow {
+    min-height: 28px;
+    transform: rotate(90deg);
+  }
+
+  .pl-gap-stage {
+    min-height: 0;
+  }
+
+  .pl-gap-chips,
+  .pl-gap-tool-stack,
+  .pl-gap-owner {
+    margin-top: 24px;
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 680px) {
+  .pl-gap-hero__title {
+    font-size: clamp(2.65rem, 12.5vw, 3.7rem);
+  }
+
+  .pl-gap-heading h2 {
+    font-size: clamp(2.2rem, 10vw, 3rem);
+  }
+
+  .pl-gap-statement {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .pl-gap-stage {
+    padding: 20px;
+  }
+}
