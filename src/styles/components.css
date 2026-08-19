@@ -171,8 +171,15 @@
 }
 
 /* ==========================================================================
-   Product UI Mockup Frame
+   Product UI Showcase & Carousel Mockup Frame
    ========================================================================== */
+.pl-hero-showcase {
+  position: relative;
+  z-index: 2;
+  width: min(1160px, 100%);
+  margin: clamp(36px, 5vw, 56px) auto 0;
+}
+
 .pl-mockup-wrapper {
   position: relative;
   width: 100%;
@@ -183,15 +190,60 @@
   background-color: var(--pl-deep-surface);
   border: 1px solid var(--pl-border-dark-medium);
   border-radius: var(--pl-radius-generous);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 20px rgba(214, 85, 39, 0.08);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7), 0 0 25px rgba(214, 85, 39, 0.08);
   overflow: hidden;
   width: 100%;
   transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  outline: none;
 }
 
-.pl-mockup-frame:hover {
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75), 0 0 24px rgba(214, 85, 39, 0.12);
+.pl-mockup-frame:hover,
+.pl-mockup-frame:focus-visible {
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.8), 0 0 30px rgba(214, 85, 39, 0.15);
   transform: translateY(-2px);
+}
+
+.pl-mockup-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  background-color: var(--pl-dark-elevated);
+  border-bottom: 1px solid var(--pl-border-dark-subtle);
+  user-select: none;
+}
+
+.pl-mockup-dots {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex: 0 0 auto;
+}
+
+.pl-mockup-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--pl-radius-pill);
+}
+
+.pl-mockup-dot:nth-child(1) { background-color: #ED6A5E; }
+.pl-mockup-dot:nth-child(2) { background-color: #F4BF4F; }
+.pl-mockup-dot:nth-child(3) { background-color: #61C554; }
+
+.pl-mockup-url {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--pl-text-dark-muted);
+  background-color: var(--pl-dark-subtle);
+  padding: 4px 18px;
+  border-radius: var(--pl-radius-subtle);
+  border: 1px solid var(--pl-border-dark-subtle);
+  text-align: center;
+  letter-spacing: 0.02em;
+  max-width: 320px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .pl-mockup-body {
@@ -235,25 +287,17 @@
 .pl-mockup-image {
   width: 100%;
   height: auto;
+  aspect-ratio: 16 / 10;
   object-fit: cover;
   display: block;
 }
 
-/* Carousel Dots Floating Indicator */
+/* Carousel Dots Indicator in Mockup Top Bar */
 .pl-carousel-dots {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  z-index: 9;
   display: flex;
   align-items: center;
   gap: 6px;
-  background-color: rgba(18, 16, 14, 0.72);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  padding: 6px 10px;
-  border-radius: var(--pl-radius-pill);
-  border: 1px solid var(--pl-border-dark-medium);
+  flex: 0 0 auto;
 }
 
 .pl-carousel-dot {
@@ -286,12 +330,12 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: 8;
-  width: 38px;
-  height: 38px;
+  width: 42px;
+  height: 42px;
   border-radius: var(--pl-radius-pill);
   background-color: rgba(18, 16, 14, 0.82);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--pl-border-dark-medium);
   color: var(--pl-text-dark-primary);
   display: flex;
@@ -318,17 +362,11 @@
 }
 
 .pl-carousel-btn--prev {
-  left: 14px;
+  left: 16px;
 }
 
 .pl-carousel-btn--next {
-  right: 14px;
-}
-
-@media (max-width: 640px) {
-  .pl-carousel-btn {
-    display: none;
-  }
+  right: 16px;
 }
 
 /* Floating Evidence Badge over Mockup */
@@ -359,6 +397,28 @@
   border-radius: var(--pl-radius-pill);
   background-color: var(--pl-verification-sage);
   box-shadow: 0 0 8px var(--pl-verification-sage);
+}
+
+@media (max-width: 640px) {
+  .pl-carousel-btn {
+    display: none;
+  }
+  .pl-mockup-bar {
+    padding: 8px 12px;
+  }
+  .pl-mockup-url {
+    font-size: 0.65rem;
+    padding: 3px 8px;
+    max-width: 150px;
+  }
+  .pl-mockup-badge {
+    bottom: -16px;
+    left: 12px;
+    right: 12px;
+    justify-content: center;
+    font-size: 0.7rem;
+    padding: 6px 12px;
+  }
 }
 
 /* ==========================================================================
