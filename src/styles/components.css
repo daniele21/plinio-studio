@@ -777,6 +777,25 @@
   }
 }
 
+@media (max-width: 640px) {
+  .pl-persona-card {
+    padding: 22px 20px;
+  }
+
+  .pl-persona-card__quote {
+    font-size: 1.25rem;
+    margin-bottom: 22px;
+  }
+
+  .pl-persona-card__role {
+    margin-bottom: 16px;
+  }
+
+  .pl-persona-card__outcome {
+    padding: 14px 16px;
+  }
+}
+
 .pl-persona-card {
   display: flex;
   flex-direction: column;

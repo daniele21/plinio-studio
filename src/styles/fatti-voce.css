@@ -218,3 +218,19 @@
     border-radius: var(--pl-radius-medium, 8px);
   }
 }
+
+@media (max-width: 480px) {
+  .pl-fatti-voce-card .pl-dual-card__header {
+    padding: 10px 14px;
+    min-height: 40px;
+  }
+
+  .pl-fatti-voce-card .pl-dual-card__title {
+    font-size: 0.78rem;
+  }
+
+  .pl-fatti-voce-card .pl-dual-tag {
+    font-size: 0.60rem;
+    padding: 2px 6px;
+  }
+}

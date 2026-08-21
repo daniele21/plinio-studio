@@ -130,7 +130,8 @@
   }
 
   .pl-final-cta h2 {
-    font-size: clamp(2.5rem, 12vw, 3.4rem);
+    font-size: clamp(2.1rem, 8.5vw, 2.9rem);
+    line-height: 1.05;
   }
 
   .pl-final-cta__button {
@@ -139,5 +140,11 @@
 
   .pl-final-cta__outcomes {
     justify-content: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .pl-final-cta__outcomes {
+    gap: 8px 14px;
   }
 }

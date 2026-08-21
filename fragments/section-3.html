@@ -12,7 +12,8 @@
       </div>
     </div>
 
-    <div class="pl-v5-table-wrap" data-rev="1" data-delay="0.05">
+    <!-- Desktop Table View (visible on screens > 768px) -->
+    <div class="pl-v5-table-wrap pl-compare-desktop" data-rev="1" data-delay="0.05">
       <table class="pl-v5-compare-table pl-v5-compare-table--visual" aria-label="Confronto tra processo manuale, AI generalista, AI per contenuti e Plinio">
         <thead>
           <tr>
@@ -70,6 +71,117 @@
       </table>
     </div>
 
-    <p class="pl-v5-compare-note" data-rev="1">Passa il mouse o porta il focus sui simboli per il dettaglio. Il confronto riguarda il job “progetto → contenuto”; le piattaforme citate possono coprire singoli passaggi con configurazioni dedicate.</p>
+    <!-- Mobile Comparison View (visible on screens <= 768px) -->
+    <div class="pl-compare-mobile" data-rev="1" data-delay="0.05">
+      <div class="pl-mob-comp-card is-key-step">
+        <div class="pl-mob-comp-card__header">
+          <span class="pl-mob-comp-card__num">01</span>
+          <span class="pl-mob-comp-card__title">Trova cosa vale la pena comunicare</span>
+        </div>
+        <div class="pl-mob-comp-card__plinio">
+          <div class="pl-mob-comp-card__badge is-plinio-badge">
+            <span class="pl-v5-mark pl-v5-mark--yes">✓</span>
+            <span>PLINIO · GESTITO</span>
+          </div>
+          <p class="pl-mob-comp-card__desc">È il job centrale di Plinio: il <strong>Radar cerca opportunità</strong> e topic rilevanti nei materiali del progetto.</p>
+        </div>
+        <div class="pl-mob-comp-card__others">
+          <div class="pl-mob-comp-other-row"><span class="pl-v5-mark pl-v5-mark--no">×</span> <span><b>Oggi:</b> Il team cerca manualmente cosa comunicare.</span></div>
+          <div class="pl-mob-comp-other-row"><span class="pl-v5-mark pl-v5-mark--partial">◐</span> <span><b>AI Generalista / Contenuti:</b> Richiede prompt guidati e configurazioni.</span></div>
+        </div>
+      </div>
+
+      <div class="pl-mob-comp-card">
+        <div class="pl-mob-comp-card__header">
+          <span class="pl-mob-comp-card__num">02</span>
+          <span class="pl-mob-comp-card__title">Recupera il contesto dai materiali</span>
+        </div>
+        <div class="pl-mob-comp-card__plinio">
+          <div class="pl-mob-comp-card__badge is-plinio-badge">
+            <span class="pl-v5-mark pl-v5-mark--yes">✓</span>
+            <span>PLINIO · GESTITO</span>
+          </div>
+          <p class="pl-mob-comp-card__desc">Plinio parte <strong>direttamente dai materiali del progetto</strong> collegati (report, verbali, deliverable).</p>
+        </div>
+        <div class="pl-mob-comp-card__others">
+          <div class="pl-mob-comp-other-row"><span class="pl-v5-mark pl-v5-mark--no">×</span> <span><b>Oggi:</b> Ricostruito chiedendo ai colleghi e cercando nei file.</span></div>
+          <div class="pl-mob-comp-other-row"><span class="pl-v5-mark pl-v5-mark--partial">◐</span> <span><b>AI tool:</b> Dovete selezionare, caricare o indicare il contesto ogni volta.</span></div>
+        </div>
+      </div>
+
+      <div class="pl-mob-comp-card">
+        <div class="pl-mob-comp-card__header">
+          <span class="pl-mob-comp-card__num">03</span>
+          <span class="pl-mob-comp-card__title">Tiene claim e fonti collegati</span>
+        </div>
+        <div class="pl-mob-comp-card__plinio">
+          <div class="pl-mob-comp-card__badge is-plinio-badge">
+            <span class="pl-v5-mark pl-v5-mark--yes">✓</span>
+            <span>PLINIO · GESTITO</span>
+          </div>
+          <p class="pl-mob-comp-card__desc">Claim ed evidenze restano <strong>sempre verificabili con un clic</strong> nel flusso di Plinio.</p>
+        </div>
+        <div class="pl-mob-comp-card__others">
+          <div class="pl-mob-comp-other-row"><span class="pl-v5-mark pl-v5-mark--no">×</span> <span><b>Oggi:</b> Verifica manuale da capo prima di pubblicare.</span></div>
+          <div class="pl-mob-comp-other-row"><span class="pl-v5-mark pl-v5-mark--partial">◐</span> <span><b>AI tool:</b> Citazioni e verifica dipendono da workflow esterni complessi.</span></div>
+        </div>
+      </div>
+
+      <div class="pl-mob-comp-card">
+        <div class="pl-mob-comp-card__header">
+          <span class="pl-mob-comp-card__num">04</span>
+          <span class="pl-mob-comp-card__title">Prepara la prima bozza</span>
+        </div>
+        <div class="pl-mob-comp-card__plinio">
+          <div class="pl-mob-comp-card__badge is-plinio-badge">
+            <span class="pl-v5-mark pl-v5-mark--yes">✓</span>
+            <span>PLINIO · GESTITO</span>
+          </div>
+          <p class="pl-mob-comp-card__desc">Dall'opportunità approvata, Plinio <strong>prepara la prima bozza completa</strong> nel contesto del progetto.</p>
+        </div>
+        <div class="pl-mob-comp-card__others">
+          <div class="pl-mob-comp-other-row"><span class="pl-v5-mark pl-v5-mark--no">×</span> <span><b>Oggi:</b> Bozza scritta manualmente dal foglio bianco.</span></div>
+          <div class="pl-mob-comp-other-row"><span class="pl-v5-mark pl-v5-mark--yes-neutral">✓</span> <span><b>AI Generalista / Contenuti:</b> Generano bozze, ma solo dopo aver fornito prompt e contesto.</span></div>
+        </div>
+      </div>
+
+      <div class="pl-mob-comp-card">
+        <div class="pl-mob-comp-card__header">
+          <span class="pl-mob-comp-card__num">05</span>
+          <span class="pl-mob-comp-card__title">Adatta il contenuto a target e canale</span>
+        </div>
+        <div class="pl-mob-comp-card__plinio">
+          <div class="pl-mob-comp-card__badge is-plinio-badge">
+            <span class="pl-v5-mark pl-v5-mark--yes">✓</span>
+            <span>PLINIO · GESTITO</span>
+          </div>
+          <p class="pl-mob-comp-card__desc">Target raccomandato e anteprima formato sono <strong>integrati nel Content Studio</strong> prima dell'approvazione.</p>
+        </div>
+        <div class="pl-mob-comp-card__others">
+          <div class="pl-mob-comp-other-row"><span class="pl-v5-mark pl-v5-mark--no">×</span> <span><b>Oggi:</b> Adattamento manuale per ogni canale.</span></div>
+          <div class="pl-mob-comp-other-row"><span class="pl-v5-mark pl-v5-mark--partial">◐</span> <span><b>AI Generalista:</b> Richiede specificare target, tono e vincoli ogni volta.</span></div>
+        </div>
+      </div>
+
+      <div class="pl-mob-comp-card is-key-step">
+        <div class="pl-mob-comp-card__header">
+          <span class="pl-mob-comp-card__num">06</span>
+          <span class="pl-mob-comp-card__title">Al team resta solo scegliere e approvare</span>
+        </div>
+        <div class="pl-mob-comp-card__plinio">
+          <div class="pl-mob-comp-card__badge is-plinio-badge">
+            <span class="pl-v5-mark pl-v5-mark--yes">✓</span>
+            <span>PLINIO · SCEGLIERE E APPROVARE</span>
+          </div>
+          <p class="pl-mob-comp-card__desc">L'intero flusso è progettato per <strong>lasciare al team solo la decisione</strong> sul topic e il via libera finale.</p>
+        </div>
+        <div class="pl-mob-comp-card__others">
+          <div class="pl-mob-comp-other-row"><span class="pl-v5-mark pl-v5-mark--no">×</span> <span><b>Oggi:</b> Il team svolge il 100% del processo operativo.</span></div>
+          <div class="pl-mob-comp-other-row"><span class="pl-v5-mark pl-v5-mark--no">×</span> <span><b>AI Generalista:</b> Il team guida ancora tutta l'analisi e la ricerca.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="pl-v5-compare-note" data-rev="1">Passa il mouse sui simboli (o tocca su mobile) per il dettaglio. Il confronto riguarda il job “progetto → contenuto”; le piattaforme citate possono coprire singoli passaggi con configurazioni dedicate.</p>
   </div>
 </section>
