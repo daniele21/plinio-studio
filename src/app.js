@@ -106,13 +106,16 @@ function applyCopy() {
 
   // Personas Section
   if (copy.personas) {
+    const kickerEl = document.querySelector('.pl-personas-kicker') || document.querySelector('.pl-personas-heading .pl-hero-kicker');
+    if (kickerEl && copy.personas.kicker) setText(kickerEl, copy.personas.kicker);
     const titleEl = document.querySelector('.pl-personas-heading h2') || document.querySelector('.pl-personas-grid')?.parentElement?.querySelector('h2');
     if (titleEl) setHtml(titleEl, copy.personas.title);
     const cards = document.querySelectorAll('.pl-persona-card');
     copy.personas.items?.forEach((item, i) => {
       const card = cards[i];
       if (!card) return;
-      setText(card.querySelector('.pl-persona-card__role'), item.role);
+      const roleEl = card.querySelector('.pl-persona-card__role-name') || card.querySelector('.pl-persona-card__role');
+      if (roleEl) setText(roleEl, item.role);
       setText(card.querySelector('.pl-persona-card__quote'), item.quote);
       setHtml(card.querySelector('.pl-persona-card__outcome-text'), item.outcome);
     });

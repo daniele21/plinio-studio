@@ -30,6 +30,7 @@ export const landingCopy = {
     },
   },
   personas: {
+    kicker: 'Il collo di bottiglia',
     title: 'Il problema non è scrivere. È recuperare tutto quello che viene prima.',
     items: [
       {
@@ -50,9 +51,9 @@ export const landingCopy = {
     ],
   },
   fattiVoce: {
-    kicker: 'Fatti & Voce aziendale',
-    title: 'Non basta che sia corretto.<br>Deve sembrare vostro.',
-    subtitle: 'Plinio mantiene fatti e numeri collegati alle fonti del progetto e costruisce ogni contenuto seguendo il vostro tono, la linea editoriale e il modo in cui comunicate.',
+    kicker: '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.2-6.3-4.6-6.3 4.6 2.3-7.2-6-4.6h7.6z"/></svg> Fatti &amp; Voce aziendale',
+    title: '<span class="pl-fatti-voce-title__lead">Non basta che sia corretto.</span><br><span class="pl-fatti-voce-title__accent">Deve sembrare vostro.</span>',
+    subtitle: 'Plinio mantiene <strong>fatti e numeri collegati alle fonti</strong> del progetto e costruisce ogni contenuto seguendo il <strong>vostro tono</strong>, la linea editoriale e il modo in cui comunicate.',
     cardTag: '3. Fatti + Voce',
     cardTitle: '<strong>Fatti &amp; Voce aziendale</strong> · Dalla fonte alla linea editoriale',
   },
