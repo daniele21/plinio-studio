@@ -30,8 +30,7 @@ export const landingCopy = {
     },
   },
   personas: {
-    kicker: 'Il collo di bottiglia',
-    title: 'Il problema non è scrivere. È recuperare tutto quello che viene prima.',
+    title: '<span class="pl-personas-title__lead">Il problema non è scrivere.</span><br><span class="pl-personas-title__accent">È recuperare tutto quello che viene prima.</span>',
     items: [
       {
         role: 'CEO / FOUNDER',
@@ -51,7 +50,6 @@ export const landingCopy = {
     ],
   },
   fattiVoce: {
-    kicker: '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.2-6.3-4.6-6.3 4.6 2.3-7.2-6-4.6h7.6z"/></svg> Fatti &amp; Voce aziendale',
     title: '<span class="pl-fatti-voce-title__lead">Non basta che sia corretto.</span><br><span class="pl-fatti-voce-title__accent">Deve sembrare vostro.</span>',
     subtitle: 'Plinio mantiene <strong>fatti e numeri collegati alle fonti</strong> del progetto e costruisce ogni contenuto seguendo il <strong>vostro tono</strong>, la linea editoriale e il modo in cui comunicate.',
     cardTag: '3. Fatti + Voce',
@@ -199,8 +197,6 @@ export const landingCopy = {
     },
   },
   pilot: {
-    eyebrow: '1 progetto reale · 30 minuti',
-
     titleHtml:
       'Vediamo cosa c’è da raccontare<br/>' +
       'nel vostro prossimo <span class="pl-highlight--accent">progetto</span>.',

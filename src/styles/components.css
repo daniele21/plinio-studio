@@ -739,12 +739,26 @@
 
 .pl-personas-heading h2 {
   font-family: var(--font-serif);
-  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  font-size: clamp(2.35rem, 4.4vw, 3.8rem);
   font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: -0.02em;
+  line-height: 1.06;
+  letter-spacing: -0.025em;
   color: var(--pl-text-light-primary);
   margin: 0;
+}
+
+.pl-personas-title__lead {
+  display: inline-block;
+  color: var(--pl-text-light-primary, #1E1A16);
+  opacity: 0.82;
+  font-weight: 600;
+}
+
+.pl-personas-title__accent {
+  display: inline-block;
+  color: var(--pl-terracotta, #D65527) !important;
+  font-style: italic;
+  font-weight: 700;
 }
 
 .pl-personas-grid {

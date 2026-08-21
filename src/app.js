@@ -9,6 +9,7 @@ import { siteConfig } from './content/siteConfig.js';
 import { trackEvent, initAnalyticsFromConsent } from './services/analytics.js';
 import { initCookieConsent, openCookiePreferences, openPrivacyPolicy } from './components/cookieConsent.js';
 import { initImageModal } from './components/imageModal.js';
+import { initAnimations } from './components/animations.js';
 
 const fragmentPaths = [
   './fragments/progress.html',
@@ -575,44 +576,6 @@ function wireHeroMedia() {
 }
 
 /**
- * Progressive Scroll Reveals via IntersectionObserver
- */
-function wireReveals() {
-  const revs = [...document.querySelectorAll('[data-rev]')];
-  const show = el => {
-    const delay = parseFloat(el.dataset.delay || 0) || 0;
-    el.style.transition = `opacity 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) ${delay}s, transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) ${delay}s`;
-    el.style.opacity = '1';
-    el.style.transform = 'translateY(0)';
-  };
-
-  if (reduceMotion) {
-    revs.forEach(show);
-    return;
-  }
-
-  // Initialize hidden state
-  revs.forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(16px)';
-  });
-
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          show(entry.target);
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-  );
-
-  revs.forEach(el => observer.observe(el));
-}
-
-/**
  * Top Progress Bar and Sticky Header Scroll Shadow
  */
 function wireHeaderAndProgress() {
@@ -843,7 +806,7 @@ async function init() {
   await mountOriginalLayout();
   applyCopy();
   wireHeroMedia();
-  wireReveals();
+  initAnimations();
   wireHeaderAndProgress();
   wireConcerns();
   wireOrbit();

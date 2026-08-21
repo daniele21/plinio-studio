@@ -1,0 +1,185 @@
+/**
+ * Plinio Animations & Micro-Interactions
+ * Inspired by modern best-in-class SaaS products (Linear, Stripe, Raycast, Reflect).
+ * Clean, lightweight, GPU-accelerated and strictly respects prefers-reduced-motion.
+ */
+
+:root {
+  --pl-ease-out-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+  --pl-ease-in-out-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --pl-ease-spring-subtle: cubic-bezier(0.22, 1.2, 0.36, 1);
+}
+
+/* ==========================================================================
+   1. Staggered Scroll Entrance Reveal (Linear Style)
+   ========================================================================== */
+[data-rev] {
+  opacity: 0;
+  transform: translateY(20px);
+  will-change: opacity, transform;
+}
+
+[data-rev].is-revealed {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* ==========================================================================
+   2. Interactive Spotlight & Glow Surfaces (Raycast / Vercel Style)
+   ========================================================================== */
+.pl-spotlight {
+  position: relative;
+  --spotlight-x: 50%;
+  --spotlight-y: 50%;
+  --spotlight-color: rgba(255, 117, 71, 0.14);
+}
+
+.pl-section--light .pl-spotlight {
+  --spotlight-color: rgba(214, 85, 39, 0.07);
+}
+
+.pl-spotlight::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(420px circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%), var(--spotlight-color), transparent 75%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.pl-spotlight:hover::before {
+  opacity: 1;
+}
+
+/* ==========================================================================
+   3. CTA Shimmer Sweep & Tactile Hardware Click (Linear / Framer Style)
+   ========================================================================== */
+.pl-btn--shimmer,
+.pl-btn--primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.pl-btn--shimmer::after,
+.pl-btn--primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.28),
+    transparent
+  );
+  transform: skewX(-22deg);
+  pointer-events: none;
+}
+
+.pl-btn--primary:hover::after,
+.pl-btn--primary.pl-shimmer-fire::after {
+  animation: plShimmerRun 1.1s var(--pl-ease-out-editorial);
+}
+
+@keyframes plShimmerRun {
+  0% { left: -120%; }
+  100% { left: 220%; }
+}
+
+/* Tactile Button Feedback */
+.pl-btn,
+.pl-header__cta {
+  transition: transform 0.18s var(--pl-ease-out-editorial),
+              box-shadow 0.18s var(--pl-ease-out-editorial),
+              background-color 0.18s ease,
+              border-color 0.18s ease !important;
+}
+
+.pl-btn:hover,
+.pl-header__cta:hover {
+  transform: translateY(-1.5px);
+}
+
+.pl-btn:active,
+.pl-header__cta:active {
+  transform: scale(0.975) translateY(0) !important;
+}
+
+/* Micro-interaction on arrow icons */
+.pl-btn svg,
+.pl-hero-cta svg,
+.pl-link-arrow svg {
+  transition: transform 0.22s var(--pl-ease-out-editorial);
+}
+
+.pl-btn:hover svg,
+.pl-hero-cta:hover svg,
+.pl-link-arrow:hover svg {
+  transform: translateX(3px);
+}
+
+/* ==========================================================================
+   4. Status Indicators & Ambient Pulse
+   ========================================================================== */
+.pl-mockup-badge-dot,
+.pl-pulse-dot {
+  position: relative;
+}
+
+.pl-mockup-badge-dot::after,
+.pl-pulse-dot::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.45;
+  animation: plAmbientBreath 2.6s infinite ease-in-out;
+  pointer-events: none;
+}
+
+@keyframes plAmbientBreath {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.45;
+  }
+  50% {
+    transform: scale(1.65);
+    opacity: 0;
+  }
+}
+
+/* ==========================================================================
+   5. Tabular Number Metrics (Zero layout jitter during count-up)
+   ========================================================================== */
+.pl-evidence-stat,
+.pl-stat-number,
+.pl-v5-signal-chip strong,
+[data-counter] {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+/* ==========================================================================
+   6. Reduced Motion Accessibility
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  [data-rev] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .pl-btn--primary::after,
+  .pl-mockup-badge-dot::after,
+  .pl-pulse-dot::after {
+    animation: none !important;
+  }
+  .pl-spotlight::before {
+    display: none !important;
+  }
+}
