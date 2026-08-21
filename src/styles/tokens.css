@@ -11,6 +11,7 @@
   --pl-warm-obsidian: #12100E;         /* Background principale dark (Hero, Evidence, Process, Objections, Pilot, Footer) */
   --pl-deep-surface: #1A1715;          /* Superfici elevate e card dark */
   --pl-parchment: #F7EFDD;             /* Background principale light (Personas, Capabilities, Comparison) */
+  --pl-warm-white: #FAF7F0;            /* Warm parchment variant per sezioni chiare */
   --pl-terracotta: #D65527;            /* Identità brand, accento visivo, indicatori, grafi */
   --pl-action-primary: #C44B1E;        /* Terracotta scuro per CTA e bottoni primari (WCAG AA > 4.8:1 con testo #FFFFFF) */
   --pl-action-primary-hover: #B54217;  /* Hover state per CTA */

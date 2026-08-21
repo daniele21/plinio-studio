@@ -5,19 +5,19 @@
 
 export const landingCopy = {
   meta: {
-    title: 'Plinio - Trasforma i progetti in contenuti pronti da comunicare',
-    description: 'Plinio parte dai materiali dei tuoi progetti, trova risultati, decisioni e know-how che vale la pena raccontare e li trasforma in topic e prime bozze con fonti citate.',
+    title: 'Plinio - Dai progetti a contenuti fondati su ciò che avete davvero fatto',
+    description: 'Plinio parte dai materiali dei vostri progetti, trova risultati, decisioni e know-how che vale la pena raccontare e vi prepara 3+ comunicazioni pronte con prime bozze e fonti collegate.',
   },
   header: {
-    tagline: 'Fai parlare i tuoi progetti',
+    tagline: 'Fate parlare i vostri progetti',
     cta: 'Provalo su un progetto',
   },
   hero: {
-    titleHtml: 'Trasforma ogni <strong class="pl-highlight--accent">progetto</strong> in contenuti <span class="pl-highlight--accent">pronti da comunicare.</span>',
-    subtitle: 'Carica report, deck, verbali e deliverable. <strong>Plinio trova risultati, decisioni e know-how</strong> che vale la pena raccontare e li trasforma in topic e prime bozze per LinkedIn, sito e newsletter.',
+    titleHtml: 'Carica un progetto.<br><span class="pl-highlight--accent">Plinio trova cosa vale la pena raccontare.</span>',
+    subtitle: 'Risultati, decisioni e competenze oggi restano nei file. <strong>Plinio trova cosa vale la pena raccontare</strong> e vi prepara 3+ comunicazioni pronte con prima bozza e fonti collegate.',
     primaryCta: 'Provalo su un progetto',
-    secondaryCta: 'Guarda cosa esce',
-    proof: ['Parte dai materiali che hai già', '3+ opportunità per progetto', 'Ogni claim torna alla fonte'],
+    secondaryCta: 'Guarda cosa trova',
+    proof: ['Materiali che avete già', '3+ opportunità per progetto', 'Ogni claim torna alla fonte'],
     ecosystemTitle: 'Il lavoro che avete già fatto diventa comunicazione.',
     ecosystemIntro: 'Plinio organizza il contesto del progetto, individua le prove più interessanti e le porta fino a una prima bozza verificabile.',
     orbit: {
@@ -30,28 +30,35 @@ export const landingCopy = {
     },
   },
   personas: {
-    title: 'Tre persone, lo stesso collo di bottiglia.',
+    title: 'Il problema non è scrivere. È recuperare tutto quello che viene prima.',
     items: [
       {
         role: 'CEO / FOUNDER',
         quote: '«Ogni contenuto importante passa ancora da me.»',
-        outcome: 'I progetti chiusi diventano case study e materiale commerciale senza passare dalla tua scrivania. <strong>Tu approvi il topic</strong>, non ricostruisci il contesto.',
+        outcome: 'Approvi cosa raccontare. <strong>Non dovete più ricostruire il progetto</strong> da zero.',
       },
       {
         role: 'MARKETING / CONTENT LEAD',
         quote: '«Passo più tempo a rincorrere colleghi che a decidere cosa comunicare.»',
-        outcome: 'Apri la settimana con <strong>3+ topic già motivati</strong> e collegati alle fonti. Scegli l’angolo e <strong>parti dalla prima bozza</strong>, non dalla ricerca dei file.',
+        outcome: 'Parti dalle opportunità e dalla prima bozza. <strong>Non dalla caccia alle informazioni</strong> tra i colleghi.',
       },
       {
         role: 'PROJECT MANAGER / TECH LEAD',
         quote: '«Mi interrompono per ricostruire informazioni che abbiamo già prodotto.»',
-        outcome: 'Rispondi solo a <strong>domande mirate, una volta sola</strong>. Il contesto validato resta disponibile per tutte le comunicazioni successive.',
+        outcome: 'Verifichi solo ciò che serve, una volta sola. <strong>Non rispieghi tutto da capo.</strong>',
       },
     ],
   },
+  fattiVoce: {
+    kicker: 'Fatti & Voce aziendale',
+    title: 'Non basta che sia corretto.<br>Deve sembrare vostro.',
+    subtitle: 'Plinio mantiene fatti e numeri collegati alle fonti del progetto e costruisce ogni contenuto seguendo il vostro tono, la linea editoriale e il modo in cui comunicate.',
+    cardTag: '3. Fatti + Voce',
+    cardTitle: '<strong>Fatti &amp; Voce aziendale</strong> · Dalla fonte alla linea editoriale',
+  },
   evidence: {
     title: 'Fatti conoscere da chi deve sceglierti.',
-    intro: 'Prima rendi visibile ciò che sapete fare, più è facile entrare nella shortlist quando nasce un bisogno.',
+    intro: 'I vostri progetti sono già la prova di ciò che sapete fare. Plinio evita che quella prova resti nei file.',
     stats: [
       {
         value: '81%',
@@ -113,55 +120,55 @@ export const landingCopy = {
     title: 'Dal materiale grezzo a un contenuto approvabile, in 4 passaggi.',
     steps: [
       ['Partite da un progetto reale', 'Report, verbali, deck e deliverable: <strong>materiali che avete già</strong>. Nessun nuovo sistema da compilare.'],
-      ['Plinio ricostruisce il contesto', 'Individua <strong>problemi, risultati, scelte, competenze e fonti</strong> senza chiedervi di rispiegare tutto da capo.'],
+      ['Plinio recupera il contesto', 'Individua <strong>problemi, risultati, scelte, competenze e fonti</strong> senza chiedervi di rispiegare tutto da capo.'],
       ['Emergono 3+ opportunità', 'Ricevete topic con <strong>angolo editoriale, target consigliato, razionale e fonti</strong>.'],
-      ['Voi scegliete. Plinio scrive.', 'Approvate ciò che vale la pena comunicare; Plinio prepara una <strong>prima bozza verificabile</strong>.'],
+      ['Voi scegliete. Plinio prepara la bozza.', 'Approvate ciò che vale la pena comunicare; Plinio prepara una <strong>prima bozza verificabile</strong>.'],
     ],
   },
   comparison: {
-    title: 'Quanto lavoro resta a voi?',
-    intro: 'Quanto dovete ancora fare voi prima di avere una <strong>bozza pronta da approvare</strong>?',
+    title: 'Cosa resta da fare a voi?',
+    intro: 'La prima bozza la fanno in molti. <strong>La differenza è chi gestisce il lavoro che viene prima.</strong>',
 
     featureRows: [
-      'Capire cosa comunicare',
-      'Ricostruire il brief',
-      'Recuperare il contesto dai team',
-      'Riutilizzare conoscenza già validata',
-      'Risalire alle fonti',
-      'Preparare la prima bozza',
+      'Trova cosa vale la pena comunicare',
+      'Recupera il contesto dai materiali',
+      'Tiene claim e fonti collegati',
+      'Prepara la prima bozza',
+      'Adatta il contenuto a target e canale',
+      'Al team resta solo scegliere e approvare',
     ],
 
     takeaway:
-      '<strong>Plinio porta il lavoro fino alla bozza.</strong> Al team resta la decisione.',
+      '<strong>Gli altri AI tool partono dal prompt. Plinio parte dal progetto.</strong> Al team resta solo scegliere e approvare.',
 
-    legend: '✓ risolto · ◐ richiede lavoro manuale · × resta al team',
+    legend: '✓ gestito · ◐ parziale · × resta al team',
   },
   objections: {
-    title: 'Le domande che ci fareste prima di provarlo.',
-    intro: '',
+    title: 'I dubbi che ci pongono prima di iniziare',
+    intro: 'Risposte chiare e dirette alle obiezioni che contano davvero prima di avviare un pilot.',
 
     items: {
       team: {
-        label: 'Quanto tempo deve dedicarci il team?',
+        label: 'Quanto tempo deve dedicarci il nostro team?',
         answerTitle: 'Quasi nessun lavoro in più.',
         answer:
-          'Plinio parte dai materiali che producete già. Il team interviene solo quando manca <strong>un’informazione decisiva</strong>.',
+          'Plinio lavora sui file e verbali che producete già. Il team interviene solo quando serve <strong>approvare o integrare un dettaglio</strong>.',
         proof: 'Nessun nuovo report da compilare.',
       },
 
       affidabilita: {
-        label: 'Come faccio a fidarmi di quello che scrive?',
-        answerTitle: 'Ogni claim torna alla fonte.',
+        label: 'Come facciamo a verificare numeri e affermazioni?',
+        answerTitle: 'Ogni affermazione torna alla fonte.',
         answer:
           'Plinio parte dai vostri materiali e mantiene fatti, numeri e affermazioni <strong>collegati alle evidenze che li supportano</strong>.',
-        proof: 'Fonti sempre verificabili.',
+        proof: 'Fonti sempre verificabili con un clic.',
       },
 
       riservatezza: {
-        label: 'Come gestite le informazioni riservate?',
+        label: 'Come gestite dati e informazioni riservate?',
         answerTitle: 'Decidete voi cosa può essere usato.',
         answer:
-          'Le informazioni possono essere pubblicabili, da validare o riservate. Il team mantiene sempre <strong>l’approvazione finale</strong>.',
+          'Le informazioni possono essere pubblicabili, da validare o riservate. Il vostro team mantiene sempre <strong>l’approvazione finale</strong>.',
         proof: 'Il controllo resta al team.',
       },
 
@@ -191,16 +198,16 @@ export const landingCopy = {
     },
   },
   pilot: {
-    eyebrow: 'Sessione guidata · 30 min · 1 progetto reale',
+    eyebrow: '1 progetto reale · 30 minuti',
 
     titleHtml:
-      'Porta un <strong>progetto</strong>.<br/>' +
-      'Ti mostriamo <span class="pl-highlight--accent">cosa c’è da comunicare</span>.',
+      'Vediamo cosa c’è da raccontare<br/>' +
+      'nel vostro prossimo <span class="pl-highlight--accent">progetto</span>.',
 
     subtitle:
-      'Partiamo da una vostra fonte reale e arriviamo a <strong>3 opportunità motivate</strong> e a una <strong>prima bozza</strong>, così vedete Plinio sul vostro lavoro e non su una demo generica.',
+      'Partiamo da una fonte reale. Plinio trova le opportunità, voi scegliete quella che conta e arriviamo fino a una prima bozza con fonti collegate.',
 
-    cta: 'Provalo su un progetto reale',
+    cta: 'Provalo su un progetto',
 
     microcopy: 'Nessun setup · Nessuna migrazione IT',
 
@@ -208,16 +215,16 @@ export const landingCopy = {
 
     deliverables: [
       {
-        title: '3 opportunità da comunicare',
+        title: '3+ opportunità da comunicare',
         detail: 'motivate e collegate alle fonti',
       },
       {
-        title: 'Una prima bozza',
+        title: 'Una prima bozza pronta',
         detail: 'costruita sul vostro contesto reale',
       },
       {
-        title: 'Una stima del lavoro eliminabile',
-        detail: 'rispetto al vostro metodo attuale',
+        title: 'Fonti collegate e verificabili',
+        detail: 'per numeri e affermazioni',
       },
     ],
 

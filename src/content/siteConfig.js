@@ -9,24 +9,16 @@ export const siteConfig = {
   // Feature Toggles
   showOrbit: false, // Set to true to test the system solar/orbit visualization in the capabilities section
 
-  // Hero Media Configuration (Dual Column Visual Story)
+  // Hero Media Configuration (Single Dominant Screenshot)
   heroMedia: {
-    type: 'dual', // 'dual' | 'carousel' | 'screenshot' | 'video'
+    type: 'single', // 'single' | 'dual' | 'carousel' | 'screenshot' | 'video'
     primary: {
       id: 'radar',
-      src: './src/assets/radar-discovery.png',
-      alt: 'Plinio Radar: individua opportunità editoriali dai materiali di progetto',
+      src: './src/assets/1.radar-.png',
+      alt: 'Plinio Radar: individua opportunità da comunicare dai materiali di progetto',
       url: 'app.plinio.ai/radar',
       tag: '1. Radar',
       caption: 'Radar opportunità · Fatti e scelte da raccontare',
-    },
-    secondary: {
-      id: 'knowledge-graph',
-      src: './src/assets/plinio-slide-knowledge-graph.png',
-      alt: 'Plinio Grafo di Conoscenza: connessione tra fonti, decisioni e deliverable',
-      url: 'app.plinio.ai/knowledge-graph',
-      tag: '2. Fonti & Grafo',
-      caption: 'Grafo di conoscenza · Connessione tra claim e fonti',
     },
     // Video settings fallback (Demo / Loom / MP4)
     video: {
@@ -37,10 +29,20 @@ export const siteConfig = {
     }
   },
 
-  // Product Section Media Configuration
+  // Product Section Media Configuration (Content Studio)
   productMedia: {
-    src: './src/assets/content-studio.png',
-    alt: 'Interfaccia Plinio: Content Studio con bozza editoriale e fonti collegate',
+    src: './src/assets/2. content-studio.png',
+    alt: 'Interfaccia Plinio: Content Studio con opportunità selezionata, bozza ed anteprima canale',
+    tag: '2. Content Studio',
+  },
+
+  // Fatti & Voce Media Configuration (Evidence / Voice & Facts Layer)
+  fattiVoceMedia: {
+    src: './src/assets/3.Evidence.png',
+    alt: 'Plinio: Fatti utilizzati da documenti di progetto e Voce aziendale applicata al contenuto',
+    tag: '3. Fatti + Voce',
+    title: 'Fatti & Voce aziendale',
+    caption: 'Dalla fonte alla linea editoriale',
   },
 
   // Conversion & Booking Endpoints

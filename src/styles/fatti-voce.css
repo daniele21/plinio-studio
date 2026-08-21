@@ -1,0 +1,193 @@
+/**
+ * Plinio Design System - Fatti & Voce Aziendale Section
+ * Focuses on provenance, factual integrity and editorial voice memory.
+ * Medium visual sizing (70-80% container width) for balanced rhythm.
+ * Features alternating light/dark theme support.
+ */
+
+.pl-fatti-voce-section {
+  position: relative;
+  padding-top: clamp(64px, 7.5vw, 96px);
+  padding-bottom: clamp(64px, 7.5vw, 96px);
+  overflow: hidden;
+}
+
+/* Light Theme Styling (Default in Alternating Rhythm) */
+.pl-fatti-voce-section.pl-section--light,
+.pl-section--light.pl-fatti-voce-section {
+  background-color: var(--pl-parchment, #F7EFDD) !important;
+  color: var(--pl-text-light-primary, #1E1A16);
+  border-top: 1px solid var(--pl-border-light-subtle, rgba(30, 26, 22, 0.10));
+  border-bottom: 1px solid var(--pl-border-light-subtle, rgba(30, 26, 22, 0.10));
+}
+
+.pl-fatti-voce-section.pl-section--light::before {
+  content: '';
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -25%);
+  width: min(700px, 90vw);
+  height: 400px;
+  background: radial-gradient(circle, rgba(214, 85, 39, 0.05) 0%, rgba(247, 239, 221, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pl-fatti-voce-section .pl-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Section Header (Centered Editorial Hierarchy) */
+.pl-fatti-voce-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto clamp(28px, 4vw, 48px);
+}
+
+.pl-fatti-voce-section.pl-section--light .pl-fatti-voce-header .pl-hero-kicker,
+.pl-fatti-voce-section.pl-section--light [data-fatti-voce-kicker] {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 14px;
+  background: rgba(214, 85, 39, 0.08);
+  border: 1px solid rgba(214, 85, 39, 0.24);
+  border-radius: var(--pl-radius-pill, 9999px);
+  font-family: var(--font-mono, monospace);
+  font-size: clamp(0.72rem, 0.95vw, 0.78rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pl-soft-terracotta-light, #B85936) !important;
+}
+
+.pl-fatti-voce-section.pl-section--light .pl-fatti-voce-header h2,
+.pl-fatti-voce-section.pl-section--light [data-fatti-voce-title] {
+  margin: 14px 0 0;
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: clamp(2.2rem, 3.8vw, 3.35rem);
+  font-weight: 650;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--pl-text-light-primary, #1E1A16) !important;
+}
+
+.pl-fatti-voce-section.pl-section--light .pl-fatti-voce-header p,
+.pl-fatti-voce-section.pl-section--light [data-fatti-voce-subtitle] {
+  max-width: 640px;
+  margin: 16px auto 0;
+  font-size: clamp(0.98rem, 1.25vw, 1.06rem);
+  line-height: 1.58;
+  color: var(--pl-text-light-secondary, rgba(30, 26, 22, 0.80)) !important;
+}
+
+/* Showcase Container: 70-80% visual proportion */
+.pl-fatti-voce-showcase {
+  max-width: 980px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Product Card - Dark obsidian frame on parchment surface */
+.pl-fatti-voce-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #14110F;
+  border: 1px solid rgba(46, 39, 32, 0.18);
+  border-radius: var(--pl-radius-generous, 12px);
+  box-shadow: 0 24px 60px rgba(30, 26, 22, 0.13), 0 4px 18px rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+  cursor: zoom-in;
+  transition: transform var(--transition-base, 0.25s ease),
+              border-color var(--transition-base, 0.25s ease),
+              box-shadow var(--transition-base, 0.25s ease);
+}
+
+.pl-fatti-voce-card .pl-dual-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  background: rgba(22, 19, 17, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+}
+
+.pl-fatti-voce-card .pl-dual-card__title {
+  color: var(--pl-text-dark-primary, #F5F2EB) !important;
+}
+
+.pl-fatti-voce-card .pl-dual-tag {
+  background: rgba(214, 85, 39, 0.16);
+  border: 1px solid rgba(214, 85, 39, 0.35);
+  color: var(--pl-bright-accent, #FF7547);
+}
+
+.pl-fatti-voce-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(214, 85, 39, 0.5);
+  box-shadow: 0 32px 76px rgba(30, 26, 22, 0.22), 0 0 35px rgba(241, 90, 36, 0.14);
+}
+
+.pl-fatti-voce-card:focus-visible {
+  outline: 2px solid var(--pl-soft-terracotta, #DE9379);
+  outline-offset: 3px;
+}
+
+/* Media Wrap */
+.pl-fatti-voce-media {
+  position: relative;
+  width: 100%;
+  background: #0D0B0A;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pl-fatti-voce-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  transform: translateZ(0);
+}
+
+/* Dark Theme Variant (if ever switched) */
+.pl-fatti-voce-section.pl-section--dark {
+  background-color: var(--pl-warm-obsidian, #12100E) !important;
+  border-top: 1px solid var(--pl-border-dark-subtle);
+  border-bottom: 1px solid var(--pl-border-dark-subtle);
+}
+
+.pl-fatti-voce-section.pl-section--dark .pl-fatti-voce-header h2 {
+  color: var(--pl-text-dark-primary) !important;
+}
+
+.pl-fatti-voce-section.pl-section--dark .pl-fatti-voce-header p {
+  color: var(--pl-text-dark-secondary) !important;
+}
+
+.pl-fatti-voce-section.pl-section--dark .pl-fatti-voce-card {
+  border-color: var(--pl-border-dark-medium);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6), 0 0 35px rgba(241, 90, 36, 0.06);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .pl-fatti-voce-header {
+    text-align: left;
+  }
+
+  .pl-fatti-voce-header p {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .pl-fatti-voce-card {
+    border-radius: var(--pl-radius-medium, 8px);
+  }
+}

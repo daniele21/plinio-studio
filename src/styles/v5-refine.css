@@ -250,6 +250,16 @@
 .pl-v5-compare-table--visual thead th:not(:first-child) {
   width: 15.5% !important;
   text-align: center;
+  vertical-align: middle;
+}
+
+.pl-v5-th-sub {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 400;
+  color: var(--pl-text-dark-muted);
+  margin-top: 4px;
+  letter-spacing: 0.01em;
 }
 
 .pl-v5-compare-table--visual th,
@@ -356,6 +366,15 @@
   font-size: clamp(2.25rem, 3.7vw, 3.45rem);
   line-height: 1;
   letter-spacing: -.025em;
+}
+
+.pl-v5-proof__bridge {
+  margin: 18px 0 0;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: var(--pl-text-light-secondary);
+  max-width: 34ch;
+  font-weight: 500;
 }
 
 .pl-v5-proof__grid {

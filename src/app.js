@@ -190,6 +190,28 @@ function applyCopy() {
     }
   }
 
+  // Fatti & Voce Section Copy & Media
+  if (copy.fattiVoce) {
+    const fattiSection = document.querySelector('#fatti-voce');
+    if (fattiSection) {
+      if (copy.fattiVoce.kicker) setHtml(fattiSection.querySelector('[data-fatti-voce-kicker]'), copy.fattiVoce.kicker);
+      if (copy.fattiVoce.title) setHtml(fattiSection.querySelector('[data-fatti-voce-title]'), copy.fattiVoce.title);
+      if (copy.fattiVoce.subtitle) setHtml(fattiSection.querySelector('[data-fatti-voce-subtitle]'), copy.fattiVoce.subtitle);
+      if (copy.fattiVoce.cardTitle) setHtml(fattiSection.querySelector('[data-fatti-voce-card-title]'), copy.fattiVoce.cardTitle);
+      if (copy.fattiVoce.cardTag) setText(fattiSection.querySelector('[data-fatti-voce-card-tag]'), copy.fattiVoce.cardTag);
+    }
+  }
+
+  if (siteConfig.fattiVoceMedia?.src) {
+    const fattiImg = document.querySelector('[data-fatti-voce-img]');
+    if (fattiImg) {
+      fattiImg.src = siteConfig.fattiVoceMedia.src;
+      if (siteConfig.fattiVoceMedia.alt) {
+        fattiImg.alt = siteConfig.fattiVoceMedia.alt;
+      }
+    }
+  }
+
   // Comparison Section
   if (copy.comparison) {
     setHtml(
@@ -365,13 +387,13 @@ function wireHeroMedia() {
     return;
   }
 
-  // Handle Dual Column Showcase synchronization
-  const dualShowcase = document.querySelector('.pl-dual-showcase');
-  if (dualShowcase && siteConfig.heroMedia?.type === 'dual') {
-    const primaryCard = dualShowcase.querySelector('.pl-dual-column--primary');
-    const secondaryCard = dualShowcase.querySelector('.pl-dual-column--secondary');
+  // Handle Single or Dual Column Showcase synchronization
+  const heroShowcase = document.querySelector('.pl-hero-showcase');
+  if (heroShowcase) {
+    const primaryCard = heroShowcase.querySelector('.pl-dual-card--main') || heroShowcase.querySelector('.pl-dual-column--primary') || heroShowcase.querySelector('.pl-dual-card');
+    const secondaryCard = heroShowcase.querySelector('.pl-dual-column--secondary');
 
-    if (primaryCard && siteConfig.heroMedia.primary) {
+    if (primaryCard && siteConfig.heroMedia?.primary) {
       const img = primaryCard.querySelector('.pl-dual-img');
       if (img && siteConfig.heroMedia.primary.src) img.src = siteConfig.heroMedia.primary.src;
       if (img && siteConfig.heroMedia.primary.alt) img.alt = siteConfig.heroMedia.primary.alt;
@@ -379,7 +401,7 @@ function wireHeroMedia() {
       if (tag && siteConfig.heroMedia.primary.tag) tag.textContent = siteConfig.heroMedia.primary.tag;
     }
 
-    if (secondaryCard && siteConfig.heroMedia.secondary) {
+    if (secondaryCard && siteConfig.heroMedia?.secondary) {
       const img = secondaryCard.querySelector('.pl-dual-img');
       if (img && siteConfig.heroMedia.secondary.src) img.src = siteConfig.heroMedia.secondary.src;
       if (img && siteConfig.heroMedia.secondary.alt) img.alt = siteConfig.heroMedia.secondary.alt;
@@ -393,11 +415,11 @@ function wireHeroMedia() {
     const slidesData = siteConfig.heroMedia?.carousel?.slides || [
       {
         url: 'app.plinio.ai/studio',
-        badgeText: 'Radar opportunità editoriali · Proposte radicate in fonti'
+        badgeText: 'Radar opportunità · Fatti e scelte da raccontare'
       },
       {
         url: 'app.plinio.ai/knowledge-graph',
-        badgeText: 'Grafo di conoscenza · Connessione tra fonti e progetti'
+        badgeText: 'Fonti collegate · Ogni opportunità ancorata ai file reali'
       }
     ];
 

@@ -1,3 +1,20 @@
+/**
+ * Plinio Design System - Final Pilot CTA Section
+ * Supports alternating light/dark theme modes.
+ */
+
+.pl-pilot-section.pl-section--light {
+  background-color: var(--pl-parchment, #F7EFDD) !important;
+  border-top: 1px solid var(--pl-border-light-subtle, rgba(30, 26, 22, 0.10));
+  border-bottom: 1px solid var(--pl-border-light-subtle, rgba(30, 26, 22, 0.10));
+}
+
+.pl-pilot-section.pl-section--dark {
+  background-color: var(--pl-warm-obsidian, #12100E) !important;
+  border-top: 1px solid var(--pl-border-dark-subtle);
+  border-bottom: 1px solid var(--pl-border-dark-subtle);
+}
+
 .pl-final-cta {
   display: flex;
   flex-direction: column;
@@ -8,11 +25,63 @@
   text-align: center;
 }
 
+/* Light Mode CTA Header & Typography */
+.pl-section--light .pl-final-cta .pl-hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 14px;
+  background: rgba(214, 85, 39, 0.08);
+  border: 1px solid rgba(214, 85, 39, 0.24);
+  border-radius: var(--pl-radius-pill, 9999px);
+  font-family: var(--font-mono, monospace);
+  font-size: clamp(0.72rem, 0.95vw, 0.78rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pl-soft-terracotta-light, #B85936) !important;
+}
+
+.pl-section--light .pl-final-cta h2 {
+  color: var(--pl-text-light-primary, #1E1A16) !important;
+}
+
+.pl-section--light .pl-final-cta > p {
+  color: var(--pl-text-light-secondary, rgba(30, 26, 22, 0.80)) !important;
+}
+
+.pl-section--light .pl-final-cta__outcomes {
+  border-top: 1px solid var(--pl-border-light-medium, rgba(30, 26, 22, 0.18));
+  color: var(--pl-text-light-muted, rgba(30, 26, 22, 0.62));
+}
+
+.pl-section--light .pl-final-cta__outcomes b {
+  color: var(--pl-soft-terracotta-light, #B85936);
+}
+
+/* Dark Mode CTA Fallbacks */
+.pl-section--dark .pl-final-cta h2 {
+  color: var(--pl-text-dark-primary);
+}
+
+.pl-section--dark .pl-final-cta > p {
+  color: var(--pl-text-dark-secondary);
+}
+
+.pl-section--dark .pl-final-cta__outcomes {
+  border-top: 1px solid var(--pl-border-dark-subtle);
+  color: var(--pl-text-dark-muted);
+}
+
+.pl-section--dark .pl-final-cta__outcomes b {
+  color: var(--pl-soft-terracotta);
+}
+
+/* Common Typography & Sizing */
 .pl-final-cta h2 {
   max-width: 760px;
   margin: 20px 0 16px;
-  color: var(--pl-text-dark-primary);
-  font-family: var(--font-serif);
+  font-family: var(--font-serif, Georgia, serif);
   font-size: clamp(2.5rem, 5vw, 4.2rem);
   line-height: 1;
   letter-spacing: -0.03em;
@@ -21,7 +90,6 @@
 .pl-final-cta > p {
   max-width: 640px;
   margin: 0;
-  color: var(--pl-text-dark-secondary);
   font-size: 1rem;
   line-height: 1.62;
 }
@@ -38,9 +106,7 @@
   gap: 10px 26px;
   margin-top: 26px;
   padding-top: 22px;
-  border-top: 1px solid var(--pl-border-dark-subtle);
-  color: var(--pl-text-dark-muted);
-  font-family: var(--font-mono);
+  font-family: var(--font-mono, monospace);
   font-size: 0.68rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -53,8 +119,7 @@
 }
 
 .pl-final-cta__outcomes b {
-  color: var(--pl-soft-terracotta);
-  font-family: var(--font-serif);
+  font-family: var(--font-serif, Georgia, serif);
   font-size: 1.15rem;
 }
 

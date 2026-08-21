@@ -208,13 +208,23 @@
   margin: clamp(36px, 5vw, 56px) auto 0;
 }
 
+.pl-hero-single-showcase {
+  max-width: 1080px;
+  width: 100%;
+  margin: clamp(32px, 4.5vw, 52px) auto 0;
+}
+
+.pl-hero-main-card {
+  width: 100%;
+}
+
 .pl-dual-showcase {
   width: min(1240px, 100%);
 }
 
 .pl-dual-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.14fr) auto minmax(0, 0.96fr);
+  grid-template-columns: minmax(0, 1.58fr) auto minmax(0, 0.88fr);
   align-items: center;
   gap: clamp(14px, 2vw, 24px);
   position: relative;
@@ -324,9 +334,8 @@
 .pl-dual-img {
   width: 100%;
   height: auto;
-  aspect-ratio: 16 / 10.2;
-  object-fit: cover;
   display: block;
+  object-fit: contain;
 }
 
 /* Minimal Gradient Arrow Connector */
