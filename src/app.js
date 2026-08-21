@@ -10,6 +10,7 @@ import { trackEvent, initAnalyticsFromConsent } from './services/analytics.js';
 import { initCookieConsent, openCookiePreferences, openPrivacyPolicy } from './components/cookieConsent.js';
 import { initImageModal } from './components/imageModal.js';
 import { initAnimations } from './components/animations.js';
+import { initMobileCarousels } from './components/mobileCarousel.js';
 
 const fragmentPaths = [
   './fragments/progress.html',
@@ -813,10 +814,11 @@ async function init() {
   wireFooter();
   wireAnalytics();
 
-  // Initialize Basic Consent Mode Analytics, Cookie UI and Image Zoom Modal
+  // Initialize Basic Consent Mode Analytics, Cookie UI, Image Zoom Modal and Mobile Carousels
   initAnalyticsFromConsent();
   initCookieConsent();
   initImageModal();
+  initMobileCarousels();
 }
 
 if (document.readyState === 'loading') {

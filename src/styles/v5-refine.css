@@ -160,6 +160,19 @@
   background: rgba(245, 242, 235, 0.16);
 }
 
+/* Desktop Showcase vs Mobile Carousels (Radar, Content Studio, Evidence) */
+.pl-hero-desktop-showcase,
+.pl-content-desktop-shot,
+.pl-evidence-desktop-shot {
+  display: block !important;
+}
+
+.pl-hero-mobile-carousel,
+.pl-content-mobile-carousel,
+.pl-evidence-mobile-carousel {
+  display: none !important;
+}
+
 .pl-v5-hero-shot {
   width: 100%;
   max-width: 1180px;
@@ -890,6 +903,167 @@
   .pl-v5-product__copy h3,
   .pl-fatti-voce-section.pl-section--light .pl-fatti-voce-header h2 {
     font-size: clamp(2rem, 6.5vw, 2.75rem);
+  }
+
+  /* Mobile Carousels (Radar, Content Studio, Evidence - Strictly Mobile <= 768px) */
+  .pl-hero-desktop-showcase,
+  .pl-content-desktop-shot,
+  .pl-evidence-desktop-shot {
+    display: none !important;
+  }
+
+  .pl-hero-mobile-carousel,
+  .pl-content-mobile-carousel,
+  .pl-evidence-mobile-carousel {
+    display: flex !important;
+    flex-direction: column;
+    width: 100%;
+    max-width: 440px;
+    margin: clamp(20px, 4.5vw, 32px) auto 0;
+  }
+
+  .pl-radar-carousel-card {
+    background-color: var(--pl-deep-surface);
+    border: 1px solid rgba(214, 85, 39, 0.4);
+    border-radius: var(--pl-radius-generous);
+    box-shadow: 0 16px 45px rgba(0, 0, 0, 0.75), 0 0 30px rgba(214, 85, 39, 0.12);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .pl-radar-carousel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 11px 16px;
+    background: rgba(22, 19, 16, 0.98);
+    border-bottom: 1px solid var(--pl-border-dark-subtle);
+  }
+
+  .pl-radar-carousel-viewport {
+    position: relative;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    background: #0C0A09;
+    padding: 12px 0 14px;
+  }
+
+  .pl-radar-carousel-viewport::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pl-radar-carousel-track {
+    display: flex;
+    width: 100%;
+  }
+
+  .pl-radar-carousel-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    background: transparent;
+    padding: 0 12px;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .pl-radar-mobile-img {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    max-height: clamp(340px, 60vh, 480px);
+    display: block;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(245, 242, 235, 0.1);
+    transition: transform 0.16s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.16s;
+  }
+
+  .pl-radar-carousel-slide:active .pl-radar-mobile-img {
+    transform: scale(0.97);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.85);
+  }
+
+  /* Carousel Controls Footer */
+  .pl-radar-carousel-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    background: rgba(22, 19, 16, 0.98);
+    border-top: 1px solid var(--pl-border-dark-subtle);
+  }
+
+  .pl-radar-nav-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--pl-border-dark-medium);
+    color: var(--pl-text-dark-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .pl-radar-nav-btn:hover {
+    background: rgba(214, 85, 39, 0.2);
+    border-color: var(--pl-bright-accent);
+    color: #FFFFFF;
+  }
+
+  .pl-radar-nav-btn:active {
+    transform: scale(0.92);
+  }
+
+  .pl-radar-dots {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .pl-radar-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(245, 242, 235, 0.22);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .pl-radar-dot.is-active {
+    width: 22px;
+    border-radius: var(--pl-radius-pill);
+    background: var(--pl-bright-accent);
+    box-shadow: 0 0 10px rgba(255, 117, 71, 0.6);
+  }
+
+  .pl-radar-carousel-hint {
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--pl-text-dark-muted);
+    letter-spacing: 0.02em;
+    margin: 10px 0 0;
   }
 }
 

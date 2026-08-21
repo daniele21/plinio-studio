@@ -28,6 +28,9 @@
         ],
         "v5": [
           "plinio-studio-v5"
+        ],
+        "v4": [
+          "plinio-studio-v4"
         ]
       }
     }

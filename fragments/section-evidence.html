@@ -6,7 +6,8 @@
     </div>
 
     <div class="pl-fatti-voce-showcase" data-rev="1" data-delay="0.04">
-      <div class="pl-dual-card pl-fatti-voce-card" tabindex="0" role="button" data-zoomable="true" aria-label="Ingrandisci anteprima: Fatti utilizzati da documenti di progetto e Voce aziendale applicata al contenuto">
+      <!-- Desktop Evidence Screenshot (screens > 768px) -->
+      <div class="pl-dual-card pl-fatti-voce-card pl-evidence-desktop-shot" tabindex="0" role="button" data-zoomable="true" aria-label="Ingrandisci anteprima: Fatti utilizzati da documenti di progetto e Voce aziendale applicata al contenuto">
         <div class="pl-dual-card__header">
           <div class="pl-dual-card__header-info">
             <span class="pl-mockup-badge-dot" aria-hidden="true"></span>
@@ -23,6 +24,71 @@
             data-fatti-voce-img
           />
         </div>
+      </div>
+
+      <!-- Mobile Evidence Carousel (screens <= 768px) -->
+      <div class="pl-evidence-mobile-carousel" data-evidence-carousel="1">
+        <div class="pl-radar-carousel-card pl-evidence-carousel-card">
+          <!-- Header -->
+          <div class="pl-radar-carousel-header">
+            <div class="pl-dual-card__header-info">
+              <span class="pl-mockup-badge-dot" aria-hidden="true"></span>
+              <span class="pl-dual-card__title" data-carousel-title><strong>1. Fatti di Progetto</strong> · Dati estratti</span>
+            </div>
+            <span class="pl-dual-tag" data-carousel-badge>1 di 3</span>
+          </div>
+
+          <!-- Viewport & Slides -->
+          <div class="pl-radar-carousel-viewport" data-carousel-viewport="1">
+            <div class="pl-radar-carousel-track" data-carousel-track="1">
+              <div class="pl-radar-carousel-slide" data-slide="0" tabindex="0" role="button" aria-label="Tocca per passare alla slide successiva (Passaggio 1: Fatti di Progetto)">
+                <img
+                  src="./src/assets/3.1.Evidence.png"
+                  alt="Plinio Fatti e Voce Mobile: Fatti estratti dai documenti di progetto"
+                  class="pl-dual-img pl-radar-mobile-img"
+                  loading="lazy"
+                />
+              </div>
+              <div class="pl-radar-carousel-slide" data-slide="1" tabindex="0" role="button" aria-label="Tocca per passare alla slide successiva (Passaggio 2: Evidenze e Fonti)">
+                <img
+                  src="./src/assets/3.2.Evidence.png"
+                  alt="Plinio Fatti e Voce Mobile: Evidenze e fonti collegate a ciascun claim"
+                  class="pl-dual-img pl-radar-mobile-img"
+                  loading="lazy"
+                />
+              </div>
+              <div class="pl-radar-carousel-slide" data-slide="2" tabindex="0" role="button" aria-label="Tocca per passare alla slide successiva (Passaggio 3: Voce Aziendale)">
+                <img
+                  src="./src/assets/3.3.Evidence.png"
+                  alt="Plinio Fatti e Voce Mobile: Tono di voce e stile aziendale applicato"
+                  class="pl-dual-img pl-radar-mobile-img"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Controls Footer -->
+          <div class="pl-radar-carousel-footer">
+            <button type="button" class="pl-radar-nav-btn pl-radar-nav-prev" data-carousel-prev="1" aria-label="Slide precedente">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+
+            <div class="pl-radar-dots" data-carousel-dots="1" role="tablist" aria-label="Indicatori slide Fatti e Voce">
+              <button type="button" class="pl-radar-dot is-active" role="tab" aria-selected="true" data-dot="0" aria-label="Slide 1: Fatti"></button>
+              <button type="button" class="pl-radar-dot" role="tab" aria-selected="false" data-dot="1" aria-label="Slide 2: Evidenze"></button>
+              <button type="button" class="pl-radar-dot" role="tab" aria-selected="false" data-dot="2" aria-label="Slide 3: Voce"></button>
+            </div>
+
+            <button type="button" class="pl-radar-nav-btn pl-radar-nav-next" data-carousel-next="1" aria-label="Slide successiva">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+
+        <p class="pl-radar-carousel-hint">
+          <span>Tocca l'immagine o scorri per passare allo step successivo ↻</span>
+        </p>
       </div>
     </div>
   </div>
