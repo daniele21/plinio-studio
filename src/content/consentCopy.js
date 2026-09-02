@@ -64,7 +64,7 @@ export const consentCopy = {
       },
       {
         title: '4. Conservazione dei dati del form',
-        content: 'I dati della richiesta vengono conservati per il tempo necessario a gestire il contatto e, salvo instaurazione di un diverso rapporto, per un periodo massimo indicativo di <strong>12 mesi dall’ultima interazione utile</strong>, dopo il quale vengono cancellati o anonimizzati, fatta salva la necessità di conservarli più a lungo per obblighi di legge o per la tutela di diritti.'
+        content: 'Per una nuova richiesta impostiamo una conservazione predefinita massima di <strong>12 mesi dalla ricezione del form</strong>. Alla scadenza il record viene eliminato automaticamente. Se nel frattempo nasce un diverso rapporto commerciale o contrattuale, la conservazione può essere aggiornata in base alla nuova finalità e alla relativa base giuridica. Restano salvi eventuali obblighi di legge o esigenze di tutela di diritti.'
       },
       {
         title: '5. Sicurezza e prevenzione degli abusi',
