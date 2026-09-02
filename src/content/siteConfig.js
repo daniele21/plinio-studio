@@ -63,9 +63,11 @@ export const siteConfig = {
     caption: 'Dalla fonte alla linea editoriale',
   },
 
-  // Conversion & Booking Endpoints
+  // Conversion & Lead Capture Endpoints
   conversion: {
-    pilotUrl: 'mailto:info@plinio.studio?subject=Richiesta%20Pilot%20Plinio%20su%20un%20progetto%20reale',
+    pilotUrl: '#prenota',
+    leadApiUrl: 'https://europe-west1-plinio-studio.cloudfunctions.net/submitLead',
+    thankYouPath: '/grazie',
   },
 
   // Company and legal info placeholders
