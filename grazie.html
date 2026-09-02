@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="it">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Richiesta ricevuta · Plinio</title>
+  <meta name="description" content="La tua richiesta per provare Plinio è stata ricevuta. Ti ricontatteremo per organizzare l'onboarding sul primo progetto.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#12100E">
+  <link rel="icon" type="image/png" href="./brand-kit/brand-icon.png">
+  <link rel="apple-touch-icon" href="./brand-kit/brand-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Cutive+Mono&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./src/styles.css">
+  <link rel="stylesheet" href="./src/styles/thank-you.css">
+
+  <script type="importmap">
+    {
+      "imports": {
+        "firebase/app": "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js",
+        "firebase/analytics": "https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics.js"
+      }
+    }
+  </script>
+</head>
+
+<body class="pl-thank-you-page">
+  <main class="pl-thank-you">
+    <div class="pl-thank-you__shell">
+      <a href="/" class="pl-thank-you__brand" aria-label="Plinio, torna alla landing page">
+        <img src="./brand-kit/logo.png" alt="" width="34" height="34">
+        <span>Plinio</span>
+      </a>
+
+      <section class="pl-thank-you__card" aria-labelledby="thanks-title">
+        <div class="pl-thank-you__check" aria-hidden="true">✓</div>
+        <p class="pl-thank-you__eyebrow">RICHIESTA RICEVUTA</p>
+        <h1 id="thanks-title">Perfetto. Ci sentiamo presto.</h1>
+        <p class="pl-thank-you__lead">Ti ricontatteremo entro <strong>1–2 giorni lavorativi</strong> per scegliere insieme un progetto e organizzare la prima fase di onboarding.</p>
+
+        <div class="pl-thank-you__next">
+          <h2>Cosa succede adesso</h2>
+          <div class="pl-thank-you__steps">
+            <article>
+              <span>1</span>
+              <div>
+                <strong>Scegliamo un progetto</strong>
+                <p>Partiamo da qualcosa che avete già realizzato o state realizzando.</p>
+              </div>
+            </article>
+            <article>
+              <span>2</span>
+              <div>
+                <strong>Raccogliamo i materiali che avete già</strong>
+                <p>Report, presentazioni, verbali, dati o altri documenti utili.</p>
+              </div>
+            </article>
+            <article>
+              <span>3</span>
+              <div>
+                <strong>Proviamo Plinio insieme</strong>
+                <p>Vediamo cosa emerge e arriviamo fino a una prima bozza verificabile.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="pl-thank-you__note">
+          <strong>Non devi preparare niente adesso.</strong>
+          <span>Ti guideremo noi nel primo passaggio.</span>
+        </div>
+
+        <a class="pl-btn pl-btn--primary pl-thank-you__cta" href="/">Torna alla pagina di Plinio <span aria-hidden="true">→</span></a>
+      </section>
+
+      <footer class="pl-thank-you__footer">
+        <button type="button" data-thanks-privacy>Privacy & Cookie</button>
+        <span>·</span>
+        <button type="button" data-thanks-preferences>Preferenze cookie</button>
+        <span>·</span>
+        <a href="mailto:info@plinio.studio">info@plinio.studio</a>
+      </footer>
+    </div>
+  </main>
+
+  <script type="module" src="./src/thankYou.js"></script>
+</body>
+
+</html>
