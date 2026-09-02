@@ -74,7 +74,7 @@ export function initSpotlightGlow() {
   if (reduceMotion) return;
 
   const spotlightCards = document.querySelectorAll(
-    '.pl-persona-card, .pl-v5-product__shot, .pl-stat-card, .pl-dual-card, .pl-fatti-voce-card'
+    '.pl-persona-card, .pl-v5-product__shot, .pl-stat-card, .pl-dual-card, .pl-fatti-voce-card, .pl-hero-pipeline'
   );
 
   spotlightCards.forEach(card => {

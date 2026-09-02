@@ -126,9 +126,9 @@ export function initMobileCarousels() {
   // 1. Radar Carousel (Section 1)
   setupCarousel('[data-radar-carousel]', {
     titles: [
-      '<strong>1. Documenti</strong> · Materiali caricati',
-      '<strong>2. Radar</strong> · Opportunità individuate',
-      '<strong>3. Dettaglio</strong> · Topic, motivazione e fonti'
+      '<strong>1. I vostri materiali</strong> · Materiali di progetto caricati',
+      '<strong>2. Plinio Radar</strong> · Trova le comunicazioni per voi',
+      '<strong>3. Comunicazioni pronte</strong> · LinkedIn, Case study, Newsletter'
     ]
   });
 

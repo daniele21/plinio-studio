@@ -398,6 +398,19 @@ function wireHeroMedia() {
     const primaryCard = heroShowcase.querySelector('.pl-dual-card--main') || heroShowcase.querySelector('.pl-dual-column--primary') || heroShowcase.querySelector('.pl-dual-card');
     const secondaryCard = heroShowcase.querySelector('.pl-dual-column--secondary');
 
+    // Pipeline showcase synchronization
+    const pipelineCols = heroShowcase.querySelectorAll('.pl-pipeline-col');
+    if (pipelineCols.length > 0 && Array.isArray(siteConfig.heroMedia?.pipeline)) {
+      pipelineCols.forEach((col, idx) => {
+        const item = siteConfig.heroMedia.pipeline[idx];
+        if (!item) return;
+        const img = col.querySelector('.pl-pipeline-img');
+        if (img && item.src) img.src = item.src;
+        const titleEl = col.querySelector('.pl-pipeline-col-title');
+        if (titleEl && item.title) titleEl.textContent = item.title;
+      });
+    }
+
     if (primaryCard && siteConfig.heroMedia?.primary) {
       const img = primaryCard.querySelector('.pl-dual-img');
       if (img && siteConfig.heroMedia.primary.src) img.src = siteConfig.heroMedia.primary.src;

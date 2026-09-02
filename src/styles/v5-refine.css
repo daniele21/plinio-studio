@@ -161,7 +161,11 @@
 }
 
 /* Desktop Showcase vs Mobile Carousels (Radar, Content Studio, Evidence) */
-.pl-hero-desktop-showcase,
+.pl-hero-desktop-showcase.pl-hero-pipeline {
+  display: grid !important;
+}
+
+.pl-hero-desktop-showcase:not(.pl-hero-pipeline),
 .pl-content-desktop-shot,
 .pl-evidence-desktop-shot {
   display: block !important;

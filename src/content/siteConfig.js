@@ -9,17 +9,35 @@ export const siteConfig = {
   // Feature Toggles
   showOrbit: false, // Set to true to test the system solar/orbit visualization in the capabilities section
 
-  // Hero Media Configuration (Single Dominant Screenshot)
+  // Hero Media Configuration (3-Phase Pipeline Showcase: Fonti -> Radar -> Canali)
   heroMedia: {
-    type: 'single', // 'single' | 'dual' | 'carousel' | 'screenshot' | 'video'
-    primary: {
-      id: 'radar',
-      src: './src/assets/1.radar-.png',
-      alt: 'Plinio Radar: individua opportunità da comunicare dai materiali di progetto',
-      url: 'app.plinio.ai/radar',
-      tag: '1. Radar',
-      caption: 'Radar opportunità · Fatti e scelte da raccontare',
-    },
+    type: 'pipeline', // 'pipeline' | 'single' | 'dual' | 'carousel' | 'video'
+    pipeline: [
+      {
+        id: 'sources',
+        src: './src/assets/radar-1.png',
+        alt: 'I vostri materiali di progetto analizzati da Plinio: presentazioni, report, note, metriche e verbali',
+        tag: '1. Materiali',
+        title: 'I vostri materiali',
+        caption: 'Materiali caricati da cui estrarre valore'
+      },
+      {
+        id: 'radar',
+        src: './src/assets/radar-2.png',
+        alt: 'Plinio Radar trova le comunicazioni per voi con fonti collegate',
+        tag: '2. Radar',
+        title: 'Plinio Radar trova le comunicazioni per voi',
+        caption: 'Temi chiave estratti con citazione verificata'
+      },
+      {
+        id: 'outputs',
+        src: './src/assets/radar-3.png',
+        alt: 'Comunicazioni pronte per la revisione: Post LinkedIn, Case study, Newsletter con avatar',
+        tag: '3. Comunicazioni',
+        title: 'Comunicazioni pronte',
+        caption: 'Bozze strutturate per i canali aziendali'
+      }
+    ],
     // Video settings fallback (Demo / Loom / MP4)
     video: {
       src: '', // e.g. 'https://www.youtube-nocookie.com/embed/...' or local mp4

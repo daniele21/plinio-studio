@@ -22,24 +22,96 @@
       </div>
     </div>
 
-    <div class="pl-hero-showcase pl-hero-single-showcase" data-rev="1" data-delay="0.06">
-      <!-- Desktop Radar Card (screens > 768px) -->
-      <div class="pl-dual-card pl-dual-card--main pl-hero-main-card pl-hero-desktop-showcase" tabindex="0" role="button" data-zoomable="true" aria-label="Ingrandisci anteprima: Plinio Radar, individua opportunità da comunicare dai materiali di progetto">
-        <div class="pl-dual-card__header">
-          <div class="pl-dual-card__header-info">
-            <span class="pl-mockup-badge-dot" aria-hidden="true"></span>
-            <span class="pl-dual-card__title"><strong>Radar opportunità</strong> · Fatti e scelte da raccontare</span>
+    <div class="pl-hero-showcase" data-rev="1" data-delay="0.06">
+      <!-- Desktop 3-Phase Pipeline Showcase (screens > 768px) -->
+      <div class="pl-hero-pipeline pl-hero-desktop-showcase" aria-label="Pipeline Plinio: Dai vostri materiali, Plinio Radar trova le comunicazioni fino alle bozze pronte per la revisione">
+        
+        <!-- Column 1: I vostri materiali -->
+        <div class="pl-pipeline-col pl-pipeline-col--sources">
+          <div class="pl-pipeline-col-header">
+            <span class="pl-pipeline-col-step">1</span>
+            <span class="pl-pipeline-col-title">I vostri materiali</span>
           </div>
-          <span class="pl-dual-tag">1. Radar</span>
+          <div class="pl-pipeline-card">
+            <img
+              src="./src/assets/radar-1.png"
+              alt="I vostri materiali di progetto analizzati da Plinio: presentazioni, report, note, metriche e verbali"
+              class="pl-pipeline-img"
+              loading="eager"
+            />
+          </div>
         </div>
-        <div class="pl-dual-card__media">
-          <img
-            src="./src/assets/1.radar-.png"
-            alt="Plinio Radar: individua opportunità da comunicare dai materiali di progetto"
-            class="pl-dual-img"
-            loading="eager"
-          />
+
+        <!-- Connector 1: Materiali -> Plinio Radar (Plinio theme) -->
+        <div class="pl-pipeline-connector" aria-hidden="true">
+          <svg class="pl-pipeline-svg" viewBox="0 0 100 1000" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <!-- 5 dotted branch lines from source cards to center node -->
+            <path class="pl-pipeline-line" d="M 0,129 C 40,129 50,420 50,438" vector-effect="non-scaling-stroke" />
+            <path class="pl-pipeline-line" d="M 0,332 C 30,332 45,425 50,438" vector-effect="non-scaling-stroke" />
+            <path class="pl-pipeline-line" d="M 0,526 C 30,526 45,445 50,438" vector-effect="non-scaling-stroke" />
+            <path class="pl-pipeline-line" d="M 0,716 C 30,716 48,450 50,438" vector-effect="non-scaling-stroke" />
+            <path class="pl-pipeline-line" d="M 0,896 C 40,896 50,455 50,438" vector-effect="non-scaling-stroke" />
+            <!-- Line from node to center card -->
+            <path class="pl-pipeline-line" d="M 50,438 L 100,438" vector-effect="non-scaling-stroke" />
+          </svg>
+          <div class="pl-pipeline-node">
+            <svg class="pl-pipeline-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
         </div>
+
+        <!-- Column 2: Plinio Radar trova le comunicazioni per voi -->
+        <div class="pl-pipeline-col pl-pipeline-col--center">
+          <div class="pl-pipeline-col-header pl-pipeline-col-header--accent">
+            <span class="pl-pipeline-col-step">2</span>
+            <span class="pl-pipeline-col-title">Plinio Radar trova le comunicazioni per voi</span>
+          </div>
+          <div class="pl-pipeline-card">
+            <img
+              src="./src/assets/radar-2.png"
+              alt="Plinio Radar trova le comunicazioni per voi: analisi delle opportunità con fonti collegate"
+              class="pl-pipeline-img"
+              loading="eager"
+            />
+          </div>
+        </div>
+
+        <!-- Connector 2: Plinio Radar -> Comunicazioni pronte (Plinio theme) -->
+        <div class="pl-pipeline-connector" aria-hidden="true">
+          <svg class="pl-pipeline-svg" viewBox="0 0 100 1000" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <!-- Line from center card to node -->
+            <path class="pl-pipeline-line" d="M 0,438 L 50,438" vector-effect="non-scaling-stroke" />
+            <!-- 3 dotted branch lines from node to 3 output cards -->
+            <path class="pl-pipeline-line" d="M 50,438 C 55,425 65,205 100,205" vector-effect="non-scaling-stroke" />
+            <path class="pl-pipeline-line" d="M 50,438 C 55,438 65,528 100,528" vector-effect="non-scaling-stroke" />
+            <path class="pl-pipeline-line" d="M 50,438 C 55,450 65,823 100,823" vector-effect="non-scaling-stroke" />
+          </svg>
+          <div class="pl-pipeline-node">
+            <svg class="pl-pipeline-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Column 3: Comunicazioni pronte -->
+        <div class="pl-pipeline-col pl-pipeline-col--outputs">
+          <div class="pl-pipeline-col-header">
+            <span class="pl-pipeline-col-step">3</span>
+            <span class="pl-pipeline-col-title">Comunicazioni pronte</span>
+          </div>
+          <div class="pl-pipeline-card">
+            <img
+              src="./src/assets/radar-3.png"
+              alt="Comunicazioni pronte per la revisione: Post LinkedIn, Case study, Newsletter"
+              class="pl-pipeline-img"
+              loading="eager"
+            />
+          </div>
+        </div>
+
       </div>
 
       <!-- Mobile Radar Carousel (screens <= 768px) -->
@@ -49,7 +121,7 @@
           <div class="pl-radar-carousel-header">
             <div class="pl-dual-card__header-info">
               <span class="pl-mockup-badge-dot" aria-hidden="true"></span>
-              <span class="pl-dual-card__title" data-radar-slide-title><strong>1. Documenti</strong> · Materiali caricati</span>
+              <span class="pl-dual-card__title" data-radar-slide-title><strong>1. I vostri materiali</strong> · Materiali caricati</span>
             </div>
             <span class="pl-dual-tag" data-radar-slide-badge>1 di 3</span>
           </div>
@@ -57,26 +129,26 @@
           <!-- Carousel Viewport & Slides -->
           <div class="pl-radar-carousel-viewport" data-radar-viewport="1">
             <div class="pl-radar-carousel-track" data-radar-track="1">
-              <div class="pl-radar-carousel-slide" data-slide="0" tabindex="0" role="button" aria-label="Tocca per passare alla slide successiva (Passaggio 1: Documenti)">
+              <div class="pl-radar-carousel-slide" data-slide="0" tabindex="0" role="button" aria-label="Tocca per passare alla slide successiva (Passaggio 1: I vostri materiali)">
                 <img
-                  src="./src/assets/1.1radar-mobile.png"
-                  alt="Plinio Radar Mobile: Fonti e materiali del progetto analizzati"
+                  src="./src/assets/radar-1.png"
+                  alt="I vostri materiali di progetto analizzati da Plinio"
                   class="pl-dual-img pl-radar-mobile-img"
                   loading="eager"
                 />
               </div>
-              <div class="pl-radar-carousel-slide" data-slide="1" tabindex="0" role="button" aria-label="Tocca per passare alla slide successiva (Passaggio 2: Radar)">
+              <div class="pl-radar-carousel-slide" data-slide="1" tabindex="0" role="button" aria-label="Tocca per passare alla slide successiva (Passaggio 2: Plinio Radar trova le comunicazioni)">
                 <img
-                  src="./src/assets/1.2radar-mobile.png"
-                  alt="Plinio Radar Mobile: Opportunità da comunicare identificate"
+                  src="./src/assets/radar-2.png"
+                  alt="Plinio Radar trova le comunicazioni per voi con fonti collegate"
                   class="pl-dual-img pl-radar-mobile-img"
                   loading="lazy"
                 />
               </div>
-              <div class="pl-radar-carousel-slide" data-slide="2" tabindex="0" role="button" aria-label="Tocca per passare alla slide successiva (Passaggio 3: Dettaglio)">
+              <div class="pl-radar-carousel-slide" data-slide="2" tabindex="0" role="button" aria-label="Tocca per passare alla slide successiva (Passaggio 3: Comunicazioni pronte)">
                 <img
-                  src="./src/assets/1.3radar-mobile.png"
-                  alt="Plinio Radar Mobile: Dettaglio opportunità con fonti collegate"
+                  src="./src/assets/radar-3.png"
+                  alt="Comunicazioni pronte per la revisione: Post LinkedIn, Case study, Newsletter"
                   class="pl-dual-img pl-radar-mobile-img"
                   loading="lazy"
                 />
@@ -91,9 +163,9 @@
             </button>
 
             <div class="pl-radar-dots" data-radar-dots="1" role="tablist" aria-label="Indicatori slide">
-              <button type="button" class="pl-radar-dot is-active" role="tab" aria-selected="true" data-dot="0" aria-label="Slide 1: Documenti"></button>
-              <button type="button" class="pl-radar-dot" role="tab" aria-selected="false" data-dot="1" aria-label="Slide 2: Radar"></button>
-              <button type="button" class="pl-radar-dot" role="tab" aria-selected="false" data-dot="2" aria-label="Slide 3: Dettaglio"></button>
+              <button type="button" class="pl-radar-dot is-active" role="tab" aria-selected="true" data-dot="0" aria-label="Slide 1: I vostri materiali"></button>
+              <button type="button" class="pl-radar-dot" role="tab" aria-selected="false" data-dot="1" aria-label="Slide 2: Plinio Radar"></button>
+              <button type="button" class="pl-radar-dot" role="tab" aria-selected="false" data-dot="2" aria-label="Slide 3: Comunicazioni pronte"></button>
             </div>
 
             <button type="button" class="pl-radar-nav-btn pl-radar-nav-next" data-radar-next="1" aria-label="Slide successiva">
