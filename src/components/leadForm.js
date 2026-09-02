@@ -276,6 +276,36 @@ function wireModal(modal) {
   modal.addEventListener('keydown', trapModalFocus);
 }
 
+function wirePrivacyModalBridge() {
+  if (document.documentElement.dataset.leadPrivacyBridgeReady === 'true') return;
+  document.documentElement.dataset.leadPrivacyBridgeReady = 'true';
+
+  const connect = () => {
+    const policy = document.querySelector('#pl-cookie-policy-modal');
+    if (!policy || policy.dataset.leadBridgeReady === 'true') return false;
+    policy.dataset.leadBridgeReady = 'true';
+
+    const observer = new MutationObserver(() => {
+      const leadModal = getModal();
+      if (!leadModal?.classList.contains('is-open')) return;
+      syncBodyLock();
+      if (!policy.classList.contains('is-open')) {
+        leadModal.querySelector('.pl-lead-modal__dialog')?.focus({ preventScroll: true });
+      }
+    });
+
+    observer.observe(policy, { attributes: true, attributeFilter: ['class'] });
+    return true;
+  };
+
+  if (connect()) return;
+  const observer = new MutationObserver(() => {
+    if (!connect()) return;
+    observer.disconnect();
+  });
+  observer.observe(document.body, { childList: true });
+}
+
 function wireGlobalTriggers() {
   if (document.documentElement.dataset.leadTriggersReady === 'true') return;
   document.documentElement.dataset.leadTriggersReady = 'true';
@@ -288,7 +318,7 @@ function wireGlobalTriggers() {
   });
 
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && getModal()?.classList.contains('is-open')) {
+    if (event.key === 'Escape' && getModal()?.classList.contains('is-open') && !document.querySelector('.pl-modal-backdrop.is-open')) {
       event.preventDefault();
       closeLeadModal();
     }
@@ -310,6 +340,7 @@ function wireMountedLeadUi() {
  */
 export function initLeadForm() {
   wireGlobalTriggers();
+  wirePrivacyModalBridge();
 
   if (wireMountedLeadUi()) return;
 
