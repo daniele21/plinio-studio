@@ -3,6 +3,7 @@ import { initializeApp } from 'firebase-admin/app';
 import { FieldValue, Timestamp, getFirestore } from 'firebase-admin/firestore';
 import { onRequest } from 'firebase-functions/v2/https';
 import { setGlobalOptions } from 'firebase-functions/v2/options';
+import { onSchedule } from 'firebase-functions/v2/scheduler';
 
 initializeApp();
 setGlobalOptions({ region: 'europe-west1', maxInstances: 10 });
@@ -199,3 +200,38 @@ export const submitLead = onRequest(async (req, res) => {
     res.status(500).json({ ok: false, error: 'server_error' });
   }
 });
+
+/**
+ * Rate-limit records contain only a one-way hash derived from the request IP.
+ * This scheduled cleanup ensures those technical records are removed after their short retention window.
+ */
+export const cleanupLandingRateLimits = onSchedule(
+  {
+    schedule: 'every 24 hours',
+    timeZone: 'Europe/Rome',
+    retryCount: 1,
+  },
+  async () => {
+    const now = Timestamp.now();
+    let deleted = 0;
+
+    while (true) {
+      const snapshot = await db
+        .collection('_landing_rate_limits')
+        .where('expiresAt', '<=', now)
+        .limit(400)
+        .get();
+
+      if (snapshot.empty) break;
+
+      const batch = db.batch();
+      snapshot.docs.forEach((doc) => batch.delete(doc.ref));
+      await batch.commit();
+      deleted += snapshot.size;
+
+      if (snapshot.size < 400) break;
+    }
+
+    console.info('[cleanupLandingRateLimits] Cleanup completed', { deleted });
+  }
+);
