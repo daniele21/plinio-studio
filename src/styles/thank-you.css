@@ -1,0 +1,216 @@
+.pl-thank-you-page {
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at 50% 10%, rgba(214, 85, 39, 0.12), transparent 34%),
+    #12100E;
+  color: #F7F1E8;
+}
+
+.pl-thank-you {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 28px 20px;
+}
+
+.pl-thank-you__shell {
+  width: min(760px, 100%);
+}
+
+.pl-thank-you__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+  color: #F7F1E8;
+  text-decoration: none;
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: 1.55rem;
+  font-weight: 600;
+}
+
+.pl-thank-you__brand img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.pl-thank-you__card {
+  padding: clamp(28px, 5vw, 54px);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 28px;
+  background: linear-gradient(145deg, rgba(28, 24, 21, 0.96), rgba(17, 15, 13, 0.98));
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.45);
+}
+
+.pl-thank-you__check {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid rgba(94, 181, 139, 0.38);
+  background: rgba(94, 181, 139, 0.12);
+  color: #8DD3AE;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.pl-thank-you__eyebrow {
+  margin: 20px 0 8px;
+  color: #D88462;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+}
+
+.pl-thank-you h1 {
+  margin: 0;
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: clamp(2.7rem, 7vw, 4.7rem);
+  font-weight: 550;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+}
+
+.pl-thank-you__lead {
+  max-width: 620px;
+  margin: 18px 0 0;
+  color: rgba(247, 241, 232, 0.76);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.pl-thank-you__lead strong {
+  color: #F7F1E8;
+}
+
+.pl-thank-you__next {
+  margin-top: 36px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.pl-thank-you__next h2 {
+  margin: 0 0 18px;
+  color: #F7F1E8;
+  font-size: 0.95rem;
+  font-weight: 650;
+}
+
+.pl-thank-you__steps {
+  display: grid;
+  gap: 16px;
+}
+
+.pl-thank-you__steps article {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 12px;
+  align-items: start;
+}
+
+.pl-thank-you__steps article > span {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(214, 85, 39, 0.11);
+  border: 1px solid rgba(214, 85, 39, 0.28);
+  color: #E58A65;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.pl-thank-you__steps strong {
+  color: #F7F1E8;
+  font-size: 0.92rem;
+}
+
+.pl-thank-you__steps p {
+  margin: 4px 0 0;
+  color: rgba(247, 241, 232, 0.58);
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.pl-thank-you__note {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: 28px;
+  padding: 16px 18px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.pl-thank-you__note strong {
+  font-size: 0.9rem;
+}
+
+.pl-thank-you__note span {
+  color: rgba(247, 241, 232, 0.58);
+  font-size: 0.82rem;
+}
+
+.pl-thank-you__cta {
+  display: inline-flex;
+  margin-top: 28px;
+}
+
+.pl-thank-you__footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 18px 12px 0;
+  color: rgba(247, 241, 232, 0.42);
+  font-size: 0.72rem;
+}
+
+.pl-thank-you__footer button,
+.pl-thank-you__footer a {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: rgba(247, 241, 232, 0.56);
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.pl-thank-you__footer button:hover,
+.pl-thank-you__footer a:hover {
+  color: #F7F1E8;
+}
+
+@media (max-width: 640px) {
+  .pl-thank-you {
+    align-items: start;
+    padding: 22px 14px 30px;
+  }
+
+  .pl-thank-you__brand {
+    margin-left: 4px;
+  }
+
+  .pl-thank-you__card {
+    padding: 26px 20px 28px;
+    border-radius: 22px;
+  }
+
+  .pl-thank-you h1 {
+    font-size: clamp(2.65rem, 14vw, 3.45rem);
+  }
+
+  .pl-thank-you__cta {
+    width: 100%;
+    justify-content: center;
+  }
+}
