@@ -187,6 +187,7 @@ async function submitLead(form, startedAt) {
   const data = new FormData(form);
   const payload = {
     ...values,
+    role: values.role || null,
     phone: values.phone || null,
     website: normalize(data.get('website')),
     formStartedAt: startedAt,
@@ -245,11 +246,14 @@ function wireForm(form) {
     trackEvent('lead_form_start', { location: 'pilot_form' });
   }, { once: true });
 
-  form.addEventListener('input', (event) => {
+  const clearError = (event) => {
     const name = event.target?.name;
     if (name) setFieldError(form, name, '');
     if (form.dataset.state !== 'submitting') setFormState(form, 'idle');
-  });
+  };
+
+  form.addEventListener('input', clearError);
+  form.addEventListener('change', clearError);
 
   form.addEventListener('submit', (event) => {
     event.preventDefault();
