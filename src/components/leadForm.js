@@ -1,5 +1,5 @@
 /**
- * Pilot lead form controller.
+ * Pilot lead modal + form controller.
  * Keeps PII out of Analytics and sends lead data only to the dedicated backend endpoint.
  */
 
@@ -9,8 +9,17 @@ import { siteConfig } from '../content/siteConfig.js';
 
 const DEFAULT_ENDPOINT = 'https://europe-west1-plinio-studio.cloudfunctions.net/submitLead';
 const DEFAULT_SUCCESS_PATH = '/grazie';
+const FOCUSABLE_SELECTOR = [
+  'a[href]',
+  'button:not([disabled])',
+  'input:not([disabled]):not([type="hidden"])',
+  'select:not([disabled])',
+  'textarea:not([disabled])',
+  '[tabindex]:not([tabindex="-1"])',
+].join(',');
 
 const normalize = (value) => String(value || '').trim();
+let lastModalTrigger = null;
 
 function getAttribution() {
   const params = new URLSearchParams(window.location.search);
@@ -22,6 +31,79 @@ function getAttribution() {
     referrer: normalize(document.referrer).slice(0, 300),
     landingPath: `${window.location.pathname}${window.location.search}`.slice(0, 500),
   };
+}
+
+function getModal() {
+  return document.querySelector('[data-lead-modal]');
+}
+
+function syncBodyLock() {
+  const leadOpen = getModal()?.classList.contains('is-open');
+  const privacyOpen = document.querySelector('.pl-modal-backdrop.is-open');
+  document.body.style.overflow = leadOpen || privacyOpen ? 'hidden' : '';
+}
+
+function openLeadModal(trigger = null) {
+  const modal = getModal();
+  if (!modal) return;
+
+  lastModalTrigger = trigger instanceof HTMLElement ? trigger : document.activeElement;
+  modal.hidden = false;
+
+  requestAnimationFrame(() => {
+    modal.classList.add('is-open');
+    syncBodyLock();
+    modal.querySelector('.pl-lead-modal__dialog')?.focus();
+  });
+
+  trackEvent('lead_modal_open', {
+    location: trigger?.dataset?.analyticsLocation || 'unknown',
+  });
+}
+
+function closeLeadModal({ restoreFocus = true } = {}) {
+  const modal = getModal();
+  if (!modal || !modal.classList.contains('is-open')) return;
+
+  modal.classList.remove('is-open');
+  syncBodyLock();
+
+  window.setTimeout(() => {
+    if (!modal.classList.contains('is-open')) modal.hidden = true;
+  }, 180);
+
+  if (restoreFocus && lastModalTrigger instanceof HTMLElement && document.contains(lastModalTrigger)) {
+    lastModalTrigger.focus({ preventScroll: true });
+  }
+}
+
+function trapModalFocus(event) {
+  if (event.key !== 'Tab') return;
+  const modal = getModal();
+  if (!modal?.classList.contains('is-open')) return;
+
+  const dialog = modal.querySelector('.pl-lead-modal__dialog');
+  if (!dialog) return;
+  const focusable = [...dialog.querySelectorAll(FOCUSABLE_SELECTOR)]
+    .filter((el) => !el.hasAttribute('hidden') && el.getAttribute('aria-hidden') !== 'true');
+
+  if (!focusable.length) {
+    event.preventDefault();
+    dialog.focus();
+    return;
+  }
+
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+  const active = document.activeElement;
+
+  if (event.shiftKey && (active === first || !dialog.contains(active))) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && active === last) {
+    event.preventDefault();
+    first.focus();
+  }
 }
 
 function setFieldError(form, fieldName, message = '') {
@@ -106,7 +188,7 @@ async function submitLead(form, startedAt) {
   const payload = {
     ...values,
     phone: values.phone || null,
-    website: normalize(data.get('website')), // honeypot; should remain empty
+    website: normalize(data.get('website')),
     formStartedAt: startedAt,
     policyVersion: form.dataset.policyVersion || '2026-09-02',
     source: 'plinio_landing',
@@ -177,25 +259,63 @@ function wireForm(form) {
   form.querySelector('[data-lead-privacy]')?.addEventListener('click', (event) => {
     event.preventDefault();
     openPrivacyPolicy();
+    syncBodyLock();
   });
 }
 
+function wireModal(modal) {
+  if (!modal || modal.dataset.leadModalReady === 'true') return;
+  modal.dataset.leadModalReady = 'true';
+
+  modal.addEventListener('click', (event) => {
+    if (event.target.closest('[data-lead-modal-close]')) {
+      closeLeadModal();
+    }
+  });
+
+  modal.addEventListener('keydown', trapModalFocus);
+}
+
+function wireGlobalTriggers() {
+  if (document.documentElement.dataset.leadTriggersReady === 'true') return;
+  document.documentElement.dataset.leadTriggersReady = 'true';
+
+  document.addEventListener('click', (event) => {
+    const trigger = event.target.closest('[data-open-lead-modal]');
+    if (!trigger) return;
+    event.preventDefault();
+    openLeadModal(trigger);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && getModal()?.classList.contains('is-open')) {
+      event.preventDefault();
+      closeLeadModal();
+    }
+  });
+}
+
+function wireMountedLeadUi() {
+  const modal = getModal();
+  const form = document.querySelector('#pilot-lead-form');
+  if (!modal || !form) return false;
+  wireModal(modal);
+  wireForm(form);
+  return true;
+}
+
 /**
- * Fragments are mounted asynchronously by app.js. A MutationObserver avoids races and
- * wires the form as soon as #pilot-lead-form enters the DOM.
+ * Fragments are mounted asynchronously by app.js. Global CTA delegation is wired immediately;
+ * the dialog and form are wired as soon as they enter the DOM.
  */
 export function initLeadForm() {
-  const existing = document.querySelector('#pilot-lead-form');
-  if (existing) {
-    wireForm(existing);
-    return;
-  }
+  wireGlobalTriggers();
+
+  if (wireMountedLeadUi()) return;
 
   const observer = new MutationObserver(() => {
-    const form = document.querySelector('#pilot-lead-form');
-    if (!form) return;
+    if (!wireMountedLeadUi()) return;
     observer.disconnect();
-    wireForm(form);
   });
 
   observer.observe(document.documentElement, { childList: true, subtree: true });
