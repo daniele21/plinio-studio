@@ -113,8 +113,9 @@ Evitare di introdurre un provider email/CRM direttamente nel codice senza aver p
 
 ### Anti-spam
 
-- campo `website` valorizzato → richiesta scartata senza salvare PII
-- submit automatico < 700 ms dall'avvio form → richiesta scartata senza salvare PII
+- campo honeypot `website` valorizzato → richiesta scartata senza salvare PII
+- rate limiting server-side → massimo 5 richieste ogni 15 minuti per identificativo IP pseudonimizzato
+- i record tecnici del rate limiting hanno scadenza a 24 ore e vengono puliti automaticamente
 
 ### Analytics
 
