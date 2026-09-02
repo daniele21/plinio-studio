@@ -13,11 +13,13 @@ export const landingCopy = {
     cta: 'Provalo su un progetto',
   },
   hero: {
-    titleHtml: 'Carica un progetto.<br><span class="pl-highlight--accent">Plinio trova cosa vale la pena raccontare.</span>',
-    subtitle: 'Risultati, decisioni e competenze oggi restano nei file. <strong>Plinio trova cosa vale la pena raccontare</strong> e vi prepara 3+ comunicazioni pronte con prima bozza e fonti collegate.',
-    primaryCta: 'Provalo su un progetto',
-    secondaryCta: 'Guarda cosa trova',
-    proof: ['Materiali che avete già', '3+ opportunità per progetto', 'Ogni claim torna alla fonte'],
+    titleHtml: 'Carica un progetto.<br><span class="pl-highlight--accent">Ricevi 3+ contenuti pronti,<br>scritti come li scrivereste voi.</span>',
+    subtitle: 'Plinio parte da documenti, presentazioni e materiali che avete già.<br>Trova fatti e spunti utili, li collega alle fonti e prepara contenuti<br>coerenti con il vostro modo di comunicare.',
+    primaryCta: 'Prova Plinio su un progetto',
+    secondaryCta: 'Guarda un esempio',
+    reassurance: 'Ti ricontattiamo per scegliere insieme il primo progetto.',
+    checklistLead: 'Ecco cosa ti serve per partire:',
+    checklist: ['Un progetto reale', 'I materiali che avete già', '30 minuti con noi'],
     ecosystemTitle: 'Il lavoro che avete già fatto diventa comunicazione.',
     ecosystemIntro: 'Plinio organizza il contesto del progetto, individua le prove più interessanti e le porta fino a una prima bozza verificabile.',
     orbit: {

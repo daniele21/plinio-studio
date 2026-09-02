@@ -278,4 +278,103 @@
   .pl-hero-pipeline {
     display: none !important;
   }
+
+  .pl-hero-checklist__items {
+    gap: 10px 18px;
+  }
 }
+
+/* ==========================================================================
+   Hero Intro Copy & Checklist Styles (matching exact screenshot layout)
+   ========================================================================== */
+.pl-product-hero__intro {
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.pl-product-hero__title {
+  max-width: 16em;
+  margin: 0 auto;
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 5.6vw, 4.85rem);
+  font-weight: 550;
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  color: var(--pl-text-dark-primary);
+}
+
+.pl-product-hero__title .pl-highlight--accent {
+  color: var(--pl-bright-accent);
+  font-weight: 550;
+}
+
+.pl-product-hero__subtitle {
+  max-width: 760px;
+  margin: 22px auto 0;
+  color: var(--pl-text-dark-secondary);
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 1.3vw, 1.12rem);
+  line-height: 1.58;
+}
+
+/* Reassurance Note below CTAs */
+.pl-hero-reassurance {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 18px;
+  color: var(--pl-text-dark-muted);
+  font-family: var(--font-sans);
+  font-size: clamp(0.84rem, 1vw, 0.9rem);
+  line-height: 1.4;
+}
+
+.pl-hero-reassurance__icon {
+  color: var(--pl-soft-terracotta);
+  flex-shrink: 0;
+}
+
+/* Checklist ("Ecco cosa ti serve per partire:") */
+.pl-hero-checklist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24px;
+  gap: 8px;
+}
+
+.pl-hero-checklist__lead {
+  font-family: var(--font-sans);
+  font-size: clamp(0.82rem, 0.95vw, 0.88rem);
+  font-weight: 550;
+  color: var(--pl-text-dark-muted);
+  letter-spacing: -0.01em;
+}
+
+.pl-hero-checklist__items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: clamp(14px, 2.8vw, 28px);
+}
+
+.pl-hero-checklist__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-sans);
+  font-size: clamp(0.86rem, 1.05vw, 0.92rem);
+  color: var(--pl-text-dark-secondary);
+  font-weight: 450;
+}
+
+.pl-hero-checklist__check {
+  color: var(--pl-terracotta);
+  stroke: var(--pl-terracotta);
+  flex-shrink: 0;
+}
+
