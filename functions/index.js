@@ -13,6 +13,7 @@ const db = getFirestore();
 const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000;
 const RATE_LIMIT_MAX = 5;
 const RATE_LIMIT_RETENTION_MS = 24 * 60 * 60 * 1000;
+const LEAD_RETENTION_MS = 365 * 24 * 60 * 60 * 1000;
 const MAX_BODY_BYTES = 12_000;
 
 const allowedOrigins = [
@@ -161,6 +162,7 @@ export const submitLead = onRequest(async (req, res) => {
   try {
     await enforceRateLimit(req);
 
+    const nowMs = Date.now();
     const leadRef = db.collection('landing_leads').doc();
     await leadRef.set({
       fullName: data.fullName,
@@ -176,6 +178,7 @@ export const submitLead = onRequest(async (req, res) => {
         policyVersion: data.policyVersion,
         acknowledgedAt: FieldValue.serverTimestamp(),
       },
+      retentionUntil: Timestamp.fromMillis(nowMs + LEAD_RETENTION_MS),
       createdAt: FieldValue.serverTimestamp(),
       updatedAt: FieldValue.serverTimestamp(),
     });
@@ -194,11 +197,35 @@ export const submitLead = onRequest(async (req, res) => {
   }
 });
 
+async function deleteExpired(collectionName, fieldName, now, batchSize = 300) {
+  let deleted = 0;
+
+  while (true) {
+    const snapshot = await db
+      .collection(collectionName)
+      .where(fieldName, '<=', now)
+      .limit(batchSize)
+      .get();
+
+    if (snapshot.empty) break;
+
+    const batch = db.batch();
+    snapshot.docs.forEach((doc) => batch.delete(doc.ref));
+    await batch.commit();
+    deleted += snapshot.size;
+
+    if (snapshot.size < batchSize) break;
+  }
+
+  return deleted;
+}
+
 /**
- * Rate-limit records contain only a one-way hash derived from the request IP.
- * This scheduled cleanup ensures those technical records are removed after their short retention window.
+ * Enforces the short anti-abuse retention window and the default 12-month lead retention.
+ * If a lead enters a different contractual/commercial relationship, retentionUntil can be
+ * updated by the authorized back-office process before this cleanup runs.
  */
-export const cleanupLandingRateLimits = onSchedule(
+export const cleanupLandingData = onSchedule(
   {
     schedule: 'every 24 hours',
     timeZone: 'Europe/Rome',
@@ -206,25 +233,12 @@ export const cleanupLandingRateLimits = onSchedule(
   },
   async () => {
     const now = Timestamp.now();
-    let deleted = 0;
+    const rateLimitDeleted = await deleteExpired('_landing_rate_limits', 'expiresAt', now, 400);
+    const leadDeleted = await deleteExpired('landing_leads', 'retentionUntil', now, 250);
 
-    while (true) {
-      const snapshot = await db
-        .collection('_landing_rate_limits')
-        .where('expiresAt', '<=', now)
-        .limit(400)
-        .get();
-
-      if (snapshot.empty) break;
-
-      const batch = db.batch();
-      snapshot.docs.forEach((doc) => batch.delete(doc.ref));
-      await batch.commit();
-      deleted += snapshot.size;
-
-      if (snapshot.size < 400) break;
-    }
-
-    console.info('[cleanupLandingRateLimits] Cleanup completed', { deleted });
+    console.info('[cleanupLandingData] Cleanup completed', {
+      rateLimitDeleted,
+      leadDeleted,
+    });
   }
 );
