@@ -1,6 +1,6 @@
 /**
- * Plinio Design System - Final Pilot CTA Section
- * Supports alternating light/dark theme modes.
+ * Plinio Pilot Lead Capture
+ * Two-column conversion section with accessible form controls and mobile-first fallbacks.
  */
 
 .pl-pilot-section.pl-section--light {
@@ -9,142 +9,347 @@
   border-bottom: 1px solid var(--pl-border-light-subtle, rgba(30, 26, 22, 0.10));
 }
 
-.pl-pilot-section.pl-section--dark {
-  background-color: var(--pl-warm-obsidian, #12100E) !important;
-  border-top: 1px solid var(--pl-border-dark-subtle);
-  border-bottom: 1px solid var(--pl-border-dark-subtle);
-}
-
-.pl-final-cta {
-  display: flex;
-  flex-direction: column;
+.pl-lead-capture {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(420px, 1.05fr);
+  gap: clamp(42px, 7vw, 86px);
   align-items: center;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: clamp(24px, 5vw, 56px) 0;
-  text-align: center;
+  padding: clamp(28px, 6vw, 76px) 0;
 }
 
-/* Light Mode CTA Header & Typography */
-.pl-section--light .pl-final-cta .pl-hero-kicker {
+.pl-lead-capture__copy {
+  max-width: 620px;
+}
+
+.pl-lead-capture__eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 5px 14px;
-  background: rgba(214, 85, 39, 0.08);
-  border: 1px solid rgba(214, 85, 39, 0.24);
-  border-radius: var(--pl-radius-pill, 9999px);
+  padding: 6px 12px;
+  border: 1px solid rgba(184, 89, 54, 0.25);
+  border-radius: 999px;
+  background: rgba(214, 85, 39, 0.07);
+  color: var(--pl-soft-terracotta-light, #B85936);
   font-family: var(--font-mono, monospace);
-  font-size: clamp(0.72rem, 0.95vw, 0.78rem);
-  font-weight: 600;
+  font-size: 0.7rem;
+  font-weight: 700;
   letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--pl-soft-terracotta-light, #B85936) !important;
 }
 
-.pl-section--light .pl-final-cta h2 {
-  color: var(--pl-text-light-primary, #1E1A16) !important;
+.pl-lead-capture h2 {
+  margin: 18px 0 18px;
+  color: var(--pl-text-light-primary, #1E1A16);
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: clamp(2.65rem, 5vw, 4.3rem);
+  font-weight: 550;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
 }
 
-.pl-section--light .pl-final-cta > p {
-  color: var(--pl-text-light-secondary, rgba(30, 26, 22, 0.80)) !important;
+.pl-lead-capture__intro {
+  max-width: 580px;
+  margin: 0;
+  color: var(--pl-text-light-secondary, rgba(30, 26, 22, 0.80));
+  font-size: clamp(1rem, 1.2vw, 1.08rem);
+  line-height: 1.65;
 }
 
-.pl-section--light .pl-final-cta__outcomes {
-  border-top: 1px solid var(--pl-border-light-medium, rgba(30, 26, 22, 0.18));
+.pl-lead-capture__steps {
+  display: grid;
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.pl-lead-step {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 12px;
+  align-items: start;
+}
+
+.pl-lead-step__num {
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(184, 89, 54, 0.30);
+  background: rgba(214, 85, 39, 0.08);
+  color: var(--pl-soft-terracotta-light, #B85936);
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.pl-lead-step strong,
+.pl-lead-step span {
+  display: block;
+}
+
+.pl-lead-step strong {
+  margin-bottom: 3px;
+  color: var(--pl-text-light-primary, #1E1A16);
+  font-size: 0.94rem;
+}
+
+.pl-lead-step div > span {
+  color: var(--pl-text-light-muted, rgba(30, 26, 22, 0.64));
+  font-size: 0.86rem;
+  line-height: 1.48;
+}
+
+.pl-lead-capture__reassurance {
+  margin: 26px 0 0;
   color: var(--pl-text-light-muted, rgba(30, 26, 22, 0.62));
+  font-family: var(--font-mono, monospace);
+  font-size: 0.69rem;
+  letter-spacing: 0.025em;
 }
 
-.pl-section--light .pl-final-cta__outcomes b {
+.pl-lead-form-card {
+  position: relative;
+  padding: clamp(24px, 3.2vw, 38px);
+  border: 1px solid rgba(30, 26, 22, 0.11);
+  border-radius: 26px;
+  background: rgba(255, 252, 246, 0.90);
+  box-shadow:
+    0 28px 70px rgba(69, 47, 32, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.82);
+}
+
+.pl-lead-form-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.40);
+}
+
+.pl-lead-form-card__header h3 {
+  margin: 0;
+  color: var(--pl-text-light-primary, #1E1A16);
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: clamp(1.85rem, 3vw, 2.45rem);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+}
+
+.pl-lead-form-card__header p {
+  margin: 10px 0 0;
+  color: var(--pl-text-light-muted, rgba(30, 26, 22, 0.64));
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.pl-lead-form {
+  margin-top: 26px;
+}
+
+.pl-lead-form__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.pl-form-field {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.pl-form-field--full {
+  grid-column: 1 / -1;
+}
+
+.pl-form-field label {
+  margin-bottom: 7px;
+  color: var(--pl-text-light-primary, #1E1A16);
+  font-size: 0.78rem;
+  font-weight: 650;
+}
+
+.pl-form-field label > span[aria-hidden="true"] {
   color: var(--pl-soft-terracotta-light, #B85936);
 }
 
-/* Dark Mode CTA Fallbacks */
-.pl-section--dark .pl-final-cta h2 {
-  color: var(--pl-text-dark-primary);
+.pl-form-optional {
+  margin-left: 4px;
+  color: var(--pl-text-light-muted, rgba(30, 26, 22, 0.52));
+  font-weight: 450;
 }
 
-.pl-section--dark .pl-final-cta > p {
-  color: var(--pl-text-dark-secondary);
+.pl-form-field input[type="text"],
+.pl-form-field input[type="email"],
+.pl-form-field input[type="tel"] {
+  width: 100%;
+  min-height: 48px;
+  box-sizing: border-box;
+  padding: 12px 13px;
+  border: 1px solid rgba(30, 26, 22, 0.16);
+  border-radius: 12px;
+  outline: none;
+  background: #FFFCF7;
+  color: var(--pl-text-light-primary, #1E1A16);
+  font: inherit;
+  font-size: 0.92rem;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
 }
 
-.pl-section--dark .pl-final-cta__outcomes {
-  border-top: 1px solid var(--pl-border-dark-subtle);
-  color: var(--pl-text-dark-muted);
+.pl-form-field input::placeholder {
+  color: rgba(30, 26, 22, 0.38);
 }
 
-.pl-section--dark .pl-final-cta__outcomes b {
-  color: var(--pl-soft-terracotta);
+.pl-form-field input:focus {
+  border-color: rgba(184, 89, 54, 0.68);
+  background: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(214, 85, 39, 0.11);
 }
 
-/* Common Typography & Sizing */
-.pl-final-cta h2 {
-  max-width: 760px;
-  margin: 20px 0 16px;
-  font-family: var(--font-serif, Georgia, serif);
-  font-size: clamp(2.5rem, 5vw, 4.2rem);
-  line-height: 1;
-  letter-spacing: -0.03em;
+.pl-form-field input[aria-invalid="true"] {
+  border-color: #A43A2A;
+  box-shadow: 0 0 0 3px rgba(164, 58, 42, 0.09);
 }
 
-.pl-final-cta > p {
-  max-width: 640px;
-  margin: 0;
-  font-size: 1rem;
-  line-height: 1.62;
+.pl-form-error {
+  min-height: 16px;
+  margin-top: 5px;
+  color: #8D2F23;
+  font-size: 0.72rem;
+  line-height: 1.35;
 }
 
-.pl-final-cta__button {
-  margin-top: 28px;
-  padding: 14px 24px;
+.pl-form-privacy {
+  margin-top: 18px;
 }
 
-.pl-final-cta__outcomes {
-  display: flex;
+.pl-form-checkbox {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 9px;
+  align-items: start;
+  cursor: pointer;
+  color: var(--pl-text-light-secondary, rgba(30, 26, 22, 0.78));
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.pl-form-checkbox input {
+  width: 17px;
+  height: 17px;
+  margin: 1px 0 0;
+  accent-color: var(--pl-terracotta, #D65527);
+}
+
+.pl-inline-link {
+  display: inline;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--pl-soft-terracotta-light, #A94E2F);
+  font: inherit;
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+.pl-lead-form__submit {
+  width: 100%;
+  min-height: 50px;
+  margin-top: 20px;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px 26px;
-  margin-top: 26px;
-  padding-top: 22px;
-  font-family: var(--font-mono, monospace);
-  font-size: 0.68rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
 }
 
-.pl-final-cta__outcomes span {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 6px;
+.pl-lead-form__submit:disabled {
+  cursor: wait;
+  opacity: 0.72;
 }
 
-.pl-final-cta__outcomes b {
-  font-family: var(--font-serif, Georgia, serif);
-  font-size: 1.15rem;
+.pl-lead-form__status {
+  min-height: 20px;
+  margin-top: 10px;
+  color: var(--pl-text-light-muted, rgba(30, 26, 22, 0.62));
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.pl-lead-form__status.is-error {
+  color: #8D2F23;
+}
+
+.pl-lead-form__microcopy {
+  margin: 5px auto 0;
+  max-width: 520px;
+  color: var(--pl-text-light-muted, rgba(30, 26, 22, 0.55));
+  font-size: 0.7rem;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.pl-honeypot {
+  position: absolute !important;
+  left: -10000px !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+}
+
+@media (max-width: 980px) {
+  .pl-lead-capture {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .pl-lead-capture__copy {
+    max-width: 680px;
+  }
 }
 
 @media (max-width: 640px) {
-  .pl-final-cta {
-    align-items: flex-start;
-    text-align: left;
+  .pl-lead-capture {
+    padding: 30px 0 42px;
+    gap: 30px;
   }
 
-  .pl-final-cta h2 {
-    font-size: clamp(2.1rem, 8.5vw, 2.9rem);
-    line-height: 1.05;
+  .pl-lead-capture h2 {
+    font-size: clamp(2.35rem, 11vw, 3rem);
+    line-height: 1.02;
   }
 
-  .pl-final-cta__button {
-    width: 100%;
+  .pl-lead-capture__eyebrow {
+    font-size: 0.64rem;
   }
 
-  .pl-final-cta__outcomes {
-    justify-content: flex-start;
+  .pl-lead-capture__steps {
+    margin-top: 24px;
   }
-}
 
-@media (max-width: 480px) {
-  .pl-final-cta__outcomes {
-    gap: 8px 14px;
+  .pl-lead-form-card {
+    margin-inline: -2px;
+    padding: 22px 18px;
+    border-radius: 20px;
+  }
+
+  .pl-lead-form__grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .pl-form-field--full {
+    grid-column: auto;
+  }
+
+  .pl-form-field input[type="text"],
+  .pl-form-field input[type="email"],
+  .pl-form-field input[type="tel"] {
+    min-height: 50px;
+    font-size: 16px; /* Prevent iOS auto-zoom */
+  }
+
+  .pl-lead-form__submit {
+    min-height: 52px;
   }
 }
