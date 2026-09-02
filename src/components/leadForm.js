@@ -8,7 +8,7 @@ import { openPrivacyPolicy } from './cookieConsent.js';
 import { siteConfig } from '../content/siteConfig.js';
 
 const DEFAULT_ENDPOINT = 'https://europe-west1-plinio-studio.cloudfunctions.net/submitLead';
-const SUCCESS_PATH = '/grazie';
+const DEFAULT_SUCCESS_PATH = '/grazie';
 
 const normalize = (value) => String(value || '').trim();
 
@@ -94,6 +94,8 @@ function setFormState(form, state, message = '') {
 }
 
 async function submitLead(form, startedAt) {
+  if (form.dataset.state === 'submitting') return;
+
   const { valid, values } = validate(form);
   if (!valid) {
     form.querySelector('[aria-invalid="true"]')?.focus();
@@ -137,8 +139,9 @@ async function submitLead(form, startedAt) {
       throw new Error('Non siamo riusciti a inviare la richiesta. Riprova tra poco.');
     }
 
-    trackEvent('lead_form_submit_success', { location: 'pilot_form' });
-    window.location.assign(SUCCESS_PATH);
+    await trackEvent('lead_form_submit_success', { location: 'pilot_form' });
+    const successPath = siteConfig.conversion?.thankYouPath || DEFAULT_SUCCESS_PATH;
+    window.location.assign(successPath);
   } catch (error) {
     console.warn('[LeadForm] Submit failed:', error);
     trackEvent('lead_form_submit_error', { location: 'pilot_form' });
@@ -163,7 +166,7 @@ function wireForm(form) {
   form.addEventListener('input', (event) => {
     const name = event.target?.name;
     if (name) setFieldError(form, name, '');
-    setFormState(form, 'idle');
+    if (form.dataset.state !== 'submitting') setFormState(form, 'idle');
   });
 
   form.addEventListener('submit', (event) => {
