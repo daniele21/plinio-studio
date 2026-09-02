@@ -14,6 +14,7 @@
     "deploy:prod": "node scripts/deploy-version.js prod",
     "deploy:all": "firebase deploy --only hosting",
     "deploy:preview": "firebase hosting:channel:deploy preview",
+    "deploy:functions": "firebase deploy --config firebase.functions.json --only functions --project plinio-studio",
     "projects:list": "firebase projects:list",
     "sites:list": "firebase hosting:sites:list",
     "use": "firebase use"
