@@ -11,10 +11,10 @@
         coerenti con il vostro modo di comunicare.
       </p>
       <div class="pl-product-hero__actions">
-        <a href="#prenota" class="pl-btn pl-btn--primary" data-analytics-event="pilot_cta_click"
+        <button type="button" class="pl-btn pl-btn--primary" data-open-lead-modal data-analytics-event="pilot_cta_click"
           data-analytics-location="hero">
           <span>Prova Plinio su un progetto</span><span class="pl-btn-arrow" aria-hidden="true">→</span>
-        </a>
+        </button>
         <a href="#demo-opportunita" class="pl-btn pl-btn--secondary pl-hero-secondary-btn">
           <span>Guarda un esempio</span><span class="pl-btn-arrow" aria-hidden="true">↓</span>
         </a>
@@ -56,11 +56,8 @@
     </div>
 
     <div class="pl-hero-showcase" data-rev="1" data-delay="0.06">
-      <!-- Desktop 3-Phase Pipeline Showcase (screens > 768px) -->
       <div class="pl-hero-pipeline pl-hero-desktop-showcase"
         aria-label="Pipeline Plinio: Dai vostri materiali, Plinio Radar trova le comunicazioni fino alle bozze pronte per la revisione">
-
-        <!-- Column 1: I vostri materiali -->
         <div class="pl-pipeline-col pl-pipeline-col--sources">
           <div class="pl-pipeline-col-header">
             <span class="pl-pipeline-col-step">1</span>
@@ -73,17 +70,14 @@
           </div>
         </div>
 
-        <!-- Connector 1: Materiali -> Plinio Radar (Plinio theme) -->
         <div class="pl-pipeline-connector" aria-hidden="true">
           <svg class="pl-pipeline-svg" viewBox="0 0 100 1000" fill="none" xmlns="http://www.w3.org/2000/svg"
             preserveAspectRatio="none">
-            <!-- 5 dotted branch lines from source cards to center node -->
             <path class="pl-pipeline-line" d="M 0,129 C 40,129 50,420 50,438" vector-effect="non-scaling-stroke" />
             <path class="pl-pipeline-line" d="M 0,332 C 30,332 45,425 50,438" vector-effect="non-scaling-stroke" />
             <path class="pl-pipeline-line" d="M 0,526 C 30,526 45,445 50,438" vector-effect="non-scaling-stroke" />
             <path class="pl-pipeline-line" d="M 0,716 C 30,716 48,450 50,438" vector-effect="non-scaling-stroke" />
             <path class="pl-pipeline-line" d="M 0,896 C 40,896 50,455 50,438" vector-effect="non-scaling-stroke" />
-            <!-- Line from node to center card -->
             <path class="pl-pipeline-line" d="M 50,438 L 100,438" vector-effect="non-scaling-stroke" />
           </svg>
           <div class="pl-pipeline-node">
@@ -95,7 +89,6 @@
           </div>
         </div>
 
-        <!-- Column 2: Plinio Radar trova le comunicazioni per voi -->
         <div class="pl-pipeline-col pl-pipeline-col--center">
           <div class="pl-pipeline-col-header pl-pipeline-col-header--accent">
             <span class="pl-pipeline-col-step">2</span>
@@ -108,13 +101,10 @@
           </div>
         </div>
 
-        <!-- Connector 2: Plinio Radar -> Comunicazioni pronte (Plinio theme) -->
         <div class="pl-pipeline-connector" aria-hidden="true">
           <svg class="pl-pipeline-svg" viewBox="0 0 100 1000" fill="none" xmlns="http://www.w3.org/2000/svg"
             preserveAspectRatio="none">
-            <!-- Line from center card to node -->
             <path class="pl-pipeline-line" d="M 0,438 L 50,438" vector-effect="non-scaling-stroke" />
-            <!-- 3 dotted branch lines from node to 3 output cards -->
             <path class="pl-pipeline-line" d="M 50,438 C 55,425 65,205 100,205" vector-effect="non-scaling-stroke" />
             <path class="pl-pipeline-line" d="M 50,438 C 55,438 65,528 100,528" vector-effect="non-scaling-stroke" />
             <path class="pl-pipeline-line" d="M 50,438 C 55,450 65,823 100,823" vector-effect="non-scaling-stroke" />
@@ -128,7 +118,6 @@
           </div>
         </div>
 
-        <!-- Column 3: Comunicazioni pronte -->
         <div class="pl-pipeline-col pl-pipeline-col--outputs">
           <div class="pl-pipeline-col-header">
             <span class="pl-pipeline-col-step">3</span>
@@ -140,13 +129,10 @@
               loading="eager" />
           </div>
         </div>
-
       </div>
 
-      <!-- Mobile Radar Carousel (screens <= 768px) -->
       <div class="pl-hero-mobile-carousel" data-radar-carousel="1">
         <div class="pl-radar-carousel-card">
-          <!-- Carousel Card Header -->
           <div class="pl-radar-carousel-header">
             <div class="pl-dual-card__header-info">
               <span class="pl-mockup-badge-dot" aria-hidden="true"></span>
@@ -156,7 +142,6 @@
             <span class="pl-dual-tag" data-radar-slide-badge>1 di 3</span>
           </div>
 
-          <!-- Carousel Viewport & Slides -->
           <div class="pl-radar-carousel-viewport" data-radar-viewport="1">
             <div class="pl-radar-carousel-track" data-radar-track="1">
               <div class="pl-radar-carousel-slide" data-slide="0" tabindex="0" role="button"
@@ -179,7 +164,6 @@
             </div>
           </div>
 
-          <!-- Carousel Footer Controls -->
           <div class="pl-radar-carousel-footer">
             <button type="button" class="pl-radar-nav-btn pl-radar-nav-prev" data-radar-prev="1"
               aria-label="Slide precedente">
