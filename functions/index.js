@@ -98,7 +98,6 @@ function validatePayload(body) {
     policyVersion: clean(body?.policyVersion, 32),
     source: clean(body?.source, 80) || 'plinio_landing',
     website: clean(body?.website, 200),
-    formStartedAt: Number(body?.formStartedAt || 0),
     attribution: {
       utmSource: clean(body?.utmSource, 100),
       utmMedium: clean(body?.utmMedium, 100),
@@ -150,12 +149,6 @@ export const submitLead = onRequest(async (req, res) => {
 
   // Honeypot submissions are acknowledged but intentionally discarded.
   if (data.website) {
-    res.status(200).json({ ok: true });
-    return;
-  }
-
-  // Very fast automated submissions are discarded without retaining PII.
-  if (data.formStartedAt && (Date.now() - data.formStartedAt) < 700) {
     res.status(200).json({ ok: true });
     return;
   }
