@@ -9,6 +9,7 @@ Questa implementazione sostituisce il vecchio `mailto:` con un funnel reale:
 5. redirect a `/grazie`
 6. tracking funnel, solo se l'utente ha accettato Analytics
 7. privacy notice aggiornata per la raccolta lead
+8. retention tecnica automatizzata
 
 ## 1. Prerequisito: Firestore
 
@@ -37,7 +38,7 @@ npm run deploy:functions
 Il deploy usa `firebase.functions.json` e crea in `europe-west1`:
 
 - `submitLead`: endpoint HTTP del form
-- `cleanupLandingRateLimits`: pulizia giornaliera dei record tecnici di rate limiting scaduti
+- `cleanupLandingData`: pulizia giornaliera dei record tecnici di rate limiting e dei lead che hanno raggiunto la retention prevista
 
 Endpoint atteso:
 
@@ -82,6 +83,9 @@ Campi principali:
 - `privacy.policyVersion`
 - `privacy.acknowledgedAt`
 - `createdAt`
+- `retentionUntil`
+
+`retentionUntil` viene inizializzato a 365 giorni dalla richiesta. Se il contatto entra in un diverso rapporto commerciale/contrattuale, il processo di back-office può aggiornare tale data sulla base della nuova finalità e della policy applicabile.
 
 Il backend non registra payload, email o telefono nei log applicativi.
 
@@ -101,6 +105,7 @@ Evitare di introdurre un provider email/CRM direttamente nel codice senza aver p
 - inviare
 - verificare `201` sulla Function
 - verificare nuovo documento in `landing_leads`
+- verificare presenza di `retentionUntil`
 - verificare redirect a `/grazie`
 
 ### Errori
