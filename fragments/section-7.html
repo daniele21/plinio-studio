@@ -1,98 +1,126 @@
 <section id="prenota" class="pl-section pl-pilot-section pl-section--light">
   <div class="pl-container">
-    <div class="pl-lead-capture" data-rev="1">
-      <div class="pl-lead-capture__copy">
-        <span class="pl-lead-capture__eyebrow">PROVA SU UN PROGETTO REALE</span>
-        <h2>Vediamo cosa c’è da raccontare<br>nel vostro prossimo progetto.</h2>
-        <p class="pl-lead-capture__intro">Lasciaci qualche informazione. Ti ricontatteremo per scegliere insieme un progetto reale e organizzare la prima fase di onboarding.</p>
+    <div class="pl-final-cta" data-rev="1">
+      <span class="pl-lead-capture__eyebrow">PROVA SU UN PROGETTO REALE</span>
+      <h2>Vediamo cosa c’è da raccontare<br>nel vostro prossimo progetto.</h2>
+      <p>Partiamo da un progetto reale e dai materiali che avete già. In 30 minuti impostiamo insieme la prima prova e vediamo cosa Plinio riesce a trasformare in comunicazione.</p>
 
-        <div class="pl-lead-capture__steps" aria-label="Cosa succede dopo la richiesta">
-          <div class="pl-lead-step">
-            <span class="pl-lead-step__num">1</span>
-            <div>
-              <strong>Scegliamo un progetto</strong>
-              <span>Partiamo da qualcosa che avete già realizzato o state realizzando.</span>
-            </div>
-          </div>
-          <div class="pl-lead-step">
-            <span class="pl-lead-step__num">2</span>
-            <div>
-              <strong>Usiamo i materiali che avete già</strong>
-              <span>Report, presentazioni, verbali e documenti di progetto.</span>
-            </div>
-          </div>
-          <div class="pl-lead-step">
-            <span class="pl-lead-step__num">3</span>
-            <div>
-              <strong>Proviamo Plinio insieme</strong>
-              <span>Vediamo cosa emerge e arriviamo fino a una prima bozza verificabile.</span>
-            </div>
-          </div>
-        </div>
+      <button
+        type="button"
+        class="pl-btn pl-btn--primary pl-final-cta__button"
+        data-open-lead-modal
+        data-analytics-event="pilot_cta_click"
+        data-analytics-location="final_cta"
+      >
+        <span>Prova Plinio su un progetto</span><span class="pl-btn-arrow" aria-hidden="true">→</span>
+      </button>
 
-        <p class="pl-lead-capture__reassurance">Nessun impegno · Nessuna migrazione IT · 30 minuti per partire</p>
-      </div>
-
-      <div class="pl-lead-form-card">
-        <div class="pl-lead-form-card__header">
-          <h3>Prova Plinio su un vostro progetto</h3>
-          <p>Compila il form: ti ricontattiamo per organizzare il primo onboarding.</p>
-        </div>
-
-        <form id="pilot-lead-form" class="pl-lead-form" data-policy-version="2026-09-02" novalidate>
-          <div class="pl-lead-form__grid">
-            <div class="pl-form-field pl-form-field--full">
-              <label for="lead-full-name">Nome e cognome <span aria-hidden="true">*</span></label>
-              <input id="lead-full-name" name="fullName" type="text" autocomplete="name" maxlength="120" required placeholder="Mario Rossi" aria-describedby="error-fullName">
-              <span class="pl-form-error" id="error-fullName" data-error-for="fullName" aria-live="polite"></span>
-            </div>
-
-            <div class="pl-form-field pl-form-field--full">
-              <label for="lead-email">Email di lavoro <span aria-hidden="true">*</span></label>
-              <input id="lead-email" name="email" type="email" autocomplete="email" maxlength="180" required placeholder="mario@azienda.it" aria-describedby="error-email">
-              <span class="pl-form-error" id="error-email" data-error-for="email" aria-live="polite"></span>
-            </div>
-
-            <div class="pl-form-field">
-              <label for="lead-company">Azienda <span aria-hidden="true">*</span></label>
-              <input id="lead-company" name="company" type="text" autocomplete="organization" maxlength="160" required placeholder="Azienda S.r.l." aria-describedby="error-company">
-              <span class="pl-form-error" id="error-company" data-error-for="company" aria-live="polite"></span>
-            </div>
-
-            <div class="pl-form-field">
-              <label for="lead-role">Ruolo <span aria-hidden="true">*</span></label>
-              <input id="lead-role" name="role" type="text" autocomplete="organization-title" maxlength="120" required placeholder="Marketing Manager" aria-describedby="error-role">
-              <span class="pl-form-error" id="error-role" data-error-for="role" aria-live="polite"></span>
-            </div>
-
-            <div class="pl-form-field pl-form-field--full">
-              <label for="lead-phone">Telefono <span class="pl-form-optional">opzionale</span></label>
-              <input id="lead-phone" name="phone" type="tel" autocomplete="tel" maxlength="40" placeholder="+39 333 123 4567">
-            </div>
-          </div>
-
-          <div class="pl-honeypot" aria-hidden="true">
-            <label for="lead-website">Sito web</label>
-            <input id="lead-website" name="website" type="text" tabindex="-1" autocomplete="off">
-          </div>
-
-          <div class="pl-form-privacy">
-            <label class="pl-form-checkbox">
-              <input name="privacyAcknowledged" type="checkbox" required aria-describedby="error-privacyAcknowledged">
-              <span>Ho letto l’<button type="button" class="pl-inline-link" data-lead-privacy>Informativa Privacy</button> relativa alla gestione della richiesta.</span>
-            </label>
-            <span class="pl-form-error" id="error-privacyAcknowledged" data-error-for="privacyAcknowledged" aria-live="polite"></span>
-          </div>
-
-          <button type="submit" class="pl-btn pl-btn--primary pl-lead-form__submit" data-lead-submit data-analytics-event="pilot_form_submit_click" data-analytics-location="pilot_form">
-            <span data-lead-submit-label>Voglio provare Plinio</span>
-            <span class="pl-btn-arrow" aria-hidden="true">→</span>
-          </button>
-
-          <div class="pl-lead-form__status" data-lead-status role="status" aria-live="polite"></div>
-          <p class="pl-lead-form__microcopy">Usiamo questi dati solo per gestire la richiesta e organizzare il contatto. Non vengono usati per newsletter o marketing senza un consenso separato.</p>
-        </form>
+      <div class="pl-final-cta__outcomes" aria-label="Cosa serve per partire">
+        <span><b>1</b> progetto reale</span>
+        <span><b>✓</b> materiali che avete già</span>
+        <span><b>30'</b> con noi</span>
       </div>
     </div>
   </div>
 </section>
+
+<div class="pl-lead-modal" data-lead-modal hidden>
+  <div class="pl-lead-modal__backdrop" data-lead-modal-close aria-hidden="true"></div>
+
+  <div
+    class="pl-lead-modal__dialog"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="pl-lead-modal-title"
+    aria-describedby="pl-lead-modal-description"
+    tabindex="-1"
+  >
+    <button type="button" class="pl-lead-modal__close" data-lead-modal-close aria-label="Chiudi il form">×</button>
+
+    <div class="pl-lead-modal__header">
+      <span class="pl-lead-capture__eyebrow">PROVA SU UN PROGETTO REALE</span>
+      <h2 id="pl-lead-modal-title">Prova Plinio su un vostro progetto</h2>
+      <p id="pl-lead-modal-description">Lasciaci qualche informazione. Ti ricontatteremo per scegliere insieme il progetto e organizzare la prima fase di onboarding.</p>
+    </div>
+
+    <div class="pl-lead-modal__content">
+      <div class="pl-lead-modal__steps" aria-label="Cosa succede dopo la richiesta">
+        <div class="pl-lead-step">
+          <span class="pl-lead-step__num">1</span>
+          <div>
+            <strong>Scegliamo un progetto</strong>
+            <span>Qualcosa che avete già realizzato o state realizzando.</span>
+          </div>
+        </div>
+        <div class="pl-lead-step">
+          <span class="pl-lead-step__num">2</span>
+          <div>
+            <strong>Partiamo dai materiali che avete già</strong>
+            <span>Report, presentazioni, verbali e documenti di progetto.</span>
+          </div>
+        </div>
+        <div class="pl-lead-step">
+          <span class="pl-lead-step__num">3</span>
+          <div>
+            <strong>Proviamo Plinio insieme</strong>
+            <span>Vediamo cosa emerge e arriviamo fino a una prima bozza verificabile.</span>
+          </div>
+        </div>
+      </div>
+
+      <form id="pilot-lead-form" class="pl-lead-form" data-policy-version="2026-09-02" novalidate>
+        <div class="pl-lead-form__grid">
+          <div class="pl-form-field pl-form-field--full">
+            <label for="lead-full-name">Nome e cognome <span aria-hidden="true">*</span></label>
+            <input id="lead-full-name" name="fullName" type="text" autocomplete="name" maxlength="120" required placeholder="Mario Rossi" aria-describedby="error-fullName">
+            <span class="pl-form-error" id="error-fullName" data-error-for="fullName" aria-live="polite"></span>
+          </div>
+
+          <div class="pl-form-field pl-form-field--full">
+            <label for="lead-email">Email di lavoro <span aria-hidden="true">*</span></label>
+            <input id="lead-email" name="email" type="email" autocomplete="email" maxlength="180" required placeholder="mario@azienda.it" aria-describedby="error-email">
+            <span class="pl-form-error" id="error-email" data-error-for="email" aria-live="polite"></span>
+          </div>
+
+          <div class="pl-form-field">
+            <label for="lead-company">Azienda <span aria-hidden="true">*</span></label>
+            <input id="lead-company" name="company" type="text" autocomplete="organization" maxlength="160" required placeholder="Azienda S.r.l." aria-describedby="error-company">
+            <span class="pl-form-error" id="error-company" data-error-for="company" aria-live="polite"></span>
+          </div>
+
+          <div class="pl-form-field">
+            <label for="lead-role">Ruolo <span aria-hidden="true">*</span></label>
+            <input id="lead-role" name="role" type="text" autocomplete="organization-title" maxlength="120" required placeholder="Marketing Manager" aria-describedby="error-role">
+            <span class="pl-form-error" id="error-role" data-error-for="role" aria-live="polite"></span>
+          </div>
+
+          <div class="pl-form-field pl-form-field--full">
+            <label for="lead-phone">Telefono <span class="pl-form-optional">opzionale</span></label>
+            <input id="lead-phone" name="phone" type="tel" autocomplete="tel" maxlength="40" placeholder="+39 333 123 4567">
+          </div>
+        </div>
+
+        <div class="pl-honeypot" aria-hidden="true">
+          <label for="lead-website">Sito web</label>
+          <input id="lead-website" name="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="pl-form-privacy">
+          <label class="pl-form-checkbox">
+            <input name="privacyAcknowledged" type="checkbox" required aria-describedby="error-privacyAcknowledged">
+            <span>Ho letto l’<button type="button" class="pl-inline-link" data-lead-privacy>Informativa Privacy</button> relativa alla gestione della richiesta.</span>
+          </label>
+          <span class="pl-form-error" id="error-privacyAcknowledged" data-error-for="privacyAcknowledged" aria-live="polite"></span>
+        </div>
+
+        <button type="submit" class="pl-btn pl-btn--primary pl-lead-form__submit" data-lead-submit data-analytics-event="pilot_form_submit_click" data-analytics-location="pilot_form">
+          <span data-lead-submit-label>Voglio provare Plinio</span>
+          <span class="pl-btn-arrow" aria-hidden="true">→</span>
+        </button>
+
+        <div class="pl-lead-form__status" data-lead-status role="status" aria-live="polite"></div>
+        <p class="pl-lead-form__microcopy">Usiamo questi dati solo per gestire la richiesta e organizzare il contatto. Non vengono usati per newsletter o marketing senza un consenso separato.</p>
+      </form>
+    </div>
+  </div>
+</div>
