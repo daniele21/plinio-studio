@@ -52,7 +52,7 @@ export const consentCopy = {
     sections: [
       {
         title: '1. Titolare del trattamento',
-        content: 'Il Titolare del trattamento è <strong>Plinio Studio</strong>. Per richieste relative alla privacy o all’esercizio dei diritti puoi scrivere a <a href="mailto:info@plinio.studio" class="pl-consent-link">info@plinio.studio</a>. <strong>Prima della pubblicazione definitiva vanno verificati e, se necessario, integrati i dati identificativi completi del soggetto giuridico titolare.</strong>'
+        content: 'Il Titolare del trattamento è <strong>Plinio Studio</strong>. Per richieste relative alla privacy o all’esercizio dei diritti puoi scrivere a <a href="mailto:info@plinio.studio" class="pl-consent-link">info@plinio.studio</a>.'
       },
       {
         title: '2. Dati inviati con il form “Prova Plinio”',
