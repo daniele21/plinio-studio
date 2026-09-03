@@ -161,20 +161,24 @@
 }
 
 /* Desktop Showcase vs Mobile Carousels (Radar, Content Studio, Evidence) */
-.pl-hero-desktop-showcase.pl-hero-pipeline {
-  display: grid !important;
-}
+@media (min-width: 769px) {
+  .pl-hero-desktop-showcase.pl-hero-pipeline,
+  .pl-content-desktop-showcase.pl-content-pipeline {
+    display: grid !important;
+  }
 
-.pl-hero-desktop-showcase:not(.pl-hero-pipeline),
-.pl-content-desktop-shot,
-.pl-evidence-desktop-shot {
-  display: block !important;
-}
+  .pl-hero-desktop-showcase:not(.pl-hero-pipeline),
+  .pl-content-desktop-showcase:not(.pl-content-pipeline),
+  .pl-content-desktop-shot,
+  .pl-evidence-desktop-shot {
+    display: block !important;
+  }
 
-.pl-hero-mobile-carousel,
-.pl-content-mobile-carousel,
-.pl-evidence-mobile-carousel {
-  display: none !important;
+  .pl-hero-mobile-carousel,
+  .pl-content-mobile-carousel,
+  .pl-evidence-mobile-carousel {
+    display: none !important;
+  }
 }
 
 .pl-v5-hero-shot {
@@ -911,6 +915,9 @@
 
   /* Mobile Carousels (Radar, Content Studio, Evidence - Strictly Mobile <= 768px) */
   .pl-hero-desktop-showcase,
+  .pl-hero-pipeline,
+  .pl-content-desktop-showcase,
+  .pl-content-pipeline,
   .pl-content-desktop-shot,
   .pl-evidence-desktop-shot {
     display: none !important;

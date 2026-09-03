@@ -235,7 +235,8 @@ export function initImageModal() {
       // Extract title and caption from card header if available
       const titleStrong = target.querySelector('.pl-dual-card__title strong, .pl-dual-card__header strong');
       const titleEl = target.querySelector('.pl-dual-card__title');
-      let title = titleStrong ? titleStrong.textContent.trim() : (alt || 'Plinio Studio');
+      const pipelineTitle = target.closest('.pl-pipeline-col')?.querySelector('.pl-pipeline-col-title');
+      let title = titleStrong ? titleStrong.textContent.trim() : (pipelineTitle ? pipelineTitle.textContent.trim() : (alt || 'Plinio Studio'));
       let caption = '';
 
       if (titleEl && titleStrong) {

@@ -184,7 +184,32 @@ function applyCopy() {
     });
   }
 
-  // Product Section Media
+  // Product Section Copy & Media
+  if (copy.product) {
+    const productCopy = document.querySelector('.pl-v5-product__copy');
+    if (productCopy) {
+      if (copy.product.title) setHtml(productCopy.querySelector('h3'), copy.product.title);
+      if (copy.product.description) setHtml(productCopy.querySelector('p'), copy.product.description);
+    }
+  }
+
+  // Content Studio Media Configuration (Pipeline synchronization)
+  const contentShowcase = document.querySelector('.pl-content-pipeline-showcase') || document.querySelector('.pl-content-pipeline');
+  if (contentShowcase) {
+    const pipelineCols = contentShowcase.querySelectorAll('.pl-pipeline-col');
+    if (pipelineCols.length > 0 && Array.isArray(siteConfig.productMedia?.pipeline)) {
+      pipelineCols.forEach((col, idx) => {
+        const item = siteConfig.productMedia.pipeline[idx];
+        if (!item) return;
+        const img = col.querySelector('.pl-pipeline-img');
+        if (img && item.src) img.src = item.src;
+        if (img && item.alt) img.alt = item.alt;
+        const titleEl = col.querySelector('.pl-pipeline-col-title');
+        if (titleEl && item.title) titleEl.textContent = item.title;
+      });
+    }
+  }
+
   if (siteConfig.productMedia?.src) {
     const productImg = document.querySelector('.pl-v5-product__shot img');
     if (productImg) {
@@ -219,18 +244,18 @@ function applyCopy() {
 
   // Comparison Section
   if (copy.comparison) {
-    setHtml(
-      document.querySelector('#pl-compare-minimal h2'),
-      copy.comparison.title
-    );
+    const compHeading =
+      document.querySelector('.pl-v5-compare-heading') ||
+      document.querySelector('#pl-compare-minimal') ||
+      document.querySelector('#confronto');
 
-    setHtml(
-      document.querySelector('#pl-compare-minimal p:first-of-type'),
-      copy.comparison.intro
-    );
+    if (compHeading) {
+      setHtml(compHeading.querySelector('h2'), copy.comparison.title);
+      setHtml(compHeading.querySelector('p'), copy.comparison.intro);
+    }
 
     const featureHeaders =
-      document.querySelectorAll('.pl-compare-table tbody th');
+      document.querySelectorAll('.pl-compare-table tbody th, .pl-v5-compare-table tbody th');
 
     copy.comparison.featureRows?.forEach((label, i) => {
       const th = featureHeaders[i];
@@ -241,6 +266,15 @@ function applyCopy() {
       document.querySelector('[data-compare-takeaway]'),
       copy.comparison.takeaway
     );
+  }
+
+  // Awareness Section (Perché conta / Proof)
+  if (copy.awareness) {
+    const awarenessSection = document.querySelector('#perche-conta');
+    if (awarenessSection) {
+      if (copy.awareness.title) setHtml(awarenessSection.querySelector('h2'), copy.awareness.title);
+      if (copy.awareness.intro) setHtml(awarenessSection.querySelector('.pl-v5-proof__bridge'), copy.awareness.intro);
+    }
   }
 
   // Objections Section

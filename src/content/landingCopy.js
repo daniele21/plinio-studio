@@ -32,7 +32,7 @@ export const landingCopy = {
     },
   },
   personas: {
-    title: '<span class="pl-personas-title__lead">Il problema non è scrivere.</span><br><span class="pl-personas-title__accent">È recuperare tutto quello che viene prima.</span>',
+    title: '<span class="pl-personas-title__lead">Ogni volta che dovete comunicare un progetto,</span><br><span class="pl-personas-title__accent">ricomincia la caccia a file e colleghi.</span>',
     items: [
       {
         role: 'CEO / FOUNDER',
@@ -51,11 +51,19 @@ export const landingCopy = {
       },
     ],
   },
+  product: {
+    title: '<span class="pl-v5-title__lead">Avete già i materiali.</span><br><span class="pl-v5-title__accent">Plinio ti porta a comunicazioni selezionate e pronte.</span>',
+    description: 'Il Radar fa emergere i <strong>temi chiave dai documenti</strong>; il Content Studio sviluppa la bozza mantenendo ogni affermazione <strong>collegata alle fonti</strong> da cui nasce.',
+  },
   fattiVoce: {
     title: '<span class="pl-fatti-voce-title__lead">Non basta che sia corretto.</span><br><span class="pl-fatti-voce-title__accent">Deve sembrare vostro.</span>',
     subtitle: 'Plinio mantiene <strong>fatti e numeri collegati alle fonti</strong> del progetto e costruisce ogni contenuto seguendo il <strong>vostro tono</strong>, la linea editoriale e il modo in cui comunicate.',
     cardTag: '3. Fatti + Voce',
     cardTitle: '<strong>Fatti &amp; Voce aziendale</strong> · Dalla fonte alla linea editoriale',
+  },
+  awareness: {
+    title: 'Se non raccontate quello che fate, chi vi deve scegliere non lo sa.',
+    intro: 'I vostri progetti sono già la prova di ciò che sapete fare. Plinio evita che quella prova resti nei file.',
   },
   evidence: {
     title: 'Fatti conoscere da chi deve sceglierti.',
@@ -64,7 +72,7 @@ export const landingCopy = {
       {
         value: '81%',
         claim: 'degli acquisti va a vendor già conosciuti.',
-        sowhat: 'Il lavoro migliore non aiuta a vendere se resta invisibile.',
+        sowhat: 'Se non raccontate quello che fate, chi vi deve scegliere non lo sa.',
         source: 'LinkedIn B2B Institute × Bain & Company',
         url: 'https://www.linkedin.com/business/marketing/blog/research-and-insights/the-principles-of-buyability-why-strong-deals-stall-and-what-separates-the-vendors-who-get-chosen',
       },
@@ -127,7 +135,7 @@ export const landingCopy = {
     ],
   },
   comparison: {
-    title: 'Cosa resta da fare a voi?',
+    title: 'Prima della bozza, quanto lavoro resta ancora al vostro team?',
     intro: 'La prima bozza la fanno in molti. <strong>La differenza è chi gestisce il lavoro che viene prima.</strong>',
 
     featureRows: [

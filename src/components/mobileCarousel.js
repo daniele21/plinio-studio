@@ -135,9 +135,9 @@ export function initMobileCarousels() {
   // 2. Content Studio Carousel (Section 2)
   setupCarousel('[data-content-carousel]', {
     titles: [
-      '<strong>1. Topic & Canale</strong> · Impostazione e target',
-      '<strong>2. Prima Bozza</strong> · Testo generato con claim',
-      '<strong>3. Fonti Collegate</strong> · Verifica ed evidenze'
+      '<strong>1. Opportunità</strong> · Topic selezionato dal Radar',
+      '<strong>2. Content Studio</strong> · Bozza, claim e fonti verificate',
+      '<strong>3. Post Pronto</strong> · Anteprima canale LinkedIn'
     ]
   });
 

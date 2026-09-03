@@ -1,7 +1,7 @@
 <section id="personas" class="pl-section pl-section--light pl-personas-section">
   <div class="pl-container">
     <div class="pl-personas-heading" data-rev="1">
-      <h2><span class="pl-personas-title__lead">Il problema non è scrivere.</span><br><span class="pl-personas-title__accent">È recuperare tutto quello che viene prima.</span></h2>
+      <h2><span class="pl-personas-title__lead">Ogni volta che dovete comunicare un progetto,</span><br><span class="pl-personas-title__accent">ricomincia la caccia a file e colleghi.</span></h2>
     </div>
 
     <div class="pl-personas-grid" data-rev="1" data-delay="0.04">
@@ -57,36 +57,84 @@
   <div class="pl-container">
     <div class="pl-v5-product" data-rev="1" data-delay="0.04">
       <div class="pl-v5-product__copy">
-        <h3><span class="pl-v5-title__lead">Voi scegliete cosa conta.</span><br><span class="pl-v5-title__accent">Plinio arriva fino alla prima bozza.</span></h3>
+        <h3><span class="pl-v5-title__lead">Avete già i materiali.</span><br><span class="pl-v5-title__accent">Plinio ti porta a comunicazioni selezionate e pronte.</span></h3>
         <p>Il Radar fa emergere i <strong>temi chiave dai documenti</strong>; il Content Studio sviluppa la bozza mantenendo ogni affermazione <strong>collegata alle fonti</strong> da cui nasce.</p>
-        <div class="pl-v5-product__signals">
-          <span class="pl-v5-signal-chip pl-v5-signal-chip--terracotta">
-            <svg class="pl-v5-signal-chip__icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
-            <strong>6</strong> opportunità trovate
-          </span>
-          <span class="pl-v5-signal-chip pl-v5-signal-chip--neutral">
-            <svg class="pl-v5-signal-chip__icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-            Risultati <span class="pl-signal-dot">·</span> Decisioni <span class="pl-signal-dot">·</span> Know-how
-          </span>
-          <span class="pl-v5-signal-chip pl-v5-signal-chip--sage">
-            <svg class="pl-v5-signal-chip__icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            Fonti sempre collegate
-          </span>
-        </div>
       </div>
 
-      <!-- Desktop Content Studio Screenshot (screens > 768px) -->
-      <div class="pl-v5-product__shot pl-content-desktop-shot" data-zoomable="true" tabindex="0" role="button" aria-label="Ingrandisci anteprima: Content Studio con opportunità selezionata, bozza ed anteprima canale">
-        <div class="pl-dual-card__header">
-          <div class="pl-dual-card__header-info">
-            <span class="pl-mockup-badge-dot" aria-hidden="true"></span>
-            <span class="pl-dual-card__title"><strong>Content Studio</strong> · Dal topic approvato alla prima bozza con fonti</span>
+      <!-- Desktop Content Studio Pipeline Showcase (screens > 768px) -->
+      <div class="pl-content-pipeline pl-content-desktop-showcase"
+        aria-label="Pipeline Plinio Content Studio: Dall'opportunità selezionata alla bozza verificata con claim e fonti, fino al post pronto per la pubblicazione">
+        
+        <!-- Colonna 1: Opportunità Selezionata -->
+        <div class="pl-pipeline-col pl-pipeline-col--studio-opportunity">
+          <div class="pl-pipeline-col-header">
+            <span class="pl-pipeline-col-step">1</span>
+            <span class="pl-pipeline-col-title">Opportunità selezionata</span>
           </div>
-          <span class="pl-dual-tag">2. Content Studio</span>
+          <div class="pl-pipeline-card" data-zoomable="true" tabindex="0" role="button" aria-label="Ingrandisci anteprima: Opportunità selezionata">
+            <img src="./src/assets/content-studio-1.png"
+              alt="Opportunità selezionata dal Radar: Ridurre del 18% i tempi di installazione con metriche e fonti collegate"
+              class="pl-pipeline-img" loading="lazy" />
+          </div>
         </div>
-        <div class="pl-dual-card__media">
-          <img src="./src/assets/2. content-studio.png" alt="Interfaccia Plinio: Content Studio con opportunità selezionata, bozza ed anteprima canale" class="pl-dual-img" loading="lazy">
+
+        <!-- Connettore 1 -> 2: Freccia con stile Plinio -->
+        <div class="pl-pipeline-connector" aria-hidden="true">
+          <svg class="pl-pipeline-svg" viewBox="0 0 100 1000" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path class="pl-pipeline-line" d="M 0,320 C 35,320 45,490 50,500" vector-effect="non-scaling-stroke" />
+            <path class="pl-pipeline-line" d="M 0,500 L 100,500" vector-effect="non-scaling-stroke" />
+            <path class="pl-pipeline-line" d="M 0,680 C 35,680 45,510 50,500" vector-effect="non-scaling-stroke" />
+          </svg>
+          <div class="pl-pipeline-node">
+            <svg class="pl-pipeline-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
         </div>
+
+        <!-- Colonna 2: Content Studio: Bozza & Fonti (Colonna Centrale Accento) -->
+        <div class="pl-pipeline-col pl-pipeline-col--studio-editor">
+          <div class="pl-pipeline-col-header pl-pipeline-col-header--accent">
+            <span class="pl-pipeline-col-step">2</span>
+            <span class="pl-pipeline-col-title">Content Studio: bozza &amp; fonti</span>
+          </div>
+          <div class="pl-pipeline-card" data-zoomable="true" tabindex="0" role="button" aria-label="Ingrandisci anteprima: Content Studio con bozza, claim e fonti verificate">
+            <img src="./src/assets/content-studio-2.png"
+              alt="Plinio Content Studio: bozza adattata con canale, pubblico, tono, claim verificati e fonti collegate"
+              class="pl-pipeline-img" loading="lazy" />
+          </div>
+        </div>
+
+        <!-- Connettore 2 -> 3: Freccia con stile Plinio -->
+        <div class="pl-pipeline-connector" aria-hidden="true">
+          <svg class="pl-pipeline-svg" viewBox="0 0 100 1000" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <path class="pl-pipeline-line" d="M 0,500 L 50,500" vector-effect="non-scaling-stroke" />
+            <path class="pl-pipeline-line" d="M 50,500 C 55,490 65,320 100,320" vector-effect="non-scaling-stroke" />
+            <path class="pl-pipeline-line" d="M 50,500 L 100,500" vector-effect="non-scaling-stroke" />
+            <path class="pl-pipeline-line" d="M 50,500 C 55,510 65,680 100,680" vector-effect="non-scaling-stroke" />
+          </svg>
+          <div class="pl-pipeline-node">
+            <svg class="pl-pipeline-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Colonna 3: Post Pronto per il Canale -->
+        <div class="pl-pipeline-col pl-pipeline-col--studio-channel">
+          <div class="pl-pipeline-col-header">
+            <span class="pl-pipeline-col-step">3</span>
+            <span class="pl-pipeline-col-title">Post pronto per il canale</span>
+          </div>
+          <div class="pl-pipeline-card" data-zoomable="true" tabindex="0" role="button" aria-label="Ingrandisci anteprima: Post pronto per il canale">
+            <img src="./src/assets/content-studio-3.png"
+              alt="Post pronto per la revisione: anteprima LinkedIn con foto e citazioni per Aurora Engineering"
+              class="pl-pipeline-img" loading="lazy" />
+          </div>
+        </div>
+
       </div>
 
       <!-- Mobile Content Studio Carousel (screens <= 768px) -->
@@ -96,7 +144,7 @@
           <div class="pl-radar-carousel-header">
             <div class="pl-dual-card__header-info">
               <span class="pl-mockup-badge-dot" aria-hidden="true"></span>
-              <span class="pl-dual-card__title" data-carousel-title><strong>1. Topic & Canale</strong> · Impostazione e target</span>
+              <span class="pl-dual-card__title" data-carousel-title><strong>1. Opportunità</strong> · Topic selezionato</span>
             </div>
             <span class="pl-dual-tag" data-carousel-badge>1 di 3</span>
           </div>
@@ -104,26 +152,26 @@
           <!-- Viewport & Slides -->
           <div class="pl-radar-carousel-viewport" data-carousel-viewport="1">
             <div class="pl-radar-carousel-track" data-carousel-track="1">
-              <div class="pl-radar-carousel-slide" data-slide="0" tabindex="0" role="button" aria-label="Tocca per passare alla slide successiva (Passaggio 1: Topic e Canale)">
+              <div class="pl-radar-carousel-slide" data-slide="0" tabindex="0" role="button" aria-label="Tocca per passare alla slide successiva (Passaggio 1: Opportunità selezionata)">
                 <img
-                  src="./src/assets/2.1 content-studio-mobile.png"
-                  alt="Plinio Content Studio Mobile: Selezione topic e impostazioni canale"
+                  src="./src/assets/content-studio-1.png"
+                  alt="Plinio Content Studio Mobile: Opportunità selezionata dal Radar"
                   class="pl-dual-img pl-radar-mobile-img"
                   loading="lazy"
                 />
               </div>
-              <div class="pl-radar-carousel-slide" data-slide="1" tabindex="0" role="button" aria-label="Tocca per passare alla slide successiva (Passaggio 2: Prima Bozza)">
+              <div class="pl-radar-carousel-slide" data-slide="1" tabindex="0" role="button" aria-label="Tocca per passare alla slide successiva (Passaggio 2: Bozza e Fonti)">
                 <img
-                  src="./src/assets/2.2 content-studio-mobile.png"
-                  alt="Plinio Content Studio Mobile: Prima bozza generata nel contesto del progetto"
+                  src="./src/assets/content-studio-2.png"
+                  alt="Plinio Content Studio Mobile: Bozza contestuale con claim e fonti verificate"
                   class="pl-dual-img pl-radar-mobile-img"
                   loading="lazy"
                 />
               </div>
-              <div class="pl-radar-carousel-slide" data-slide="2" tabindex="0" role="button" aria-label="Tocca per passare alla slide successiva (Passaggio 3: Fonti Collegate)">
+              <div class="pl-radar-carousel-slide" data-slide="2" tabindex="0" role="button" aria-label="Tocca per passare alla slide successiva (Passaggio 3: Post Pronto)">
                 <img
-                  src="./src/assets/2.3 content-studio-mobile.png"
-                  alt="Plinio Content Studio Mobile: Anteprima contenuto con fonti ed evidenze collegate"
+                  src="./src/assets/content-studio-3.png"
+                  alt="Plinio Content Studio Mobile: Post pronto per il canale LinkedIn con fonti collegate"
                   class="pl-dual-img pl-radar-mobile-img"
                   loading="lazy"
                 />
@@ -138,9 +186,9 @@
             </button>
 
             <div class="pl-radar-dots" data-carousel-dots="1" role="tablist" aria-label="Indicatori slide Content Studio">
-              <button type="button" class="pl-radar-dot is-active" role="tab" aria-selected="true" data-dot="0" aria-label="Slide 1: Topic"></button>
-              <button type="button" class="pl-radar-dot" role="tab" aria-selected="false" data-dot="1" aria-label="Slide 2: Bozza"></button>
-              <button type="button" class="pl-radar-dot" role="tab" aria-selected="false" data-dot="2" aria-label="Slide 3: Fonti"></button>
+              <button type="button" class="pl-radar-dot is-active" role="tab" aria-selected="true" data-dot="0" aria-label="Slide 1: Opportunità"></button>
+              <button type="button" class="pl-radar-dot" role="tab" aria-selected="false" data-dot="1" aria-label="Slide 2: Content Studio"></button>
+              <button type="button" class="pl-radar-dot" role="tab" aria-selected="false" data-dot="2" aria-label="Slide 3: Post Pronto"></button>
             </div>
 
             <button type="button" class="pl-radar-nav-btn pl-radar-nav-next" data-carousel-next="1" aria-label="Slide successiva">

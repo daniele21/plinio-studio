@@ -47,10 +47,37 @@ export const siteConfig = {
     }
   },
 
-  // Product Section Media Configuration (Content Studio)
+  // Product Section Media Configuration (Content Studio Pipeline: Opportunità -> Bozza & Fonti -> Post Pronto)
   productMedia: {
-    src: './src/assets/2. content-studio.png',
-    alt: 'Interfaccia Plinio: Content Studio con opportunità selezionata, bozza ed anteprima canale',
+    type: 'pipeline',
+    pipeline: [
+      {
+        id: 'opportunity',
+        src: './src/assets/content-studio-1.png',
+        alt: 'Opportunità selezionata dal Radar: Ridurre del 18% i tempi di installazione con metriche e fonti',
+        tag: '1. Opportunità',
+        title: 'Opportunità selezionata',
+        caption: 'Tema chiave approvato con fonti collegate'
+      },
+      {
+        id: 'studio',
+        src: './src/assets/content-studio-2.png',
+        alt: 'Plinio Content Studio: bozza contestuale con canale, pubblico, tono, claim verificati e fonti',
+        tag: '2. Content Studio',
+        title: 'Content Studio: bozza & fonti',
+        caption: 'Contesto aziendale, claim verificati e fonti'
+      },
+      {
+        id: 'channel',
+        src: './src/assets/content-studio-3.png',
+        alt: 'Post pronto per la revisione: anteprima LinkedIn con foto e fonti per Aurora Engineering',
+        tag: '3. Anteprima',
+        title: 'Post pronto per il canale',
+        caption: 'Contenuto pronto per approvazione e pubblicazione'
+      }
+    ],
+    src: './src/assets/content-studio-2.png',
+    alt: 'Plinio Content Studio: bozza ed anteprima canale con claim e fonti collegate',
     tag: '2. Content Studio',
   },
 
