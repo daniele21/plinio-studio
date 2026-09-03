@@ -570,8 +570,28 @@
 .pl-v5-proof__heading h2 {
   margin: 10px 0 0;
   font-size: clamp(2.25rem, 3.7vw, 3.45rem);
-  line-height: 1;
+  line-height: 1.08;
   letter-spacing: -.025em;
+}
+
+.pl-v5-proof-title__lead {
+  display: inline;
+  color: var(--pl-text-light-primary, #1E1A16);
+  opacity: 0.82;
+  font-weight: 600;
+}
+
+.pl-v5-proof-title__accent {
+  display: inline;
+  color: var(--pl-terracotta, #D65527) !important;
+  font-style: italic;
+  font-weight: 700;
+}
+
+.pl-v5-proof__heading h2 strong {
+  color: var(--pl-terracotta, #D65527) !important;
+  font-style: italic;
+  font-weight: 700;
 }
 
 .pl-v5-proof__bridge {
@@ -581,6 +601,11 @@
   color: var(--pl-text-light-secondary);
   max-width: 34ch;
   font-weight: 500;
+}
+
+.pl-v5-proof__bridge strong {
+  color: var(--pl-text-light-primary, #1E1A16);
+  font-weight: 700;
 }
 
 .pl-v5-proof__grid {

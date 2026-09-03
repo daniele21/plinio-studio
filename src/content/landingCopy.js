@@ -62,12 +62,12 @@ export const landingCopy = {
     cardTitle: '<strong>Fatti &amp; Voce aziendale</strong> · Dalla fonte alla linea editoriale',
   },
   awareness: {
-    title: 'Se non raccontate quello che fate, chi vi deve scegliere non lo sa.',
-    intro: 'I vostri progetti sono già la prova di ciò che sapete fare. Plinio evita che quella prova resti nei file.',
+    title: '<span class="pl-v5-proof-title__lead">Se non raccontate quello che fate,</span><br><span class="pl-v5-proof-title__accent">chi vi deve scegliere non lo sa.</span>',
+    intro: 'I vostri progetti sono già la <strong>prova di ciò che sapete fare</strong>. Plinio evita che quella prova <strong>resti nei file</strong>.',
   },
   evidence: {
     title: 'Fatti conoscere da chi deve sceglierti.',
-    intro: 'I vostri progetti sono già la prova di ciò che sapete fare. Plinio evita che quella prova resti nei file.',
+    intro: 'I vostri progetti sono già la <strong>prova di ciò che sapete fare</strong>. Plinio evita che quella prova <strong>resti nei file</strong>.',
     stats: [
       {
         value: '81%',
