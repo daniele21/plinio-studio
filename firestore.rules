@@ -1,0 +1,30 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper per verificare che l'utente sia autenticato con l'email amministratore autorizzata
+    function isAuthorizedAdmin() {
+      return request.auth != null &&
+             request.auth.token.email == 'danielemoltisanti@gmail.com' &&
+             request.auth.token.email_verified == true;
+    }
+
+    // Lead capture collection:
+    // - Lettura: consentita esclusivamente all'amministratore autenticato per la dashboard /admin
+    // - Scrittura diretta da client: sempre negata (le scritture avvengono unicamente tramite la Cloud Function submitLead con Firebase Admin SDK)
+    match /lead/{leadId} {
+      allow read: if isAuthorizedAdmin();
+      allow write: if false;
+    }
+
+    // Rate limiting tecnico ad uso esclusivo del backend Cloud Functions
+    match /_landing_rate_limits/{limitId} {
+      allow read, write: if false;
+    }
+
+    // Negazione di default per qualsiasi altra risorsa
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

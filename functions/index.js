@@ -8,7 +8,8 @@ import { onSchedule } from 'firebase-functions/v2/scheduler';
 initializeApp();
 setGlobalOptions({ region: 'europe-west1', maxInstances: 10 });
 
-const db = getFirestore();
+const db = getFirestore('lead');
+const dbDefault = getFirestore();
 
 const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000;
 const RATE_LIMIT_MAX = 5;
@@ -163,8 +164,7 @@ export const submitLead = onRequest(async (req, res) => {
     await enforceRateLimit(req);
 
     const nowMs = Date.now();
-    const leadRef = db.collection('landing_leads').doc();
-    await leadRef.set({
+    const leadPayload = {
       fullName: data.fullName,
       email: data.email,
       company: data.company,
@@ -181,7 +181,16 @@ export const submitLead = onRequest(async (req, res) => {
       retentionUntil: Timestamp.fromMillis(nowMs + LEAD_RETENTION_MS),
       createdAt: FieldValue.serverTimestamp(),
       updatedAt: FieldValue.serverTimestamp(),
-    });
+    };
+
+    const leadRef = db.collection('lead').doc();
+    await leadRef.set(leadPayload);
+
+    try {
+      await dbDefault.collection('lead').doc(leadRef.id).set(leadPayload);
+    } catch (mirrorErr) {
+      console.warn('[submitLead] Mirroring to default database skipped:', mirrorErr?.message);
+    }
 
     // Deliberately avoid logging names, email addresses, phone numbers or form payloads.
     console.info('[submitLead] Lead stored', { leadId: leadRef.id, source: data.source });
@@ -234,7 +243,7 @@ export const cleanupLandingData = onSchedule(
   async () => {
     const now = Timestamp.now();
     const rateLimitDeleted = await deleteExpired('_landing_rate_limits', 'expiresAt', now, 400);
-    const leadDeleted = await deleteExpired('landing_leads', 'retentionUntil', now, 250);
+    const leadDeleted = await deleteExpired('lead', 'retentionUntil', now, 250);
 
     console.info('[cleanupLandingData] Cleanup completed', {
       rateLimitDeleted,
