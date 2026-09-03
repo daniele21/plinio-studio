@@ -81,9 +81,36 @@ export const siteConfig = {
     tag: '2. Content Studio',
   },
 
-  // Fatti & Voce Media Configuration (Evidence / Voice & Facts Layer)
+  // Fatti & Voce Media Configuration (Evidence / Voice & Facts Layer Pipeline)
   fattiVoceMedia: {
-    src: './src/assets/3.Evidence.png',
+    type: 'pipeline',
+    pipeline: [
+      {
+        id: 'facts',
+        src: './src/assets/fatti-voce-1.png',
+        alt: 'Plinio: Fatti utilizzati estratti da report e debrief di progetto con fonti collegate',
+        tag: '1. Fatti',
+        title: 'Fatti utilizzati',
+        caption: 'Metriche e dati estratti dai documenti'
+      },
+      {
+        id: 'content',
+        src: './src/assets/fatti-voce-2.png',
+        alt: 'Bozza Acme Engineering: affermazioni con fatti verificati e voce aziendale applicata',
+        tag: 'Fatti + Voce',
+        title: 'Fatti & Voce applicati',
+        caption: 'Bozza con fonti verificate e stile aziendale'
+      },
+      {
+        id: 'voice',
+        src: './src/assets/fatti-voce-3.png',
+        alt: 'Plinio: Voce aziendale con tono diretto e linea editoriale applicata',
+        tag: '2. Voce',
+        title: 'Voce aziendale',
+        caption: 'Tono, stile e regole editoriali'
+      }
+    ],
+    src: './src/assets/fatti-voce-2.png',
     alt: 'Plinio: Fatti utilizzati da documenti di progetto e Voce aziendale applicata al contenuto',
     tag: '3. Fatti + Voce',
     title: 'Fatti & Voce aziendale',

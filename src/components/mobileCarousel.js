@@ -144,9 +144,9 @@ export function initMobileCarousels() {
   // 3. Evidence / Fatti & Voce Carousel
   setupCarousel('[data-evidence-carousel]', {
     titles: [
-      '<strong>1. Fatti di Progetto</strong> · Dati estratti dai file',
-      '<strong>2. Evidenze & Fonti</strong> · Verifica per ogni claim',
-      '<strong>3. Voce Aziendale</strong> · Stile e tono applicato'
+      '<strong>1. Fatti utilizzati</strong> · Report e debrief di progetto',
+      '<strong>2. Fatti & Voce applicati</strong> · Bozza con fonti verificate e stile',
+      '<strong>3. Voce aziendale</strong> · Tono, principi e linea editoriale'
     ]
   });
 }

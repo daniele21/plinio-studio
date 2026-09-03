@@ -232,6 +232,23 @@ function applyCopy() {
     }
   }
 
+  // Fatti & Voce Media Configuration (Pipeline synchronization)
+  const evidenceShowcase = document.querySelector('.pl-evidence-pipeline-showcase') || document.querySelector('.pl-evidence-pipeline');
+  if (evidenceShowcase) {
+    const pipelineCols = evidenceShowcase.querySelectorAll('.pl-pipeline-col');
+    if (pipelineCols.length > 0 && Array.isArray(siteConfig.fattiVoceMedia?.pipeline)) {
+      pipelineCols.forEach((col, idx) => {
+        const item = siteConfig.fattiVoceMedia.pipeline[idx];
+        if (!item) return;
+        const img = col.querySelector('.pl-pipeline-img');
+        if (img && item.src) img.src = item.src;
+        if (img && item.alt) img.alt = item.alt;
+        const titleEl = col.querySelector('.pl-pipeline-col-title');
+        if (titleEl && item.title) titleEl.textContent = item.title;
+      });
+    }
+  }
+
   if (siteConfig.fattiVoceMedia?.src) {
     const fattiImg = document.querySelector('[data-fatti-voce-img]');
     if (fattiImg) {

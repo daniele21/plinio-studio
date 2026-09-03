@@ -163,12 +163,14 @@
 /* Desktop Showcase vs Mobile Carousels (Radar, Content Studio, Evidence) */
 @media (min-width: 769px) {
   .pl-hero-desktop-showcase.pl-hero-pipeline,
-  .pl-content-desktop-showcase.pl-content-pipeline {
+  .pl-content-desktop-showcase.pl-content-pipeline,
+  .pl-evidence-desktop-showcase.pl-evidence-pipeline {
     display: grid !important;
   }
 
   .pl-hero-desktop-showcase:not(.pl-hero-pipeline),
   .pl-content-desktop-showcase:not(.pl-content-pipeline),
+  .pl-evidence-desktop-showcase:not(.pl-evidence-pipeline),
   .pl-content-desktop-shot,
   .pl-evidence-desktop-shot {
     display: block !important;
@@ -918,6 +920,8 @@
   .pl-hero-pipeline,
   .pl-content-desktop-showcase,
   .pl-content-pipeline,
+  .pl-evidence-desktop-showcase,
+  .pl-evidence-pipeline,
   .pl-content-desktop-shot,
   .pl-evidence-desktop-shot {
     display: none !important;
