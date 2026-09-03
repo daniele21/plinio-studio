@@ -878,10 +878,9 @@ async function init() {
   wireFooter();
   wireAnalytics();
 
-  // Initialize Basic Consent Mode Analytics, Cookie UI, Image Zoom Modal and Mobile Carousels
+  // Initialize Basic Consent Mode Analytics, Cookie UI, and Mobile Carousels
   initAnalyticsFromConsent();
   initCookieConsent();
-  initImageModal();
   initMobileCarousels();
 }
 

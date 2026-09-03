@@ -6,40 +6,12 @@
 /* Trigger elements */
 [data-zoomable="true"],
 .pl-zoomable {
-  cursor: zoom-in;
+  cursor: default;
   position: relative;
 }
 
 .pl-zoom-hint {
-  position: absolute;
-  bottom: 12px;
-  right: 12px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 5px 10px;
-  background: rgba(18, 16, 14, 0.88);
-  border: 1px solid var(--pl-border-dark-medium);
-  border-radius: var(--pl-radius-pill);
-  color: var(--pl-text-dark-primary);
-  font-family: var(--font-sans);
-  font-size: 0.72rem;
-  font-weight: 550;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  opacity: 0;
-  transform: translateY(4px);
-  transition: opacity var(--transition-fast), transform var(--transition-fast), background-color var(--transition-fast);
-  pointer-events: none;
-  z-index: 3;
-}
-
-[data-zoomable="true"]:hover .pl-zoom-hint,
-.pl-zoomable:hover .pl-zoom-hint,
-[data-zoomable="true"]:focus-visible .pl-zoom-hint,
-.pl-zoomable:focus-visible .pl-zoom-hint {
-  opacity: 1;
-  transform: translateY(0);
+  display: none !important;
 }
 
 .pl-zoom-hint svg {

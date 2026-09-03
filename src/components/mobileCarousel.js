@@ -136,7 +136,7 @@ export function initMobileCarousels() {
   setupCarousel('[data-content-carousel]', {
     titles: [
       '<strong>1. Opportunità</strong> · Topic selezionato dal Radar',
-      '<strong>2. Content Studio</strong> · Bozza, claim e fonti verificate',
+      '<strong>2. Content Studio</strong> · Comunicazione, claim e fonti verificate',
       '<strong>3. Post Pronto</strong> · Anteprima canale LinkedIn'
     ]
   });
@@ -145,7 +145,7 @@ export function initMobileCarousels() {
   setupCarousel('[data-evidence-carousel]', {
     titles: [
       '<strong>1. Fatti utilizzati</strong> · Report e debrief di progetto',
-      '<strong>2. Fatti & Voce applicati</strong> · Bozza con fonti verificate e stile',
+      '<strong>2. Fatti & Voce applicati</strong> · Comunicazione con fonti verificate e stile',
       '<strong>3. Voce aziendale</strong> · Tono, principi e linea editoriale'
     ]
   });

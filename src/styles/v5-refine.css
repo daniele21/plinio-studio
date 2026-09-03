@@ -1003,9 +1003,11 @@
     max-height: clamp(340px, 60vh, 480px);
     display: block;
     object-fit: contain;
-    border-radius: 12px;
+    border-radius: 16px;
+    -webkit-mask-image: radial-gradient(ellipse 96% 96% at 50% 50%, #000 84%, transparent 100%);
+    mask-image: radial-gradient(ellipse 96% 96% at 50% 50%, #000 84%, transparent 100%);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-    border: 1px solid rgba(245, 242, 235, 0.1);
+    border: none;
     transition: transform 0.16s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.16s;
   }
 

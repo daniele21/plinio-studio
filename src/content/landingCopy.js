@@ -135,8 +135,8 @@ export const landingCopy = {
     ],
   },
   comparison: {
-    title: 'Prima della bozza, quanto lavoro resta ancora al vostro team?',
-    intro: 'La prima bozza la fanno in molti. <strong>La differenza è chi gestisce il lavoro che viene prima.</strong>',
+    title: '<span class="pl-purpose-title__lead">La vostra AI può conoscere i progetti.</span><br><span class="pl-purpose-title__accent">Plinio sa cosa farne per comunicarli.</span>',
+    intro: 'Le AI enterprise accedono ai vostri dati e rispondono alle vostre richieste.<br><strong>Plinio trasforma il lavoro fatto in comunicazioni pronte da approvare.</strong>',
 
     featureRows: [
       'Trova cosa vale la pena comunicare',
