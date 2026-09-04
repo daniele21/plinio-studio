@@ -7,6 +7,8 @@
   "scripts": {
     "dev": "npx serve . -l 8080",
     "serve": "firebase emulators:start --only hosting",
+    "test:mobile": "playwright test tests/visual/mobile-responsive.spec.js",
+    "test:mobile:update": "playwright test tests/visual/mobile-responsive.spec.js --update-snapshots",
     "deploy": "node scripts/deploy-version.js",
     "deploy:version": "node scripts/deploy-version.js",
     "deploy:interactive": "node scripts/deploy-version.js --interactive",
@@ -19,6 +21,9 @@
     "projects:list": "firebase projects:list",
     "sites:list": "firebase hosting:sites:list",
     "use": "firebase use"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0"
   },
   "keywords": [
     "plinio",
