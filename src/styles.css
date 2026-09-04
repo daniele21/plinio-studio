@@ -25,6 +25,7 @@
 @import './styles/mobile.css';
 @import './styles/comparison-mobile.css';
 @import './styles/landing-v2-hero.css';
+@import './styles/how-it-works.css';
 
 /* iOS notch/safe-area bridge and final mobile guardrails. Desktop stays untouched. */
 @media (max-width: 768px) {

@@ -177,7 +177,13 @@
           </div>
         </article>
 
-        <span class="pl-v2-how__arrow" aria-hidden="true">→</span>
+        <div class="pl-v2-how__connector" aria-hidden="true">
+          <svg viewBox="0 0 28 20" fill="none" class="pl-v2-connector-svg">
+            <line x1="2" y1="10" x2="20" y2="10" class="pl-v2-connector-track"/>
+            <line x1="2" y1="10" x2="20" y2="10" class="pl-v2-connector-pulse"/>
+            <polyline points="15,6 20,10 15,14" class="pl-v2-connector-head"/>
+          </svg>
+        </div>
 
         <article class="pl-v2-how-step pl-v2-how-step--radar">
           <div class="pl-v2-how-step__copy">
@@ -187,20 +193,33 @@
               <p>Il Radar analizza i materiali, collega i fatti alle fonti e individua i temi chiave.</p>
             </div>
           </div>
-          <div class="pl-v2-radar-mini" aria-hidden="true">
-            <div class="pl-v2-radar-mini__rail">
+          <div class="pl-v2-radar-mini" aria-label="Temi chiave estratti dal Radar">
+            <div class="pl-v2-radar-beam" aria-hidden="true"></div>
+            <div class="pl-v2-radar-mini__rail" aria-hidden="true">
               <strong>Radar Plinio</strong><i></i><i></i><i></i>
             </div>
             <div class="pl-v2-radar-mini__topics">
               <strong>Temi chiave trovati <em>3+ temi</em></strong>
-              <span><b></b>Riduzione tempi di installazione</span>
-              <span><b></b>Nuova metodologia di lavoro</span>
-              <span><b></b>Impatto sul business del cliente</span>
+              <div class="pl-v2-topic-item" data-how-topic="setup" role="button" tabindex="0" aria-label="Tema 1: Riduzione tempi di installazione">
+                <b></b><span>Riduzione tempi di installazione</span>
+              </div>
+              <div class="pl-v2-topic-item" data-how-topic="method" role="button" tabindex="0" aria-label="Tema 2: Nuova metodologia di lavoro">
+                <b></b><span>Nuova metodologia di lavoro</span>
+              </div>
+              <div class="pl-v2-topic-item" data-how-topic="business" role="button" tabindex="0" aria-label="Tema 3: Impatto sul business del cliente">
+                <b></b><span>Impatto sul business del cliente</span>
+              </div>
             </div>
           </div>
         </article>
 
-        <span class="pl-v2-how__arrow" aria-hidden="true">→</span>
+        <div class="pl-v2-how__connector" aria-hidden="true">
+          <svg viewBox="0 0 28 20" fill="none" class="pl-v2-connector-svg">
+            <line x1="2" y1="10" x2="20" y2="10" class="pl-v2-connector-track"/>
+            <line x1="2" y1="10" x2="20" y2="10" class="pl-v2-connector-pulse"/>
+            <polyline points="15,6 20,10 15,14" class="pl-v2-connector-head"/>
+          </svg>
+        </div>
 
         <article class="pl-v2-how-step">
           <div class="pl-v2-how-step__copy">
@@ -210,26 +229,26 @@
               <p>Ricevete comunicazioni complete, coerenti con il vostro stile e con le fonti sempre collegate.</p>
             </div>
           </div>
-          <div class="pl-v2-output-mini" aria-hidden="true">
-            <div class="pl-v2-output-card pl-v2-output-card--linkedin">
+          <div class="pl-v2-output-mini" aria-label="Contenuti pronti per la pubblicazione">
+            <div class="pl-v2-output-card pl-v2-output-card--linkedin" data-how-card="setup" role="button" tabindex="0" aria-label="Post LinkedIn: Tempi ridotti del 32%">
               <div class="pl-v2-output-card__channel"><b>in</b><span>Post LinkedIn</span></div>
               <strong>Tempi ridotti del 32%</strong>
-              <img src="/src/assets/hero-posts/linkedin-installazione.webp" alt="" width="960" height="608">
+              <img src="/src/assets/hero-posts/linkedin-installazione.webp" alt="Anteprima Post LinkedIn" width="960" height="608" loading="lazy">
               <i class="pl-v2-output-card__lines"><b></b><b></b><b></b></i>
             </div>
-            <div class="pl-v2-output-card pl-v2-output-card--case">
+            <div class="pl-v2-output-card pl-v2-output-card--case" data-how-card="method" role="button" tabindex="0" aria-label="Case study: Installazione più veloce">
               <div class="pl-v2-output-card__channel"><b>▣</b><span>Case study</span></div>
               <strong>Installazione più veloce</strong>
-              <img src="/src/assets/hero-posts/case-study-impianto.webp" alt="" width="960" height="608">
+              <img src="/src/assets/hero-posts/case-study-impianto.webp" alt="Anteprima Case Study" width="960" height="608" loading="lazy">
               <i class="pl-v2-output-card__lines"><b></b><b></b><b></b></i>
             </div>
-            <div class="pl-v2-output-card pl-v2-output-card--newsletter">
+            <div class="pl-v2-output-card pl-v2-output-card--newsletter" data-how-card="business" role="button" tabindex="0" aria-label="Newsletter: Un risultato che conta">
               <div class="pl-v2-output-card__channel"><b>✉</b><span>Newsletter</span></div>
               <strong>Un risultato che conta</strong>
-              <img src="/src/assets/hero-posts/newsletter-stabilimento.webp" alt="" width="960" height="608">
+              <img src="/src/assets/hero-posts/newsletter-stabilimento.webp" alt="Anteprima Newsletter" width="960" height="608" loading="lazy">
               <i class="pl-v2-output-card__lines"><b></b><b></b><b></b></i>
             </div>
-            <small>
+            <small class="pl-v2-output-badge">
               <svg viewBox="0 0 24 24" role="presentation">
                 <path d="M12 3.5 19 6v5.3c0 4.3-2.7 7.5-7 9.2-4.3-1.7-7-4.9-7-9.2V6z"/>
                 <path d="m8.7 11.8 2.1 2.1 4.6-4.8"/>
@@ -248,10 +267,38 @@
     </div>
 
     <div class="pl-v2-start-strip" aria-label="Cosa serve per partire">
-      <strong>Ecco cosa ti serve<br>per partire:</strong>
-      <span>▱ <b>Un progetto reale</b></span>
-      <span>▤ <b>I materiali che avete già</b></span>
-      <span>◷ <b>30 minuti con noi</b></span>
+      <div class="pl-v2-start-strip__title">
+        <strong>Ecco cosa ti serve<br>per partire:</strong>
+      </div>
+      <div class="pl-v2-start-strip__item">
+        <span class="pl-v2-start-strip__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/>
+          </svg>
+        </span>
+        <strong>Un progetto reale</strong>
+      </div>
+      <div class="pl-v2-start-strip__item">
+        <span class="pl-v2-start-strip__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+            <line x1="10" y1="9" x2="8" y2="9"/>
+          </svg>
+        </span>
+        <strong>I materiali che avete già</strong>
+      </div>
+      <div class="pl-v2-start-strip__item">
+        <span class="pl-v2-start-strip__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 12"/>
+          </svg>
+        </span>
+        <strong>30 minuti con noi</strong>
+      </div>
     </div>
 
     <div class="pl-v2-trust">

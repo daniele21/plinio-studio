@@ -11,6 +11,7 @@ import { initCookieConsent, openCookiePreferences, openPrivacyPolicy } from './c
 import { initImageModal } from './components/imageModal.js';
 import { initAnimations } from './components/animations.js';
 import { initMobileCarousels } from './components/mobileCarousel.js';
+import { initHowItWorks } from './components/howItWorks.js';
 
 const fragmentPaths = [
   './fragments/progress.html',
@@ -882,6 +883,7 @@ async function init() {
   initAnalyticsFromConsent();
   initCookieConsent();
   initMobileCarousels();
+  initHowItWorks();
 }
 
 if (document.readyState === 'loading') {

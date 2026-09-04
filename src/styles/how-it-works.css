@@ -1,0 +1,405 @@
+/**
+ * Plinio "Come funziona" Pipeline Animations & Effects
+ * Enhances the 3-step visual process with fluid SVG connectors,
+ * radar sweep scanning, interactive card fanning, and cross-highlighting.
+ */
+
+/* ==========================================================================
+   1. Animated SVG Flow Connectors
+   ========================================================================== */
+
+.pl-v2-how__connector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 100%;
+}
+
+.pl-v2-connector-svg {
+  width: 28px;
+  height: 20px;
+  overflow: visible;
+}
+
+.pl-v2-connector-track {
+  stroke: #dcd8d1;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+
+.pl-v2-connector-pulse {
+  stroke: var(--v2-orange, #ef6b2c);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-dasharray: 8 20;
+  animation: plDataPulse 2.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Phase delay: step 1 -> step 2 runs, then step 2 -> step 3 runs */
+.pl-v2-how__connector:nth-of-type(2) .pl-v2-connector-pulse {
+  animation-delay: 1.4s;
+}
+
+.pl-v2-connector-head {
+  stroke: #878c93;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation: plArrowGlow 2.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.pl-v2-how__connector:nth-of-type(2) .pl-v2-connector-head {
+  animation-delay: 1.4s;
+}
+
+@keyframes plDataPulse {
+  0% {
+    stroke-dashoffset: 28;
+    opacity: 0.15;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: -28;
+    opacity: 0.15;
+  }
+}
+
+@keyframes plArrowGlow {
+  0%, 100% {
+    stroke: #878c93;
+    transform: scale(1);
+    transform-origin: 20px 10px;
+  }
+  50% {
+    stroke: var(--v2-orange, #ef6b2c);
+    transform: scale(1.15);
+    transform-origin: 20px 10px;
+  }
+}
+
+/* ==========================================================================
+   2. Step 1: Input Materials Micro-Interactions
+   ========================================================================== */
+
+.pl-v2-materials-mini .pl-v2-file-row {
+  cursor: default;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.28s ease,
+              border-color 0.28s ease,
+              background-color 0.28s ease;
+}
+
+.pl-v2-materials-mini .pl-v2-file-row:hover {
+  transform: translateY(-2px);
+  background-color: #fffdfc;
+  border-color: #ded6cd;
+  box-shadow: 0 4px 10px rgba(39, 31, 24, 0.08);
+}
+
+.pl-v2-materials-mini .pl-v2-file-row:hover .pl-v2-file-icon {
+  transform: scale(1.08);
+}
+
+.pl-v2-file-icon {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==========================================================================
+   3. Step 2: Radar Plinio Scanner & Interactive Topics
+   ========================================================================== */
+
+.pl-v2-radar-mini {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Scanning vertical beam across the radar display */
+.pl-v2-radar-beam {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  right: 0;
+  height: 36px;
+  background: linear-gradient(
+    180deg,
+    rgba(239, 107, 44, 0) 0%,
+    rgba(239, 107, 44, 0.09) 50%,
+    rgba(239, 107, 44, 0) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+  animation: plRadarScan 5.5s ease-in-out infinite;
+}
+
+@keyframes plRadarScan {
+  0% {
+    top: -40px;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    top: calc(100% + 10px);
+    opacity: 0;
+  }
+}
+
+/* Topics list inside Radar */
+.pl-v2-radar-mini__topics {
+  position: relative;
+  z-index: 2;
+}
+
+.pl-v2-topic-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px;
+  border: 1px solid #eeeae5;
+  border-radius: 6px;
+  color: #43464b;
+  font-size: 0.54rem;
+  background: #fff;
+  cursor: pointer;
+  text-align: left;
+  user-select: none;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease,
+              background-color 0.25s ease,
+              box-shadow 0.25s ease,
+              color 0.25s ease;
+}
+
+/* Reset inner span so it doesn't collide with .pl-v2-radar-mini__topics span */
+.pl-v2-topic-item > span {
+  display: inline !important;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  font-size: inherit !important;
+  color: inherit !important;
+  line-height: 1.3 !important;
+}
+
+.pl-v2-topic-item b {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--v2-orange, #ef6b2c);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.pl-v2-topic-item[data-how-topic="setup"] b {
+  background: var(--v2-orange, #ef6b2c);
+}
+
+.pl-v2-topic-item[data-how-topic="method"] b {
+  background: #3f7fdc;
+}
+
+.pl-v2-topic-item[data-how-topic="business"] b {
+  background: #4ca66c;
+}
+
+/* Topic Hover & Active States */
+.pl-v2-topic-item:hover,
+.pl-v2-topic-item.is-active {
+  border-color: rgba(239, 107, 44, 0.45);
+  background: #fffdf9;
+  box-shadow: 0 3px 9px rgba(239, 107, 44, 0.1);
+  transform: translateX(3px);
+  color: #1a1c1e;
+}
+
+.pl-v2-topic-item[data-how-topic="setup"].is-active,
+.pl-v2-topic-item[data-how-topic="setup"]:hover {
+  border-color: rgba(239, 107, 44, 0.5);
+}
+
+.pl-v2-topic-item[data-how-topic="method"].is-active,
+.pl-v2-topic-item[data-how-topic="method"]:hover {
+  border-color: rgba(63, 127, 220, 0.5);
+}
+
+.pl-v2-topic-item[data-how-topic="business"].is-active,
+.pl-v2-topic-item[data-how-topic="business"]:hover {
+  border-color: rgba(76, 166, 108, 0.5);
+}
+
+.pl-v2-topic-item.is-active b {
+  transform: scale(1.35);
+}
+
+.pl-v2-topic-item[data-how-topic="setup"].is-active b {
+  box-shadow: 0 0 0 4px rgba(239, 107, 44, 0.2);
+}
+
+.pl-v2-topic-item[data-how-topic="method"].is-active b {
+  box-shadow: 0 0 0 4px rgba(63, 127, 220, 0.2);
+}
+
+.pl-v2-topic-item[data-how-topic="business"].is-active b {
+  box-shadow: 0 0 0 4px rgba(76, 166, 108, 0.2);
+}
+
+/* ==========================================================================
+   4. Step 3: Interactive Output Cards (Fanning, Focus & Shimmer)
+   ========================================================================== */
+
+.pl-v2-output-mini {
+  perspective: 900px;
+}
+
+.pl-v2-output-card {
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.35s ease,
+              border-color 0.3s ease,
+              filter 0.35s ease;
+  will-change: transform;
+}
+
+/* Gentle fanning on output-mini hover */
+.pl-v2-output-mini:hover .pl-v2-output-card--linkedin:not(.is-active) {
+  transform: translateX(-4px) translateY(-1px) rotate(-4deg);
+}
+
+.pl-v2-output-mini:hover .pl-v2-output-card--case:not(.is-active) {
+  transform: translateY(5px) rotate(1deg);
+}
+
+.pl-v2-output-mini:hover .pl-v2-output-card--newsletter:not(.is-active) {
+  transform: translateX(4px) translateY(2px) rotate(5deg);
+}
+
+/* Active or directly hovered card pops into primary focus */
+.pl-v2-output-card.is-active,
+.pl-v2-output-card:hover {
+  z-index: 8 !important;
+  transform: translateY(-8px) scale(1.07) rotate(0deg) !important;
+  border-color: rgba(239, 107, 44, 0.55) !important;
+  box-shadow: 0 10px 22px rgba(35, 31, 28, 0.16),
+              0 0 0 1.5px rgba(239, 107, 44, 0.4) !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+/* Sibling cards dim slightly and keep subtle tilt when a specific card or topic is active */
+.pl-v2-output-mini.has-active .pl-v2-output-card--linkedin:not(.is-active):not(:hover) {
+  opacity: 0.55;
+  filter: grayscale(12%);
+  transform: translateX(-2px) rotate(-3deg) scale(0.96);
+}
+
+.pl-v2-output-mini.has-active .pl-v2-output-card--case:not(.is-active):not(:hover) {
+  opacity: 0.55;
+  filter: grayscale(12%);
+  transform: translateY(5px) rotate(2deg) scale(0.96);
+}
+
+.pl-v2-output-mini.has-active .pl-v2-output-card--newsletter:not(.is-active):not(:hover) {
+  opacity: 0.55;
+  filter: grayscale(12%);
+  transform: translateX(2px) translateY(3px) rotate(5deg) scale(0.96);
+}
+
+/* Badge shimmer sweep */
+.pl-v2-output-mini small.pl-v2-output-badge {
+  position: absolute;
+  overflow: hidden;
+  transition: border-color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+}
+
+.pl-v2-output-mini small.pl-v2-output-badge::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -100%;
+  width: 60%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(25deg);
+  pointer-events: none;
+  animation: plBadgeShimmer 5s ease-in-out infinite;
+}
+
+@keyframes plBadgeShimmer {
+  0%, 70% {
+    left: -100%;
+  }
+  100% {
+    left: 200%;
+  }
+}
+
+.pl-v2-output-mini.has-active small.pl-v2-output-badge {
+  border-color: #eed5c2;
+  background-color: #fff3e8;
+  transform: translateX(-50%) translateY(-1px);
+}
+
+/* ==========================================================================
+   5. Step Numbers & Header micro-accents
+   ========================================================================== */
+
+.pl-v2-how-step__number {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.pl-v2-how-step:hover .pl-v2-how-step__number {
+  transform: scale(1.1);
+  background: var(--v2-orange, #ef6b2c);
+  box-shadow: 0 2px 8px rgba(239, 107, 44, 0.3);
+}
+
+/* ==========================================================================
+   6. Responsive Adaptations
+   ========================================================================== */
+
+@media (max-width: 1040px) {
+  .pl-v2-how__connector {
+    margin: 6px auto;
+    transform: rotate(90deg);
+  }
+}
+
+/* ==========================================================================
+   7. Accessibility: Reduced Motion
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .pl-v2-connector-pulse,
+  .pl-v2-connector-head,
+  .pl-v2-radar-beam,
+  .pl-v2-output-mini small.pl-v2-output-badge::after {
+    animation: none !important;
+  }
+
+  .pl-v2-connector-pulse {
+    stroke-dashoffset: 0;
+    opacity: 0.6;
+  }
+
+  .pl-v2-output-card {
+    transition: none !important;
+  }
+}
