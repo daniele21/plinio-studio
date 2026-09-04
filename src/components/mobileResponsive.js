@@ -16,13 +16,13 @@ function renderMobileComparison() {
   mobile.innerHTML = `
     <header class="pl-purpose-mobile__head">
       <span class="pl-purpose-mobile__label">Confronto</span>
-      <h2 class="pl-purpose-mobile__title">
+      <div class="pl-purpose-mobile__title" role="heading" aria-level="2">
         <span>Conoscere i progetti non basta.</span>
         <strong>Plinio li trasforma in comunicazione.</strong>
-      </h2>
-      <p class="pl-purpose-mobile__intro">
+      </div>
+      <div class="pl-purpose-mobile__intro">
         Le AI enterprise possono accedere ai vostri dati. <strong>La differenza è cosa succede dopo.</strong>
-      </p>
+      </div>
     </header>
 
     <div class="pl-purpose-mobile__approaches" aria-label="Confronto tra AI enterprise e Plinio">
@@ -192,6 +192,20 @@ function renderMobileComparison() {
   return true;
 }
 
+function scheduleMobileComparison() {
+  if (document.querySelector('[data-purpose-mobile]')) return;
+
+  /*
+   * The landing app mounts fragments and applies configured copy in the same
+   * turn. Mount this dedicated mobile composition on the next task so generic
+   * comparison copy selectors cannot overwrite its mobile-only message.
+   */
+  window.setTimeout(() => {
+    if (!window.matchMedia(MOBILE_QUERY).matches) return;
+    renderMobileComparison();
+  }, 0);
+}
+
 function applyMobileResponsiveEnhancements() {
   if (!window.matchMedia(MOBILE_QUERY).matches) return true;
 
@@ -199,7 +213,7 @@ function applyMobileResponsiveEnhancements() {
   const comparison = document.querySelector('#confronto');
   if (!faq || !comparison) return false;
 
-  if (!renderMobileComparison()) return false;
+  scheduleMobileComparison();
 
   /* Mobile starts compact: users choose which objection to open. */
   faq.querySelector('.pl-faq-card[open]')?.removeAttribute('open');
