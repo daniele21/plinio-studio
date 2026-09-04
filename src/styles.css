@@ -24,3 +24,31 @@
 @import './styles/comparison-purpose.css';
 @import './styles/mobile.css';
 
+/* iOS notch/safe-area bridge. Mobile only; desktop stays untouched. */
+@media (max-width: 768px) {
+  .pl-v5-header {
+    padding-top: calc(7px + env(safe-area-inset-top));
+  }
+
+  .pl-product-hero,
+  .pl-hero-section.pl-product-hero {
+    padding-top: calc(92px + env(safe-area-inset-top));
+  }
+
+  #demo-opportunita,
+  #fatti-voce,
+  #confronto,
+  #perche-conta,
+  #faq,
+  #prenota {
+    scroll-margin-top: calc(72px + env(safe-area-inset-top));
+  }
+}
+
+@media (max-width: 480px) {
+  .pl-product-hero,
+  .pl-hero-section.pl-product-hero {
+    padding-top: calc(88px + env(safe-area-inset-top));
+  }
+}
+
