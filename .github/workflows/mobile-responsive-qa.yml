@@ -1,0 +1,53 @@
+name: Mobile Responsive QA
+
+on:
+  push:
+    branches: [dev]
+    paths:
+      - 'fragments/**'
+      - 'src/**'
+      - 'index.html'
+      - 'tests/visual/**'
+      - 'playwright.config.js'
+      - 'package.json'
+      - '.github/workflows/mobile-responsive-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  mobile-visual-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout dev
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install test dependencies
+        run: npm install
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Run mobile responsive QA
+        run: npm run test:mobile
+
+      - name: Upload mobile screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mobile-responsive-qa
+          path: |
+            artifacts/mobile-qa
+            playwright-report
+            test-results
+          if-no-files-found: warn
+          retention-days: 14
