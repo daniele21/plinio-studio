@@ -24,7 +24,7 @@
 @import './styles/comparison-purpose.css';
 @import './styles/mobile.css';
 
-/* iOS notch/safe-area bridge. Mobile only; desktop stays untouched. */
+/* iOS notch/safe-area bridge and final mobile guardrails. Desktop stays untouched. */
 @media (max-width: 768px) {
   .pl-v5-header {
     padding-top: calc(7px + env(safe-area-inset-top));
@@ -43,12 +43,31 @@
   #prenota {
     scroll-margin-top: calc(72px + env(safe-area-inset-top));
   }
+
+  /* Keep intentional editorial breaks where removing them would join words. */
+  .pl-product-hero__title br,
+  .pl-personas-heading h2 br {
+    display: initial;
+  }
 }
 
 @media (max-width: 480px) {
   .pl-product-hero,
   .pl-hero-section.pl-product-hero {
     padding-top: calc(88px + env(safe-area-inset-top));
+  }
+
+  /* Small phones still keep comfortable 44px tap targets. */
+  .pl-radar-nav-btn {
+    width: 44px;
+    height: 44px;
+    flex-basis: 44px;
+  }
+
+  .pl-radar-dot,
+  .pl-radar-dot.is-active {
+    width: 44px;
+    height: 44px;
   }
 }
 
