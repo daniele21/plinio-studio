@@ -23,6 +23,11 @@ build/
 *.log
 .scratch/
 
+# Test artifacts
+artifacts/
+playwright-report/
+test-results/
+
 # Firebase
 .firebase/
 firebase-debug.log*
