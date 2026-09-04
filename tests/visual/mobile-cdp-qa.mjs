@@ -129,10 +129,17 @@ async function waitForDebugger(port, timeoutMs = 12000) {
   throw new Error(`Chrome remote debugger did not start on port ${port}`);
 }
 
+async function cleanupChrome(chrome, userDataDir) {
+  try { chrome.kill('SIGKILL'); } catch { /* noop */ }
+  await sleep(180);
+  // Runner temp data is ephemeral. Cleanup must never turn a valid UI check into a failed test.
+  await rm(userDataDir, { recursive: true, force: true, maxRetries: 3, retryDelay: 100 }).catch(() => {});
+}
+
 async function launchChrome(chromeBin, viewport, index, mobile) {
   const port = 9320 + index;
   const userDataDir = `/tmp/plinio-mobile-qa-${viewport.name}-${process.pid}`;
-  await rm(userDataDir, { recursive: true, force: true });
+  await rm(userDataDir, { recursive: true, force: true }).catch(() => {});
 
   const args = [
     '--headless=new',
@@ -174,15 +181,16 @@ async function launchChrome(chromeBin, viewport, index, mobile) {
       positionY: 0,
       dontSetVisibleSize: false,
     });
-    await client.send('Emulation.setTouchEmulationEnabled', {
-      enabled: mobile,
-      maxTouchPoints: mobile ? 5 : 0,
-    });
+    if (mobile) {
+      await client.send('Emulation.setTouchEmulationEnabled', {
+        enabled: true,
+        maxTouchPoints: 5,
+      });
+    }
 
     return { chrome, client, userDataDir, stderr: () => stderr };
   } catch (error) {
-    chrome.kill('SIGKILL');
-    await rm(userDataDir, { recursive: true, force: true });
+    await cleanupChrome(chrome, userDataDir);
     throw new Error(`${error.message}\nChrome stderr: ${stderr.slice(-2000)}`);
   }
 }
@@ -258,6 +266,19 @@ async function preparePage(client, viewport, mobile) {
   if (size.width !== viewport.width) throw new Error(`Expected viewport width ${viewport.width}, got ${size.width}`);
 }
 
+async function revealWholePage(client, viewportHeight) {
+  const pageHeight = await evaluate(client, `Math.max(document.body.scrollHeight, document.documentElement.scrollHeight)`);
+  const step = Math.max(260, Math.floor(viewportHeight * 0.72));
+  for (let y = 0; y < pageHeight; y += step) {
+    await evaluate(client, `window.scrollTo(0, ${y})`);
+    await sleep(90);
+  }
+  await evaluate(client, `window.scrollTo(0, Math.max(document.body.scrollHeight, document.documentElement.scrollHeight))`);
+  await sleep(160);
+  await evaluate(client, `window.scrollTo(0, 0)`);
+  await sleep(320);
+}
+
 function rectOk(rect, minWidth, minHeight) {
   return rect && rect.width >= minWidth && rect.height >= minHeight;
 }
@@ -280,7 +301,7 @@ async function captureSelector(client, viewport, selector, outputPath) {
     const el = document.querySelector(${JSON.stringify(selector)});
     if (!el) return null;
     const r = el.getBoundingClientRect();
-    return { x: Math.max(0, r.left + scrollX), y: Math.max(0, r.top + scrollY), width: Math.min(${viewport.width}, r.width), height: r.height };
+    return { y: Math.max(0, r.top + scrollY), height: r.height };
   })()`);
   if (!rect || rect.height <= 0) return;
   const response = await client.send('Page.captureScreenshot', {
@@ -348,12 +369,14 @@ async function runMobileViewport(chromeBin, viewport, index) {
     if (state.faq.some(item => item.open)) failures.push('one or more FAQ cards start open on mobile');
     if (state.visibleComparisonRows !== 3) failures.push(`expected 3 comparison detail rows on mobile, got ${state.visibleComparisonRows}`);
 
+    await revealWholePage(client, viewport.height);
+
     await captureFullPage(client, viewport, path.join(OUTPUT_DIR, `${viewport.name}-full.png`));
     await captureSelector(client, viewport, '.pl-product-hero', path.join(OUTPUT_DIR, `${viewport.name}-hero.png`));
     await captureSelector(client, viewport, '#confronto', path.join(OUTPUT_DIR, `${viewport.name}-comparison.png`));
     await captureSelector(client, viewport, '#faq', path.join(OUTPUT_DIR, `${viewport.name}-faq.png`));
 
-    await evaluate(client, `(() => { document.querySelector('[data-open-lead-modal]')?.click(); return true; })()`);
+    await evaluate(client, `(() => { window.scrollTo(0, 0); document.querySelector('[data-open-lead-modal]')?.click(); return true; })()`);
     await waitForExpression(client, `document.querySelector('.pl-lead-modal')?.classList.contains('is-open')`, 5000);
     await sleep(250);
 
@@ -377,13 +400,12 @@ async function runMobileViewport(chromeBin, viewport, index) {
     if (!rectOk(modal.submit, 44, 48)) failures.push(`modal submit touch target below 44x48: ${JSON.stringify(modal.submit)}`);
 
     await captureViewport(client, path.join(OUTPUT_DIR, `${viewport.name}-modal.png`));
-    notes.push(`content screenshot height captured successfully`);
+    notes.push('scroll reveal traversal completed');
 
-    return { viewport, ok: failures.length === 0, failures, notes };
+    return { viewport, ok: failures.length === 0, failures, notes, metrics: { initial: state, modal } };
   } finally {
     client.close();
-    chrome.kill('SIGKILL');
-    await rm(userDataDir, { recursive: true, force: true });
+    await cleanupChrome(chrome, userDataDir);
   }
 }
 
@@ -409,13 +431,14 @@ async function runDesktopSmoke(chromeBin, viewport, index) {
     if (!state.desktopPipeline) failures.push('desktop hero pipeline is not visible');
     if (state.mobileCarousel) failures.push('mobile carousel is visible on desktop');
     if (!state.nav) failures.push('desktop navigation is not visible');
+
+    await revealWholePage(client, viewport.height);
     await captureSelector(client, viewport, '.pl-product-hero', path.join(OUTPUT_DIR, 'desktop-smoke-hero.png'));
     await captureSelector(client, viewport, '#confronto', path.join(OUTPUT_DIR, 'desktop-smoke-comparison.png'));
-    return { viewport, ok: failures.length === 0, failures };
+    return { viewport, ok: failures.length === 0, failures, metrics: state };
   } finally {
     client.close();
-    chrome.kill('SIGKILL');
-    await rm(userDataDir, { recursive: true, force: true });
+    await cleanupChrome(chrome, userDataDir);
   }
 }
 
