@@ -46,7 +46,8 @@
 
   /* Keep intentional editorial breaks where removing them would join words. */
   .pl-product-hero__title br,
-  .pl-personas-heading h2 br {
+  .pl-personas-heading h2 br,
+  .pl-purpose-compare__intro br {
     display: initial;
   }
 }
