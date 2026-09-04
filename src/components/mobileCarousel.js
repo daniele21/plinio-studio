@@ -122,7 +122,108 @@ export function setupCarousel(containerSelector, options = {}) {
   updateUI(0);
 }
 
+/**
+ * Hero Output Cards Carousel (Section 1 Header)
+ * Manages touch swipe, dot indicators and centered snapping on mobile devices.
+ */
+export function initHeroOutputCarousel() {
+  const container = document.querySelector('.pl-v2-output__cards');
+  if (!container) return;
+
+  const cards = [...container.querySelectorAll('.pl-v2-content-card')];
+  const dots = [...document.querySelectorAll('[data-hero-dot], .pl-v2-output__dots button, .pl-v2-output__dots i')];
+
+  if (cards.length < 2) return;
+
+  const getActiveIndex = () => {
+    const containerCenter = container.scrollLeft + container.clientWidth / 2;
+    let closestIndex = 0;
+    let closestDist = Infinity;
+
+    cards.forEach((card, idx) => {
+      const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+      const dist = Math.abs(containerCenter - cardCenter);
+      if (dist < closestDist) {
+        closestDist = dist;
+        closestIndex = idx;
+      }
+    });
+
+    return closestIndex;
+  };
+
+  const updateUI = (activeIdx) => {
+    cards.forEach((card, idx) => {
+      card.classList.toggle('is-active', idx === activeIdx);
+    });
+
+    dots.forEach((dot, idx) => {
+      dot.classList.toggle('is-active', idx === activeIdx);
+      dot.setAttribute('aria-selected', idx === activeIdx ? 'true' : 'false');
+    });
+  };
+
+  const scrollToCard = (index) => {
+    const target = cards[index];
+    if (!target) return;
+    const scrollTarget = target.offsetLeft - (container.clientWidth - target.offsetWidth) / 2;
+    container.scrollTo({
+      left: scrollTarget,
+      behavior: 'smooth'
+    });
+  };
+
+  // Dot click handlers
+  dots.forEach((dot, idx) => {
+    dot.addEventListener('click', (e) => {
+      e.stopPropagation();
+      scrollToCard(idx);
+    });
+  });
+
+  // Tap on non-active side card to center it
+  cards.forEach((card, idx) => {
+    card.addEventListener('click', () => {
+      if (window.innerWidth <= 760 && !card.classList.contains('is-active')) {
+        scrollToCard(idx);
+      }
+    });
+  });
+
+  // Scroll listener for smooth active dot & card sync
+  let scrollRaf = null;
+  container.addEventListener('scroll', () => {
+    if (scrollRaf) cancelAnimationFrame(scrollRaf);
+    scrollRaf = requestAnimationFrame(() => {
+      if (window.innerWidth <= 760) {
+        const activeIdx = getActiveIndex();
+        updateUI(activeIdx);
+      }
+    });
+  }, { passive: true });
+
+  // Initial centering on mobile (LinkedIn is at index 1)
+  const initialCenter = () => {
+    if (window.innerWidth <= 760) {
+      const activeIdx = cards.findIndex(c => c.classList.contains('is-active'));
+      const targetIdx = activeIdx >= 0 ? activeIdx : 1;
+      const target = cards[targetIdx];
+      if (target) {
+        const scrollTarget = target.offsetLeft - (container.clientWidth - target.offsetWidth) / 2;
+        container.scrollLeft = scrollTarget;
+        updateUI(targetIdx);
+      }
+    }
+  };
+
+  setTimeout(initialCenter, 60);
+  window.addEventListener('resize', initialCenter, { passive: true });
+}
+
 export function initMobileCarousels() {
+  // 0. Hero Output Cards (Section 1 Top)
+  initHeroOutputCarousel();
+
   // 1. Radar Carousel (Section 1)
   setupCarousel('[data-radar-carousel]', {
     titles: [

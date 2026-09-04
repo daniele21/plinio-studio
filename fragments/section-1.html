@@ -47,29 +47,7 @@
         </span>
 
         <div class="pl-v2-output__cards">
-          <article class="pl-v2-content-card pl-v2-content-card--linkedin">
-            <div class="pl-v2-content-card__type">
-              <span class="pl-v2-channel-icon pl-v2-channel-icon--linkedin">in</span>
-              <span>Post LinkedIn</span>
-            </div>
-            <h2>Come abbiamo ridotto del 32% i tempi di installazione per un nostro cliente</h2>
-            <div class="pl-v2-industrial-scene pl-v2-industrial-scene--pipes">
-              <img
-                src="/src/assets/hero-posts/linkedin-installazione.webp"
-                alt="Tecnico con casco davanti a un moderno impianto industriale"
-                width="960"
-                height="608"
-                fetchpriority="high"
-                decoding="async"
-              >
-            </div>
-            <div class="pl-v2-source">
-              <span class="pl-v2-source__icon" aria-hidden="true">▤</span>
-              <span>Fonte: Report finale · p. 8</span>
-            </div>
-          </article>
-
-          <article class="pl-v2-content-card pl-v2-content-card--case">
+          <article class="pl-v2-content-card pl-v2-content-card--case" data-hero-card="0">
             <div class="pl-v2-content-card__type">
               <span class="pl-v2-channel-icon pl-v2-channel-icon--case">▣</span>
               <span>Case study</span>
@@ -91,7 +69,33 @@
             </div>
           </article>
 
-          <article class="pl-v2-content-card pl-v2-content-card--newsletter">
+          <article class="pl-v2-content-card pl-v2-content-card--linkedin is-active" data-hero-card="1">
+            <div class="pl-v2-content-card__type">
+              <span class="pl-v2-channel-icon pl-v2-channel-icon--linkedin" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
+                  <path d="M6.46 10.9h2.79v8.37H6.46zm1.4-4.58a1.66 1.66 0 1 1-.01-3.32 1.66 1.66 0 0 1 .01 3.32zM10.17 10.9h2.79v1.11c.44-.78 1.43-1.3 2.28-1.3 2.45 0 3.26 1.61 3.26 3.7v4.86h-2.75v-4.47c0-.77-.62-1.4-1.39-1.4s-1.4.63-1.4 1.4v4.47h-2.79V10.9z"/>
+                </svg>
+              </span>
+              <span>Post LinkedIn</span>
+            </div>
+            <h2>Come abbiamo ridotto del 32% i tempi di installazione per un nostro cliente</h2>
+            <div class="pl-v2-industrial-scene pl-v2-industrial-scene--pipes">
+              <img
+                src="/src/assets/hero-posts/linkedin-installazione.webp"
+                alt="Tecnico con casco davanti a un moderno impianto industriale"
+                width="960"
+                height="608"
+                fetchpriority="high"
+                decoding="async"
+              >
+            </div>
+            <div class="pl-v2-source">
+              <span class="pl-v2-source__icon" aria-hidden="true">▤</span>
+              <span>Fonte: Report finale · p. 8</span>
+            </div>
+          </article>
+
+          <article class="pl-v2-content-card pl-v2-content-card--newsletter" data-hero-card="2">
             <div class="pl-v2-content-card__type">
               <span class="pl-v2-channel-icon pl-v2-channel-icon--newsletter">✉</span>
               <span>Newsletter</span>
@@ -114,9 +118,13 @@
           </article>
         </div>
 
-        <div class="pl-v2-output__mobile-meta" aria-hidden="true">
+        <div class="pl-v2-output__mobile-meta">
           <span>3 comunicazioni da un progetto</span>
-          <span class="pl-v2-output__dots"><i></i><i class="is-active"></i><i></i></span>
+          <div class="pl-v2-output__dots" role="tablist" aria-label="Seleziona comunicazione">
+            <button type="button" data-hero-dot="0" aria-label="1. Case study"></button>
+            <button type="button" data-hero-dot="1" class="is-active" aria-label="2. Post LinkedIn"></button>
+            <button type="button" data-hero-dot="2" aria-label="3. Newsletter"></button>
+          </div>
         </div>
       </div>
     </div>
@@ -231,7 +239,7 @@
           </div>
           <div class="pl-v2-output-mini" aria-label="Contenuti pronti per la pubblicazione">
             <div class="pl-v2-output-card pl-v2-output-card--linkedin" data-how-card="setup" role="button" tabindex="0" aria-label="Post LinkedIn: Tempi ridotti del 32%">
-              <div class="pl-v2-output-card__channel"><b>in</b><span>Post LinkedIn</span></div>
+              <div class="pl-v2-output-card__channel"><b class="pl-v2-channel-badge--linkedin"><svg viewBox="0 0 24 24" width="7" height="7" fill="currentColor" aria-hidden="true"><path d="M6.46 10.9h2.79v8.37H6.46zm1.4-4.58a1.66 1.66 0 1 1-.01-3.32 1.66 1.66 0 0 1 .01 3.32zM10.17 10.9h2.79v1.11c.44-.78 1.43-1.3 2.28-1.3 2.45 0 3.26 1.61 3.26 3.7v4.86h-2.75v-4.47c0-.77-.62-1.4-1.39-1.4s-1.4.63-1.4 1.4v4.47h-2.79V10.9z"/></svg></b><span>Post LinkedIn</span></div>
               <strong>Tempi ridotti del 32%</strong>
               <img src="/src/assets/hero-posts/linkedin-installazione.webp" alt="Anteprima Post LinkedIn" width="960" height="608" loading="lazy">
               <i class="pl-v2-output-card__lines"><b></b><b></b><b></b></i>
