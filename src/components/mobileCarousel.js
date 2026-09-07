@@ -1,6 +1,6 @@
 /**
  * Plinio Mobile Carousels Controller
- * Powers Section 1 (Radar), Section 2 (Content Studio), and Section Evidence (Fatti & Voce) mobile carousels
+ * Powers the hero, how-it-works, and unified Sources / Radar / Content Studio mobile carousels
  * with touch swipe, click-to-next slide loop, dot syncing, and dynamic titles.
  */
 
@@ -18,26 +18,28 @@ export function setupCarousel(containerSelector, options = {}) {
 
   if (!viewport || !track) return;
 
-  const slides = track.querySelectorAll('.pl-radar-carousel-slide, .pl-carousel-slide');
+  const slides = [...track.querySelectorAll('.pl-radar-carousel-slide, .pl-carousel-slide')];
   const totalSlides = slides.length;
   if (totalSlides === 0) return;
 
   const titles = options.titles || [];
   let currentIndex = 0;
 
-  const goToSlide = (index) => {
-    // Infinite loop
-    currentIndex = (index + totalSlides) % totalSlides;
+  const getActiveIndex = () => {
+    const containerCenter = viewport.scrollLeft + viewport.clientWidth / 2;
+    let closestIndex = 0;
+    let closestDist = Infinity;
 
-    const targetSlide = slides[currentIndex];
-    if (targetSlide) {
-      viewport.scrollTo({
-        left: targetSlide.offsetLeft,
-        behavior: 'smooth'
-      });
-    }
+    slides.forEach((slide, idx) => {
+      const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
+      const dist = Math.abs(containerCenter - slideCenter);
+      if (dist < closestDist) {
+        closestDist = dist;
+        closestIndex = idx;
+      }
+    });
 
-    updateUI(currentIndex);
+    return closestIndex;
   };
 
   const updateUI = (idx) => {
@@ -48,7 +50,12 @@ export function setupCarousel(containerSelector, options = {}) {
       dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
     });
 
-    // Update title & badge counter
+    // Update active slide
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('is-active', i === idx);
+    });
+
+    // Update title & badge counter if present
     if (titleEl && titles[idx]) {
       titleEl.innerHTML = titles[idx];
     }
@@ -57,15 +64,28 @@ export function setupCarousel(containerSelector, options = {}) {
     }
   };
 
-  // Button handlers
+  const scrollToSlide = (index) => {
+    currentIndex = Math.max(0, Math.min(index, totalSlides - 1));
+    const targetSlide = slides[currentIndex];
+    if (targetSlide) {
+      const scrollTarget = targetSlide.offsetLeft - (viewport.clientWidth - targetSlide.offsetWidth) / 2;
+      viewport.scrollTo({
+        left: scrollTarget,
+        behavior: 'smooth'
+      });
+    }
+    updateUI(currentIndex);
+  };
+
+  // Button handlers (if present)
   prevBtn?.addEventListener('click', (e) => {
     e.stopPropagation();
-    goToSlide(currentIndex - 1);
+    scrollToSlide(currentIndex - 1);
   });
 
   nextBtn?.addEventListener('click', (e) => {
     e.stopPropagation();
-    goToSlide(currentIndex + 1);
+    scrollToSlide(currentIndex + 1);
   });
 
   // Dot click handlers
@@ -73,11 +93,11 @@ export function setupCarousel(containerSelector, options = {}) {
     dot.addEventListener('click', (e) => {
       e.stopPropagation();
       const idx = parseInt(dot.getAttribute('data-dot'), 10);
-      if (!isNaN(idx)) goToSlide(idx);
+      if (!isNaN(idx)) scrollToSlide(idx);
     });
   });
 
-  // Touch & drag gesture detection
+  // Touch gesture detection
   let isDragging = false;
   let startX = 0;
 
@@ -92,34 +112,42 @@ export function setupCarousel(containerSelector, options = {}) {
     }
   }, { passive: true });
 
-  // Click on slide loops to next slide
-  slides.forEach((slide) => {
+  // Tap on non-active side slide centers it
+  slides.forEach((slide, idx) => {
     slide.addEventListener('click', (e) => {
       if (isDragging) return;
-      e.stopPropagation();
-      goToSlide(currentIndex + 1);
+      if (idx !== currentIndex) {
+        e.stopPropagation();
+        scrollToSlide(idx);
+      }
     });
   });
 
-  // Touch scroll sync
-  let scrollTimeout;
+  // Real-time scroll sync with requestAnimationFrame
+  let scrollRaf = null;
   viewport.addEventListener('scroll', () => {
-    clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(() => {
-      const scrollLeft = viewport.scrollLeft;
-      const slideWidth = viewport.offsetWidth;
-      if (slideWidth > 0) {
-        const newIndex = Math.round(scrollLeft / slideWidth);
-        if (newIndex >= 0 && newIndex < totalSlides && newIndex !== currentIndex) {
-          currentIndex = newIndex;
-          updateUI(currentIndex);
-        }
+    if (scrollRaf) cancelAnimationFrame(scrollRaf);
+    scrollRaf = requestAnimationFrame(() => {
+      const activeIdx = getActiveIndex();
+      if (activeIdx !== currentIndex) {
+        currentIndex = activeIdx;
+        updateUI(activeIdx);
       }
-    }, 50);
+    });
   }, { passive: true });
 
-  // Set initial state
-  updateUI(0);
+  // Initial center on mobile
+  const initialCenter = () => {
+    const targetSlide = slides[0];
+    if (targetSlide) {
+      const scrollTarget = targetSlide.offsetLeft - (viewport.clientWidth - targetSlide.offsetWidth) / 2;
+      viewport.scrollLeft = scrollTarget;
+      updateUI(0);
+    }
+  };
+
+  setTimeout(initialCenter, 60);
+  window.addEventListener('resize', initialCenter, { passive: true });
 }
 
 /**
@@ -184,7 +212,7 @@ export function initHeroOutputCarousel() {
   // Tap on non-active side card to center it
   cards.forEach((card, idx) => {
     card.addEventListener('click', () => {
-      if (window.innerWidth <= 760 && !card.classList.contains('is-active')) {
+      if (window.innerWidth <= 880 && !card.classList.contains('is-active')) {
         scrollToCard(idx);
       }
     });
@@ -195,7 +223,7 @@ export function initHeroOutputCarousel() {
   container.addEventListener('scroll', () => {
     if (scrollRaf) cancelAnimationFrame(scrollRaf);
     scrollRaf = requestAnimationFrame(() => {
-      if (window.innerWidth <= 760) {
+      if (window.innerWidth <= 880) {
         const activeIdx = getActiveIndex();
         updateUI(activeIdx);
       }
@@ -204,7 +232,7 @@ export function initHeroOutputCarousel() {
 
   // Initial centering on mobile (LinkedIn is at index 1)
   const initialCenter = () => {
-    if (window.innerWidth <= 760) {
+    if (window.innerWidth <= 880) {
       const activeIdx = cards.findIndex(c => c.classList.contains('is-active'));
       const targetIdx = activeIdx >= 0 ? activeIdx : 1;
       const target = cards[targetIdx];
@@ -220,34 +248,106 @@ export function initHeroOutputCarousel() {
   window.addEventListener('resize', initialCenter, { passive: true });
 }
 
+/**
+ * Come Funziona Cards Carousel (Section 1 Bottom)
+ * Synchronizes horizontal snap scrolling, active card highlighting, and dots.
+ */
+export function initHowTrackCarousel() {
+  const container = document.querySelector('.pl-v2-how__track');
+  if (!container) return;
+
+  const cards = [...container.querySelectorAll('.pl-v2-how-step')];
+  const dots = [...document.querySelectorAll('[data-how-dot]')];
+
+  if (cards.length < 2) return;
+
+  const getActiveIndex = () => {
+    const containerCenter = container.scrollLeft + container.clientWidth / 2;
+    let closestIndex = 0;
+    let closestDist = Infinity;
+
+    cards.forEach((card, idx) => {
+      const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+      const dist = Math.abs(containerCenter - cardCenter);
+      if (dist < closestDist) {
+        closestDist = dist;
+        closestIndex = idx;
+      }
+    });
+
+    return closestIndex;
+  };
+
+  const updateUI = (activeIdx) => {
+    cards.forEach((card, idx) => {
+      card.classList.toggle('is-active', idx === activeIdx);
+    });
+
+    dots.forEach((dot, idx) => {
+      dot.classList.toggle('is-active', idx === activeIdx);
+      dot.setAttribute('aria-selected', idx === activeIdx ? 'true' : 'false');
+    });
+  };
+
+  const scrollToCard = (index) => {
+    const target = cards[index];
+    if (!target) return;
+    const scrollTarget = target.offsetLeft - (container.clientWidth - target.offsetWidth) / 2;
+    container.scrollTo({
+      left: scrollTarget,
+      behavior: 'smooth'
+    });
+  };
+
+  dots.forEach((dot, idx) => {
+    dot.addEventListener('click', (e) => {
+      e.stopPropagation();
+      scrollToCard(idx);
+    });
+  });
+
+  cards.forEach((card, idx) => {
+    card.addEventListener('click', () => {
+      if (window.innerWidth <= 880 && !card.classList.contains('is-active')) {
+        scrollToCard(idx);
+      }
+    });
+  });
+
+  let scrollRaf = null;
+  container.addEventListener('scroll', () => {
+    if (scrollRaf) cancelAnimationFrame(scrollRaf);
+    scrollRaf = requestAnimationFrame(() => {
+      if (window.innerWidth <= 880) {
+        const activeIdx = getActiveIndex();
+        updateUI(activeIdx);
+      }
+    });
+  }, { passive: true });
+
+  const initialCenter = () => {
+    if (window.innerWidth <= 880) {
+      updateUI(0);
+    }
+  };
+
+  setTimeout(initialCenter, 60);
+  window.addEventListener('resize', initialCenter, { passive: true });
+}
+
 export function initMobileCarousels() {
   // 0. Hero Output Cards (Section 1 Top)
   initHeroOutputCarousel();
 
-  // 1. Radar Carousel (Section 1)
-  setupCarousel('[data-radar-carousel]', {
-    titles: [
-      '<strong>1. I vostri materiali</strong> · Materiali di progetto caricati',
-      '<strong>2. Plinio Radar</strong> · Trova le comunicazioni per voi',
-      '<strong>3. Comunicazioni pronte</strong> · LinkedIn, Case study, Newsletter'
-    ]
-  });
-
-  // 2. Content Studio Carousel (Section 2)
-  setupCarousel('[data-content-carousel]', {
-    titles: [
-      '<strong>1. Opportunità</strong> · Topic selezionato dal Radar',
-      '<strong>2. Content Studio</strong> · Comunicazione, claim e fonti verificate',
-      '<strong>3. Post Pronto</strong> · Anteprima canale LinkedIn'
-    ]
-  });
+  // 1. Come funziona Cards (Section 1 Bottom)
+  initHowTrackCarousel();
 
   // 3. Evidence / Fatti & Voce Carousel
   setupCarousel('[data-evidence-carousel]', {
     titles: [
-      '<strong>1. Fatti utilizzati</strong> · Report e debrief di progetto',
-      '<strong>2. Fatti & Voce applicati</strong> · Comunicazione con fonti verificate e stile',
-      '<strong>3. Voce aziendale</strong> · Tono, principi e linea editoriale'
+      '<strong>1. Le vostre fonti</strong> · Progetti, persone e conoscenze',
+      '<strong>2. Plinio Radar</strong> · Ogni settimana, nuove opportunità da raccontare.',
+      '<strong>3. Content Studio</strong> · Contenuti pronti, nel vostro tono e con fonti collegate'
     ]
   });
 }

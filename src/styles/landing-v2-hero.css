@@ -172,11 +172,12 @@
 
 .pl-v2-hero__title {
   margin: 0;
-  max-width: 590px;
-  font-family: var(--font-sans);
+  max-width: 620px;
+  font-family: var(--font-serif);
   font-size: clamp(2.82rem, 4.15vw, 4.12rem);
-  line-height: .98;
-  letter-spacing: -.055em;
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -.02em;
   color: var(--v2-ink);
 }
 
@@ -400,11 +401,16 @@
   font-weight: 700;
 }
 
+.pl-v2-how__track,
 .pl-v2-how__desktop {
   display: grid;
   grid-template-columns: minmax(0, 1.02fr) 28px minmax(0, 1.16fr) 28px minmax(0, 1.02fr);
   gap: 12px;
   align-items: center;
+}
+
+.pl-v2-how__dots {
+  display: none;
 }
 
 .pl-v2-how-step {
@@ -996,8 +1002,8 @@
   .pl-v2-hero__title {
     max-width: 100%;
     font-size: clamp(2.25rem, 10.7vw, 3.25rem);
-    line-height: 1.02;
-    letter-spacing: -.052em;
+    line-height: 1.05;
+    letter-spacing: -.02em;
   }
 
   .pl-v2-hero__subtitle {
@@ -1155,51 +1161,143 @@
     letter-spacing: -.03em;
   }
 
-  .pl-v2-how__desktop {
+  .pl-v2-how {
+    margin-top: 28px;
+    padding: 20px 14px 16px;
+    border: 1px solid #eee3d9;
+    border-radius: 12px;
+    background: rgba(255, 250, 245, 0.64);
+    overflow: hidden;
+  }
+
+  .pl-v2-how > h2 {
+    margin-bottom: 12px;
+    text-align: left;
+    font-size: 1.25rem;
+    letter-spacing: -.03em;
+  }
+
+  .pl-v2-how__connector {
+    display: none !important;
+  }
+
+  .pl-v2-how__track {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 14px;
+    margin-left: -14px;
+    margin-right: -14px;
+    padding: 10px max(14px, calc((100vw - min(76vw, 315px)) / 2)) 16px;
+  }
+
+  .pl-v2-how__track::-webkit-scrollbar {
     display: none;
   }
 
-  .pl-v2-how__mobile {
-    display: grid;
-    gap: 4px;
-  }
-
-  .pl-v2-how-row {
-    display: grid;
-    grid-template-columns: 42px 1fr 20px;
-    align-items: center;
-    min-height: 70px;
-    padding: 8px 12px;
-    border: 1px solid #e6e2dc;
-    border-radius: 9px;
+  .pl-v2-how-step {
+    position: relative;
+    width: min(76vw, 315px);
+    flex: 0 0 min(76vw, 315px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 16px 14px 14px;
+    border: 1px solid #e6ded6;
+    border-radius: 14px;
     background: #fff;
-    box-shadow: 0 4px 12px rgba(39,31,24,.035);
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    box-shadow: 0 4px 16px rgba(39, 31, 24, 0.05);
+    opacity: 0.65;
+    transform: scale(0.92);
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.28s ease,
+                box-shadow 0.28s ease;
+    cursor: pointer;
+    box-sizing: border-box;
   }
 
-  .pl-v2-how-row > span {
+  .pl-v2-how-step.is-active {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 14px 32px rgba(39, 31, 24, 0.12);
+    z-index: 2;
+  }
+
+  .pl-v2-how-step__copy {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .pl-v2-how-step__number {
     display: inline-flex;
-    width: 30px;
-    height: 30px;
+    width: 24px;
+    height: 24px;
+    flex: 0 0 24px;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background: #27323c;
+    background: #24303b;
     color: #fff;
-    font-size: .78rem;
+    font-size: 0.72rem;
     font-weight: 800;
   }
 
-  .pl-v2-how-row strong {
-    color: #202226;
-    font-size: .87rem;
-    line-height: 1.25;
+  .pl-v2-how-step.is-active .pl-v2-how-step__number {
+    background: var(--v2-orange);
   }
 
-  .pl-v2-how-row i {
-    color: #17191c;
-    font-size: 1.7rem;
-    font-style: normal;
-    line-height: 1;
+  .pl-v2-how-step h3 {
+    margin: 0;
+    font-size: 0.88rem;
+    line-height: 1.3;
+    color: #1e2023;
+  }
+
+  .pl-v2-how-step p {
+    margin: 4px 0 0;
+    font-size: 0.72rem;
+    line-height: 1.45;
+    color: #565b62;
+  }
+
+  .pl-v2-materials-mini,
+  .pl-v2-radar-mini,
+  .pl-v2-output-mini {
+    margin-top: auto;
+    width: 100%;
+    border-radius: 9px;
+  }
+
+  .pl-v2-how__dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    margin-top: 6px;
+  }
+
+  .pl-v2-how__dots button {
+    display: block;
+    width: 9px;
+    height: 9px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: #d2d3d2;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .pl-v2-how__dots button.is-active {
+    background: var(--v2-orange);
+    transform: scale(1.25);
   }
 
   .pl-v2-start-strip {

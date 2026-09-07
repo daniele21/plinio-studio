@@ -6,15 +6,15 @@
 export const landingCopy = {
   meta: {
     title: 'Plinio - Dai progetti a contenuti fondati su ciò che avete davvero fatto',
-    description: 'Plinio parte dai materiali dei vostri progetti, trova risultati, decisioni e know-how che vale la pena raccontare e vi prepara 3+ comunicazioni pronte con prime bozze e fonti collegate.',
+    description: 'Plinio parte dai vostri progetti e prepara almeno un contenuto al giorno: post, casi studio, newsletter e commenti alle news, con tagli diversi e fonti collegate.',
   },
   header: {
     tagline: 'Fate parlare i vostri progetti',
     cta: 'Provalo su un progetto',
   },
   hero: {
-    titleHtml: 'Carica un progetto.<br><span class="pl-highlight--accent">Ricevi 3+ contenuti pronti,<br>scritti come li scrivereste voi.</span>',
-    subtitle: 'Plinio parte da documenti, presentazioni e materiali che avete già.<br>Trova fatti e spunti utili, li collega alle fonti e prepara contenuti<br>coerenti con il vostro modo di comunicare.',
+    titleHtml: '<span>Con l\'AI riuscite già a scrivere un post.</span><span class="pl-v2-hero__accent">Plinio vi prepara almeno un contenuto al giorno.</span>',
+    subtitle: 'Dai vostri progetti e da ciò che succede nel settore nascono <strong>post, casi studio, newsletter e commenti alle news</strong>: contenuti con tagli diversi, pronti nel vostro tono e <strong>collegati alle fonti.</strong>',
     primaryCta: 'Prova Plinio su un progetto',
     secondaryCta: 'Guarda un esempio',
     reassurance: 'Ti ricontattiamo per scegliere insieme il primo progetto.',
@@ -32,42 +32,37 @@ export const landingCopy = {
     },
   },
   personas: {
-    title: '<span class="pl-personas-title__lead">Ogni volta che dovete comunicare un progetto,</span><br><span class="pl-personas-title__accent">ricomincia la caccia a file e colleghi.</span>',
+    title: '<span class="pl-personas-title__lead">Avete già ChatGPT, Claude o Copilot.</span><br><span class="pl-personas-title__accent">Ma pubblicate ancora una volta a settimana.</span>',
     items: [
       {
         role: 'CEO / FOUNDER',
-        quote: '«Ogni contenuto importante passa ancora da me.»',
-        outcome: 'Approvi cosa raccontare. <strong>Non dovete più ricostruire il progetto</strong> da zero.',
+        quote: '«Facciamo molte cose interessanti. Ma online se ne vede solo una parte.»',
+        outcome: 'Più del vostro lavoro diventa visibile, <strong>senza chiedervi di scrivere ogni giorno</strong>.',
       },
       {
         role: 'MARKETING / CONTENT LEAD',
-        quote: '«Passo più tempo a rincorrere colleghi che a decidere cosa comunicare.»',
-        outcome: 'Parti dalle opportunità e dalla prima bozza. <strong>Non dalla caccia alle informazioni</strong> tra i colleghi.',
+        quote: '«Con l\'AI riesco a fare un post. Il difficile è avere un contenuto diverso pronto ogni giorno.»',
+        outcome: 'Plinio porta continuamente nuovi temi e angolazioni, <strong>non un altro foglio bianco</strong>.',
       },
       {
-        role: 'PROJECT MANAGER / TECH LEAD',
-        quote: '«Mi interrompono per ricostruire informazioni che abbiamo già prodotto.»',
-        outcome: 'Verifichi solo ciò che serve, una volta sola. <strong>Non rispieghi tutto da capo.</strong>',
+        role: 'PROJECT / TECH LEAD',
+        quote: '«Ogni progetto contiene scelte e learning che nessuno racconta.»',
+        outcome: 'Plinio recupera ciò che può dai materiali e <strong>chiede al team solo ciò che manca</strong>.',
       },
     ],
   },
-  product: {
-    title: '<span class="pl-v5-title__lead">Avete già i materiali.</span><br><span class="pl-v5-title__accent">Plinio ti porta a comunicazioni selezionate e pronte.</span>',
-    description: 'Il Radar fa emergere i <strong>temi chiave dai documenti</strong>; il Content Studio sviluppa la bozza mantenendo ogni affermazione <strong>collegata alle fonti</strong> da cui nasce.',
-  },
   fattiVoce: {
-    title: '<span class="pl-fatti-voce-title__lead">Non basta che sia corretto.</span><br><span class="pl-fatti-voce-title__accent">Deve sembrare vostro.</span>',
-    subtitle: 'Plinio mantiene <strong>fatti e numeri collegati alle fonti</strong> del progetto e costruisce ogni contenuto seguendo il <strong>vostro tono</strong>, la linea editoriale e il modo in cui comunicate.',
-    cardTag: '3. Fatti + Voce',
-    cardTitle: '<strong>Fatti &amp; Voce aziendale</strong> · Dalla fonte alla linea editoriale',
+    title: '<span class="pl-fatti-voce-title__lead">Almeno un contenuto pronto al giorno.</span><br><span class="pl-fatti-voce-title__accent">Ogni volta una storia diversa, anche dallo stesso progetto.</span>',
+    subtitle: 'Plinio incrocia i <strong>vostri progetti</strong> con ciò che succede nel settore per proporre <strong>contenuti con prospettive diverse</strong>: un <strong>caso studio</strong> sui risultati, un <strong>approfondimento</strong> sul metodo, un <strong>commento</strong> a una notizia legata alla vostra esperienza. Poi li prepara nel <strong>vostro tono</strong>, con le <strong>fonti collegate</strong>.',
   },
   awareness: {
     title: '<span class="pl-v5-proof-title__lead">Se non raccontate quello che fate,</span><br><span class="pl-v5-proof-title__accent">chi vi deve scegliere non lo sa.</span>',
     intro: 'I vostri progetti sono già la <strong>prova di ciò che sapete fare</strong>. Plinio evita che quella prova <strong>resti nei file</strong>.',
   },
   evidence: {
-    title: 'Fatti conoscere da chi deve sceglierti.',
-    intro: 'I vostri progetti sono già la <strong>prova di ciò che sapete fare</strong>. Plinio evita che quella prova <strong>resti nei file</strong>.',
+    title: '<span class="pl-fatti-voce-title__lead">Ogni settimana Plinio trova</span><br><span class="pl-fatti-voce-title__accent">nuove cose da raccontare.</span>',
+    intro: 'Incrocia ciò che avete fatto, ciò che avete imparato e ciò che sta succedendo fuori per proporre contenuti rilevanti prima ancora che dobbiate cercarli.',
+    subtitle: 'Incrocia ciò che avete fatto, ciò che avete imparato e ciò che sta succedendo fuori per proporre contenuti rilevanti prima ancora che dobbiate cercarli.',
     stats: [
       {
         value: '81%',

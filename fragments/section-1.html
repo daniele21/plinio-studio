@@ -2,18 +2,13 @@
   <div class="pl-container pl-v2-hero__container">
     <div class="pl-v2-hero__top">
       <div class="pl-v2-hero__copy">
-        <h1 id="pl-v2-hero-title" class="pl-v2-hero__title">
-          <span>Carica un progetto.</span>
-          <span class="pl-v2-hero__accent">Ricevi 3+ comunicazioni</span>
-          <span>pronte, scritte come</span>
-          <span>le scrivereste voi.</span>
+        <h1 id="pl-v2-hero-title" class="pl-v2-hero__title pl-product-hero__title" data-hero-title>
+          <span>Con l'AI riuscite già a scrivere un post.</span>
+          <span class="pl-v2-hero__accent">Plinio vi prepara almeno un contenuto al giorno.</span>
         </h1>
 
-        <p class="pl-v2-hero__subtitle">
-          Plinio parte da documenti, presentazioni e materiali che avete già.
-          <strong>Trova cosa vale la pena comunicare</strong> e prepara contenuti coerenti
-          con il vostro lavoro e il vostro modo di raccontarlo,
-          <strong>con le fonti sempre collegate.</strong>
+        <p class="pl-v2-hero__subtitle" data-hero-subtitle>
+          Dai vostri progetti e da ciò che succede nel settore nascono <strong>post, casi studio, newsletter e commenti alle news</strong>: contenuti con tagli diversi, pronti nel vostro tono e <strong>collegati alle fonti.</strong>
         </p>
 
         <button
@@ -119,7 +114,7 @@
         </div>
 
         <div class="pl-v2-output__mobile-meta">
-          <span>3 comunicazioni da un progetto</span>
+          <span>Formati diversi, ogni giorno</span>
           <div class="pl-v2-output__dots" role="tablist" aria-label="Seleziona comunicazione">
             <button type="button" data-hero-dot="0" aria-label="1. Case study"></button>
             <button type="button" data-hero-dot="1" class="is-active" aria-label="2. Post LinkedIn"></button>
@@ -132,8 +127,8 @@
     <div class="pl-v2-how" id="come-funziona">
       <h2>Come funziona</h2>
 
-      <div class="pl-v2-how__desktop">
-        <article class="pl-v2-how-step">
+      <div class="pl-v2-how__track" data-how-cards="1">
+        <article class="pl-v2-how-step is-active" data-how-card="0">
           <div class="pl-v2-how-step__copy">
             <span class="pl-v2-how-step__number">1</span>
             <div>
@@ -193,29 +188,29 @@
           </svg>
         </div>
 
-        <article class="pl-v2-how-step pl-v2-how-step--radar">
+        <article class="pl-v2-how-step pl-v2-how-step--radar" data-how-card="1">
           <div class="pl-v2-how-step__copy">
             <span class="pl-v2-how-step__number">2</span>
             <div>
-              <h3>Plinio trova cosa vale la pena comunicare</h3>
-              <p>Il Radar analizza i materiali, collega i fatti alle fonti e individua i temi chiave.</p>
+              <h3>Un progetto, più spunti e formati</h3>
+              <p>Il Radar incrocia il progetto con ciò che succede nel settore e trova prospettive diverse da raccontare.</p>
             </div>
           </div>
-          <div class="pl-v2-radar-mini" aria-label="Temi chiave estratti dal Radar">
+          <div class="pl-v2-radar-mini" aria-label="Spunti e formati diversi a partire dallo stesso progetto">
             <div class="pl-v2-radar-beam" aria-hidden="true"></div>
             <div class="pl-v2-radar-mini__rail" aria-hidden="true">
               <strong>Radar Plinio</strong><i></i><i></i><i></i>
             </div>
             <div class="pl-v2-radar-mini__topics">
-              <strong>Temi chiave trovati <em>3+ temi</em></strong>
-              <div class="pl-v2-topic-item" data-how-topic="setup" role="button" tabindex="0" aria-label="Tema 1: Riduzione tempi di installazione">
-                <b></b><span>Riduzione tempi di installazione</span>
+              <strong>Spunti e formati <em>Ogni giorno</em></strong>
+              <div class="pl-v2-topic-item" data-how-topic="setup" role="button" tabindex="0" aria-label="Spunto 1: Caso studio sui risultati del progetto">
+                <b></b><span>Caso studio: i risultati del progetto</span>
               </div>
-              <div class="pl-v2-topic-item" data-how-topic="method" role="button" tabindex="0" aria-label="Tema 2: Nuova metodologia di lavoro">
-                <b></b><span>Nuova metodologia di lavoro</span>
+              <div class="pl-v2-topic-item" data-how-topic="method" role="button" tabindex="0" aria-label="Spunto 2: Approfondimento sul vostro metodo">
+                <b></b><span>Approfondimento: il vostro metodo</span>
               </div>
-              <div class="pl-v2-topic-item" data-how-topic="business" role="button" tabindex="0" aria-label="Tema 3: Impatto sul business del cliente">
-                <b></b><span>Impatto sul business del cliente</span>
+              <div class="pl-v2-topic-item" data-how-topic="business" role="button" tabindex="0" aria-label="Spunto 3: Una notizia collegata al progetto">
+                <b></b><span>News: un gancio sul progetto</span>
               </div>
             </div>
           </div>
@@ -229,12 +224,12 @@
           </svg>
         </div>
 
-        <article class="pl-v2-how-step">
+        <article class="pl-v2-how-step" data-how-card="2">
           <div class="pl-v2-how-step__copy">
             <span class="pl-v2-how-step__number">3</span>
             <div>
-              <h3>3+ comunicazioni pronte</h3>
-              <p>Ricevete comunicazioni complete, coerenti con il vostro stile e con le fonti sempre collegate.</p>
+              <h3>Almeno un contenuto pronto al giorno</h3>
+              <p>Post, casi studio, newsletter e commenti alle news: formati e tagli diversi, nel vostro tono e con fonti collegate.</p>
             </div>
           </div>
           <div class="pl-v2-output-mini" aria-label="Contenuti pronti per la pubblicazione">
@@ -267,10 +262,10 @@
         </article>
       </div>
 
-      <div class="pl-v2-how__mobile">
-        <div class="pl-v2-how-row"><span>1</span><strong>I vostri materiali</strong><i>›</i></div>
-        <div class="pl-v2-how-row"><span>2</span><strong>Plinio trova cosa vale la pena comunicare</strong><i>›</i></div>
-        <div class="pl-v2-how-row"><span>3</span><strong>3+ comunicazioni pronte</strong><i>›</i></div>
+      <div class="pl-v2-how__dots" role="tablist" aria-label="Seleziona passaggio">
+        <button type="button" data-how-dot="0" class="is-active" aria-label="1. I vostri materiali"></button>
+        <button type="button" data-how-dot="1" aria-label="2. Plinio Radar"></button>
+        <button type="button" data-how-dot="2" aria-label="3. Almeno un contenuto pronto al giorno"></button>
       </div>
     </div>
 

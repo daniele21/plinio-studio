@@ -200,94 +200,132 @@
     margin-top: 24px;
   }
 
+  /* Clean, superstructure-free mobile carousel matching Hero output cards */
   .pl-radar-carousel-card {
-    border-radius: 14px;
-    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.56), 0 0 22px rgba(214, 85, 39, 0.08);
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    overflow: visible;
   }
 
   .pl-radar-carousel-header {
-    min-height: 48px;
-    padding: 9px 12px;
-    gap: 8px;
-  }
-
-  .pl-radar-carousel-header .pl-dual-card__header-info {
-    min-width: 0;
-    font-size: 0.76rem;
-  }
-
-  .pl-radar-carousel-header .pl-dual-card__title {
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    display: none !important;
   }
 
   .pl-radar-carousel-viewport {
-    padding: 10px 0 12px;
-    overscroll-behavior-x: contain;
+    position: relative;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    background: transparent;
+    margin-left: -14px;
+    margin-right: -14px;
+    padding: 10px max(14px, calc((100vw - min(76vw, 315px)) / 2)) 16px;
+    box-sizing: border-box;
+  }
+
+  .pl-radar-carousel-viewport::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pl-radar-carousel-track {
+    display: flex;
+    gap: 14px;
+    width: auto;
   }
 
   .pl-radar-carousel-slide {
-    padding: 0 10px;
+    width: min(76vw, 315px) !important;
+    flex: 0 0 min(76vw, 315px) !important;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    background: transparent;
+    padding: 0 !important;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    opacity: 0.65;
+    transform: scale(0.92);
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.28s ease;
+  }
+
+  .pl-radar-carousel-slide.is-active {
+    opacity: 1;
+    transform: scale(1);
   }
 
   .pl-radar-mobile-img {
-    max-width: min(330px, 94%);
-    max-height: min(56vh, 450px);
-    border-radius: 13px;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+    object-fit: contain;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    border: none;
+    transition: transform 0.16s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.16s;
+  }
+
+  .pl-radar-carousel-slide:active .pl-radar-mobile-img {
+    transform: scale(0.97);
   }
 
   .pl-radar-carousel-footer {
-    min-height: 58px;
-    padding: 7px 10px;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 6px 0 0 !important;
+    background: transparent !important;
+    border: none !important;
   }
 
   .pl-radar-nav-btn {
-    width: 44px;
-    height: 44px;
-    flex: 0 0 44px;
+    display: none !important;
   }
 
-  /* 44px hit area, while retaining the existing small-dot visual language. */
   .pl-radar-dots {
-    gap: 0;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 9px !important;
   }
 
-  .pl-radar-dot,
-  .pl-radar-dot.is-active {
-    position: relative;
-    width: 44px;
-    height: 44px;
-    padding: 0;
-    border-radius: 0;
-    background: transparent;
-    box-shadow: none;
+  .pl-radar-dot {
+    display: block !important;
+    width: 9px !important;
+    height: 9px !important;
+    border-radius: 50% !important;
+    background: rgba(255, 255, 255, 0.35) !important;
+    border: none !important;
+    padding: 0 !important;
+    cursor: pointer !important;
+    box-shadow: none !important;
+    transition: background-color 0.2s ease, transform 0.2s ease !important;
   }
 
   .pl-radar-dot::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 8px;
-    height: 8px;
-    border-radius: 999px;
-    background: rgba(245, 242, 235, 0.26);
-    transform: translate(-50%, -50%);
-    transition: width var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
+    display: none !important;
   }
 
-  .pl-radar-dot.is-active::before {
-    width: 22px;
-    background: var(--pl-bright-accent);
-    box-shadow: 0 0 10px rgba(255, 117, 71, 0.52);
+  .pl-radar-dot.is-active {
+    background: var(--v2-orange, #ef6b2c) !important;
+    transform: scale(1.25) !important;
+    width: 9px !important;
+    box-shadow: none !important;
   }
 
   .pl-radar-carousel-hint {
-    margin-top: 8px;
-    font-size: 0.7rem;
-    line-height: 1.45;
+    display: none !important;
   }
 
   /* ------------------------------------------------------------------------
@@ -919,31 +957,7 @@
     font-size: clamp(2.35rem, 10.7vw, 2.7rem);
   }
 
-  .pl-radar-carousel-header .pl-dual-card__title {
-    font-size: 0.72rem;
-  }
 
-  .pl-radar-carousel-header .pl-dual-tag {
-    padding: 3px 6px;
-    font-size: 0.58rem;
-  }
-
-  .pl-radar-carousel-footer {
-    padding-left: 6px;
-    padding-right: 6px;
-  }
-
-  .pl-radar-nav-btn {
-    width: 42px;
-    height: 42px;
-    flex-basis: 42px;
-  }
-
-  .pl-radar-dot,
-  .pl-radar-dot.is-active {
-    width: 38px;
-    height: 42px;
-  }
 
   .pl-persona-card,
   .pl-purpose-card {

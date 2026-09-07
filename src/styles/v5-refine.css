@@ -958,28 +958,23 @@
     display: flex !important;
     flex-direction: column;
     width: 100%;
-    max-width: 440px;
-    margin: clamp(20px, 4.5vw, 32px) auto 0;
+    max-width: none;
+    margin: clamp(16px, 3.5vw, 24px) auto 0;
   }
 
   .pl-radar-carousel-card {
-    background-color: var(--pl-deep-surface);
-    border: 1px solid rgba(214, 85, 39, 0.4);
-    border-radius: var(--pl-radius-generous);
-    box-shadow: 0 16px 45px rgba(0, 0, 0, 0.75), 0 0 30px rgba(214, 85, 39, 0.12);
-    overflow: hidden;
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 0;
+    box-shadow: none !important;
+    overflow: visible;
     display: flex;
     flex-direction: column;
     position: relative;
   }
 
   .pl-radar-carousel-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 11px 16px;
-    background: rgba(22, 19, 16, 0.98);
-    border-bottom: 1px solid var(--pl-border-dark-subtle);
+    display: none !important;
   }
 
   .pl-radar-carousel-viewport {
@@ -991,8 +986,11 @@
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    background: #0C0A09;
-    padding: 12px 0 14px;
+    background: transparent !important;
+    margin-left: -14px;
+    margin-right: -14px;
+    padding: 10px max(14px, calc((100vw - min(76vw, 315px)) / 2)) 16px;
+    box-sizing: border-box;
   }
 
   .pl-radar-carousel-viewport::-webkit-scrollbar {
@@ -1001,13 +999,14 @@
 
   .pl-radar-carousel-track {
     display: flex;
-    width: 100%;
+    gap: 14px;
+    width: auto;
   }
 
   .pl-radar-carousel-slide {
-    flex: 0 0 100%;
-    width: 100%;
-    scroll-snap-align: start;
+    width: min(76vw, 315px) !important;
+    flex: 0 0 min(76vw, 315px) !important;
+    scroll-snap-align: center;
     scroll-snap-stop: always;
     display: flex;
     align-items: center;
@@ -1015,23 +1014,30 @@
     position: relative;
     cursor: pointer;
     background: transparent;
-    padding: 0 12px;
+    padding: 0 !important;
     box-sizing: border-box;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
+    opacity: 0.65;
+    transform: scale(0.92);
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.28s ease;
+  }
+
+  .pl-radar-carousel-slide.is-active {
+    opacity: 1;
+    transform: scale(1);
   }
 
   .pl-radar-mobile-img {
-    width: 100%;
-    max-width: 320px;
-    height: auto;
-    max-height: clamp(340px, 60vh, 480px);
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
     display: block;
     object-fit: contain;
-    border-radius: 16px;
-    -webkit-mask-image: radial-gradient(ellipse 96% 96% at 50% 50%, #000 84%, transparent 100%);
-    mask-image: radial-gradient(ellipse 96% 96% at 50% 50%, #000 84%, transparent 100%);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    border-radius: 14px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45) !important;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
     border: none;
     transition: transform 0.16s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.16s;
   }
@@ -1043,69 +1049,50 @@
 
   /* Carousel Controls Footer */
   .pl-radar-carousel-footer {
-    display: flex;
+    display: flex !important;
     align-items: center;
-    justify-content: space-between;
-    padding: 10px 16px;
-    background: rgba(22, 19, 16, 0.98);
-    border-top: 1px solid var(--pl-border-dark-subtle);
+    justify-content: center !important;
+    padding: 6px 0 0 !important;
+    background: transparent !important;
+    border: none !important;
   }
 
   .pl-radar-nav-btn {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid var(--pl-border-dark-medium);
-    color: var(--pl-text-dark-primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all var(--transition-fast);
-  }
-
-  .pl-radar-nav-btn:hover {
-    background: rgba(214, 85, 39, 0.2);
-    border-color: var(--pl-bright-accent);
-    color: #FFFFFF;
-  }
-
-  .pl-radar-nav-btn:active {
-    transform: scale(0.92);
+    display: none !important;
   }
 
   .pl-radar-dots {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    display: flex !important;
+    align-items: center !important;
+    gap: 9px !important;
   }
 
   .pl-radar-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: rgba(245, 242, 235, 0.22);
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    transition: all var(--transition-fast);
+    display: block !important;
+    width: 9px !important;
+    height: 9px !important;
+    border-radius: 50% !important;
+    background: #d2d3d2 !important;
+    border: none !important;
+    padding: 0 !important;
+    cursor: pointer !important;
+    box-shadow: none !important;
+    transition: background-color 0.2s ease, transform 0.2s ease !important;
+  }
+
+  .pl-radar-dot::before {
+    display: none !important;
   }
 
   .pl-radar-dot.is-active {
-    width: 22px;
-    border-radius: var(--pl-radius-pill);
-    background: var(--pl-bright-accent);
-    box-shadow: 0 0 10px rgba(255, 117, 71, 0.6);
+    background: var(--v2-orange, #ef6b2c) !important;
+    transform: scale(1.25) !important;
+    width: 9px !important;
+    box-shadow: none !important;
   }
 
   .pl-radar-carousel-hint {
-    text-align: center;
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    color: var(--pl-text-dark-muted);
-    letter-spacing: 0.02em;
-    margin: 10px 0 0;
+    display: none !important;
   }
 }
 

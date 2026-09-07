@@ -917,6 +917,54 @@
   color: var(--pl-text-light-primary);
 }
 
+/* Dark variant for alternating landing sections. */
+.pl-personas-section.pl-section--dark {
+  background-color: var(--pl-warm-obsidian);
+}
+
+.pl-personas-section.pl-section--dark .pl-personas-heading h2,
+.pl-personas-section.pl-section--dark .pl-personas-title__lead,
+.pl-personas-section.pl-section--dark .pl-persona-card__role,
+.pl-personas-section.pl-section--dark .pl-persona-card__quote,
+.pl-personas-section.pl-section--dark .pl-persona-card__outcome-text strong {
+  color: var(--pl-text-dark-primary);
+}
+
+.pl-personas-section.pl-section--dark .pl-personas-title__accent {
+  color: var(--pl-bright-accent) !important;
+}
+
+.pl-personas-section.pl-section--dark .pl-persona-card {
+  background-color: var(--pl-deep-surface);
+  border-color: var(--pl-border-dark-subtle);
+  box-shadow: var(--shadow-dark-sm);
+}
+
+.pl-personas-section.pl-section--dark .pl-persona-card:hover {
+  border-color: var(--pl-soft-terracotta);
+  box-shadow: var(--shadow-dark-md);
+}
+
+.pl-personas-section.pl-section--dark .pl-persona-card__role {
+  background: var(--pl-dark-elevated);
+  border-color: var(--pl-border-dark-subtle);
+}
+
+.pl-personas-section.pl-section--dark .pl-persona-card__icon,
+.pl-personas-section.pl-section--dark .pl-persona-card__outcome-label,
+.pl-personas-section.pl-section--dark .pl-persona-card__outcome-icon {
+  color: var(--pl-soft-terracotta);
+}
+
+.pl-personas-section.pl-section--dark .pl-persona-card__outcome {
+  background: rgba(214, 85, 39, 0.08);
+  border-color: rgba(222, 147, 121, 0.24);
+}
+
+.pl-personas-section.pl-section--dark .pl-persona-card__outcome-text {
+  color: var(--pl-text-dark-secondary);
+}
+
 /* ==========================================================================
    Evidence / Stat Cards (Warm Obsidian Section: Bright Accent Numbers & Manifesto)
    ========================================================================== */

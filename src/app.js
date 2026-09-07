@@ -185,51 +185,16 @@ function applyCopy() {
     });
   }
 
-  // Product Section Copy & Media
-  if (copy.product) {
-    const productCopy = document.querySelector('.pl-v5-product__copy');
-    if (productCopy) {
-      if (copy.product.title) setHtml(productCopy.querySelector('h3'), copy.product.title);
-      if (copy.product.description) setHtml(productCopy.querySelector('p'), copy.product.description);
-    }
-  }
-
-  // Content Studio Media Configuration (Pipeline synchronization)
-  const contentShowcase = document.querySelector('.pl-content-pipeline-showcase') || document.querySelector('.pl-content-pipeline');
-  if (contentShowcase) {
-    const pipelineCols = contentShowcase.querySelectorAll('.pl-pipeline-col');
-    if (pipelineCols.length > 0 && Array.isArray(siteConfig.productMedia?.pipeline)) {
-      pipelineCols.forEach((col, idx) => {
-        const item = siteConfig.productMedia.pipeline[idx];
-        if (!item) return;
-        const img = col.querySelector('.pl-pipeline-img');
-        if (img && item.src) img.src = item.src;
-        if (img && item.alt) img.alt = item.alt;
-        const titleEl = col.querySelector('.pl-pipeline-col-title');
-        if (titleEl && item.title) titleEl.textContent = item.title;
-      });
-    }
-  }
-
-  if (siteConfig.productMedia?.src) {
-    const productImg = document.querySelector('.pl-v5-product__shot img');
-    if (productImg) {
-      productImg.src = siteConfig.productMedia.src;
-      if (siteConfig.productMedia.alt) {
-        productImg.alt = siteConfig.productMedia.alt;
-      }
-    }
-  }
-
-  // Fatti & Voce Section Copy & Media
-  if (copy.fattiVoce) {
+  // Evidence / Fatti & Voce Section Copy & Media
+  const evidenceCopy = copy.fattiVoce || copy.evidence;
+  if (evidenceCopy) {
     const fattiSection = document.querySelector('#fatti-voce');
     if (fattiSection) {
-      if (copy.fattiVoce.kicker) setHtml(fattiSection.querySelector('[data-fatti-voce-kicker]'), copy.fattiVoce.kicker);
-      if (copy.fattiVoce.title) setHtml(fattiSection.querySelector('[data-fatti-voce-title]'), copy.fattiVoce.title);
-      if (copy.fattiVoce.subtitle) setHtml(fattiSection.querySelector('[data-fatti-voce-subtitle]'), copy.fattiVoce.subtitle);
-      if (copy.fattiVoce.cardTitle) setHtml(fattiSection.querySelector('[data-fatti-voce-card-title]'), copy.fattiVoce.cardTitle);
-      if (copy.fattiVoce.cardTag) setText(fattiSection.querySelector('[data-fatti-voce-card-tag]'), copy.fattiVoce.cardTag);
+      if (evidenceCopy.kicker) setHtml(fattiSection.querySelector('[data-fatti-voce-kicker]'), evidenceCopy.kicker);
+      if (evidenceCopy.title) setHtml(fattiSection.querySelector('[data-fatti-voce-title]'), evidenceCopy.title);
+      if (evidenceCopy.subtitle || evidenceCopy.intro) setHtml(fattiSection.querySelector('[data-fatti-voce-subtitle]'), evidenceCopy.subtitle || evidenceCopy.intro);
+      if (evidenceCopy.cardTitle) setHtml(fattiSection.querySelector('[data-fatti-voce-card-title]'), evidenceCopy.cardTitle);
+      if (evidenceCopy.cardTag) setText(fattiSection.querySelector('[data-fatti-voce-card-tag]'), evidenceCopy.cardTag);
     }
   }
 
@@ -246,6 +211,8 @@ function applyCopy() {
         if (img && item.alt) img.alt = item.alt;
         const titleEl = col.querySelector('.pl-pipeline-col-title');
         if (titleEl && item.title) titleEl.textContent = item.title;
+        const captionEl = col.querySelector('[data-pipeline-caption]');
+        if (captionEl && item.caption) captionEl.textContent = item.caption;
       });
     }
   }

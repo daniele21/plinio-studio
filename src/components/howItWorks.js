@@ -174,5 +174,39 @@ export function initHowItWorks() {
     observer.observe(container);
   }
 
+  // Initialize mobile accordion
+  initMobileHowAccordion();
+
   return true;
+}
+
+/**
+ * Mobile Accordion Controller for "Come funziona"
+ */
+export function initMobileHowAccordion() {
+  const accordionItems = [...document.querySelectorAll('.pl-v2-how-accordion')];
+  if (!accordionItems.length) return;
+
+  accordionItems.forEach((item) => {
+    const btn = item.querySelector('.pl-v2-how-row');
+    if (!btn) return;
+
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const wasOpen = item.classList.contains('is-open');
+
+      // Close all accordion items
+      accordionItems.forEach((other) => {
+        other.classList.remove('is-open');
+        const otherBtn = other.querySelector('.pl-v2-how-row');
+        if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+      });
+
+      // Toggle clicked item (if it wasn't open, open it)
+      if (!wasOpen) {
+        item.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
 }

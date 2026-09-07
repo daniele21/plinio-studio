@@ -403,3 +403,109 @@
     transition: none !important;
   }
 }
+
+/* ==========================================================================
+   8. Mobile Accordion for "Come funziona"
+   ========================================================================== */
+
+.pl-v2-how-accordion {
+  border: 1px solid #e6e2dc;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(39, 31, 24, 0.035);
+  overflow: hidden;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  margin-bottom: 8px;
+}
+
+.pl-v2-how-accordion:last-child {
+  margin-bottom: 0;
+}
+
+.pl-v2-how-accordion.is-open {
+  border-color: rgba(239, 107, 44, 0.45);
+  box-shadow: 0 6px 18px rgba(239, 107, 44, 0.08);
+}
+
+.pl-v2-how-accordion .pl-v2-how-row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 38px 1fr 24px;
+  align-items: center;
+  min-height: 64px;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.pl-v2-how-accordion .pl-v2-how-row > span {
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #27323c;
+  color: #fff;
+  font-size: 0.76rem;
+  font-weight: 800;
+  transition: background-color 0.25s ease;
+}
+
+.pl-v2-how-accordion.is-open .pl-v2-how-row > span {
+  background: var(--v2-orange, #ef6b2c);
+}
+
+.pl-v2-how-accordion .pl-v2-how-row strong {
+  color: #202226;
+  font-size: 0.85rem;
+  line-height: 1.25;
+}
+
+.pl-v2-how-accordion .pl-v2-how-row i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #5d6468;
+  font-size: 1.4rem;
+  font-style: normal;
+  line-height: 1;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
+}
+
+.pl-v2-how-accordion.is-open .pl-v2-how-row i {
+  transform: rotate(90deg);
+  color: var(--v2-orange, #ef6b2c);
+}
+
+.pl-v2-how-accordion__body {
+  display: none;
+  padding: 0 14px 16px;
+  animation: plAccordionFade 0.25s ease;
+}
+
+.pl-v2-how-accordion.is-open .pl-v2-how-accordion__body {
+  display: block;
+}
+
+.pl-v2-how-accordion__body p {
+  margin: 0 0 12px;
+  color: #55585d;
+  font-size: 0.74rem;
+  line-height: 1.45;
+}
+
+@keyframes plAccordionFade {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

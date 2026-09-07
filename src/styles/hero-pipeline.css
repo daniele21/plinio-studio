@@ -185,27 +185,47 @@
   filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.65)) drop-shadow(0 0 22px rgba(214, 85, 39, 0.16));
 }
 
-/* Column Specific Max Widths - Unified */
+/* Column Specific Max Widths - Hero and Studio defaults */
 .pl-pipeline-col:first-child,
 .pl-pipeline-col--sources,
-.pl-pipeline-col--studio-opportunity,
-.pl-pipeline-col--evidence-facts {
+.pl-pipeline-col--studio-opportunity {
   max-width: 380px;
 }
 
 .pl-pipeline-col:nth-child(3),
 .pl-pipeline-col--center,
-.pl-pipeline-col--studio-editor,
-.pl-pipeline-col--evidence-content {
+.pl-pipeline-col--studio-editor {
   max-width: 490px;
   z-index: 3;
 }
 
 .pl-pipeline-col:last-child,
 .pl-pipeline-col--outputs,
-.pl-pipeline-col--studio-channel,
-.pl-pipeline-col--evidence-voice {
+.pl-pipeline-col--studio-channel {
   max-width: 410px;
+}
+
+/* Match column weights to the image aspect ratios so all three panels have the
+   same height without cropping: 840/1330, 1122/1402, and 1043/1508. */
+.pl-evidence-pipeline {
+  grid-template-columns: minmax(0, 0.631579fr) clamp(24px, 2.8vw, 44px) minmax(0, 0.800285fr) clamp(24px, 2.8vw, 44px) minmax(0, 0.691645fr);
+}
+
+.pl-pipeline-col--evidence-facts {
+  max-width: 440px;
+}
+
+.pl-pipeline-col--evidence-content {
+  max-width: 480px;
+  z-index: 3;
+}
+
+.pl-pipeline-col--evidence-voice {
+  max-width: 420px;
+}
+
+.pl-evidence-pipeline .pl-pipeline-connector {
+  margin-top: 0;
 }
 
 /* Plinio-Themed Connectors */
@@ -444,4 +464,3 @@
   stroke: var(--pl-terracotta);
   flex-shrink: 0;
 }
-

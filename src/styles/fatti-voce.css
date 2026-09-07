@@ -42,8 +42,101 @@
 /* Section Header (Centered Editorial Hierarchy) */
 .pl-fatti-voce-header {
   text-align: center;
-  max-width: 860px;
+  max-width: 1060px;
   margin: 0 auto clamp(32px, 4.5vw, 56px);
+}
+
+/* Keep the existing Examples link anchored to the merged workflow. */
+.pl-workflow-anchor {
+  position: absolute;
+  top: 0;
+  scroll-margin-top: 80px;
+}
+
+.pl-fatti-voce-header h2 {
+  margin: 0;
+  font-size: clamp(2rem, 3.2vw, 3.15rem);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.pl-fatti-voce-header > p,
+.pl-fatti-voce-header [data-fatti-voce-subtitle] {
+  max-width: 820px;
+  margin: 22px auto 0;
+  font-size: clamp(1rem, 1.25vw, 1.12rem);
+  line-height: 1.62;
+  text-wrap: pretty;
+}
+
+.pl-workflow-step {
+  min-height: 100px;
+  padding: 0 8px 20px;
+  text-align: center;
+}
+
+.pl-workflow-step .pl-pipeline-col-title {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  line-height: 1.3;
+  white-space: normal;
+}
+
+.pl-workflow-step p {
+  margin: 0;
+  color: var(--pl-text-dark-secondary);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  text-wrap: balance;
+}
+
+.pl-pipeline-col--evidence-content .pl-workflow-step p {
+  color: var(--pl-bright-accent);
+}
+
+/* The desktop preview retains its dark surface within the light section. */
+.pl-evidence-pipeline .pl-workflow-step h3 {
+  color: var(--pl-text-dark-primary);
+}
+
+.pl-fatti-voce-section.pl-section--light .pl-evidence-pipeline {
+  position: relative;
+  /* Rimozione della maschera sfumata pesante / anti-estetica */
+  -webkit-mask-image: none;
+  mask-image: none;
+  /* UI Guideline: Stage Obsidian caldo ed elevato con proporzioni e respiro equilibrati */
+  padding: clamp(28px, 3.2vw, 40px) clamp(18px, 2.2vw, 30px);
+  border-radius: clamp(18px, 2vw, 26px);
+  /* Superficie warm obsidian con lieve riflesso radiale centrale */
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 25%, rgba(214, 85, 39, 0.08) 0%, rgba(22, 19, 17, 0.98) 60%, #12100E 100%),
+    #12100E;
+  /* Keyline border sottile ed elegante (Design System: definisce il perimetro senza stacco netto) */
+  border: 1px solid rgba(214, 85, 39, 0.22);
+  /* Ombreggiatura ambientale multi-livello (Umbra + Penumbra + Glow caldo) conforme alle UI guideline */
+  box-shadow:
+    0 2px 4px rgba(30, 26, 22, 0.04),
+    0 12px 28px -6px rgba(30, 26, 22, 0.12),
+    0 30px 64px -14px rgba(30, 26, 22, 0.16),
+    0 0 70px -15px rgba(214, 85, 39, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.pl-fatti-voce-section.pl-section--light .pl-evidence-pipeline:hover {
+  border-color: rgba(214, 85, 39, 0.35);
+  box-shadow:
+    0 4px 8px rgba(30, 26, 22, 0.05),
+    0 16px 36px -6px rgba(30, 26, 22, 0.15),
+    0 36px 76px -14px rgba(30, 26, 22, 0.20),
+    0 0 85px -10px rgba(214, 85, 39, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.10);
+}
+
+/* Rimuove il vecchio pseudo-elemento duplicato con filtro blur */
+.pl-fatti-voce-section.pl-section--light .pl-evidence-pipeline::after {
+  display: none;
 }
 
 .pl-fatti-voce-section.pl-section--light .pl-fatti-voce-header .pl-hero-kicker,
@@ -93,6 +186,12 @@
   color: var(--pl-terracotta, #D65527) !important;
   font-style: italic;
   font-weight: 700;
+}
+
+@media (min-width: 900px) {
+  .pl-fatti-voce-title__accent {
+    white-space: nowrap;
+  }
 }
 
 .pl-fatti-voce-section.pl-section--light .pl-fatti-voce-header p,
@@ -223,6 +322,41 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  .pl-evidence-mobile-carousel .pl-radar-carousel-slide {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .pl-evidence-mobile-carousel .pl-workflow-step {
+    width: 100%;
+    min-height: 94px;
+    padding-bottom: 16px;
+  }
+
+  .pl-evidence-mobile-carousel [data-slide="1"] .pl-workflow-step p {
+    color: var(--pl-bright-accent);
+  }
+
+  .pl-fatti-voce-section.pl-section--light .pl-workflow-step h3 {
+    color: var(--pl-text-light-primary);
+  }
+
+  .pl-fatti-voce-section.pl-section--light .pl-workflow-step p {
+    color: var(--pl-text-light-secondary);
+  }
+
+  .pl-fatti-voce-section.pl-section--light [data-slide="1"] .pl-workflow-step p {
+    color: var(--pl-soft-terracotta-light);
+  }
+
+  .pl-fatti-voce-section.pl-section--light .pl-radar-dot {
+    background: var(--pl-text-light-muted) !important;
+  }
+
+  .pl-fatti-voce-section.pl-section--light .pl-radar-dot.is-active {
+    background: var(--pl-action-primary) !important;
+  }
+
   .pl-fatti-voce-header {
     text-align: left;
   }

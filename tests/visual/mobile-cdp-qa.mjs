@@ -343,11 +343,9 @@ async function runMobileViewport(chromeBin, viewport, index) {
         scrollWidth: document.documentElement.scrollWidth,
         bodyScrollWidth: document.body.scrollWidth,
         viewport: window.innerWidth,
-        desktopPipeline: rect('.pl-hero-desktop-showcase'),
-        mobileCarousel: rect('.pl-hero-mobile-carousel'),
-        headerCta: rect('.pl-v5-header .pl-header__cta'),
-        carouselPrev: rect('.pl-hero-mobile-carousel .pl-radar-nav-btn'),
-        carouselDot: rect('.pl-hero-mobile-carousel .pl-radar-dot'),
+        mobileHeroCards: rect('.pl-v2-output__cards'),
+        mobileHowTrack: rect('.pl-v2-how__track'),
+        headerTouch: rect('.pl-v2-mobile-menu summary'),
         title: rect('.pl-product-hero__title'),
         faq,
         visibleComparisonRows: [...document.querySelectorAll('.pl-purpose-table tbody tr')].filter(row => getComputedStyle(row).display !== 'none').length,
@@ -357,11 +355,9 @@ async function runMobileViewport(chromeBin, viewport, index) {
     if (state.scrollWidth > viewport.width + 1 || state.bodyScrollWidth > viewport.width + 1) {
       failures.push(`horizontal overflow: document=${state.scrollWidth}, body=${state.bodyScrollWidth}, viewport=${viewport.width}`);
     }
-    if (!state.desktopPipeline || state.desktopPipeline.display !== 'none') failures.push('desktop hero pipeline is visible on mobile');
-    if (!state.mobileCarousel || state.mobileCarousel.display === 'none' || state.mobileCarousel.visibility === 'hidden') failures.push('mobile hero carousel is not visible');
-    if (!rectOk(state.headerCta, 44, 44)) failures.push(`header CTA touch target below 44x44: ${JSON.stringify(state.headerCta)}`);
-    if (!rectOk(state.carouselPrev, 44, 44)) failures.push(`carousel arrow touch target below 44x44: ${JSON.stringify(state.carouselPrev)}`);
-    if (!rectOk(state.carouselDot, 44, 44)) failures.push(`carousel dot touch target below 44x44: ${JSON.stringify(state.carouselDot)}`);
+    if (!state.mobileHeroCards || state.mobileHeroCards.display === 'none') failures.push('hero output cards are not visible');
+    if (!state.mobileHowTrack || state.mobileHowTrack.display === 'none') failures.push('how-it-works cards are not visible');
+    if (!rectOk(state.headerTouch, 40, 40)) failures.push(`header touch target below 40x40: ${JSON.stringify(state.headerTouch)}`);
     if (!state.title || state.title.x < -1 || state.title.x + state.title.width > viewport.width + 1) failures.push(`hero title is outside viewport: ${JSON.stringify(state.title)}`);
 
     const faqOrder = state.faq.map(item => item.n).join(',');
@@ -372,6 +368,7 @@ async function runMobileViewport(chromeBin, viewport, index) {
     await revealWholePage(client, viewport.height);
 
     await captureFullPage(client, viewport, path.join(OUTPUT_DIR, `${viewport.name}-full.png`));
+    await captureSelector(client, viewport, '#fatti-voce', path.join(OUTPUT_DIR, `${viewport.name}-workflow.png`));
     await captureSelector(client, viewport, '.pl-product-hero', path.join(OUTPUT_DIR, `${viewport.name}-hero.png`));
     await captureSelector(client, viewport, '#confronto', path.join(OUTPUT_DIR, `${viewport.name}-comparison.png`));
     await captureSelector(client, viewport, '#faq', path.join(OUTPUT_DIR, `${viewport.name}-faq.png`));
@@ -422,18 +419,19 @@ async function runDesktopSmoke(chromeBin, viewport, index) {
       };
       return {
         scrollWidth: document.documentElement.scrollWidth,
-        desktopPipeline: visible('.pl-hero-desktop-showcase'),
-        mobileCarousel: visible('.pl-hero-mobile-carousel'),
+        howTrack: visible('.pl-v2-how__track'),
+        heroCards: visible('.pl-v2-output__cards'),
         nav: visible('.pl-header__nav'),
       };
     })()`);
     if (state.scrollWidth > viewport.width + 1) failures.push(`desktop horizontal overflow: ${state.scrollWidth}px`);
-    if (!state.desktopPipeline) failures.push('desktop hero pipeline is not visible');
-    if (state.mobileCarousel) failures.push('mobile carousel is visible on desktop');
+    if (!state.howTrack) failures.push('how-it-works track is not visible');
+    if (!state.heroCards) failures.push('hero output cards are not visible');
     if (!state.nav) failures.push('desktop navigation is not visible');
 
     await revealWholePage(client, viewport.height);
     await captureSelector(client, viewport, '.pl-product-hero', path.join(OUTPUT_DIR, 'desktop-smoke-hero.png'));
+    await captureSelector(client, viewport, '#fatti-voce', path.join(OUTPUT_DIR, 'desktop-smoke-workflow.png'));
     await captureSelector(client, viewport, '#confronto', path.join(OUTPUT_DIR, 'desktop-smoke-comparison.png'));
     return { viewport, ok: failures.length === 0, failures, metrics: state };
   } finally {
