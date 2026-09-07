@@ -456,6 +456,10 @@
     line-height: 1.56 !important;
   }
 
+  .pl-fatti-voce-subtitle-br {
+    display: none;
+  }
+
   /* ------------------------------------------------------------------------
      Purpose-built comparison: faster scan, less vertical repetition
      ------------------------------------------------------------------------ */

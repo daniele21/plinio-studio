@@ -17,11 +17,11 @@ function renderMobileComparison() {
     <header class="pl-purpose-mobile__head">
       <span class="pl-purpose-mobile__label">Confronto</span>
       <div class="pl-purpose-mobile__title" role="heading" aria-level="2">
-        <span>Conoscere i progetti non basta.</span>
-        <strong>Plinio li trasforma in comunicazione.</strong>
+        <span>La vostra AI genera ciò che le chiedete.</span>
+        <strong>Plinio propone cosa raccontare, con quale format e perché.</strong>
       </div>
       <div class="pl-purpose-mobile__intro">
-        Le AI enterprise possono accedere ai vostri dati. <strong>La differenza è cosa succede dopo.</strong>
+        Una AI generalista può generare nuove angolazioni, adattare il tono o cambiare canale. <strong>Plinio costruisce il mix editoriale: collega progetti, evidenze, news e trend per trovare storie diverse da raccontare.</strong>
       </div>
     </header>
 
@@ -128,29 +128,29 @@ function renderMobileComparison() {
       <p class="pl-purpose-mobile__section-label" id="purpose-mobile-difference-title">La differenza, in 3 punti</p>
 
       <div class="pl-purpose-mobile-diff">
-        <h3>Cosa raccontare</h3>
+        <h3>Format editoriali</h3>
         <div class="pl-purpose-mobile-diff__line">
           <span>AI enterprise</span><span>Da guidare</span>
         </div>
         <div class="pl-purpose-mobile-diff__line pl-purpose-mobile-diff__line--plinio">
-          <span>Plinio</span><strong><span aria-hidden="true">✓</span> Nel workflow</strong>
+          <span>Plinio</span><strong><span aria-hidden="true">✓</span> Nel Radar</strong>
         </div>
       </div>
 
       <div class="pl-purpose-mobile-diff">
-        <h3>Evidenze</h3>
+        <h3>News e trend esterni</h3>
         <div class="pl-purpose-mobile-diff__line">
-          <span>AI enterprise</span><span>Da configurare</span>
+          <span>AI enterprise</span><span>Su richiesta</span>
         </div>
         <div class="pl-purpose-mobile-diff__line pl-purpose-mobile-diff__line--plinio">
-          <span>Plinio</span><strong><span aria-hidden="true">✓</span> Collegate</strong>
+          <span>Plinio</span><strong><span aria-hidden="true">✓</span> Nel Radar</strong>
         </div>
       </div>
 
       <div class="pl-purpose-mobile-diff">
-        <h3>Voce editoriale</h3>
+        <h3>Evidenze e voce</h3>
         <div class="pl-purpose-mobile-diff__line">
-          <span>AI enterprise</span><span>Configurabile</span>
+          <span>AI enterprise</span><span>Da configurare</span>
         </div>
         <div class="pl-purpose-mobile-diff__line pl-purpose-mobile-diff__line--plinio">
           <span>Plinio</span><strong><span aria-hidden="true">✓</span> Nel workflow</strong>
@@ -159,8 +159,8 @@ function renderMobileComparison() {
     </section>
 
     <p class="pl-purpose-mobile__thesis">
-      Con un'AI enterprise potete costruire questo workflow.<br>
-      <strong>Plinio è già questo workflow.</strong>
+      Con un'AI enterprise potete costruire prompt e workflow per fare tutto questo.<br>
+      <strong>Plinio è già costruito per trasformare ogni progetto in un flusso continuo di format editoriali diversi, con evidenze e voce applicate.</strong>
     </p>
 
     <details class="pl-purpose-mobile__details">
@@ -170,19 +170,22 @@ function renderMobileComparison() {
       </summary>
       <div class="pl-purpose-mobile__details-body">
         <div class="pl-purpose-mobile-detail-row">
-          <span>File e fonti</span><span>Entrambi</span>
+          <span>File e fonti</span><span><em>AI:</em> ✓ Sì<br><strong>Plinio:</strong> ✓ Sì</span>
         </div>
         <div class="pl-purpose-mobile-detail-row">
-          <span>Cosa raccontare</span><span><em>AI:</em> da guidare<br><strong>Plinio:</strong> nel workflow</span>
+          <span>Format editoriali</span><span><em>AI:</em> ◐ Da guidare<br><strong>Plinio:</strong> ✓ Nel Radar</span>
         </div>
         <div class="pl-purpose-mobile-detail-row">
-          <span>Evidenze</span><span><em>AI:</em> da configurare<br><strong>Plinio:</strong> collegate</span>
+          <span>News e trend</span><span><em>AI:</em> ◐ Su richiesta<br><strong>Plinio:</strong> ✓ Nel Radar</span>
         </div>
         <div class="pl-purpose-mobile-detail-row">
-          <span>Voce editoriale</span><span><em>AI:</em> configurabile<br><strong>Plinio:</strong> nel workflow</span>
+          <span>Evidenze</span><span><em>AI:</em> ◐ Da configurare<br><strong>Plinio:</strong> ✓ Nel workflow</span>
         </div>
         <div class="pl-purpose-mobile-detail-row">
-          <span>Obiettivo</span><span><em>AI:</em> assistente aziendale<br><strong>Plinio:</strong> progetti → comunicazione</span>
+          <span>Voce editoriale</span><span><em>AI:</em> ◐ Configurabile<br><strong>Plinio:</strong> ✓ Nel workflow</span>
+        </div>
+        <div class="pl-purpose-mobile-detail-row">
+          <span>Obiettivo</span><span><em>AI:</em> su richiesta<br><strong>Plinio:</strong> alimentazione continua</span>
         </div>
       </div>
     </details>

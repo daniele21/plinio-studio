@@ -363,7 +363,7 @@ async function runMobileViewport(chromeBin, viewport, index) {
     const faqOrder = state.faq.map(item => item.n).join(',');
     if (faqOrder !== '01,02,03,04,05,06,07,08') failures.push(`FAQ visual order is ${faqOrder}`);
     if (state.faq.some(item => item.open)) failures.push('one or more FAQ cards start open on mobile');
-    if (state.visibleComparisonRows !== 3) failures.push(`expected 3 comparison detail rows on mobile, got ${state.visibleComparisonRows}`);
+    if (state.visibleComparisonRows !== 4) failures.push(`expected 4 comparison detail rows on mobile, got ${state.visibleComparisonRows}`);
 
     await revealWholePage(client, viewport.height);
 
@@ -430,7 +430,7 @@ async function runDesktopSmoke(chromeBin, viewport, index) {
     if (!state.nav) failures.push('desktop navigation is not visible');
 
     await revealWholePage(client, viewport.height);
-    await captureSelector(client, viewport, '.pl-product-hero', path.join(OUTPUT_DIR, 'desktop-smoke-hero.png'));
+    await captureSelector(client, viewport, '.pl-v2-hero', path.join(OUTPUT_DIR, 'desktop-smoke-hero.png'));
     await captureSelector(client, viewport, '#fatti-voce', path.join(OUTPUT_DIR, 'desktop-smoke-workflow.png'));
     await captureSelector(client, viewport, '#confronto', path.join(OUTPUT_DIR, 'desktop-smoke-comparison.png'));
     return { viewport, ok: failures.length === 0, failures, metrics: state };

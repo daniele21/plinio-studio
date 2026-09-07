@@ -16,13 +16,11 @@
       "public": ".",
       "ignore": [
         "firebase.json",
-        "firebase.functions.json",
         ".firebaserc",
         ".git/**",
         ".firebase/**",
         "**/.*",
         "**/node_modules/**",
-        "functions/**",
         "docs/**",
         "product/**",
         "scripts/**",

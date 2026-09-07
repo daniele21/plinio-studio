@@ -93,6 +93,7 @@ function applyCopy() {
     // Backwards compatibility fallbacks if older subtitle/support format is used
     if (copy.hero.subtitle) setHtml(document.querySelector('[data-hero-subtitle]'), copy.hero.subtitle);
     if (copy.hero.support) setHtml(document.querySelector('[data-hero-support]'), copy.hero.support);
+    if (copy.hero.outputBenefitHtml) setHtml(document.querySelector('[data-hero-output-benefit]'), copy.hero.outputBenefitHtml);
 
     const primaryCta = document.querySelector('[data-hero-primary-cta] span:first-child');
     if (primaryCta) setText(primaryCta, copy.hero.primaryCta);

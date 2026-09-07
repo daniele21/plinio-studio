@@ -13,8 +13,9 @@ export const landingCopy = {
     cta: 'Provalo su un progetto',
   },
   hero: {
-    titleHtml: '<span>Con l\'AI riuscite già a scrivere un post.</span><span class="pl-v2-hero__accent">Plinio vi prepara almeno un contenuto al giorno.</span>',
-    subtitle: 'Dai vostri progetti e da ciò che succede nel settore nascono <strong>post, casi studio, newsletter e commenti alle news</strong>: contenuti con tagli diversi, pronti nel vostro tono e <strong>collegati alle fonti.</strong>',
+    titleHtml: '<span>Con l’AI riuscite già a scrivere un post.</span><span class="pl-v2-hero__accent">Plinio ve ne prepara almeno uno al giorno, <em>senza raccontare sempre la stessa storia.</em></span>',
+    subtitle: 'Dai vostri progetti e da ciò che succede nel settore nascono <strong>case study, approfondimenti, opinioni, commenti a news e altri format editoriali</strong>: ogni giorno un contenuto diverso per gancio e struttura, nel vostro tono e con le fonti collegate.',
+    outputBenefitHtml: '<strong>Ogni giorno un format diverso</strong>, con le fonti sempre collegate.',
     primaryCta: 'Prova Plinio su un progetto',
     secondaryCta: 'Guarda un esempio',
     reassurance: 'Ti ricontattiamo per scegliere insieme il primo progetto.',
@@ -53,7 +54,7 @@ export const landingCopy = {
   },
   fattiVoce: {
     title: '<span class="pl-fatti-voce-title__lead">Almeno un contenuto pronto al giorno.</span><br><span class="pl-fatti-voce-title__accent">Ogni volta una storia diversa, anche dallo stesso progetto.</span>',
-    subtitle: 'Plinio incrocia i <strong>vostri progetti</strong> con ciò che succede nel settore per proporre <strong>contenuti con prospettive diverse</strong>: un <strong>caso studio</strong> sui risultati, un <strong>approfondimento</strong> sul metodo, un <strong>commento</strong> a una notizia legata alla vostra esperienza. Poi li prepara nel <strong>vostro tono</strong>, con le <strong>fonti collegate</strong>.',
+    subtitle: 'Plinio incrocia i <strong>vostri progetti</strong> con ciò che succede nel settore per proporre<br class="pl-fatti-voce-subtitle-br"> <strong>contenuti con prospettive diverse</strong>: un <strong>caso studio</strong> sui risultati, un <strong>approfondimento</strong> sul metodo,<br class="pl-fatti-voce-subtitle-br"> un <strong>commento</strong> a una notizia legata alla vostra esperienza. Poi li prepara nel <strong>vostro tono</strong>, con le <strong>fonti collegate</strong>.',
   },
   awareness: {
     title: '<span class="pl-v5-proof-title__lead">Se non raccontate quello che fate,</span><br><span class="pl-v5-proof-title__accent">chi vi deve scegliere non lo sa.</span>',
@@ -130,22 +131,55 @@ export const landingCopy = {
     ],
   },
   comparison: {
-    title: '<span class="pl-purpose-title__lead">La vostra AI può conoscere i progetti.</span><br><span class="pl-purpose-title__accent">Plinio sa cosa farne per comunicarli.</span>',
-    intro: 'Le AI enterprise accedono ai vostri dati e rispondono alle vostre richieste.<br><strong>Plinio trasforma il lavoro fatto in comunicazioni pronte da approvare.</strong>',
+    title: '<span class="pl-purpose-title__lead">La vostra AI genera ciò che le chiedete.</span><br><span class="pl-purpose-title__accent">Plinio propone cosa raccontare, con quale format e perché.</span>',
+    intro: 'Una AI generalista può generare nuove angolazioni, adattare il tono o cambiare canale.<br class="pl-purpose-intro-br"><strong>Plinio costruisce il mix editoriale:</strong> collega progetti, evidenze,<br class="pl-purpose-intro-br">news e trend per trovare storie diverse da raccontare.',
+
+    table: [
+      {
+        feature: 'Conosce file e fonti aziendali',
+        ai: { mark: '✓', text: 'Sì', status: 'yes' },
+        plinio: { mark: '✓', text: 'Sì', status: 'yes' },
+      },
+      {
+        feature: 'Propone format editoriali diversi per lo stesso progetto',
+        ai: { mark: '◐', text: 'Da guidare / promptare', status: 'partial' },
+        plinio: { mark: '✓', text: 'Nel Radar', status: 'yes' },
+      },
+      {
+        feature: 'Collega news e trend esterni ai vostri progetti',
+        ai: { mark: '◐', text: 'Su richiesta', status: 'partial' },
+        plinio: { mark: '✓', text: 'Nel Radar', status: 'yes' },
+      },
+      {
+        feature: 'Trova evidenze a supporto di ogni storia',
+        ai: { mark: '◐', text: 'Da configurare', status: 'partial' },
+        plinio: { mark: '✓', text: 'Nel workflow', status: 'yes' },
+      },
+      {
+        feature: 'Applica voce e linea editoriale',
+        ai: { mark: '◐', text: 'Configurabile', status: 'partial' },
+        plinio: { mark: '✓', text: 'Nel workflow', status: 'yes' },
+      },
+      {
+        feature: 'Obiettivo',
+        ai: { text: 'Generare / rispondere su richiesta' },
+        plinio: { text: 'Alimentare continuamente la comunicazione', isGoal: true },
+      },
+    ],
 
     featureRows: [
-      'Trova cosa vale la pena comunicare',
-      'Recupera il contesto dai materiali',
-      'Tiene claim e fonti collegati',
-      'Prepara la prima bozza',
-      'Adatta il contenuto a target e canale',
-      'Al team resta solo scegliere e approvare',
+      'Conosce file e fonti aziendali',
+      'Propone format editoriali diversi per lo stesso progetto',
+      'Collega news e trend esterni ai vostri progetti',
+      'Trova evidenze a supporto di ogni storia',
+      'Applica voce e linea editoriale',
+      'Obiettivo',
     ],
 
     takeaway:
-      '<strong>Gli altri AI tool partono dal prompt. Plinio parte dal progetto.</strong> Al team resta solo scegliere e approvare.',
+      'Con un\'AI enterprise potete costruire prompt e workflow per fare tutto questo. <strong>Plinio è già costruito per trasformare ogni progetto in un flusso continuo di format editoriali diversi, con evidenze e voce applicate.</strong>',
 
-    legend: '✓ gestito · ◐ parziale · × resta al team',
+    legend: '✓ Sì / In Plinio · ◐ Parziale / Da guidare',
   },
   objections: {
     title: 'I dubbi che ci pongono prima di iniziare',
