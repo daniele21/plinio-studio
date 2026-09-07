@@ -765,7 +765,20 @@
   }
 
   .pl-faq-card__proof {
-    font-size: 0.7rem;
+    padding: 10px 12px;
+    gap: 10px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.22);
+  }
+
+  .pl-faq-card__proof-check {
+    width: 18px;
+    height: 18px;
+    font-size: 0.68rem;
+    margin-top: 2px;
+  }
+
+  .pl-faq-card__proof span:last-child {
+    font-size: 0.84rem;
     line-height: 1.42;
   }
 

@@ -13,7 +13,7 @@ export const landingCopy = {
     cta: 'Provalo su un progetto',
   },
   hero: {
-    titleHtml: '<span>Con l’AI riuscite già a scrivere un post.</span><span class="pl-v2-hero__accent">Plinio ve ne prepara almeno uno al giorno, <em>senza raccontare sempre la stessa storia.</em></span>',
+    titleHtml: '<span class="pl-v2-hero__leadin">Con l’AI riuscite già a scrivere un post.</span><span class="pl-v2-hero__accent">Plinio vi prepara più di una comunicazione al giorno, <em><span class="pl-v2-hero__underline-wrap">senza raccontare sempre la stessa storia.</span></em></span>',
     subtitle: 'Dai vostri progetti e da ciò che succede nel settore nascono <strong>case study, approfondimenti, opinioni, commenti a news e altri format editoriali</strong>: ogni giorno un contenuto diverso per gancio e struttura, nel vostro tono e con le fonti collegate.',
     outputBenefitHtml: '<strong>Ogni giorno un format diverso</strong>, con le fonti sempre collegate.',
     primaryCta: 'Prova Plinio su un progetto',
