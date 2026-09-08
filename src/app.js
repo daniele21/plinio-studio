@@ -95,6 +95,11 @@ function applyCopy() {
     if (copy.hero.support) setHtml(document.querySelector('[data-hero-support]'), copy.hero.support);
     if (copy.hero.outputBenefitHtml) setHtml(document.querySelector('[data-hero-output-benefit]'), copy.hero.outputBenefitHtml);
 
+    if (copy.hero.trustTitle) {
+      const trustEl = document.querySelector('[data-hero-trust-title]') || document.querySelector('.pl-v2-trust > strong');
+      if (trustEl) setText(trustEl, copy.hero.trustTitle);
+    }
+
     const primaryCta = document.querySelector('[data-hero-primary-cta] span:first-child');
     if (primaryCta) setText(primaryCta, copy.hero.primaryCta);
     setText(document.querySelector('[data-hero-secondary-cta]'), copy.hero.secondaryCta);

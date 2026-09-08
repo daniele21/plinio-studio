@@ -21,7 +21,10 @@ function renderMobileComparison() {
         <strong>Plinio propone cosa raccontare, con quale format e perché.</strong>
       </div>
       <div class="pl-purpose-mobile__intro">
-        Una AI generalista può generare nuove angolazioni, adattare il tono o cambiare canale. <strong>Plinio costruisce il mix editoriale: collega progetti, evidenze, news e trend per trovare storie diverse da raccontare.</strong>
+        Una AI generalista può generare nuove angolazioni, adattare il tono o cambiare canale.
+        <span class="pl-purpose-compare__differentiator">
+          <strong>Plinio costruisce il mix editoriale:</strong> collega progetti, evidenze, news e trend per trovare storie diverse da raccontare.
+        </span>
       </div>
     </header>
 

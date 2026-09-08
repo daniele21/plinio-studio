@@ -130,7 +130,6 @@ function validate(form) {
   const required = [
     ['fullName', values.fullName, 'Inserisci nome e cognome.'],
     ['email', values.email, 'Inserisci la tua email di lavoro.'],
-    ['company', values.company, 'Inserisci il nome dell’azienda.'],
     ['role', values.role, 'Inserisci il tuo ruolo.'],
   ];
 
@@ -187,6 +186,7 @@ async function submitLead(form, startedAt) {
   const data = new FormData(form);
   const payload = {
     ...values,
+    company: values.company || null,
     role: values.role || null,
     phone: values.phone || null,
     website: normalize(data.get('website')),

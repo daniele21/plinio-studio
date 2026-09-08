@@ -13,7 +13,8 @@ export const landingCopy = {
     cta: 'Provalo su un progetto',
   },
   hero: {
-    titleHtml: '<span class="pl-v2-hero__leadin">Con l’AI riuscite già a scrivere un post.</span><span class="pl-v2-hero__accent">Plinio vi prepara più di una comunicazione al giorno, <em><span class="pl-v2-hero__underline-wrap">senza raccontare sempre la stessa storia.</span></em></span>',
+    titleHtml: '<span class="pl-v2-hero__accent">Plinio vi prepara più di una comunicazione al giorno, <em><span class="pl-v2-hero__underline-wrap">senza raccontare sempre la stessa storia.</span></em></span>',
+    trustTitle: 'La creazione si basa sui vostri documenti, la verifica finale potete farla voi',
     subtitle: 'Dai vostri progetti e da ciò che succede nel settore nascono <strong>case study, approfondimenti, opinioni, commenti a news e altri format editoriali</strong>: ogni giorno un contenuto diverso per gancio e struttura, nel vostro tono e con le fonti collegate.',
     outputBenefitHtml: '<strong>Ogni giorno un format diverso</strong>, con le fonti sempre collegate.',
     primaryCta: 'Prova Plinio su un progetto',
@@ -43,7 +44,7 @@ export const landingCopy = {
       {
         role: 'MARKETING / CONTENT LEAD',
         quote: '«Con l\'AI riesco a fare un post. Il difficile è avere un contenuto diverso pronto ogni giorno.»',
-        outcome: 'Plinio porta continuamente nuovi temi e angolazioni, <strong>non un altro foglio bianco</strong>.',
+        outcome: 'Plinio porta continuamente nuovi temi e angolazioni, <strong>per un PED sempre aggiornato</strong>.',
       },
       {
         role: 'PROJECT / TECH LEAD',
@@ -132,7 +133,7 @@ export const landingCopy = {
   },
   comparison: {
     title: '<span class="pl-purpose-title__lead">La vostra AI genera ciò che le chiedete.</span><br><span class="pl-purpose-title__accent">Plinio propone cosa raccontare, con quale format e perché.</span>',
-    intro: 'Una AI generalista può generare nuove angolazioni, adattare il tono o cambiare canale.<br class="pl-purpose-intro-br"><strong>Plinio costruisce il mix editoriale:</strong> collega progetti, evidenze,<br class="pl-purpose-intro-br">news e trend per trovare storie diverse da raccontare.',
+    intro: 'Una AI generalista può generare nuove angolazioni, adattare il tono o cambiare canale.<br class="pl-purpose-intro-br"><span class="pl-purpose-compare__differentiator"><strong>Plinio costruisce il mix editoriale:</strong> collega progetti, evidenze,<br class="pl-purpose-intro-br">news e trend per trovare storie diverse da raccontare.</span>',
 
     table: [
       {

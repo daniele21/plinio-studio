@@ -74,7 +74,7 @@ Campi principali:
 
 - `fullName`
 - `email`
-- `company`
+- `company` (opzionale)
 - `role`
 - `phone` (opzionale)
 - `status = new`

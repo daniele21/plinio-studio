@@ -113,7 +113,6 @@ function validatePayload(body) {
   const errors = [];
   if (data.fullName.length < 2) errors.push('fullName');
   if (!emailRegex.test(data.email)) errors.push('email');
-  if (data.company.length < 2) errors.push('company');
   if (data.role.length < 2) errors.push('role');
   if (!data.privacyAcknowledged) errors.push('privacyAcknowledged');
   if (!data.policyVersion) errors.push('policyVersion');
@@ -167,7 +166,7 @@ export const submitLead = onRequest(async (req, res) => {
     const leadPayload = {
       fullName: data.fullName,
       email: data.email,
-      company: data.company,
+      company: data.company || null,
       role: data.role,
       phone: data.phone || null,
       source: data.source,
